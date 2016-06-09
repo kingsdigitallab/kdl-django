@@ -1,0 +1,22 @@
+{
+    "name": "kdl",
+    "version": "0.1",
+    "dependencies": {
+        "almond": null,
+        "jquery": null,
+        "foundation-sites": null,
+        "font-awesome": null,
+        "motion-ui": null,
+        "r.js": null,
+        "requirejs": null,
+        "requirejs-babel": null
+    },
+    "main": "assets/js/main.js",
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components",
+        "test",
+        "tests"
+    ]
+}

@@ -1,0 +1,12 @@
+-r ddhldap/requirements.txt
+django
+django-compressor
+django-extensions
+django-grappelli
+django-libsass
+django-model-utils
+django-redis
+django-require
+psycopg2
+redis
+wagtail

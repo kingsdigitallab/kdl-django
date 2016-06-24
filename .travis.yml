@@ -1,10 +1,10 @@
 language: python
-
 python:
-  - 2.7
-
+- 2.7
 install:
-  - pip install tox-travis
-
+- pip install tox-travis
 script:
-  - tox
+- tox
+notifications:
+  slack:
+    secure: axS/22qHCeAUYZSsCf1AfyII/BhV5m+/F9z1AtFTOpNKqj6xX38xP/Qlgc9m+qsRutkheVMufcH+Tx7SVHfxJ3Kmm6JQfVri3GNdHhw8tqF4e0PiRrOlxf3BIrJ1eHElbNR+VKKOWjDEJTpaCD5KFS8ECtzh5pAXc+eF50OCkmARa9mJ2NvV2yEgyInW3zq3A0t2VBOZsN6y/s2tCKJyUYaReSJsfV4AGMIV/zb6XlUNDkQ8TQL1d8UvZD2unThSIpamMqXKcqejc5tLCEFWLAB4UbD+OKmi89Z43q6DEI15voWRxmUxxeujg4L+Tdb/E+x5M11/qpw8lMetggnVRGhfnE6DfqW52ocow5NwPIg2iPew9aLNqR4QYfF8dnbPKuhgtHqcazwGK2mm4+qylx6N1x7gDFv1hM3HiIqZUJdpEQNGJXFcS0wGg6wqyEByxx8/rzYO/1iA8VEAXcZyOID3hKZm3wIGd0MCgGAdnJaCUDacsmbjrME3hly/ZEar7JrWuLZLEdWYHy+qA0zX7vFaCqcLYqVS6frGQa24ra2pQZsL0Iz1Z6uAMFoWomAuzudsl/KfO+wPXB5WH6FkRGJ3nNn0b9K17mdwQ9tNyEdhrT/hOl3+i0AjZyMieTgsLz4M9I8xUk5miuCDRLaM4KxPIic45HXdQAVzsvHmmOg=

@@ -60,6 +60,7 @@ target/
 .babelrc
 .tox/
 .vagrant/
+.vagrant_provisioning/playbook.retry
 local.py
 logs/
 static/

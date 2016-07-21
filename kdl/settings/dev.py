@@ -21,6 +21,8 @@ LOGGING['loggers']['kdl']['level'] = LOGGING_LEVEL
 
 TEMPLATES[0]['OPTIONS']['debug'] = True
 
+INSTALLED_APPS = INSTALLED_APPS + ('wagtail.contrib.wagtailstyleguide',)
+
 # -----------------------------------------------------------------------------
 # Django Extensions
 # http://django-extensions.readthedocs.org/en/latest/

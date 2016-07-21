@@ -17,7 +17,8 @@ class HomePage(Page, WithStreamField):
         index.SearchField('body'),
     )
 
-    subpage_types = ['IndexPage', 'PersonIndexPage', 'RichTextPage']
+    subpage_types = ['IndexPage', 'OrganisationIndexPage',
+                     'PersonIndexPage', 'RichTextPage']
 
 HomePage.content_panels = [
     FieldPanel('title', classname='full title'),
@@ -91,10 +92,47 @@ PersonPage.content_panels = [
     FieldPanel('first_name'),
     FieldPanel('last_name'),
     FieldPanel('intro', classname='full'),
-    MultiFieldPanel(WithContactFields.panels, 'Contact'),
     StreamFieldPanel('body'),
+    MultiFieldPanel(WithContactFields.panels, 'Contact information'),
 ]
 
 PersonPage.promote_panels = Page.promote_panels + [
+    ImageChooserPanel('feed_image'),
+]
+
+
+class OrganisationIndexPage(Page, WithStreamField):
+    search_fields = Page.search_fields + (
+        index.SearchField('body'),
+    )
+
+    subpage_types = ['OrganisationPage']
+
+OrganisationIndexPage.content_panels = [
+    FieldPanel('title', classname='full title'),
+    StreamFieldPanel('body'),
+]
+
+OrganisationIndexPage.promote_panels = Page.promote_panels
+
+
+class OrganisationPage(Page, WithContactFields, WithFeedImage,
+                       WithStreamField):
+    intro = RichTextField(blank=True)
+    search_fields = Page.search_fields + (
+        index.SearchField('intro'),
+        index.SearchField('body'),
+    )
+
+    subpage_types = []
+
+OrganisationPage.content_panels = [
+    FieldPanel('title', classname='full title'),
+    FieldPanel('intro', classname='full'),
+    StreamFieldPanel('body'),
+    MultiFieldPanel(WithContactFields.panels, 'Contact information'),
+]
+
+OrganisationPage.promote_panels = Page.promote_panels + [
     ImageChooserPanel('feed_image'),
 ]

@@ -42,6 +42,11 @@
             <div class="description">
             {{ block.value.description|richtext }}
             </div>
+        {% elif block.block_type == 'organisation' %}
+            <a href="{% pageurl block.value.organisation %}" class="button">{{ block.value.organisation.title }}</a>
+            <div class="description">
+            {{ block.value.description|richtext }}
+            </div>
         {% elif block.block_type == 'html' %}
             <div class="iframe-container">
             {% if block.value.alignment == 'normal' %}

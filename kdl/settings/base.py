@@ -125,6 +125,11 @@ LOGGING = {
         }
     },
     'loggers': {
+        'cms': {
+            'handlers': ['file'],
+            'level': LOGGING_LEVEL,
+            'propagate': True
+        },
         'django': {
             'handlers': ['file'],
             'level': LOGGING_LEVEL,
@@ -323,6 +328,8 @@ FABRIC_USER = getpass.getuser()
 # -----------------------------------------------------------------------------
 
 WAGTAIL_SITE_NAME = PROJECT_TITLE
+
+ITEMS_PER_PAGE = 10
 
 # -----------------------------------------------------------------------------
 # GLOBALS FOR JS

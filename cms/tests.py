@@ -1,5 +1,6 @@
 from cms.models.pages import (
-    HomePage, IndexPage, PersonIndexPage, PersonPage, RichTextPage
+    HomePage, IndexPage, OrganisationIndexPage, OrganisationPage,
+    PersonIndexPage, PersonPage, RichTextPage
 )
 from wagtail.tests.utils import WagtailPageTests
 
@@ -9,7 +10,9 @@ class TestHomePage(WagtailPageTests):
 
     def test_subpage_types(self):
         self.assertAllowedSubpageTypes(
-            HomePage, {IndexPage, PersonIndexPage, RichTextPage})
+            HomePage, {
+                IndexPage, OrganisationIndexPage, PersonIndexPage, RichTextPage
+            })
 
 
 class TestIndexPage(WagtailPageTests):
@@ -38,3 +41,18 @@ class TestPersonPage(WagtailPageTests):
 
     def test_subpage_types(self):
         self.assertAllowedSubpageTypes(PersonPage, {})
+
+
+class TestOrganisationIndexPage(WagtailPageTests):
+    fixtures = ['tests.json']
+
+    def test_subpage_types(self):
+        self.assertAllowedSubpageTypes(
+            OrganisationIndexPage, {OrganisationPage})
+
+
+class TestOrganisationPage(WagtailPageTests):
+    fixtures = ['tests.json']
+
+    def test_subpage_types(self):
+        self.assertAllowedSubpageTypes(OrganisationPage, {})

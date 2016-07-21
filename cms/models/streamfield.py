@@ -37,6 +37,14 @@ class ImageBlock(StructBlock):
     alignment = ImageFormatChoiceBlock()
 
 
+class OrganisationLinkBlock(StructBlock):
+    # TODO At the moment Wagtail does not allow filtering by page type, but it
+    # will in future versions. When it does this needs to be filtered by
+    # PersonPage
+    organisation = PageChooserBlock()
+    description = RichTextBlock()
+
+
 class PageLinkBlock(StructBlock):
     page = PageChooserBlock()
     label = CharBlock()
@@ -75,6 +83,7 @@ class CMSStreamBlock(StreamBlock):
     page = PageLinkBlock(icon='link')
 
     person = PersonLinkBlock(icon='user')
+    organisation = OrganisationLinkBlock(icon='group')
 
     embed = EmbedBlock(icon='media')
 

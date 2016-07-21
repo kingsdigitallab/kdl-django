@@ -125,6 +125,11 @@ LOGGING = {
         }
     },
     'loggers': {
+        'cms': {
+            'handlers': ['file'],
+            'level': LOGGING_LEVEL,
+            'propagate': True
+        },
         'django': {
             'handlers': ['file'],
             'level': LOGGING_LEVEL,

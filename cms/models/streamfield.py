@@ -28,6 +28,7 @@ class ImageFormatChoiceBlock(FieldBlock):
     field = forms.ChoiceField(choices=(
         ('left', 'Wrap left'), ('right', 'Wrap right'),
         ('mid', 'Mid width'), ('full', 'Full width'),
+        ('hero', 'Hero'),
     ))
 
 

@@ -45,6 +45,14 @@ class PageLinkBlock(StructBlock):
         icon = 'link'
 
 
+class PersonLinkBlock(StructBlock):
+    # TODO At the moment Wagtail does not allow filtering by page type, but it
+    # will in future versions. When it does this needs to be filtered by
+    # PersonPage
+    person = PageChooserBlock()
+    description = RichTextBlock()
+
+
 class PullQuoteBlock(StructBlock):
     quote = TextBlock('quote title')
     attribution = CharBlock()
@@ -65,6 +73,8 @@ class CMSStreamBlock(StreamBlock):
     image = ImageBlock(label='Aligned image', icon='image')
     document = DocumentChooserBlock(icon='doc-full-inverse')
     page = PageLinkBlock(icon='link')
+
+    person = PersonLinkBlock(icon='user')
 
     embed = EmbedBlock(icon='media')
 

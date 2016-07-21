@@ -1,6 +1,7 @@
 from .base import *  # noqa
 
 DEBUG = True
+REQUIRE_DEBUG = DEBUG
 
 INTERNAL_IPS = INTERNAL_IPS + ('', )
 
@@ -19,6 +20,8 @@ LOGGING_LEVEL = logging.DEBUG
 LOGGING['loggers']['kdl']['level'] = LOGGING_LEVEL
 
 TEMPLATES[0]['OPTIONS']['debug'] = True
+
+INSTALLED_APPS = INSTALLED_APPS + ('wagtail.contrib.wagtailstyleguide',)
 
 # -----------------------------------------------------------------------------
 # Django Extensions

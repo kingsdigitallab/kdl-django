@@ -1,14 +1,15 @@
 from __future__ import unicode_literals
 
 from django.db import models
-
-from wagtail.wagtailadmin.edit_handlers import FieldPanel, StreamFieldPanel
+from wagtail.wagtailadmin.edit_handlers import (
+    FieldPanel, MultiFieldPanel, StreamFieldPanel
+)
 from wagtail.wagtailcore.fields import RichTextField
 from wagtail.wagtailcore.models import Page
 from wagtail.wagtailimages.edit_handlers import ImageChooserPanel
 from wagtail.wagtailsearch import index
 
-from .behaviours import WithFeedImage, WithStreamField
+from .behaviours import WithContactFields, WithFeedImage, WithStreamField
 
 
 class HomePage(Page, WithStreamField):
@@ -72,7 +73,7 @@ PersonIndexPage.content_panels = [
 PersonIndexPage.promote_panels = Page.promote_panels
 
 
-class PersonPage(Page, WithFeedImage, WithStreamField):
+class PersonPage(Page, WithContactFields, WithFeedImage, WithStreamField):
     first_name = models.CharField(max_length=256)
     last_name = models.CharField(max_length=256)
     intro = RichTextField(blank=True)
@@ -90,6 +91,7 @@ PersonPage.content_panels = [
     FieldPanel('first_name'),
     FieldPanel('last_name'),
     FieldPanel('intro', classname='full'),
+    MultiFieldPanel(WithContactFields.panels, 'Contact'),
     StreamFieldPanel('body'),
 ]
 

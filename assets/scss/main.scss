@@ -6,6 +6,8 @@
 
 /** Custom styles **/
 
+/* Globals */
+
 /* Headings */
 
 h2 {
@@ -21,12 +23,23 @@ h2 {
 /* Buttons */
 
 button,
-.button {
+.button,
+.text-button {
 	font-family: 'KingsBureauGrot', sans-serif;
+}
+
+button,
+.button {
 	box-shadow: 4px 4px 8px scale-color($primary-color, $lightness: 40%);
 }
 
 button:hover,
 .button:hover {
 	box-shadow: none;
+}
+
+.text-button:after {
+	content: "\f0da";
+	font-family: "FontAwesome";
+	padding-left: .25rem;
 }

@@ -1,9 +1,32 @@
 @import 'settings';
-
+@import 'fonts';
 @import '../vendor/foundation-sites/scss/foundation';
-
 @import '../vendor/motion-ui/motion-ui';
-
-/** Your custom scss here **/
-
 @include foundation-everything;
+
+/** Custom styles **/
+
+/* Headings */
+
+h2 {
+	font-family: 'KingsCaslon', serif;
+	font-weight: 400;
+	font-style: normal;
+}
+
+.subhead {
+	font-size: 30px;
+}
+
+/* Buttons */
+
+button,
+.button {
+	font-family: 'KingsBureauGrot', sans-serif;
+	box-shadow: 4px 4px 8px scale-color($primary-color, $lightness: 40%);
+}
+
+button:hover,
+.button:hover {
+	box-shadow: none;
+}

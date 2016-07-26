@@ -1,3 +1,4 @@
+{% comment %}
 <div class="search-box">
   <form action="" method="get">
     <input type="text" class="search-box-text" name="q"{% if query_string %} value="{{ query_string }}"{% endif %} placeholder="Search the site">
@@ -9,3 +10,11 @@
     </div>
   </form>
 </div>
+{% endcomment %}
+
+<form action="" method="get">
+	<ul class="menu">
+	    <li><input type="search" name="q"{% if query_string %} value="{{ query_string }}"{% endif %} placeholder="Search"></li>
+	    <li><button type="submit" class="button"><i class="fa fa-search"></i></button></li>
+	</ul>
+</form>

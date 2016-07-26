@@ -8,37 +8,6 @@
 
 /* Globals */
 
-/* Banner */
-
-.banner {
-	background: url('../images/banner-grid.svg') center no-repeat #0a2d50;
-	min-height: 100px; /* for testing only to be removed */
-}
-
-/* Headings */
-
-header {
-	h1 {
-		font-size: 1.625rem;
-		line-height: 1.125;
-
-		a {
-			color: $primary-color;
-		}
-	}
-
-}
-
-h2 {
-	font-family: 'KingsCaslon', serif;
-	font-weight: 400;
-	font-style: normal;
-}
-
-.subhead {
-	font-size: 30px;
-}
-
 /* Buttons */
 
 button,
@@ -61,6 +30,51 @@ button:hover,
 	content: "\f0da";
 	font-family: "FontAwesome";
 	padding-left: .25rem;
+}
+
+/* Headings */
+
+header {
+	h1 {
+		font-size: 1.5rem;
+		line-height: 1.125;
+
+		a {
+			color: $primary-color;
+		}
+	}
+
+	.kdl-heading {
+		padding: 1rem 1rem 0;
+	}
+}
+
+h2 {
+	font-family: 'KingsCaslon', serif;
+	font-weight: 400;
+	font-style: normal;
+}
+
+.subhead {
+	font-size: 30px;
+}
+
+/* Post Banner */
+
+.post-banner {
+	background: url('/static/images/banner-grid.svg') center no-repeat #0a2d50;
+	min-height: 100px; /* for testing only - to be removed */
+	line-height: 1.125;
+
+	.pre-title {
+		color: $tertiary-color;
+		padding: 1rem 1rem 0;
+	}
+
+	h1 {
+		color: $white;
+		padding: 0 1rem 1rem 1rem;
+	}
 }
 
 /** More media queries **/

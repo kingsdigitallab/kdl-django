@@ -1,6 +1,22 @@
 {% load staticfiles %}
-<div class="row header">
-    <div class="large-12 columns">
-        <h1><a href="/">King's Digital Lab</a></h1>
+<div class="row">
+    <div class="medium-3 small-6 columns collapse">
+        <a href="/"><img src="{% static 'images/kdl-heading.svg' %}"><span class="hide-for-small-only"><img src="{% static 'images/kdl-heading-mob.svg' %}"></a>
+        {% comment %}
+        <h1><a href="/">King's <span class="hide-for-small-only"><br></span>Digital Lab</a></h1>
+        {% endcomment %}
+    </div>
+    <div class="medium-4 small-4 columns collapse">
+    	<nav>
+    		{% include 'includes/navigation.html' %}
+    	</nav>
+    </div>
+    <div class="medium-3 hide-for-small-only columns collapse">
+    	Search
+    </div>
+    <div class="small-2 columns collapse">
+      <a href="//www.kcl.ac.uk/" title="King's Digital Lab">
+        <img src="{% static 'images/kings-logo-red.svg' %}">
+      </a>
     </div>
 </div>

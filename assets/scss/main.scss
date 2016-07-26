@@ -10,6 +10,18 @@
 
 /* Headings */
 
+header {
+	h1 {
+		font-size: 1.625rem;
+		line-height: 1.125;
+
+		a {
+			color: $primary-color;
+		}
+	}
+
+}
+
 h2 {
 	font-family: 'KingsCaslon', serif;
 	font-weight: 400;
@@ -42,4 +54,14 @@ button:hover,
 	content: "\f0da";
 	font-family: "FontAwesome";
 	padding-left: .25rem;
+}
+
+/** More media queries **/
+
+@include breakpoint(small only) {
+	header {
+		h1 {
+			font-size: 1rem;
+		}
+	}
 }

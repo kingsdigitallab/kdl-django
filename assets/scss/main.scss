@@ -41,6 +41,9 @@ button:hover,
 }
 
 .search-box {
+	margin-top: 1.75rem;
+	// margin-bottom: 0;
+
 	button {
 		padding: .3125rem .375rem;
 		margin-top: -1px;
@@ -79,9 +82,12 @@ h2 {
 /* Post Banner */
 
 .post-banner {
-	background: url('/static/images/banner-grid.svg') center no-repeat #0a2d50;
-	min-height: 100px; /* for testing only - to be removed */
+	position: relative;
 	line-height: 1.125;
+	display: block;
+	background-image: url('/static/images/grid.png');
+	background-color: #0a2d50;
+	background-size: 29%;
 
 	.pre-title {
 		color: $tertiary-color;

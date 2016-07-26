@@ -8,21 +8,25 @@
 
 /* Globals */
 
+.darker {
+	background: scale-color($primary-color, $lightness: -30%);
+}
+
 /* Buttons */
 
 button,
 .button,
 .text-button {
 	font-family: 'KingsBureauGrot', sans-serif;
-
-	i {
-		font-family: "FontAwesome";
-	}
 }
 
-button,
-.button {
-	box-shadow: 4px 4px 8px scale-color($primary-color, $lightness: 40%);
+main,
+.main {
+
+	button,
+	.button {
+		box-shadow: 4px 4px 8px scale-color($primary-color, $lightness: 40%);
+	}
 }
 
 button:hover,
@@ -34,6 +38,19 @@ button:hover,
 	content: "\f0da";
 	font-family: "FontAwesome";
 	padding-left: .25rem;
+}
+
+.search-box {
+	button {
+		padding: .3125rem .375rem;
+		margin-top: -1px;
+	}
+
+	button:after {
+		content: "\f002";
+		font-family: "FontAwesome";
+		font-size: .75rem;
+	}
 }
 
 /* Headings */
@@ -74,6 +91,18 @@ h2 {
 	h1 {
 		color: $white;
 		padding: 0 1rem 1rem 1rem;
+	}
+}
+
+/** Footer **/
+
+footer,
+.footer {
+	background: $primary-color;
+	color: scale-color($secondary-color, $lightness: 60%);
+
+	a {
+		color: scale-color($secondary-color, $lightness: 80%);
 	}
 }
 

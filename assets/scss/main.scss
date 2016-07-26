@@ -8,6 +8,10 @@
 
 /* Globals */
 
+body {
+	font-size: 1.5625rem;
+}
+
 .darker {
 	background: scale-color($primary-color, $lightness: -30%);
 }
@@ -22,7 +26,6 @@ button,
 
 main,
 .main {
-
 	button,
 	.button {
 		box-shadow: 4px 4px 8px scale-color($primary-color, $lightness: 40%);
@@ -41,18 +44,17 @@ button:hover,
 }
 
 .search-box {
-	margin-top: 1.75rem;
-	// margin-bottom: 0;
+	margin-top: 3rem;
 
 	button {
-		padding: .3125rem .375rem;
+		padding: .75rem;
 		margin-top: -1px;
 	}
 
 	button:after {
 		content: "\f002";
 		font-family: "FontAwesome";
-		font-size: .75rem;
+		// font-size: .75rem;
 	}
 }
 
@@ -79,15 +81,39 @@ h2 {
 	font-size: 30px;
 }
 
+/* Navigation */
+
+nav {
+	.title-bar {
+		font-family: "KingsBureauGrot", sans-serif;
+	}
+
+	.menu {
+		font-family: "KingsBureauGrot", sans-serif;
+		font-size: 1.5rem;
+
+		a {
+			color: scale-color($secondary-color, $lightness: 70%);
+			padding: .25rem;
+		}
+
+		.active > a {
+			background: transparent;
+			color: $primary-color;
+		}
+	}
+}
+
 /* Post Banner */
 
 .post-banner {
 	position: relative;
 	line-height: 1.125;
 	display: block;
+	height: 240px;
 	background-image: url('/static/images/grid.png');
 	background-color: #0a2d50;
-	background-size: 29%;
+	background-size: 35%;
 
 	.pre-title {
 		color: $tertiary-color;
@@ -108,7 +134,7 @@ footer,
 	color: scale-color($secondary-color, $lightness: 60%);
 
 	a {
-		color: scale-color($secondary-color, $lightness: 80%);
+		color: scale-color($secondary-color, $lightness: 70%);
 	}
 }
 

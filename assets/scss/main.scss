@@ -150,11 +150,31 @@ nav {
 
 footer,
 .footer {
+	padding: rem-calc(24) rem-calc(24) 0;
 	background: $primary-color;
 	color: scale-color($secondary-color, $lightness: 60%);
 
 	a {
 		color: scale-color($secondary-color, $lightness: 70%);
+	}
+
+	.top-footer,
+	.bottom-footer {
+		display: block;
+
+		.menu > li > a {
+			padding: 0;
+			line-height: rem-calc(30);
+		}
+	}
+
+	.top-footer {
+		padding: 0 rem-calc(24);
+	}
+
+	.bottom-footer {
+		padding: rem-calc(24);
+		margin-top: rem-calc(24);
 	}
 }
 

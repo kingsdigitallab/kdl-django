@@ -1,13 +1,40 @@
-{% load staticfiles %}
+{% load cms_tags staticfiles %}
 
-<div class="row">
-  <p>Top footer</p>
+<div class="row top-footer">
+  <div class="large-2 columns">
+    {% block main_menu %}
+    {% get_site_root as site_root %}
+    {% main_menu root=site_root current_page=self %}
+    {% endblock %}
+  </div>
+  <div class="large-6 columns">
+    <p>
+      King's College London<br>
+      Room VWB 2.50, Virginia Woolf Building<br>
+      22 Kingsway<br>
+      London WC2B 6LE
+    </p>
+    <p>
+      <a href="mailto:kdl-info@kcl.ac.uk">kdl-info@kcl.ac.uk</a>
+    </p>
+  </div>
+  <div class="large-2 large-offset-2 columns">
+    <img src="{% static 'images/kcl-crest-04.png' %}" alt="King's College London" class="float-right">
+  </div>
 </div>
 
-<div class="row darker">
-  <div class="large-3 columns">
+<div class="row darker bottom-footer">
+  <div class="large-6 columns">
+    <ul class="menu simple">
+      <li><a href="#">Terms &amp; Conditions</a></li>
+      <li><a href="#">Privacy Policy</a></li>
+      <li><a href="#">Sitemap</a></li>
+    </ul>
   </div>
-  <div class="large-9 columns text-right">
-    <p>&copy; 2016 King's Digital Lab</p>
+  <div class="large-2 columns">
+    <p>Social</p>
+  </div>
+  <div class="large-4 columns text-right">
+    <p>&copy; {% now 'Y' %} King's Digital Lab</p>
   </div>
 </div>

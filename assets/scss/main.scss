@@ -12,6 +12,10 @@ body {
 	font-size: 1.5625rem;
 }
 
+p {
+	line-height: rem-calc(30);
+}
+
 .darker {
 	background: scale-color($primary-color, $lightness: -30%);
 }
@@ -29,6 +33,7 @@ main,
 	button,
 	.button {
 		box-shadow: 4px 4px 8px scale-color($primary-color, $lightness: 40%);
+		font-size: rem-calc(20);
 	}
 }
 
@@ -54,7 +59,6 @@ button:hover,
 	button:after {
 		content: "\f002";
 		font-family: "FontAwesome";
-		// font-size: .75rem;
 	}
 }
 
@@ -68,6 +72,10 @@ header {
 			max-width: 167px;
 			max-height: 82px;
 		}
+	}
+
+	.kcl-logo img {
+		max-width: rem-calc(158px);
 	}
 }
 
@@ -141,6 +149,14 @@ footer,
 /** More media queries **/
 
 @include breakpoint(small only) {
+	body {
+		font-size: rem-calc(20);
+	}
+
+	p {
+		line-height: rem-calc(24);
+	}
+	
 	header {
 		.kdl-heading {
 			img {

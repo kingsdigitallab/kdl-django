@@ -1,1 +1,30 @@
 {% extends "cms/base.html" %}
+
+{% block title %}
+<div class="pre-banner">
+	<h3 class="pre-title">
+		The Question:
+	</h3>
+	<h1>
+	    {{ self.title }}
+	</h1>
+</div>
+{% endblock %}
+
+{% block banner %}
+<div class="banner">
+	<img src="{% static 'images/Rahinashurock_plan_and_section_of_cist.png' %}" alt="Banner placeholder">
+</div>
+{% endblock %}
+
+{% block tags %}
+<div class="tags">
+	<ul class="menu">
+		<li><a href="#">Tag one</a></li>
+		<li><a href="#">Tag two</a></li>
+		<li><a href="#">Tag three</a></li>
+		<li><a href="#">Tag four</a></li>
+		<li><a href="#">Tag five</a></li>
+	</ul>
+</div>
+{% endblock %}

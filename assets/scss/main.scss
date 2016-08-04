@@ -16,6 +16,46 @@ p {
 	line-height: rem-calc(30);
 }
 
+blockquote {
+	position: relative;
+	font-size: rem-calc(36);
+	margin: rem-calc(24) 0;
+
+	p {
+		padding: 0 rem-calc(12);
+		line-height: rem-calc(38);
+		margin: 0;
+
+		&.author,
+		&.affiliation {
+			font-family: "KingsBureauGrot", sans-serif;
+			font-size: rem-calc(24);
+			line-height: rem-calc(30);
+		}
+
+		&.author {
+			color: $dark-blue;
+			margin-top: rem-calc(24);
+		}
+
+		&.affiliation {
+			color: $another-gray;
+		}
+	}
+
+	&:before {
+		position: absolute;
+		content: "\201c";
+		color: $another-gray;
+		font-family: "KingsBureauGrot", sans-serif;
+		font-size: rem-calc(60);
+		// font-weight: 700;
+		top: -5px;
+		left: 0;
+		float: left;
+	}
+}
+
 .darker {
 	background: scale-color($primary-color, $lightness: -30%);
 }
@@ -192,10 +232,10 @@ footer,
 .footer {
 	padding: rem-calc(24) rem-calc(24) 0;
 	background: $primary-color;
-	color: $footer-anchor;
+	color: $another-gray;
 
 	a {
-		color: $footer-anchor;
+		color: $another-gray;
 	}
 
 	.top-footer,

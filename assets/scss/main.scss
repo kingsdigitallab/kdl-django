@@ -1,5 +1,6 @@
 @import 'settings';
 @import 'fonts';
+@import 'font-awesome';
 @import '../vendor/foundation-sites/scss/foundation';
 @import '../vendor/motion-ui/motion-ui';
 @include foundation-everything;
@@ -21,7 +22,9 @@ blockquote {
 	font-size: rem-calc(36);
 	margin: rem-calc(24) 0;
 
-	p {
+	p,
+	cite {
+		font-style: normal;
 		padding: 0 rem-calc(12);
 		line-height: rem-calc(38);
 		margin: 0;
@@ -49,15 +52,22 @@ blockquote {
 		color: $another-gray;
 		font-family: "KingsBureauGrot", sans-serif;
 		font-size: rem-calc(60);
-		// font-weight: 700;
 		top: -5px;
 		left: 0;
 		float: left;
 	}
 }
 
+cite:before {
+	content: none;
+}
+
 .darker {
 	background: scale-color($primary-color, $lightness: -30%);
+}
+
+.top-padding {
+	padding-top: rem-calc(7);
 }
 
 /* Buttons */
@@ -133,6 +143,13 @@ h2 {
 	font-size: rem-calc(30);
 }
 
+.post-section-title {
+	background: $another-gray;
+	color: $dark-blue;
+	padding: rem-calc(18) rem-calc(20);
+	margin: rem-calc(18) 0;
+}
+
 /* Navigation */
 
 nav {
@@ -169,6 +186,13 @@ nav {
 
 /** Main **/
 
+.lead-paragraph {
+	color: $dark-blue;
+	font-size: rem-calc(36);
+	line-height: rem-calc(38);
+	margin: rem-calc(18) 0;
+}
+
 /* Post Banner */
 
 .pre-banner {
@@ -189,10 +213,6 @@ nav {
 		color: $white;
 		padding: 0 1.5rem 1.5rem 1.5rem;
 	}
-}
-
-.banner {
-
 }
 
 // Tags

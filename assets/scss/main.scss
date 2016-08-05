@@ -62,14 +62,12 @@ cite:before {
 	content: none;
 }
 
-i {
-	font-family: "FontAwesome";
-	font-style: normal;
-	font-weight: normal;
-}
-
 .darker {
 	background: scale-color($primary-color, $lightness: -30%);
+}
+
+.top-padding {
+	padding-top: rem-calc(7);
 }
 
 /* Buttons */
@@ -145,6 +143,13 @@ h2 {
 	font-size: rem-calc(30);
 }
 
+.post-section-title {
+	background: $another-gray;
+	color: $dark-blue;
+	padding: rem-calc(18) rem-calc(20);
+	margin: rem-calc(18) 0;
+}
+
 /* Navigation */
 
 nav {
@@ -181,6 +186,13 @@ nav {
 
 /** Main **/
 
+.lead-paragraph {
+	color: $dark-blue;
+	font-size: rem-calc(36);
+	line-height: rem-calc(38);
+	margin: rem-calc(18) 0;
+}
+
 /* Post Banner */
 
 .pre-banner {
@@ -201,10 +213,6 @@ nav {
 		color: $white;
 		padding: 0 1.5rem 1.5rem 1.5rem;
 	}
-}
-
-.banner {
-
 }
 
 // Tags

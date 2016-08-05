@@ -147,7 +147,7 @@ h2 {
 	background: $another-gray;
 	color: $dark-blue;
 	padding: rem-calc(18) rem-calc(20);
-	margin: rem-calc(18) 0;
+	margin: rem-calc(36) 0;
 }
 
 /* Navigation */
@@ -190,7 +190,18 @@ nav {
 	color: $dark-blue;
 	font-size: rem-calc(36);
 	line-height: rem-calc(38);
-	margin: rem-calc(18) 0;
+	margin: rem-calc(18) auto;
+	max-width: rem-calc(836);
+}
+
+.indented {
+	max-width: rem-calc(664);
+	margin-left: auto;
+	margin-right: auto;
+
+	blockquote {
+		margin-left: -86px;
+	}
 }
 
 /* Post Banner */
@@ -244,6 +255,9 @@ nav {
 
 .stream-field {
 	padding: rem-calc(24);
+	max-width: rem-calc(1008);
+	margin-left: auto;
+	margin-right: auto;
 }
 
 /** Footer **/

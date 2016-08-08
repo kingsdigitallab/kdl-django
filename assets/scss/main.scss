@@ -62,8 +62,32 @@ cite:before {
 	content: none;
 }
 
+.full-width {
+	width: 100%;
+	margin-bottom: rem-calc(24);
+	padding: rem-calc(24);
+
+	.row {
+		max-width: rem-calc(1008);
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	img {
+		width: 100%;
+	}
+}
+
 .darker {
 	background: scale-color($primary-color, $lightness: -30%);
+}
+
+.dark-blue {
+	color: $dark-blue;
+}
+
+.light-gray-bg {
+	background: rgba($another-gray, .4);
 }
 
 .top-padding {
@@ -223,6 +247,7 @@ nav {
 	h1 {
 		color: $white;
 		padding: 0 1.5rem 1.5rem 1.5rem;
+		margin-bottom: 0;
 	}
 }
 
@@ -301,6 +326,14 @@ caption {
 	font-size: rem-calc(16);
 }
 
+.team {
+	margin-bottom: rem-calc(24);
+
+	img {
+		width: 90%;
+	}
+}
+
 /** Footer **/
 
 footer,
@@ -356,5 +389,12 @@ footer,
 
 	blockquote {
 		margin-left: 0 !important;
+	}
+
+	.team {
+		img {
+			max-width: rem-calc(154);
+			margin-bottom: rem-calc(24);
+		}
 	}
 }

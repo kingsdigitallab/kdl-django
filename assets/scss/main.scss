@@ -224,7 +224,7 @@ nav {
 	margin-right: auto;
 
 	blockquote {
-		margin-left: -86px;
+		margin-left: -30px;
 	}
 }
 
@@ -253,9 +253,18 @@ nav {
 	}
 }
 
+/* Banner */
+
+.banner {
+	img {
+		width: 100%;
+	}
+}
+
 // Tags
 
 .tags {
+	width: 100%;
 	padding: rem-calc(24);
 	background-image: url('/static/images/grid.png');
 	background-color: $tertiary-color;
@@ -292,6 +301,8 @@ nav {
 	    counter-increment: step-counter;
 	    margin: rem-calc(16);
 	    padding-bottom: rem-calc(24);
+
+	    // min-height: rem-calc(420);
 
 	    &:before {
 	    	content: counter(step-counter);

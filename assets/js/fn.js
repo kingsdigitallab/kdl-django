@@ -9,6 +9,7 @@ define([
     'es6!foundation.equalizer',
     'es6!foundation.responsiveMenu',
     'es6!foundation.responsiveToggle',
+    'es6!foundation.sticky',
     'es6!foundation.util.box',
     'es6!foundation.util.keyboard',
     'es6!foundation.util.mediaQuery',

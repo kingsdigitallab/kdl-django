@@ -253,9 +253,18 @@ nav {
 	}
 }
 
+/* Banner */
+
+.banner {
+	img {
+		width: 100%;
+	}
+}
+
 // Tags
 
 .tags {
+	width: 100%;
 	padding: rem-calc(24);
 	background-image: url('/static/images/grid.png');
 	background-color: $tertiary-color;

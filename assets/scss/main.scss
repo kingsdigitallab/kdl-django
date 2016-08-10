@@ -99,6 +99,12 @@ cite:before {
 	padding-top: rem-calc(7);
 }
 
+.two-columns {
+	-webkit-column-count: 2; /* Chrome, Safari, Opera */
+    -moz-column-count: 2; /* Firefox */
+    column-count: 2;
+}
+
 /* Buttons */
 
 button,
@@ -129,6 +135,7 @@ button:hover,
 
 .search-box {
 	margin-top: 2.5rem;
+	margin-right: rem-calc(24);
 
 	button {
 		padding: .75rem;
@@ -269,7 +276,7 @@ nav {
 // Tags
 
 .tags {
-	width: 100%;
+	display: block;
 	padding: rem-calc(24);
 	background-image: url('/static/images/grid.png');
 	background-color: $tertiary-color;
@@ -288,6 +295,12 @@ nav {
 
 		&:hover {
 			background: scale-color($tertiary-color, $lightness: -15%);
+		}
+	}
+
+	.menu {
+		li {
+			display: inline-block;
 		}
 	}
 }

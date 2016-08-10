@@ -1,5 +1,5 @@
 {% load wagtailcore_tags %}
-<ul class="menu vertical">
+<ul class="menu vertical expand-menu shadowed-small">
     <li{% if root.active %} class="active" {% endif %}>
     	<a href="{% pageurl root %}">{{ root.title }}</a>
 	</li>
@@ -8,4 +8,13 @@
 		<a href="{% pageurl page %}">{{ page.title }}</a>
 	</li>
 	{% endfor %}
+	<li>
+		<span class="show-for-small-only">
+		<div class="row">
+			<div class="small-12 columns">
+			{% include 'includes/search_box.html' %}
+			</div>
+		</div>
+		</span>
+	</li>
 </ul>

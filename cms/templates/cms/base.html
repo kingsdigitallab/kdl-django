@@ -3,35 +3,6 @@
 
 {% block meta_title %}{{ self.title }}{% endblock %}
 
-{% block title %}
-<div class="pre-banner shadowed">
-	<h3 class="pre-title">
-		Atlantic Europe in the Metal Ages
-	</h3>
-	<h1>
-	    {{ self.title }}
-	</h1>
-</div>
-{% endblock %}
-
-{% block banner %}
-<div class="banner">
-	<img src="{% static 'images/Rahinashurock_plan_and_section_of_cist.png' %}" alt="Banner placeholder">
-</div>
-{% endblock %}
-
-{% block tags %}
-<div class="tags">
-	<ul class="menu">
-		<li><a href="#">Mapping</a></li>
-		<li><a href="#">Linguistics</a></li>
-		<li><a href="#">Archaeology</a></li>
-		<li><a href="#">Data modelling</a></li>
-		<li><a href="#">Visualisation</a></li>
-	</ul>
-</div>
-{% endblock %}
-
 {% block main %}
 {% include "cms/includes/streamfield.html" with blocks=self.body %}
 {% endblock %}

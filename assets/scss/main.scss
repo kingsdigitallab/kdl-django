@@ -223,11 +223,14 @@ nav {
 /** Main **/
 
 .lead-paragraph {
-	color: $dark-blue;
-	font-size: rem-calc(36);
-	line-height: rem-calc(38);
 	margin: rem-calc(18) auto;
 	max-width: rem-calc(836);
+
+	p {
+		color: $dark-blue;
+		font-size: rem-calc(36);
+		line-height: rem-calc(38);
+	}
 }
 
 .indented {

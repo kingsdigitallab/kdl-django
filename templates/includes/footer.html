@@ -1,13 +1,13 @@
 {% load cms_tags staticfiles %}
 
 <div class="row top-footer">
-  <div class="large-2 columns">
-    {% block main_menu %}
+  <div class="large-3 columns">
+    {% block footer_menu %}
     {% get_site_root as site_root %}
-    {% main_menu root=site_root current_page=self %}
+    {% footer_menu root=site_root current_page=self %}
     {% endblock %}
   </div>
-  <div class="large-6 columns">
+  <div class="large-5 columns">
     <p>
       King's College London<br>
       Room VWB 2.50, Virginia Woolf Building<br>

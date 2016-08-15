@@ -98,12 +98,12 @@ cite:before {
 			background: $white;
 			margin-top: rem-calc(12);
 			margin-bottom: rem-calc(12);
-			height: 200px;
 
 			img {
+				position: relative;
 				// vertical-align: middle;
-				@include vertical-center;
-				max-width: 89%;
+				top: 50%;
+				transform: translateY(-50%);
 			}
 		}
 	}

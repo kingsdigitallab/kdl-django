@@ -93,13 +93,17 @@ cite:before {
 .row-block {
 	.column {
 		.image {
+			position: relative;
 			padding: rem-calc(12);
 			background: $white;
 			margin-top: rem-calc(12);
 			margin-bottom: rem-calc(12);
+			height: 200px;
 
 			img {
-				vertical-align: middle;
+				// vertical-align: middle;
+				@include vertical-center;
+				max-width: 89%;
 			}
 		}
 	}
@@ -382,6 +386,7 @@ caption {
 		width: 90%;
 	}
 }
+
 
 /** Footer **/
 

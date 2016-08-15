@@ -445,6 +445,12 @@ footer,
 		margin-left: 0 !important;
 	}
 
+	footer {
+		.menu.vertical {
+			margin-bottom: 1.5rem;
+		}
+	}
+
 	.expand-menu {
 		position: absolute;
 		padding: rem-calc(24);

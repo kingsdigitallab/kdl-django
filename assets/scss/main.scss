@@ -93,13 +93,16 @@ cite:before {
 .row-block {
 	.column {
 		.image {
+			position: relative;
 			padding: rem-calc(12);
 			background: $white;
 			margin-top: rem-calc(12);
 			margin-bottom: rem-calc(12);
 
 			img {
-				vertical-align: middle;
+				position: relative;
+				top: 50%;
+				transform: translateY(-50%);
 			}
 		}
 	}

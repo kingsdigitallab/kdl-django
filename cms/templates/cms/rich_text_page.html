@@ -2,6 +2,7 @@
 {% load staticfiles %}
 
 {% block grid-block %}
+<div data-equalizer>
 <div class="full-width light-gray-bg row-block">
 	<div class="row">
 		<div class="large-12 columns">
@@ -9,40 +10,41 @@
 		</div>
 	</div>
 
-	<div class="row small-up-2 medium-up-4" data-equalizer>
+	<div class="row small-up-2 medium-up-4">
+		{# TODO: Replace dynamically with images coming from Wagtail #}
 		<div class="column">
 			<div class="image" data-equalizer-watch>
-				<img src="/static/media/images/university_of_wales_logo.original.png" class="float-center" alt="Logo placeholder">
+				<img src="/static/media/images/university_of_wales_logo.original.png" alt="Logo placeholder">
 			</div>
 		</div>
 		<div class="column">
 			<div class="image" data-equalizer-watch>
-				<img src="/static/media/images/nation_lib_wales.original.png" class="float-center" alt="Logo placeholder">
+				<img src="/static/media/images/nation_lib_wales.original.png" alt="Logo placeholder">
 			</div>
 		</div>
 		<div class="column">
 			<div class="image" data-equalizer-watch>
-				<img src="/static/media/images/OxfordUniversity.original.png" class="float-center" alt="Logo placeholder">
+				<img src="/static/media/images/OxfordUniversity.original.png" alt="Logo placeholder">
 			</div>
 		</div>
 		<div class="column">
 			<div class="image" data-equalizer-watch>
-				<img src="/static/media/images/natmuseumwales.original.png" class="float-center" alt="Logo placeholder">
+				<img src="/static/media/images/natmuseumwales.original.png" alt="Logo placeholder">
 			</div>
 		</div>
 		<div class="column">
 			<div class="image" data-equalizer-watch>
-				<img src="/static/media/images/oxford_archaeo.original.png" class="float-center" alt="Logo placeholder">
+				<img src="/static/media/images/oxford_archaeo.original.png" alt="Logo placeholder">
 			</div>
 		</div>
 		<div class="column">
 			<div class="image" data-equalizer-watch>
-				<img src="/static/media/images/rcahmw_logo.original.png" class="float-center" alt="Logo placeholder">
+				<img src="/static/media/images/rcahmw_logo.original.png" alt="Logo placeholder">
 			</div>
 		</div>
 		<div class="column">
 			<div class="image" data-equalizer-watch>
-				<img src="/static/media/images/bangor.original.jpg" class="float-center" alt="Logo placeholder">
+				<img src="/static/media/images/bangor.original.jpg" alt="Logo placeholder">
 			</div>
 		</div>
 	</div>
@@ -55,12 +57,15 @@
 		</div>
 	</div>
 
-	<div class="row small-up-2 medium-up-4" data-equalizer>
+	<div class="row small-up-2 medium-up-4">
+		{# TODO: Replace dynamically with images coming from Wagtail #}
 		<div class="column">
 			<div class="image" data-equalizer-watch>
-				<img src="/static/media/images/ahrc_logo.original.png" class="float-center" alt="AHRC">
+				<img src="/static/media/images/ahrc_logo.original.png" alt="AHRC">
 			</div>
 		</div>
 	</div>
 </div>
+</div>
 {% endblock %}
+

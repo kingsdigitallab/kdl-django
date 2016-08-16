@@ -34,6 +34,7 @@
 {% endblock %}
 
 {% block grid-block %}
+<div data-equalizer>
 <div class="full-width light-gray-bg row-block">
 	<div class="row">
 		<div class="large-12 columns">
@@ -41,7 +42,7 @@
 		</div>
 	</div>
 
-	<div class="row small-up-2 medium-up-4" data-equalizer>
+	<div class="row small-up-2 medium-up-4">
 		{# TODO: Replace dynamically with images coming from Wagtail #}
 		<div class="column">
 			<div class="image" data-equalizer-watch>
@@ -88,7 +89,7 @@
 		</div>
 	</div>
 
-	<div class="row small-up-2 medium-up-4" data-equalizer>
+	<div class="row small-up-2 medium-up-4">
 		{# TODO: Replace dynamically with images coming from Wagtail #}
 		<div class="column">
 			<div class="image" data-equalizer-watch>
@@ -96,5 +97,6 @@
 			</div>
 		</div>
 	</div>
+</div>
 </div>
 {% endblock %}

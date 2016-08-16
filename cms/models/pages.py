@@ -44,8 +44,7 @@ class HomePage(Page, WithStreamField):
     )
 
     subpage_types = ['IndexPage', 'OrganisationIndexPage',
-                     'PersonIndexPage', 'RichTextPage',
-                     'WorkIndexPage', 'WorkPage']
+                     'PersonIndexPage', 'RichTextPage', 'WorkIndexPage']
 
 HomePage.content_panels = [
     FieldPanel('title', classname='full title'),

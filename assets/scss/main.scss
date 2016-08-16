@@ -427,10 +427,10 @@ footer,
 
 /** More media queries **/
 
-@include breakpoint(medium and small) {
+@include breakpoint(medium down) {
 	.float-right-large {
-		float: none;
-		text-align: left !important;
+		float: left;
+		text-align: left;
 	}
 }
 

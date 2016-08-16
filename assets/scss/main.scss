@@ -420,6 +420,13 @@ footer,
 
 /** More media queries **/
 
+@include breakpoint(medium down) {
+	.float-right-large {
+		float: left;
+		text-align: left;
+	}
+}
+
 @include breakpoint(small only) {
 	body {
 		font-size: rem-calc(20);

@@ -1,0 +1,9 @@
+{% extends "cms/index_page.html" %}
+
+{% block main %}
+
+{% block index_page_children %}
+{% include "cms/includes/index_page_children.html" with pages=posts %}
+{% endblock %}
+
+{% endblock %}

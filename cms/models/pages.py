@@ -39,11 +39,11 @@ def _paginate(request, items):
 
 
 class HomePage(Page, WithStreamField):
-    search_fields = Page.search_fields + (
+    search_fields = Page.search_fields + [
         index.SearchField('body'),
-    )
+    ]
 
-    subpage_types = ['IndexPage', 'OrganisationIndexPage',
+    subpage_types = ['BlogIndexPage', 'IndexPage', 'OrganisationIndexPage',
                      'PersonIndexPage', 'RichTextPage', 'WorkIndexPage']
 
 HomePage.content_panels = [
@@ -55,9 +55,9 @@ HomePage.promote_panels = Page.promote_panels
 
 
 class IndexPage(Page, WithStreamField):
-    search_fields = Page.search_fields + (
+    search_fields = Page.search_fields + [
         index.SearchField('body'),
-    )
+    ]
 
     subpage_types = ['IndexPage', 'RichTextPage']
 
@@ -71,9 +71,9 @@ IndexPage.promote_panels = Page.promote_panels
 
 
 class RichTextPage(Page, WithStreamField):
-    search_fields = Page.search_fields + (
+    search_fields = Page.search_fields + [
         index.SearchField('body'),
-    )
+    ]
 
     subpage_types = []
 
@@ -86,9 +86,9 @@ RichTextPage.promote_panels = Page.promote_panels
 
 
 class PersonIndexPage(Page, WithStreamField):
-    search_fields = Page.search_fields + (
+    search_fields = Page.search_fields + [
         index.SearchField('body'),
-    )
+    ]
 
     subpage_types = ['PersonPage']
 
@@ -104,12 +104,12 @@ class PersonPage(Page, WithContactFields, WithFeedImage, WithStreamField):
     first_name = models.CharField(max_length=256)
     last_name = models.CharField(max_length=256)
     intro = RichTextField(blank=True)
-    search_fields = Page.search_fields + (
+    search_fields = Page.search_fields + [
         index.SearchField('first_name'),
         index.SearchField('last_name'),
         index.SearchField('intro'),
         index.SearchField('body'),
-    )
+    ]
 
     subpage_types = []
 
@@ -128,9 +128,9 @@ PersonPage.promote_panels = Page.promote_panels + [
 
 
 class OrganisationIndexPage(Page, WithStreamField):
-    search_fields = Page.search_fields + (
+    search_fields = Page.search_fields + [
         index.SearchField('body'),
-    )
+    ]
 
     subpage_types = ['OrganisationPage']
 
@@ -145,10 +145,10 @@ OrganisationIndexPage.promote_panels = Page.promote_panels
 class OrganisationPage(Page, WithContactFields, WithFeedImage,
                        WithStreamField):
     intro = RichTextField(blank=True)
-    search_fields = Page.search_fields + (
+    search_fields = Page.search_fields + [
         index.SearchField('intro'),
         index.SearchField('body'),
-    )
+    ]
 
     subpage_types = []
 
@@ -165,9 +165,9 @@ OrganisationPage.promote_panels = Page.promote_panels + [
 
 
 class WorkIndexPage(RoutablePageMixin, Page, WithStreamField):
-    search_fields = Page.search_fields + (
+    search_fields = Page.search_fields + [
         index.SearchField('body'),
-    )
+    ]
 
     subpage_types = ['WorkPage']
 
@@ -215,9 +215,9 @@ class WorkPageTag(TaggedItemBase):
 class WorkPage(Page, WithStreamField):
     categories = ClusterTaggableManager(through=WorkPageTag, blank=True)
 
-    search_fields = Page.search_fields + (
+    search_fields = Page.search_fields + [
         index.SearchField('body'),
-    )
+    ]
 
     subpage_types = []
 
@@ -228,3 +228,76 @@ WorkPage.content_panels = [
 ]
 
 WorkPage.promote_panels = Page.promote_panels
+
+
+class BlogIndexPage(RoutablePageMixin, Page, WithStreamField):
+    search_fields = Page.search_fields + [
+        index.SearchField('body'),
+    ]
+
+    subpage_types = ['BlogPost']
+
+    @property
+    def posts(self):
+        posts = BlogPost.objects.live().descendant_of(self)
+
+        posts = posts.order_by('-date')
+
+        return posts
+
+    @route(r'^$')
+    def all_posts(self, request):
+        posts = self.posts
+
+        return render(request, self.get_template(request),
+                      {'self': self, 'posts': _paginate(request, posts)})
+
+    @route(r'^tag/(?P<tag>[\w\- ]+)/$')
+    def tag(self, request, tag=None):
+        if not tag:
+            # Invalid tag filter
+            logger.error('Invalid tag filter')
+            return self.all_posts(request)
+
+        posts = self.posts.filter(tags__name=tag)
+
+        return render(
+            request, self.get_template(request), {
+                'self': self, 'posts': _paginate(request, posts),
+                'filter_type': 'tag', 'filter': tag
+            }
+        )
+
+BlogIndexPage.content_panels = [
+    FieldPanel('title', classname='full title'),
+    StreamFieldPanel('body'),
+]
+
+BlogIndexPage.promote_panels = Page.promote_panels
+
+
+class BlogPostTag(TaggedItemBase):
+    content_object = ParentalKey('BlogPost', related_name='tagged_items')
+
+
+class BlogPost(Page, WithStreamField):
+    tags = ClusterTaggableManager(through=BlogPostTag, blank=True)
+    date = models.DateField('body')
+
+    search_fields = Page.search_fields + [
+        index.SearchField('body'),
+        index.SearchField('date'),
+        index.SearchField('tags'),
+    ]
+
+    subpage_types = []
+
+BlogPost.content_panels = [
+    FieldPanel('title', classname='full title'),
+    FieldPanel('date'),
+    StreamFieldPanel('body'),
+]
+
+BlogPost.promote_panels = Page.promote_panels + [
+    FieldPanel('tags'),
+]

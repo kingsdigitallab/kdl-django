@@ -1,7 +1,7 @@
 from cms.models.pages import (
-    HomePage, IndexPage, OrganisationIndexPage, OrganisationPage,
-    PersonIndexPage, PersonPage, RichTextPage, WorkIndexPage, WorkPage,
-    _paginate
+    BlogIndexPage, BlogPost, HomePage, IndexPage, OrganisationIndexPage,
+    OrganisationPage, PersonIndexPage, PersonPage, RichTextPage, WorkIndexPage,
+    WorkPage, _paginate
 )
 from django.contrib.auth.models import User
 from django.test import RequestFactory, TestCase
@@ -36,8 +36,8 @@ class TestHomePage(WagtailPageTests):
     def test_subpage_types(self):
         self.assertAllowedSubpageTypes(
             HomePage, {
-                IndexPage, OrganisationIndexPage, PersonIndexPage,
-                RichTextPage, WorkIndexPage
+                BlogIndexPage, IndexPage, OrganisationIndexPage,
+                PersonIndexPage, RichTextPage, WorkIndexPage
             })
 
 
@@ -113,3 +113,44 @@ class TestWorkPage(WagtailPageTests):
 
     def test_subpage_types(self):
         self.assertAllowedSubpageTypes(WorkPage, {})
+
+
+class TestBlogIndexPage(WagtailPageTests):
+    fixtures = ['tests.json']
+
+    def setUp(self):
+        self.bip = BlogIndexPage.objects.get(url_path='/home/blog/')
+
+    def test_subpage_types(self):
+        self.assertAllowedSubpageTypes(
+            BlogIndexPage, {BlogPost})
+
+    def test_posts(self):
+        self.assertEqual(2, self.bip.posts.count())
+
+    def test_all_posts(self):
+        factory = RequestFactory()
+
+        request = factory.get('/home/blog/')
+        request.site = Site.find_for_request(request)
+        request.user = User.objects.create_user(username='test')
+
+        response = self.bip.all_posts(request)
+        self.assertEqual(200, response.status_code)
+
+    def test_tag(self):
+        factory = RequestFactory()
+
+        request = factory.get('/home/blog/tag/news/')
+        request.site = Site.find_for_request(request)
+        request.user = User.objects.create_user(username='test')
+
+        response = self.bip.tag(request)
+        self.assertEqual(200, response.status_code)
+
+
+class TestBlogPage(WagtailPageTests):
+    fixtures = ['tests.json']
+
+    def test_subpage_types(self):
+        self.assertAllowedSubpageTypes(BlogPost, {})

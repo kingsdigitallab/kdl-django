@@ -1,9 +1,11 @@
 {% extends "cms/base.html" %}
+{% load staticfiles %}
 
 {% block title %}
-<div class="pre-banner">
+<div class="pre-banner shadowed">
 	<h3 class="pre-title">
-		The Question:
+		{# TODO: Replace dynamically with Project Name coming from Wagtail #}
+		Atlantic Europe in the Metal Ages
 	</h3>
 	<h1>
 	    {{ self.title }}
@@ -13,6 +15,7 @@
 
 {% block banner %}
 <div class="banner">
+	{# TODO: Replace dynamically with banner image coming from Wagtail #}
 	<img src="{% static 'images/Rahinashurock_plan_and_section_of_cist.png' %}" alt="Banner placeholder">
 </div>
 {% endblock %}
@@ -20,11 +23,80 @@
 {% block tags %}
 <div class="tags">
 	<ul class="menu">
+		{# TODO: Replace <li> dynamically with tags coming from Wagtail #}
 		<li><a href="#">Mapping</a></li>
 		<li><a href="#">Linguistics</a></li>
 		<li><a href="#">Archaeology</a></li>
 		<li><a href="#">Data modelling</a></li>
 		<li><a href="#">Visualisation</a></li>
 	</ul>
+</div>
+{% endblock %}
+
+{% block grid-block %}
+<div data-equalizer>
+	<div class="full-width light-gray-bg row-block">
+		<div class="row">
+			<div class="large-12 columns">
+				<h3 class="subhead">In partnership with</h3>
+			</div>
+		</div>
+
+		<div class="row small-up-2 medium-up-4">
+			{# TODO: Replace dynamically with images coming from Wagtail #}
+			<div class="column">
+				<div class="image" data-equalizer-watch>
+					<img src="/static/media/images/university_of_wales_logo.original.png" alt="Logo placeholder">
+				</div>
+			</div>
+			<div class="column">
+				<div class="image" data-equalizer-watch>
+					<img src="/static/media/images/nation_lib_wales.original.png" alt="Logo placeholder">
+				</div>
+			</div>
+			<div class="column">
+				<div class="image" data-equalizer-watch>
+					<img src="/static/media/images/OxfordUniversity.original.png" alt="Logo placeholder">
+				</div>
+			</div>
+			<div class="column">
+				<div class="image" data-equalizer-watch>
+					<img src="/static/media/images/natmuseumwales.original.png" alt="Logo placeholder">
+				</div>
+			</div>
+			<div class="column">
+				<div class="image" data-equalizer-watch>
+					<img src="/static/media/images/oxford_archaeo.original.png" alt="Logo placeholder">
+				</div>
+			</div>
+			<div class="column">
+				<div class="image" data-equalizer-watch>
+					<img src="/static/media/images/rcahmw_logo.original.png" alt="Logo placeholder">
+				</div>
+			</div>
+			<div class="column">
+				<div class="image" data-equalizer-watch>
+					<img src="/static/media/images/bangor.original.jpg" alt="Logo placeholder">
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="full-width light-gray-bg row-block">
+		<div class="row">
+			<div class="large-12 columns">
+				<h3 class="subhead">With funding from</h3>
+			</div>
+		</div>
+
+		<div class="row small-up-2 medium-up-4">
+			{# TODO: Replace dynamically with images coming from Wagtail #}
+			<div class="column">
+				<div class="image" data-equalizer-watch>
+					<img src="/static/media/images/ahrc_logo.original.png" alt="AHRC">
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
 {% endblock %}

@@ -293,6 +293,7 @@ nav {
 
 /* Banner */
 
+/* TODO: ADD media queries */
 .banner {
 	img {
 		width: 100%;
@@ -336,6 +337,20 @@ nav {
 	h1,
 	h2 {
 		color: $white;
+	}
+
+	button {
+		position: absolute;
+		bottom: 0;
+
+		&.discover {
+			width: rem-calc(150);
+			color: scale-color($primary-color, $lightness: 20%);
+			background: none;
+			box-shadow: none;
+			border: 1px dotted scale-color($primary-color, $lightness: 20%);
+			left: calc(50% - 75px);
+		}
 	}
 }
 

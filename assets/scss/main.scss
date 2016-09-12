@@ -297,6 +297,46 @@ nav {
 	img {
 		width: 100%;
 	}
+	height: calc(100vh - 124px);
+}
+
+.homepage {
+	background: #002395;
+	background-image: url('/static/images/graphic_homepage.png'), url('/static/images/grid.png');
+	background-size: 1040px auto, auto 216px;
+	background-repeat: no-repeat, repeat;
+	background-position: right -176px top, right top;
+
+	header {
+		position: absolute;
+		top: 40%;
+		width: 50%;
+	}
+
+	.half-block {
+		position: relative;
+		top: -60%;
+		display: block;
+		padding: 0 1.5rem;
+	}
+
+	h1 {
+		font-family: "KingsCaslon";
+		font-size: rem-calc(72);
+		line-height: rem-calc(76);
+	}
+
+	h2 {
+		position: relative;
+		top: -50%;
+		font-family: "KingsBureauGrot";
+		font-size: rem-calc(30);
+	}
+
+	h1,
+	h2 {
+		color: $white;
+	}
 }
 
 // Tags

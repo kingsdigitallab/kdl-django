@@ -520,6 +520,12 @@ footer,
 	}
 
 	footer {
+		.menu.simple {
+			li {
+				display: block;
+			}
+		}
+
 		.menu.vertical {
 			margin-bottom: 1.5rem;
 		}

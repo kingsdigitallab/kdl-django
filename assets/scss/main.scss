@@ -134,21 +134,23 @@ button,
 .button,
 .text-button {
 	font-family: 'KingsBureauGrot', sans-serif;
+	border: 0;
 }
 
 main,
 .main {
 	button,
 	.button {
-		box-shadow: 4px 4px 8px scale-color($primary-color, $lightness: 40%);
+		// box-shadow: 4px 4px 8px scale-color($primary-color, $lightness: 40%);
 		font-size: rem-calc(20);
+		border-bottom: 7px solid scale-color($primary-color, $lightness: -40%);
 	}
 }
 
-button:hover,
-.button:hover {
-	box-shadow: none;
-}
+// button:hover,
+// .button:hover {
+// 	box-shadow: none;
+// }
 
 .text-button:after {
 	content: "\f0da";
@@ -175,7 +177,7 @@ button:hover,
 
 header {
 	.kdl-heading {
-		padding: 1.5rem 1.5rem 0;
+		padding: 1.5rem 0 0;
 
 		img {
 			max-width: 167px;
@@ -302,23 +304,22 @@ nav {
 }
 
 .homepage {
+	position: relative;
 	background: #002395;
 	background-image: url('/static/images/graphic_homepage.png'), url('/static/images/grid.png');
 	background-size: 1040px auto, auto 216px;
 	background-repeat: no-repeat, repeat;
 	background-position: right -176px top, right top;
 
-	header {
+	.absolute {
 		position: absolute;
-		top: 40%;
-		width: 50%;
+		top: 35%;		
 	}
 
 	.half-block {
 		position: relative;
-		top: -60%;
-		display: block;
-		padding: 0 1.5rem;
+		top: -65%;
+		max-width: 678px;
 	}
 
 	h1 {
@@ -344,12 +345,17 @@ nav {
 		bottom: 0;
 
 		&.discover {
-			width: rem-calc(150);
-			color: scale-color($primary-color, $lightness: 20%);
-			background: none;
-			box-shadow: none;
-			border: 1px dotted scale-color($primary-color, $lightness: 20%);
-			left: calc(50% - 75px);
+			width: rem-calc(504);
+			// color: scale-color($primary-color, $lightness: 20%);
+			background: $tertiary-color;
+			border-color: scale-color($tertiary-color, $lightness: -40%);
+			// box-shadow: none;
+			// border: 1px dotted scale-color($primary-color, $lightness: 20%);
+			left: calc(50% - 252px);
+
+			&:hover {
+				background: scale-color($tertiary-color, $lightness: -20%);
+			}
 		}
 	}
 }

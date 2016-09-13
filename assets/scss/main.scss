@@ -492,14 +492,6 @@ footer,
 		float: left;
 		text-align: left;
 	}
-
-	footer {
-		.two-columns {
-			-webkit-column-count: 1; /* Chrome, Safari, Opera */
-		    -moz-column-count: 1; /* Firefox */
-		    column-count: 1;
-		}
-	}
 	
 	body {
 		font-size: rem-calc(20);
@@ -511,12 +503,16 @@ footer,
 	
 	header {
 		.kdl-heading {
-			padding: rem-calc(13) rem-calc(24);
+			padding: rem-calc(12) rem-calc(12) 0;
 			img {
-				max-width: 100%;
-				max-height: 100%;
+				// max-width: 100%;
+				max-height: rem-calc(36);
 			}
 		}
+	}
+
+	.banner {
+		height: calc(100vh - 48px);
 	}
 
 	blockquote {
@@ -526,6 +522,12 @@ footer,
 	footer {
 		.menu.vertical {
 			margin-bottom: 1.5rem;
+		}
+
+		.two-columns {
+			-webkit-column-count: 1; /* Chrome, Safari, Opera */
+		    -moz-column-count: 1; /* Firefox */
+		    column-count: 1;
 		}
 	}
 

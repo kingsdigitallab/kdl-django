@@ -492,9 +492,15 @@ footer,
 		float: left;
 		text-align: left;
 	}
-}
 
-@include breakpoint(small only) {
+	footer {
+		.two-columns {
+			-webkit-column-count: 1; /* Chrome, Safari, Opera */
+		    -moz-column-count: 1; /* Firefox */
+		    column-count: 1;
+		}
+	}
+	
 	body {
 		font-size: rem-calc(20);
 	}

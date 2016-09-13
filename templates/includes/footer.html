@@ -1,7 +1,7 @@
 {% load cms_tags staticfiles %}
 
 <div class="row top-footer">
-  <div class="large-3 columns">
+  <div class="large-4 columns">
     {% block footer_menu %}
     {% get_site_root as site_root %}
     {% footer_menu root=site_root current_page=self %}
@@ -18,7 +18,7 @@
       <a href="mailto:kdl-info@kcl.ac.uk">kdl-info@kcl.ac.uk</a>
     </p>
   </div>
-  <div class="large-2 large-offset-2 columns float-right-large">
+  <div class="large-2 large-offset-1 columns float-right-large">
     <img src="{% static 'images/kcl-crest-04.png' %}" alt="King's College London">
   </div>
 </div>

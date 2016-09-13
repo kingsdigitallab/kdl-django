@@ -47,7 +47,8 @@
 
 $global-font-size: 100%;
 // $global-font-size: 156.25%; /** Going from base 16px to base 25px **/
-$global-width: rem-calc(1280);
+// $global-width: rem-calc(1280);
+$global-width: rem-calc(1440);
 $global-lineheight: 1.5;
 $foundation-palette: (
   primary: #5a6469,
@@ -59,7 +60,7 @@ $foundation-palette: (
 $tertiary-color: #00b9e1;
 $nav-anchor: #bdc1c3;
 $another-gray: #cdd7dc;
-$dark-blue: #0A2D50;
+$dark-blue: #0a2d50;
 $light-gray: #e6e6e6;
 $medium-gray: #cacaca;
 $dark-gray: #8a8a8a;

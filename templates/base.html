@@ -18,14 +18,24 @@
     {% include 'includes/header.html' %}
   </header>
 
-  <div class="row expanded small-collapse">
-    <div class="large-12 columns">
-      <section class="main">
+  <section class="main">
+    <div class="row">
+      <div class="large-12 columns">
         {% block title %}{% endblock %}
-        {% block banner %}{% endblock %}
+      </div>
+    </div>
+    {% block banner %}{% endblock %}
+    <div class="row">
+      <div class="large-12 columns">
         {% block tags %}{% endblock %}
+      </div>
+    </div>
+    <div class="row">
+      <div class="large-12 columns">
         {% block main %}{% endblock %}
-      </section>
+      </div>
+    </div>
+  </section>
     </div>
   </div>
 

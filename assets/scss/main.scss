@@ -275,7 +275,7 @@ nav {
 	line-height: 1.125;
 	display: block;
 	// height: rem-calc(240);
-	background-image: url('/static/images/grid.png');
+	background-image: url('/static/images/grid-pattern.svg');
 	background-color: #0a2d50;
 	background-size: 432px;
 
@@ -306,10 +306,10 @@ nav {
 .homepage {
 	position: relative;
 	background: #002395;
-	background-image: url('/static/images/graphic_homepage.png'), url('/static/images/grid.png');
-	background-size: 1040px auto, auto 216px;
+	background-image: url('/static/images/shards-homepage.svg'), url('/static/images/grid-pattern.svg');
+	background-size: 990px auto, 432px 432px;
 	background-repeat: no-repeat, repeat;
-	background-position: right -176px top, right top;
+	background-position: right -125px top, right top;
 
 	.absolute {
 		position: absolute;
@@ -366,7 +366,7 @@ nav {
 .tags {
 	display: block;
 	padding: rem-calc(24);
-	background-image: url('/static/images/grid.png');
+	background-image: url('/static/images/grid-pattern.svg');
 	background-color: $tertiary-color;
 	background-size: 432px;
 

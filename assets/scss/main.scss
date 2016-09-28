@@ -144,6 +144,12 @@ main,
 		// box-shadow: 4px 4px 8px scale-color($primary-color, $lightness: 40%);
 		font-size: rem-calc(20);
 		border-bottom: 7px solid scale-color($primary-color, $lightness: -40%);
+
+		&:hover,
+		&:focus {
+			margin-top: 3px;
+			border-bottom: none;
+		}
 	}
 }
 

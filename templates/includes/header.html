@@ -1,5 +1,6 @@
 {% load staticfiles %}
-<div class="row small-collapse">
+{% comment %}
+<div class="row expanded small-collapse">
     <div class="small-6 large-3 columns">
         <div class="kdl-heading">
             <span class="show-for-large"><a href="/"><img src="{% static 'images/kdl-heading.svg' %}" alt="King's Digital Lab"></a></span><span class="hide-for-large"><a href="/"><img src="{% static 'images/kdl-heading-mob.svg' %}" alt="King's Digital Lab"></a></span>
@@ -13,6 +14,30 @@
     <div class="large-3 show-for-large columns">
         <div class="float-right">
     	{% include 'includes/search_box.html' %}
+        </div>
+    </div>
+    <div class="small-2 columns kcl-logo">
+      <a href="//www.kcl.ac.uk/" title="King's College London">
+        <img class="float-right" src="{% static 'images/kings-logo-red.svg' %}" alt="King's College London">
+      </a>
+    </div>
+</div>
+{% endcomment %}
+
+<div class="row expanded small-collapse">
+    <div class="small-6 large-3 columns">
+        <div class="kdl-heading">
+            <span class="show-for-large"><a href="/"><img src="{% static 'images/kdl-heading.svg' %}" alt="King's Digital Lab"></a></span><span class="hide-for-large"><a href="/"><img src="{% static 'images/kdl-heading-mob.svg' %}" alt="King's Digital Lab"></a></span>
+        </div>
+    </div>
+    <div class="small-4 columns">
+        <nav>
+            {% include 'includes/navigation.html' %}
+        </nav>
+    </div>
+    <div class="large-3 show-for-large columns">
+        <div class="float-right">
+        {% include 'includes/search_box.html' %}
         </div>
     </div>
     <div class="small-2 columns kcl-logo">

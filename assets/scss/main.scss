@@ -276,7 +276,7 @@ nav {
 	line-height: 1.125;
 	display: block;
 	background-image: url('/static/images/grid-pattern.svg');
-	background-color: #0a2d50;
+	background-color: $dark-blue;
 	background-size: rem-calc(432);
 
 	.pre-title {
@@ -322,6 +322,7 @@ nav {
 	}
 
 	&.with-tags {
+		height: calc(100vh - 304px);
 		.discover {
 			bottom: rem-calc(150);
 			background: $primary-color;
@@ -543,6 +544,9 @@ footer,
 				width: rem-calc(504);
 				left: calc(50% - 252px);
 			}
+		}
+		&.with-tags {
+			height: calc(100vh - 256px);
 		}
 	}
 }

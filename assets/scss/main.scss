@@ -275,10 +275,9 @@ nav {
 	position: relative;
 	line-height: 1.125;
 	display: block;
-	// height: rem-calc(240);
 	background-image: url('/static/images/grid-pattern.svg');
 	background-color: #0a2d50;
-	background-size: 432px;
+	background-size: rem-calc(432);
 
 	.pre-title {
 		color: $tertiary-color;
@@ -299,9 +298,40 @@ nav {
 /* TODO: ADD media queries */
 .banner {
 	img {
-		width: 100%;
+		height: calc(100vh - 370px);
+		object-fit: cover;
+		object-position: 20% 50%;
 	}
 	height: calc(100vh - 124px);
+
+	button,
+	.button {
+		position: absolute;
+		bottom: 0;
+
+		&.discover {
+			width: rem-calc(240);
+			background: $tertiary-color;
+			border-color: scale-color($tertiary-color, $lightness: -40%);
+			left: calc(50% - 120px);
+
+			&:hover {
+				background: scale-color($tertiary-color, $lightness: -20%);
+			}
+		}
+	}
+
+	&.with-tags {
+		.discover {
+			bottom: rem-calc(150);
+			background: $primary-color;
+			border-color: scale-color($primary-color, $lightness: -40%);
+
+			&:hover {
+				background: scale-color($primary-color, $lightness: -20%);
+			}
+		}
+	}
 }
 
 // Aggregate page banner
@@ -366,28 +396,14 @@ nav {
 	h2 {
 		color: $white;
 	}
-
-	button,
-	.button {
-		position: absolute;
-		bottom: 0;
-
-		&.discover {
-			width: rem-calc(504);
-			background: $tertiary-color;
-			border-color: scale-color($tertiary-color, $lightness: -40%);
-			left: calc(50% - 252px);
-
-			&:hover {
-				background: scale-color($tertiary-color, $lightness: -20%);
-			}
-		}
-	}
 }
 
 // Tags
 
 .tags {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
 	display: block;
 	padding: rem-calc(24);
 	background-image: url('/static/images/grid-pattern.svg');
@@ -519,6 +535,16 @@ footer,
 			font-size: rem-calc(60);
 		}
 	}
+
+	.banner {
+		button,
+		.button {
+			&.discover {
+				width: rem-calc(504);
+				left: calc(50% - 252px);
+			}
+		}
+	}
 }
 
 @include breakpoint(medium down) {
@@ -546,6 +572,9 @@ footer,
 	}
 
 	.banner {
+		img {
+			height: calc(100vh - 294px);
+		}
 		height: calc(100vh - 48px);
 	}
 

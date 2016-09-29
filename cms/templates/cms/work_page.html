@@ -1,7 +1,7 @@
 {% extends "cms/base.html" %}
 {% load staticfiles %}
 
-{% block title %}
+{% block pre-banner %}
 <div class="pre-banner shadowed">
 	<h3 class="pre-title">
 		{# TODO: Replace dynamically with Project Name coming from Wagtail #}
@@ -14,22 +14,29 @@
 {% endblock %}
 
 {% block banner %}
-<div class="banner">
+<div class="banner with-tags">
 	{# TODO: Replace dynamically with banner image coming from Wagtail #}
 	<img src="{% static 'images/Rahinashurock_plan_and_section_of_cist.png' %}" alt="Banner placeholder">
-</div>
-{% endblock %}
 
-{% block tags %}
-<div class="tags">
-	<ul class="menu">
-		{# TODO: Replace <li> dynamically with tags coming from Wagtail #}
-		<li><a href="#">Mapping</a></li>
-		<li><a href="#">Linguistics</a></li>
-		<li><a href="#">Archaeology</a></li>
-		<li><a href="#">Data modelling</a></li>
-		<li><a href="#">Visualisation</a></li>
-	</ul>
+	<div class="tags">
+		<ul class="menu">
+			{# TODO: Replace <li> dynamically with tags coming from Wagtail #}
+
+			{% comment %}
+		    {% for tag in tags %}
+			<li><a href="#">{{ tag.name }}</a></li>
+			{% endfor %}
+			{% endcomment %}
+
+			<li><a href="#">Mapping</a></li>
+			<li><a href="#">Linguistics</a></li>
+			<li><a href="#">Archaeology</a></li>
+			<li><a href="#">Data modelling</a></li>
+			<li><a href="#">Visualisation</a></li>
+		</ul>
+	</div>
+
+	<a class="small button radius discover" href="#content"><i class="fa fa-angle-double-down fa-lg"></i></a>
 </div>
 {% endblock %}
 

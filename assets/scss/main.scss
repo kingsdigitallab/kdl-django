@@ -252,15 +252,12 @@ nav {
 
 /** Main **/
 
-.lead-paragraph {
-	margin: rem-calc(18) auto;
-	max-width: rem-calc(836);
+#content {
+	max-width: rem-calc(1080);
+}
 
-	p {
-		color: $dark-blue;
-		font-size: rem-calc(36);
-		line-height: rem-calc(38);
-	}
+.featured {
+	
 }
 
 .indented {
@@ -270,6 +267,17 @@ nav {
 
 	blockquote {
 		margin-left: -30px;
+	}
+}
+
+.lead-paragraph {
+	margin: rem-calc(18) auto;
+	max-width: rem-calc(836);
+
+	p {
+		color: $dark-blue;
+		font-size: rem-calc(36);
+		line-height: rem-calc(38);
 	}
 }
 
@@ -303,7 +311,7 @@ nav {
 .banner {
 	img {
 		min-width: 100%;
-		height: calc(100vh - 369px);
+		height: calc(100vh - 367px);
 		object-fit: cover;
 		object-position: 20% 50%;
 	}

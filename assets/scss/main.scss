@@ -153,11 +153,6 @@ main,
 	}
 }
 
-// button:hover,
-// .button:hover {
-// 	box-shadow: none;
-// }
-
 .text-button:after {
 	content: "\f0da";
 	font-family: "FontAwesome";
@@ -309,6 +304,32 @@ nav {
 	height: calc(100vh - 124px);
 }
 
+// Aggregate page banner
+
+.aggregate-banner {
+	background: $primary-color;
+	background-image: url('/static/images/grid-pattern.svg');
+	background-size: 432px 432px;
+	min-height: rem-calc(207);
+	color: $nav-anchor;
+	padding: rem-calc(8);
+
+	a,
+	h1 {
+		color: $white;
+		font-size: rem-calc(48);
+	}
+
+	p {
+		font-family: "KingsBureauGrot", sans-serif;
+		font-size: rem-calc(24);
+		padding: rem-calc(24) 0 0;
+
+	}
+}
+
+/* Homepage */
+
 .homepage {
 	position: relative;
 	background: #002395;
@@ -353,11 +374,8 @@ nav {
 
 		&.discover {
 			width: rem-calc(504);
-			// color: scale-color($primary-color, $lightness: 20%);
 			background: $tertiary-color;
 			border-color: scale-color($tertiary-color, $lightness: -40%);
-			// box-shadow: none;
-			// border: 1px dotted scale-color($primary-color, $lightness: 20%);
 			left: calc(50% - 252px);
 
 			&:hover {
@@ -407,14 +425,10 @@ nav {
     list-style-type: none;
 
     li {
-    	// background: rgba($another-gray, .2);
-    	// background-image: url('/static/images/list-bg-element.png');
     	background: url('/static/images/list-bg-element.png') 46px 46px no-repeat rgba($another-gray, .2);
 	    counter-increment: step-counter;
 	    margin: rem-calc(16);
 	    padding-bottom: rem-calc(24);
-
-	    // min-height: rem-calc(420);
 
 	    &:before {
 	    	content: counter(step-counter);
@@ -459,7 +473,6 @@ caption {
 	}
 }
 
-
 /** Footer **/
 
 footer,
@@ -493,6 +506,20 @@ footer,
 }
 
 /** More media queries **/
+
+@include breakpoint(large up) {
+	.aggregate-banner {
+		min-height: rem-calc(240);
+
+		p {
+			font-size: rem-calc(30);
+		}
+
+		h1 {
+			font-size: rem-calc(60);
+		}
+	}
+}
 
 @include breakpoint(medium down) {
 	.float-right-large {

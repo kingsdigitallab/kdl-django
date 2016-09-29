@@ -8,7 +8,7 @@
 <ul class="menu vertical side-menu">
     {% for page in pages %}
     <li>
-        <a href="{% pageurl page %}">{{ page.title }}</a>
+        <h2><a href="{% pageurl page %}">{{ page.title }}</a></h2>
     </li>
     {% endfor %}
 </ul>

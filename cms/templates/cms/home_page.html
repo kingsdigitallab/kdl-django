@@ -1,5 +1,5 @@
 {% extends "cms/base.html" %}
-{% load staticfiles %}
+{% load staticfiles wagtailcore_tags %}
 
 {% block banner %}
 <section class="homepage banner shadowed">
@@ -15,4 +15,28 @@
 	</div>
 	<a class="small button radius discover" href="#content"><i class="fa fa-angle-double-down fa-lg"></i></a>
 </section>
+{% endblock %}
+
+{% block main %}
+
+{{ block.super }}
+
+<h2 class="text-center section-title">Some of our recent projects</h2>
+{% include "cms/includes/featured_work.html" %}
+
+{% include "cms/includes/works.html" %}
+
+{% include "cms/includes/services.html" %}
+
+{# Quote here #}
+
+<div class="row">
+	<div class="large-8 columns">
+		Blog
+	</div>
+	<div class="large-4 columns">
+		Twitter
+	</div>
+</div>
+
 {% endblock %}

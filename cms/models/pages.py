@@ -212,7 +212,7 @@ class WorkPageTag(TaggedItemBase):
     content_object = ParentalKey('WorkPage', related_name='tagged_items')
 
 
-class WorkPage(Page, WithStreamField):
+class WorkPage(Page, WithStreamField, WithFeedImage):
     tags = ClusterTaggableManager(through=WorkPageTag, blank=True)
 
     search_fields = Page.search_fields + [
@@ -228,6 +228,7 @@ WorkPage.content_panels = [
 
 WorkPage.promote_panels = Page.promote_panels + [
     FieldPanel('tags'),
+    ImageChooserPanel('feed_image'),
 ]
 
 
@@ -281,7 +282,7 @@ class BlogPostTag(TaggedItemBase):
     content_object = ParentalKey('BlogPost', related_name='tagged_items')
 
 
-class BlogPost(Page, WithStreamField):
+class BlogPost(Page, WithStreamField, WithFeedImage):
     tags = ClusterTaggableManager(through=BlogPostTag, blank=True)
     date = models.DateField('body')
 
@@ -301,4 +302,5 @@ BlogPost.content_panels = [
 
 BlogPost.promote_panels = Page.promote_panels + [
     FieldPanel('tags'),
+    ImageChooserPanel('feed_image'),
 ]

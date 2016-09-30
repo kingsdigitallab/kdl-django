@@ -17,8 +17,10 @@ from wagtail.wagtailcore.fields import RichTextField
 from wagtail.wagtailcore.models import Page
 from wagtail.wagtailimages.edit_handlers import ImageChooserPanel
 from wagtail.wagtailsearch import index
+from wagtail.wagtailsnippets.edit_handlers import SnippetChooserPanel
 
 from .behaviours import WithContactFields, WithFeedImage, WithStreamField
+from .snippets import WorkCategory
 
 logger = logging.getLogger(__name__)
 
@@ -216,6 +218,8 @@ class WorkPageTag(TaggedItemBase):
 
 class WorkPage(Page, WithStreamField, WithFeedImage):
     subtitle = models.CharField(max_length=256)
+    category = models.ForeignKey(WorkCategory, blank=True, null=True,
+                                 on_delete=models.SET_NULL,)
     tags = ClusterTaggableManager(through=WorkPageTag, blank=True)
 
     search_fields = Page.search_fields + [
@@ -227,6 +231,7 @@ class WorkPage(Page, WithStreamField, WithFeedImage):
 WorkPage.content_panels = [
     FieldPanel('title', classname='full title'),
     FieldPanel('subtitle', classname='full title'),
+    SnippetChooserPanel('category'),
     StreamFieldPanel('body'),
 ]
 

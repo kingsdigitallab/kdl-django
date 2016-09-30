@@ -213,7 +213,7 @@ class WorkPageTag(TaggedItemBase):
 
 
 class WorkPage(Page, WithStreamField):
-    categories = ClusterTaggableManager(through=WorkPageTag, blank=True)
+    tags = ClusterTaggableManager(through=WorkPageTag, blank=True)
 
     search_fields = Page.search_fields + [
         index.SearchField('body'),
@@ -223,11 +223,12 @@ class WorkPage(Page, WithStreamField):
 
 WorkPage.content_panels = [
     FieldPanel('title', classname='full title'),
-    FieldPanel('categories'),
     StreamFieldPanel('body'),
 ]
 
-WorkPage.promote_panels = Page.promote_panels
+WorkPage.promote_panels = Page.promote_panels + [
+    FieldPanel('tags'),
+]
 
 
 class BlogIndexPage(RoutablePageMixin, Page, WithStreamField):

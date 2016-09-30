@@ -101,6 +101,7 @@ PersonIndexPage.promote_panels = Page.promote_panels
 
 
 class PersonPage(Page, WithContactFields, WithFeedImage, WithStreamField):
+    subtitle = models.CharField(max_length=256)
     first_name = models.CharField(max_length=256)
     last_name = models.CharField(max_length=256)
     intro = RichTextField(blank=True)
@@ -115,6 +116,7 @@ class PersonPage(Page, WithContactFields, WithFeedImage, WithStreamField):
 
 PersonPage.content_panels = [
     FieldPanel('title', classname='full title'),
+    FieldPanel('subtitle', classname='full title'),
     FieldPanel('first_name'),
     FieldPanel('last_name'),
     FieldPanel('intro', classname='full'),
@@ -213,6 +215,7 @@ class WorkPageTag(TaggedItemBase):
 
 
 class WorkPage(Page, WithStreamField, WithFeedImage):
+    subtitle = models.CharField(max_length=256)
     tags = ClusterTaggableManager(through=WorkPageTag, blank=True)
 
     search_fields = Page.search_fields + [
@@ -223,6 +226,7 @@ class WorkPage(Page, WithStreamField, WithFeedImage):
 
 WorkPage.content_panels = [
     FieldPanel('title', classname='full title'),
+    FieldPanel('subtitle', classname='full title'),
     StreamFieldPanel('body'),
 ]
 

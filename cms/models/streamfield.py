@@ -2,8 +2,8 @@ from __future__ import unicode_literals
 
 from django import forms
 from wagtail.wagtailcore.blocks import (
-    CharBlock, FieldBlock, PageChooserBlock, RawHTMLBlock, RichTextBlock,
-    StreamBlock, StructBlock, TextBlock
+    BooleanBlock, CharBlock, FieldBlock, ListBlock, PageChooserBlock,
+    RawHTMLBlock, RichTextBlock, StreamBlock, StructBlock, TextBlock
 )
 from wagtail.wagtaildocs.blocks import DocumentChooserBlock
 from wagtail.wagtailembeds.blocks import EmbedBlock
@@ -87,6 +87,12 @@ class CMSStreamBlock(StreamBlock):
     organisation = OrganisationLinkBlock(icon='group')
 
     embed = EmbedBlock(icon='media')
+
+    projects = ListBlock(PageChooserBlock(), label='Featured projects',
+                         icon='pick')
+    latest_blog_posts = BooleanBlock(
+        required=True, label='Show latest blog posts', icon='date')
+    twitter = CharBlock(icon='wagtail')
 
     html = AlignedHTMLBlock(icon='code', label='Raw HTML')
     map_html = AlignedHTMLBlock(icon='code', label='Map HTML')

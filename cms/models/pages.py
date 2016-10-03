@@ -17,8 +17,10 @@ from wagtail.wagtailcore.fields import RichTextField
 from wagtail.wagtailcore.models import Page
 from wagtail.wagtailimages.edit_handlers import ImageChooserPanel
 from wagtail.wagtailsearch import index
+from wagtail.wagtailsnippets.edit_handlers import SnippetChooserPanel
 
 from .behaviours import WithContactFields, WithFeedImage, WithStreamField
+from .snippets import WorkCategory
 
 logger = logging.getLogger(__name__)
 
@@ -101,6 +103,7 @@ PersonIndexPage.promote_panels = Page.promote_panels
 
 
 class PersonPage(Page, WithContactFields, WithFeedImage, WithStreamField):
+    subtitle = models.CharField(max_length=256)
     first_name = models.CharField(max_length=256)
     last_name = models.CharField(max_length=256)
     intro = RichTextField(blank=True)
@@ -115,6 +118,7 @@ class PersonPage(Page, WithContactFields, WithFeedImage, WithStreamField):
 
 PersonPage.content_panels = [
     FieldPanel('title', classname='full title'),
+    FieldPanel('subtitle', classname='full title'),
     FieldPanel('first_name'),
     FieldPanel('last_name'),
     FieldPanel('intro', classname='full'),
@@ -212,8 +216,11 @@ class WorkPageTag(TaggedItemBase):
     content_object = ParentalKey('WorkPage', related_name='tagged_items')
 
 
-class WorkPage(Page, WithStreamField):
-    categories = ClusterTaggableManager(through=WorkPageTag, blank=True)
+class WorkPage(Page, WithStreamField, WithFeedImage):
+    subtitle = models.CharField(max_length=256)
+    category = models.ForeignKey(WorkCategory, blank=True, null=True,
+                                 on_delete=models.SET_NULL,)
+    tags = ClusterTaggableManager(through=WorkPageTag, blank=True)
 
     search_fields = Page.search_fields + [
         index.SearchField('body'),
@@ -223,11 +230,15 @@ class WorkPage(Page, WithStreamField):
 
 WorkPage.content_panels = [
     FieldPanel('title', classname='full title'),
-    FieldPanel('categories'),
+    FieldPanel('subtitle', classname='full title'),
+    SnippetChooserPanel('category'),
     StreamFieldPanel('body'),
 ]
 
-WorkPage.promote_panels = Page.promote_panels
+WorkPage.promote_panels = Page.promote_panels + [
+    FieldPanel('tags'),
+    ImageChooserPanel('feed_image'),
+]
 
 
 class BlogIndexPage(RoutablePageMixin, Page, WithStreamField):
@@ -280,7 +291,7 @@ class BlogPostTag(TaggedItemBase):
     content_object = ParentalKey('BlogPost', related_name='tagged_items')
 
 
-class BlogPost(Page, WithStreamField):
+class BlogPost(Page, WithStreamField, WithFeedImage):
     tags = ClusterTaggableManager(through=BlogPostTag, blank=True)
     date = models.DateField('body')
 
@@ -300,4 +311,5 @@ BlogPost.content_panels = [
 
 BlogPost.promote_panels = Page.promote_panels + [
     FieldPanel('tags'),
+    ImageChooserPanel('feed_image'),
 ]

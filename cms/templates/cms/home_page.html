@@ -32,10 +32,20 @@
 
 <div class="row">
 	<div class="large-8 columns">
-		Blog
+		<h3 class="subhead post-section-title">Blog</h3>
+		<ul>
+	        {% for post in posts %}
+	        <li>
+		        {% include "cms/includes/blog_home.html" with post=post %}
+		    </li>
+			{% empty %}
+			<li>Sorry, nothing to show here.</li>
+		    {% endfor %}
+		</ul>
 	</div>
 	<div class="large-4 columns">
-		Twitter
+		<h3 class="subhead post-section-title"><i class="fa fa-twitter"></i> Latest</h3>
+		{% include "cms/includes/twitter_feeds.html" %}
 	</div>
 </div>
 

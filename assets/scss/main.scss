@@ -122,6 +122,10 @@ cite:before {
     box-shadow: inset 0 20px 20px -20px $black;
 }
 
+.spaced-up {
+	margin: rem-calc(32) 0;
+}
+
 .top-padding {
     padding-top: rem-calc(7);
 }
@@ -240,15 +244,19 @@ h2 {
     font-style: normal;
 }
 
+.post-section-title {
+	background: $another-gray;
+	padding: rem-calc(18) rem-calc(20);
+	margin: rem-calc(36) 0;
+}
+
 .subhead {
     font-size: rem-calc(30);
 }
 
-.post-section-title {
-	background: $another-gray;
-	// color: $dark-blue;
-	padding: rem-calc(18) rem-calc(20);
-	margin: rem-calc(36) 0;
+.subtitle,
+.title {
+	font-family: 'KingsBureauGrot', sans-serif;
 }
 
 /* Navigation */
@@ -579,7 +587,8 @@ footer,
         }
     }
 
-    .banner {
+    .home-banner,
+    .full-height-banner {
         button,
         .button {
             &.discover {

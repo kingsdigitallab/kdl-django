@@ -1,47 +1,54 @@
 {% load wagtailcore_tags wagtailimages_tags %}
 
-<div>
-    {% with thepage=value.starred_page.specific %}
-    {% if thepage.feed_image %}
-    <div>
-        {% image thepage.feed_image width-1024 as theimage %}
+<div class="narrow-container">
+    <div class="row spaced-up">
+        {% with thepage=value.starred_page.specific %}
+        {% if thepage.feed_image %}
+        <div class="large-6 large-push-6 columns">
+            {% image thepage.feed_image width-1024 as theimage %}
 
-        <a href="{% pageurl thepage %}">
-            <img src="{{ theimage.url }}" alt="{{ theimage.title }}">
-        </a>
-    </div>
-    {% endif %}
-    <div>
-        {{ thepage.title }}
-
-        {% if thepage.subtitle %}
-        <a href="{% pageurl thepage %}">
-            {{ thepage.subtitle }}
-        </a>
+            <a href="{% pageurl thepage %}">
+                <img src="{{ theimage.url }}" alt="{{ theimage.title }}">
+            </a>
+        </div>
         {% endif %}
-    </div>
-    {% endwith %}
+        <div class="large-6 large-pull-6 columns">
+            <p class="title">{{ thepage.title }}</p>
 
-    {% for item in value.items %}
-    {% with thepage=item.specific %}
-    {% if thepage.feed_image %}
-    <div>
-        {% image thepage.feed_image width-600 as theimage %}
-
-        <a href="{% pageurl thepage %}">
-            <img src="{{ theimage.url }}" alt="{{ theimage.title }}">
-        </a>
+            {% if thepage.subtitle %}
+            <h2>
+                <a href="{% pageurl thepage %}">
+                    {{ thepage.subtitle }}
+                </a>
+            </h2>
+            {% endif %}
+        </div>
+        {% endwith %}
     </div>
-    {% endif %}
-    <iv>
-        {{ thepage.title }}
+    <div class="row">
+        {% for item in value.items %}
+        <div class="large-4 columns">
+            <div class="row collapse">
+                {% with thepage=item.specific %}
+                {% if thepage.feed_image %}
+                <div class="large-12 columns">
+                    {% image thepage.feed_image width-600 as theimage %}
 
-        {% if thepage.subtitle %}
-        <a href="{% pageurl thepage %}">
-            {{ thepage.subtitle }}
-        </a>
-        {% endif %}
+                    <a href="{% pageurl thepage %}">
+                        <img src="{{ theimage.url }}" alt="{{ theimage.title }}">
+                    </a>
+                </div>
+                {% endif %}
+                <div class="large-12 columns">
+                    <h2 class="title">
+                        <a href="{% pageurl thepage %}">
+                            {{ thepage.title }}
+                        </a>
+                    </h2>
+                </div>
+                {% endwith %}
+            </div>
+        </div>
+        {% endfor %}
     </div>
-    {% endwith %}
-    {% endfor %}
 </div>

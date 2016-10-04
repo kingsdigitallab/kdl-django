@@ -2,8 +2,8 @@ from __future__ import unicode_literals
 
 from django import forms
 from wagtail.wagtailcore.blocks import (
-    BooleanBlock, CharBlock, FieldBlock, ListBlock, PageChooserBlock,
-    RawHTMLBlock, RichTextBlock, StreamBlock, StructBlock, TextBlock, URLBlock
+    CharBlock, FieldBlock, ListBlock, PageChooserBlock, RawHTMLBlock,
+    RichTextBlock, StreamBlock, StructBlock, TextBlock, URLBlock
 )
 from wagtail.wagtaildocs.blocks import DocumentChooserBlock
 from wagtail.wagtailembeds.blocks import EmbedBlock
@@ -19,9 +19,6 @@ class HTMLAlignmentChoiceBlock(FieldBlock):
 class AlignedHTMLBlock(StructBlock):
     html = RawHTMLBlock()
     alignment = HTMLAlignmentChoiceBlock()
-
-    class Meta:
-        icon = 'code'
 
 
 class ImageFormatChoiceBlock(FieldBlock):
@@ -50,9 +47,6 @@ class PageLinkBlock(StructBlock):
     page = PageChooserBlock()
     label = CharBlock()
 
-    class Meta:
-        icon = 'link'
-
 
 class PersonLinkBlock(StructBlock):
     # TODO At the moment Wagtail does not allow filtering by page type, but it
@@ -62,12 +56,20 @@ class PersonLinkBlock(StructBlock):
     description = RichTextBlock()
 
 
+class PullQuoteStyleChoiceBlock(FieldBlock):
+    field = forms.ChoiceField(choices=(
+        ('normal', 'Normal'), ('width-background', 'With background image'),
+    ))
+
+
 class PullQuoteBlock(StructBlock):
     quote = TextBlock('quote title')
     attribution = CharBlock()
+    affiliation = CharBlock(required=False)
+    style = PullQuoteStyleChoiceBlock()
 
     class Meta:
-        icon = 'openquote'
+        template = 'cms/blocks/pullquote_block.html'
 
 
 class BannerStyleChoiceBlock(FieldBlock):
@@ -77,10 +79,10 @@ class BannerStyleChoiceBlock(FieldBlock):
 
 
 class BannerBlock(StructBlock):
-    title = CharBlock(icon='title')
-    subtitle = CharBlock(icon='title')
-    image = ImageChooserBlock(icon='image', required=False)
-    image_copyright = CharBlock(icon='locked', required=False)
+    title = CharBlock()
+    subtitle = CharBlock()
+    image = ImageChooserBlock(required=False)
+    image_copyright = CharBlock(required=False)
     style = BannerStyleChoiceBlock()
 
     class Meta:
@@ -88,10 +90,10 @@ class BannerBlock(StructBlock):
 
 
 class OrderedListBlock(StructBlock):
-    title = CharBlock(icon='title', required=False)
+    title = CharBlock(required=False)
     items = ListBlock(StructBlock([
-        ('title', CharBlock(icon='title')),
-        ('description', CharBlock(icon='pilcrow'))
+        ('title', CharBlock()),
+        ('description', CharBlock())
     ]))
 
     class Meta:
@@ -99,12 +101,12 @@ class OrderedListBlock(StructBlock):
 
 
 class ImageListBlock(StructBlock):
-    title = CharBlock(icon='title', required=False)
+    title = CharBlock(required=False)
     items = ListBlock(StructBlock([
-        ('title', CharBlock(icon='title')),
-        ('subtitle', CharBlock(icon='title')),
-        ('description', CharBlock(icon='pilcrow')),
-        ('image', ImageChooserBlock(icon='image'))
+        ('title', CharBlock()),
+        ('subtitle', CharBlock()),
+        ('description', CharBlock()),
+        ('image', ImageChooserBlock())
     ]))
 
     class Meta:
@@ -112,11 +114,11 @@ class ImageListBlock(StructBlock):
 
 
 class ImageGridBlock(StructBlock):
-    title = CharBlock(icon='title', required=False)
+    title = CharBlock(required=False)
     items = ListBlock(StructBlock([
-        ('image', ImageChooserBlock(icon='image')),
-        ('url', URLBlock(icon='link', required=False)),
-        ('page', PageChooserBlock(icon='link', required=False))
+        ('image', ImageChooserBlock()),
+        ('url', URLBlock(required=False)),
+        ('page', PageChooserBlock(required=False))
     ], help_text='''
     Use either URL or page, if both are filled in URL takes precedence.'''))
 
@@ -138,7 +140,7 @@ class CMSStreamBlock(StreamBlock):
     h5 = CharBlock(icon='title', classname='title')
     intro = RichTextBlock(icon='pilcrow')
     paragraph = RichTextBlock(icon='pilcrow')
-    pullquote = PullQuoteBlock()
+    pullquote = PullQuoteBlock(icon='openquote')
 
     image = ImageBlock(label='Aligned image', icon='image')
     document = DocumentChooserBlock(icon='doc-full-inverse')
@@ -151,9 +153,5 @@ class CMSStreamBlock(StreamBlock):
 
     projects = ListBlock(PageChooserBlock(), label='Featured projects',
                          icon='pick')
-    latest_blog_posts = BooleanBlock(
-        required=True, label='Show latest blog posts', icon='date')
-    twitter = CharBlock(icon='wagtail')
 
     html = AlignedHTMLBlock(icon='code', label='Raw HTML')
-    map_html = AlignedHTMLBlock(icon='code', label='Map HTML')

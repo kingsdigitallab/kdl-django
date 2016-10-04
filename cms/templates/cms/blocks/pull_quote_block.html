@@ -1,0 +1,11 @@
+<div class="{{ value.style }}">
+    <blockquote>
+        {{ value.quote }}
+        {% if value.attribution %}
+        <p>{{ value.attribution }}</p>
+        {% endif %}
+        {% if value.affiliation %}
+        <p>{{ value.affiliation }}</p>
+        {% endif %}
+    </blockquote>
+</div>

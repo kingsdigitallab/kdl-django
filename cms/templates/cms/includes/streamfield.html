@@ -14,11 +14,6 @@
             <div class="intro">{{ block }}</div>
         {% elif block.block_type == 'paragraph' %}
             {{ block.value|richtext }}
-        {% elif block.block_type == 'pullquote' %}
-            <blockquote>
-                {{ block.value.quote }}
-                {% if block.value.attribution %}<span>- {{ block.value.attribution }}</span>{% endif %}
-            </blockquote>
         {% elif block.block_type == 'image' %}
             <div class="img-wrapper {{ block.value.alignment }}">
                 {% if block.value.alignment == "left" or block.value.alignment == "right" %}

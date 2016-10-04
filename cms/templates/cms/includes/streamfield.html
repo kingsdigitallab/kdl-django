@@ -14,34 +14,8 @@
             <div class="intro">{{ block }}</div>
         {% elif block.block_type == 'paragraph' %}
             {{ block.value|richtext }}
-        {% elif block.block_type == 'image' %}
-            <div class="img-wrapper {{ block.value.alignment }}">
-                {% if block.value.alignment == "left" or block.value.alignment == "right" %}
-                    {% image block.value.image width-300 as theimage %}
-                {% else %}
-                    {% image block.value.image width-1280 as theimage %}
-                {% endif %}
-
-                <img src="{{ theimage.url }}" width="{{ theimage.width }}" height="{{ theimage.height }}" alt="{{ theimage.alt }}" />
-
-                {% if block.value.caption %}
-                    <div class="caption">
-                        {{ block.value.caption|richtext }}
-                    </div>
-                {% endif %}
-            </div>
         {% elif block.block_type == 'page' %}
             <a href="{% pageurl block.value.page %}" class="button">{{ block.value.label }}</a>
-        {% elif block.block_type == 'person' %}
-            <a href="{% pageurl block.value.person %}" class="button">{{ block.value.person.title }}</a>
-            <div class="description">
-            {{ block.value.description|richtext }}
-            </div>
-        {% elif block.block_type == 'organisation' %}
-            <a href="{% pageurl block.value.organisation %}" class="button">{{ block.value.organisation.title }}</a>
-            <div class="description">
-            {{ block.value.description|richtext }}
-            </div>
         {% elif block.block_type == 'html' %}
             <div class="iframe-container">
             {% if block.value.alignment == 'normal' %}

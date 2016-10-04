@@ -34,26 +34,13 @@ class ImageBlock(StructBlock):
     caption = RichTextBlock()
     alignment = ImageFormatChoiceBlock()
 
-
-class OrganisationLinkBlock(StructBlock):
-    # TODO At the moment Wagtail does not allow filtering by page type, but it
-    # will in future versions. When it does this needs to be filtered by
-    # PersonPage
-    organisation = PageChooserBlock()
-    description = RichTextBlock()
+    class Meta:
+        templage = 'cms/blocks/image_block.html'
 
 
 class PageLinkBlock(StructBlock):
     page = PageChooserBlock()
     label = CharBlock()
-
-
-class PersonLinkBlock(StructBlock):
-    # TODO At the moment Wagtail does not allow filtering by page type, but it
-    # will in future versions. When it does this needs to be filtered by
-    # PersonPage
-    person = PageChooserBlock()
-    description = RichTextBlock()
 
 
 class PullQuoteStyleChoiceBlock(FieldBlock):
@@ -157,9 +144,6 @@ class CMSStreamBlock(StreamBlock):
     image = ImageBlock(label='Aligned image', icon='image')
     document = DocumentChooserBlock(icon='doc-full-inverse')
     page = PageLinkBlock(icon='link')
-
-    person = PersonLinkBlock(icon='user')
-    organisation = OrganisationLinkBlock(icon='group')
 
     embed = EmbedBlock(icon='media')
 

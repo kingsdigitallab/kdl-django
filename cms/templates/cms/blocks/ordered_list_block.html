@@ -1,0 +1,13 @@
+<div class="full-width gray-bg">
+    {% if value.title %}
+    {{ value.title }}
+    {% endif %}
+    <ol class="block-list">
+        {% for item in value.items %}
+        <li>
+            {{ item.title }}
+            <p>{{ item.description }}</p>
+        </li>
+        {% endfor %}
+    </ol>
+</div>

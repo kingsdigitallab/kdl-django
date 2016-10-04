@@ -87,8 +87,20 @@ class BannerBlock(StructBlock):
         template = 'cms/blocks/banner_block.html'
 
 
+class OrderedListBlock(StructBlock):
+    title = CharBlock(icon='title', required=False)
+    items = ListBlock(StructBlock([
+        ('title', CharBlock(icon='title')),
+        ('description', CharBlock(icon='pilcrow'))
+    ]))
+
+    class Meta:
+        template = 'cms/blocks/ordered_list_block.html'
+
+
 class CMSStreamBlock(StreamBlock):
     banner = BannerBlock()
+    ordered_list = OrderedListBlock(icon='list-ol')
 
     h2 = CharBlock(icon='title', classname='title')
     h3 = CharBlock(icon='title', classname='title')

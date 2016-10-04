@@ -126,6 +126,15 @@ class ImageGridBlock(StructBlock):
         template = 'cms/blocks/image_grid_block.html'
 
 
+class FeaturedPageBlock(StructBlock):
+    title = CharBlock(required=False)
+    starred_page = PageChooserBlock()
+    items = ListBlock(PageChooserBlock(), required=False)
+
+    class Meta:
+        template = 'cms/blocks/featured_page_block.html'
+
+
 class CMSStreamBlock(StreamBlock):
     banner = BannerBlock(label='Banner section')
     ordered_list = OrderedListBlock(
@@ -133,11 +142,14 @@ class CMSStreamBlock(StreamBlock):
         help_text='Use this for sections similar to process')
     image_list = ImageListBlock(label='Image list section')
     image_grid = ImageGridBlock(label='Image grid section', icon='table')
+    featured_pages = FeaturedPageBlock(
+        label='Featured pages section', icon='doc-full')
 
     h2 = CharBlock(icon='title', classname='title')
     h3 = CharBlock(icon='title', classname='title')
     h4 = CharBlock(icon='title', classname='title')
     h5 = CharBlock(icon='title', classname='title')
+
     intro = RichTextBlock(icon='pilcrow')
     paragraph = RichTextBlock(icon='pilcrow')
     pullquote = PullQuoteBlock(icon='openquote')
@@ -150,8 +162,5 @@ class CMSStreamBlock(StreamBlock):
     organisation = OrganisationLinkBlock(icon='group')
 
     embed = EmbedBlock(icon='media')
-
-    projects = ListBlock(PageChooserBlock(), label='Featured projects',
-                         icon='pick')
 
     html = AlignedHTMLBlock(icon='code', label='Raw HTML')

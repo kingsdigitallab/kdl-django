@@ -1,0 +1,18 @@
+{% load wagtailimages_tags %}
+
+<div class="full-width gray-bg">
+    {% if value.title %}
+    {{ value.title }}
+    {% endif %}
+    <ul>
+        {% for item in value.items %}
+        <li>
+            {% image item.image width-300 as theimage %}
+            <img src="{{ theimage.url }}" alt="{{ theimage.title }}">
+            {{ item.title }}
+            {{ item.subtitle }}
+            <p>{{ item.description }}</p>
+        </li>
+        {% endfor %}
+    </ul>
+</div>

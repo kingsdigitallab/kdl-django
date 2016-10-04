@@ -1,0 +1,47 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+
+<div>
+    {% with thepage=value.starred_page.specific %}
+    {% if thepage.feed_image %}
+    <div>
+        {% image thepage.feed_image width-1024 as theimage %}
+
+        <a href="{% pageurl thepage %}">
+            <img src="{{ theimage.url }}" alt="{{ theimage.title }}">
+        </a>
+    </div>
+    {% endif %}
+    <div>
+        {{ thepage.title }}
+
+        {% if thepage.subtitle %}
+        <a href="{% pageurl thepage %}">
+            {{ thepage.subtitle }}
+        </a>
+        {% endif %}
+    </div>
+    {% endwith %}
+
+    {% for item in value.items %}
+    {% with thepage=item.specific %}
+    {% if thepage.feed_image %}
+    <div>
+        {% image thepage.feed_image width-600 as theimage %}
+
+        <a href="{% pageurl thepage %}">
+            <img src="{{ theimage.url }}" alt="{{ theimage.title }}">
+        </a>
+    </div>
+    {% endif %}
+    <iv>
+        {{ thepage.title }}
+
+        {% if thepage.subtitle %}
+        <a href="{% pageurl thepage %}">
+            {{ thepage.subtitle }}
+        </a>
+        {% endif %}
+    </div>
+    {% endwith %}
+    {% endfor %}
+</div>

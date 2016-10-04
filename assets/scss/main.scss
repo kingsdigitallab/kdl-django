@@ -20,23 +20,23 @@ p {
 blockquote {
     position: relative;
     font-size: rem-calc(36);
+    line-height: rem-calc(38);    
     margin: rem-calc(24) 0;
 
     p,
     cite {
         font-style: normal;
-        padding: 0 rem-calc(12);
-        line-height: rem-calc(38);
+        // padding: 0 rem-calc(12);
         margin: 0;
 
-        &.author,
+        &.attribution,
         &.affiliation {
             font-family: "KingsBureauGrot", sans-serif;
             font-size: rem-calc(24);
             line-height: rem-calc(30);
         }
 
-        &.author {
+        &.attribution {
             color: $dark-blue;
             margin-top: rem-calc(24);
         }
@@ -52,8 +52,8 @@ blockquote {
         color: $another-gray;
         font-family: "KingsBureauGrot", sans-serif;
         font-size: rem-calc(60);
-        top: -5px;
-        left: 0;
+        top: rem-calc(100);
+        left: rem-calc(-28);
         float: left;
     }
 }
@@ -130,6 +130,24 @@ cite:before {
     -webkit-column-count: 2; /* Chrome, Safari, Opera */
     -moz-column-count: 2; /* Firefox */
     column-count: 2;
+}
+
+.width-background {
+	background: url('/static/images/grid-pattern.svg') $primary-color;
+    background-size: rem-calc(432);
+
+    blockquote {
+    	max-width: rem-calc(680);
+    	font-size: rem-calc(48);
+    	line-height: rem-calc(50);
+    	margin: 0 auto;
+    	padding: rem-calc(100) 0;
+    	color: $white;
+
+    	.attribution {
+    		color: $white;
+    	}
+    }
 }
 
 /* Buttons */
@@ -269,23 +287,20 @@ nav {
 
 /** Main **/
 
-// #content {
-//     max-width: rem-calc(1080);
+.narrow-container {
+	max-width: 1080px;
+	margin: 0 auto;
+}
+
+// .indented {
+//     max-width: rem-calc(664);
+//     margin-left: auto;
+//     margin-right: auto;
+
+//     blockquote {
+//         margin-left: -30px;
+//     }
 // }
-
-.featured {
-
-}
-
-.indented {
-    max-width: rem-calc(664);
-    margin-left: auto;
-    margin-right: auto;
-
-    blockquote {
-        margin-left: -30px;
-    }
-}
 
 .lead-paragraph {
     margin: rem-calc(18) auto;

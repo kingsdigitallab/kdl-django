@@ -7,20 +7,24 @@
 
 {{ block.super }}
 
-<h2 class="text-center section-title">Some of our recent projects</h2>
-{% include "cms/includes/featured_work.html" %}
-{% include "cms/includes/works.html" %}
-{% include "cms/includes/services.html" %}
+{# This will be replaced by the streamfield #}
+<div class="narrow-container">
+	{% include "cms/includes/featured_work.html" %}
+	{% include "cms/includes/works.html" %}
+	{% include "cms/includes/services.html" %}
+</div>
 
 {# Quote here #}
 
-<div class="row">
-	<div class="large-8 columns">
-		<h3 class="subhead post-section-title">Blog</h3>
-	</div>
-	<div class="large-4 columns">
-		<h3 class="subhead post-section-title"><i class="fa fa-twitter"></i> Latest</h3>
-		{% include "cms/includes/twitter_feeds.html" %}
+<div class="narrow-container">
+	<div class="row">
+		<div class="large-8 columns">
+			<h3 class="subhead post-section-title">Blog</h3>
+		</div>
+		<div class="large-4 columns">
+			<h3 class="subhead post-section-title"><i class="fa fa-twitter"></i> Latest</h3>
+			{% include "cms/includes/twitter_feeds.html" %}
+		</div>
 	</div>
 </div>
 

@@ -120,7 +120,7 @@ class PullQuoteBlock(StructBlock):
     style = PullQuoteStyleChoiceBlock()
 
     class Meta:
-        template = 'cms/blocks/pullquote_block.html'
+        template = 'cms/blocks/pull_quote_block.html'
 
 
 class CMSStreamBlock(StreamBlock):

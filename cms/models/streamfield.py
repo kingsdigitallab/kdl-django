@@ -82,7 +82,7 @@ class ImageListBlock(StructBlock):
     items = ListBlock(StructBlock([
         ('title', CharBlock()),
         ('subtitle', CharBlock()),
-        ('description', CharBlock()),
+        ('description', TextBlock()),
         ('image', ImageChooserBlock())
     ]))
 
@@ -94,7 +94,7 @@ class OrderedListBlock(StructBlock):
     title = CharBlock(required=False)
     items = ListBlock(StructBlock([
         ('title', CharBlock()),
-        ('description', CharBlock())
+        ('description', TextBlock())
     ]))
 
     class Meta:

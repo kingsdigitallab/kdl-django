@@ -1,0 +1,28 @@
+{% load wagtailimages_tags %}
+
+<div class="pre-banner shadowed">
+    <h3 class="pre-title">
+        {{ value.title }}
+    </h3>
+    <h1>
+        {{ value.subtitle }}
+    </h1>
+</div>
+<div class="banner with-tags">
+    {% image value.image original as theimage %}
+    <img src="{{ theimage.url }}" alt="{{ theimage.title }}">
+
+    {% with page.tags.all as tags %}
+    {% if tags %}
+    <div class="tags">
+        <ul class="menu">
+            {% for tag in tags %}
+            <li><a href="#">{{ tag }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+    {% endwith %}
+
+    <a class="small button radius discover" href="#content"><i class="fa fa-angle-double-down fa-lg"></i></a>
+</div>

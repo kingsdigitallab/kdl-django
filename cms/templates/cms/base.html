@@ -4,5 +4,5 @@
 {% block meta_title %}{{ self.title }}{% endblock %}
 
 {% block main %}
-{% include "cms/includes/streamfield.html" with blocks=self.body %}
+{% include "cms/includes/streamfield.html" with blocks=self.body page=self %}
 {% endblock %}

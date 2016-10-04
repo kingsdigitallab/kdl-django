@@ -19,28 +19,8 @@
   </header>
 
   <section class="main">
-    <div class="row">
-      <div class="large-12 columns">
-        {% block title %}{% endblock %}
-      </div>
-    </div>
-    {% block pre-banner %}{% endblock %}
-    {% block banner %}{% endblock %}
-    {% comment %}
-    <div class="row">
-      <div class="large-12 columns">
-        {% block tags %}{% endblock %}
-      </div>
-    </div>
-    {% endcomment %}
-    <div class="row" id="content">
-      <div class="large-12 columns">
-        {% block main %}{% endblock %}
-      </div>
-    </div>
+    {% block main %}{% endblock %}
   </section>
-    </div>
-  </div>
 
   {% block grid-block %}{% endblock %}
 

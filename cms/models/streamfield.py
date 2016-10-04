@@ -70,7 +70,26 @@ class PullQuoteBlock(StructBlock):
         icon = 'openquote'
 
 
+class BannerStyleChoiceBlock(FieldBlock):
+    field = forms.ChoiceField(choices=(
+        ('normal', 'Normal'), ('full-height', 'Full height'),
+    ))
+
+
+class BannerBlock(StructBlock):
+    title = CharBlock(icon='title')
+    subtitle = CharBlock(icon='title')
+    image = ImageChooserBlock(icon='image', required=False)
+    image_copyright = CharBlock(icon='locked', required=False)
+    style = BannerStyleChoiceBlock()
+
+    class Meta:
+        template = 'cms/blocks/banner_block.html'
+
+
 class CMSStreamBlock(StreamBlock):
+    banner = BannerBlock()
+
     h2 = CharBlock(icon='title', classname='title')
     h3 = CharBlock(icon='title', classname='title')
     h4 = CharBlock(icon='title', classname='title')

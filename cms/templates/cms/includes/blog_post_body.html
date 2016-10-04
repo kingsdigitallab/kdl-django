@@ -1,8 +1,5 @@
-
-<p>test</p>
-
 {% if post %}
-{% load cms_tags wagtailcore_tags wagtailroutablepage_tags %}
+{% load cms_tags wagtailcore_tags %}
 
 <article class="post" id="post{{ post.id }}">
     {% block blog_post_header %}
@@ -11,6 +8,7 @@
         <h1 class="posttitle">{{ post.title }}</h1>
         {% endblock %}
 
+        {% comment %}
         {% block blog_post_author %}
         <p class="byline blog">Posted by <a href="{% routablepageurl post.blog_index.specific 'author' post.owner %}">{{ post.owner|unslugify }}</a> 
 
@@ -22,6 +20,7 @@
             {% endif %}
         </p>
         {% endblock %}
+        {% endcomment %}
     </header>
     {% endblock %}
 

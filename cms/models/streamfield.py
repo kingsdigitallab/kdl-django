@@ -23,7 +23,8 @@ class AlignedHTMLBlock(StructBlock):
 
 class BannerStyleChoiceBlock(FieldBlock):
     field = forms.ChoiceField(choices=(
-        ('normal', 'Normal'), ('full-height', 'Full height'),
+        ('default', 'Default'), ('full-height', 'Full height'),
+        ('home-banner full-height', 'Homepage'),
     ))
 
 

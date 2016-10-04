@@ -1,31 +1,29 @@
-{% load wagtailcore_tags wagtailimages_tags %}
+{% load wagtailcore_tags %}
 
-<div>
-    {% for block in blocks %}
-        {% if block.block_type == 'h2' %}
-            <h2>{{ block }}</h2>
-        {% elif block.block_type == 'h3' %}
-            <h3>{{ block }}</h3>
-        {% elif block.block_type == 'h4' %}
-            <h4>{{ block }}</h4>
-        {% elif block.block_type == 'h5' %}
-            <h5>{{ block }}</h5>
-        {% elif block.block_type == 'intro' %}
-            <div class="intro">{{ block }}</div>
-        {% elif block.block_type == 'paragraph' %}
-            {{ block.value|richtext }}
-        {% elif block.block_type == 'page' %}
-            <a href="{% pageurl block.value.page %}" class="button">{{ block.value.label }}</a>
-        {% elif block.block_type == 'html' %}
-            <div class="iframe-container">
-            {% if block.value.alignment == 'normal' %}
-                {{ block.value.bound_blocks.html.render }}
-            {% else %}
-                {{ block.value.bound_blocks.html.render }}
-            {% endif %}
-            </div>
+{% for block in blocks %}
+    {% if block.block_type == 'h2' %}
+        <h2>{{ block }}</h2>
+    {% elif block.block_type == 'h3' %}
+        <h3>{{ block }}</h3>
+    {% elif block.block_type == 'h4' %}
+        <h4>{{ block }}</h4>
+    {% elif block.block_type == 'h5' %}
+        <h5>{{ block }}</h5>
+    {% elif block.block_type == 'intro' %}
+        <div class="intro">{{ block }}</div>
+    {% elif block.block_type == 'paragraph' %}
+        {{ block.value|richtext }}
+    {% elif block.block_type == 'page' %}
+        <a href="{% pageurl block.value.page %}" class="button">{{ block.value.label }}</a>
+    {% elif block.block_type == 'html' %}
+        <div class="iframe-container">
+        {% if block.value.alignment == 'normal' %}
+            {{ block.value.bound_blocks.html.render }}
         {% else %}
-            {% include_block block %}
+            {{ block.value.bound_blocks.html.render }}
         {% endif %}
-    {% endfor %}
-</div>
+        </div>
+    {% else %}
+        {% include_block block %}
+    {% endif %}
+{% endfor %}

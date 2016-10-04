@@ -13,7 +13,7 @@
   <link rel="stylesheet" type="text/x-scss" href="{% static 'scss/main.scss' %}">
   {% endcompress %}
 </head>
-<body>
+<body{% block page_class %}{% endblock %}>
   <header>
     {% include 'includes/header.html' %}
   </header>

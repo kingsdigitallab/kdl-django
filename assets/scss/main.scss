@@ -178,6 +178,23 @@ main,
     }
 }
 
+/* Category colours */
+
+// Blue and light blue
+.blue-palette {
+	&.category-bg {
+		background: $dark-blue;
+	}
+
+	h3 {
+		color: $tertiary-color;
+	}
+}
+
+// Yellow and brown
+.yellow-palette {
+
+}
 /* Headings */
 
 header {
@@ -281,17 +298,17 @@ nav {
     }
 }
 
-/* Pre Banner */
+/* Banner */
 
-.pre-banner {
+.default-banner,
+.category-bg {
     position: relative;
     line-height: 1.125;
     display: block;
-    background-image: url('/static/images/grid-pattern.svg');
-    background-color: $dark-blue;
-    background-size: rem-calc(432);
+    background-image: url('/static/images/grid-pattern.svg') !important;
+    background-size: rem-calc(432) !important;
 
-    .pre-title {
+    .subtitle {
         color: $tertiary-color;
         padding: 1.5rem 1.5rem 0;
     }
@@ -303,12 +320,17 @@ nav {
         max-width: rem-calc(836);
         line-height: rem-calc(60);
     }
+
 }
 
-/* Banner */
+/* Default Banner */
+
+.default-banner {
+    background: $primary-color;
+}
 
 /* TODO: ADD media queries */
-.banner {
+.full-height-banner {
     img {
         min-width: 100%;
         height: calc(100vh - 367px);
@@ -374,7 +396,7 @@ nav {
 
 /* Homepage */
 
-.homepage {
+.home-banner {
     position: relative;
     background: #002395;
     background-image: url('/static/images/shards-homepage.svg'), url('/static/images/grid-pattern.svg');

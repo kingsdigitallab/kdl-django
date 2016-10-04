@@ -3,7 +3,7 @@ from __future__ import unicode_literals
 from django import forms
 from wagtail.wagtailcore.blocks import (
     BooleanBlock, CharBlock, FieldBlock, ListBlock, PageChooserBlock,
-    RawHTMLBlock, RichTextBlock, StreamBlock, StructBlock, TextBlock
+    RawHTMLBlock, RichTextBlock, StreamBlock, StructBlock, TextBlock, URLBlock
 )
 from wagtail.wagtaildocs.blocks import DocumentChooserBlock
 from wagtail.wagtailembeds.blocks import EmbedBlock
@@ -98,9 +98,39 @@ class OrderedListBlock(StructBlock):
         template = 'cms/blocks/ordered_list_block.html'
 
 
+class ImageListBlock(StructBlock):
+    title = CharBlock(icon='title', required=False)
+    items = ListBlock(StructBlock([
+        ('title', CharBlock(icon='title')),
+        ('subtitle', CharBlock(icon='title')),
+        ('description', CharBlock(icon='pilcrow')),
+        ('image', ImageChooserBlock(icon='image'))
+    ]))
+
+    class Meta:
+        template = 'cms/blocks/image_list_block.html'
+
+
+class ImageGridBlock(StructBlock):
+    title = CharBlock(icon='title', required=False)
+    items = ListBlock(StructBlock([
+        ('image', ImageChooserBlock(icon='image')),
+        ('url', URLBlock(icon='link', required=False)),
+        ('page', PageChooserBlock(icon='link', required=False))
+    ], help_text='''
+    Use either URL or page, if both are filled in URL takes precedence.'''))
+
+    class Meta:
+        template = 'cms/blocks/image_grid_block.html'
+
+
 class CMSStreamBlock(StreamBlock):
-    banner = BannerBlock()
-    ordered_list = OrderedListBlock(icon='list-ol')
+    banner = BannerBlock(label='Banner section')
+    ordered_list = OrderedListBlock(
+        label='Ordered list section',
+        help_text='Use this for sections similar to process')
+    image_list = ImageListBlock(label='Image list section')
+    image_grid = ImageGridBlock(label='Image grid section', icon='table')
 
     h2 = CharBlock(icon='title', classname='title')
     h3 = CharBlock(icon='title', classname='title')

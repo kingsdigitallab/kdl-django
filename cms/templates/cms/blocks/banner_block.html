@@ -20,8 +20,10 @@
     </div>
     {% endif %}
 
+    {% if value.image %}
     {% image value.image original as theimage %}
     <img src="{{ theimage.url }}" alt="{{ theimage.title }}">
+    {% endif %}
 
     {% with page.tags.all as tags %}
     {% if tags %}

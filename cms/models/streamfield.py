@@ -21,6 +21,32 @@ class AlignedHTMLBlock(StructBlock):
     alignment = HTMLAlignmentChoiceBlock()
 
 
+class BannerStyleChoiceBlock(FieldBlock):
+    field = forms.ChoiceField(choices=(
+        ('normal', 'Normal'), ('full-height', 'Full height'),
+    ))
+
+
+class BannerBlock(StructBlock):
+    title = CharBlock()
+    subtitle = CharBlock()
+    image = ImageChooserBlock(required=False)
+    image_copyright = CharBlock(required=False)
+    style = BannerStyleChoiceBlock()
+
+    class Meta:
+        template = 'cms/blocks/banner_block.html'
+
+
+class FeaturedPageBlock(StructBlock):
+    title = CharBlock(required=False)
+    starred_page = PageChooserBlock()
+    items = ListBlock(PageChooserBlock(), required=False)
+
+    class Meta:
+        template = 'cms/blocks/featured_page_block.html'
+
+
 class ImageFormatChoiceBlock(FieldBlock):
     field = forms.ChoiceField(choices=(
         ('left', 'Wrap left'), ('right', 'Wrap right'),
@@ -36,6 +62,43 @@ class ImageBlock(StructBlock):
 
     class Meta:
         templage = 'cms/blocks/image_block.html'
+
+
+class ImageGridBlock(StructBlock):
+    title = CharBlock(required=False)
+    items = ListBlock(StructBlock([
+        ('image', ImageChooserBlock()),
+        ('url', URLBlock(required=False)),
+        ('page', PageChooserBlock(required=False))
+    ], help_text='''
+    Use either URL or page, if both are filled in URL takes precedence.'''))
+
+    class Meta:
+        template = 'cms/blocks/image_grid_block.html'
+
+
+class ImageListBlock(StructBlock):
+    title = CharBlock(required=False)
+    items = ListBlock(StructBlock([
+        ('title', CharBlock()),
+        ('subtitle', CharBlock()),
+        ('description', CharBlock()),
+        ('image', ImageChooserBlock())
+    ]))
+
+    class Meta:
+        template = 'cms/blocks/image_list_block.html'
+
+
+class OrderedListBlock(StructBlock):
+    title = CharBlock(required=False)
+    items = ListBlock(StructBlock([
+        ('title', CharBlock()),
+        ('description', CharBlock())
+    ]))
+
+    class Meta:
+        template = 'cms/blocks/ordered_list_block.html'
 
 
 class PageLinkBlock(StructBlock):
@@ -57,69 +120,6 @@ class PullQuoteBlock(StructBlock):
 
     class Meta:
         template = 'cms/blocks/pullquote_block.html'
-
-
-class BannerStyleChoiceBlock(FieldBlock):
-    field = forms.ChoiceField(choices=(
-        ('normal', 'Normal'), ('full-height', 'Full height'),
-    ))
-
-
-class BannerBlock(StructBlock):
-    title = CharBlock()
-    subtitle = CharBlock()
-    image = ImageChooserBlock(required=False)
-    image_copyright = CharBlock(required=False)
-    style = BannerStyleChoiceBlock()
-
-    class Meta:
-        template = 'cms/blocks/banner_block.html'
-
-
-class OrderedListBlock(StructBlock):
-    title = CharBlock(required=False)
-    items = ListBlock(StructBlock([
-        ('title', CharBlock()),
-        ('description', CharBlock())
-    ]))
-
-    class Meta:
-        template = 'cms/blocks/ordered_list_block.html'
-
-
-class ImageListBlock(StructBlock):
-    title = CharBlock(required=False)
-    items = ListBlock(StructBlock([
-        ('title', CharBlock()),
-        ('subtitle', CharBlock()),
-        ('description', CharBlock()),
-        ('image', ImageChooserBlock())
-    ]))
-
-    class Meta:
-        template = 'cms/blocks/image_list_block.html'
-
-
-class ImageGridBlock(StructBlock):
-    title = CharBlock(required=False)
-    items = ListBlock(StructBlock([
-        ('image', ImageChooserBlock()),
-        ('url', URLBlock(required=False)),
-        ('page', PageChooserBlock(required=False))
-    ], help_text='''
-    Use either URL or page, if both are filled in URL takes precedence.'''))
-
-    class Meta:
-        template = 'cms/blocks/image_grid_block.html'
-
-
-class FeaturedPageBlock(StructBlock):
-    title = CharBlock(required=False)
-    starred_page = PageChooserBlock()
-    items = ListBlock(PageChooserBlock(), required=False)
-
-    class Meta:
-        template = 'cms/blocks/featured_page_block.html'
 
 
 class CMSStreamBlock(StreamBlock):
@@ -144,7 +144,6 @@ class CMSStreamBlock(StreamBlock):
     image = ImageBlock(label='Aligned image', icon='image')
     document = DocumentChooserBlock(icon='doc-full-inverse')
     page = PageLinkBlock(icon='link')
-
     embed = EmbedBlock(icon='media')
 
     html = AlignedHTMLBlock(icon='code', label='Raw HTML')

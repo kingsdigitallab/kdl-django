@@ -17,12 +17,8 @@
         {% elif block.block_type == 'page' %}
             <a href="{% pageurl block.value.page %}" class="button">{{ block.value.label }}</a>
         {% elif block.block_type == 'html' %}
-            <div class="iframe-container">
-            {% if block.value.alignment == 'normal' %}
+            <div class="iframe-container block.value.alignment">
                 {{ block.value.bound_blocks.html.render }}
-            {% else %}
-                {{ block.value.bound_blocks.html.render }}
-            {% endif %}
             </div>
         {% else %}
             {% include_block block %}

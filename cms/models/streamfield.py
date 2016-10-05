@@ -12,7 +12,7 @@ from wagtail.wagtailimages.blocks import ImageChooserBlock
 
 class HTMLAlignmentChoiceBlock(FieldBlock):
     field = forms.ChoiceField(choices=(
-        ('normal', 'Normal'), ('full', 'Full width'),
+        ('default', 'Default'), ('full', 'Full width'),
     ))
 
 
@@ -23,7 +23,7 @@ class AlignedHTMLBlock(StructBlock):
 
 class BannerStyleChoiceBlock(FieldBlock):
     field = forms.ChoiceField(choices=(
-        ('normal', 'Normal'), ('full-height', 'Full height'),
+        ('default', 'Default'), ('full-height', 'Full height'),
     ))
 
 
@@ -50,7 +50,7 @@ class FeaturedPageBlock(StructBlock):
 class ImageFormatChoiceBlock(FieldBlock):
     field = forms.ChoiceField(choices=(
         ('left', 'Wrap left'), ('right', 'Wrap right'),
-        ('mid', 'Mid width'), ('full', 'Full width'),
+        ('mid', 'Mid width'), ('full-width', 'Full width'),
         ('hero', 'Hero'),
     ))
 
@@ -108,7 +108,7 @@ class PageLinkBlock(StructBlock):
 
 class PullQuoteStyleChoiceBlock(FieldBlock):
     field = forms.ChoiceField(choices=(
-        ('normal', 'Normal'), ('width-background', 'With background image'),
+        ('default', 'Default'), ('with-background', 'With background image'),
     ))
 
 

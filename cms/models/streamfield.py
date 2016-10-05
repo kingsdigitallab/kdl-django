@@ -91,6 +91,24 @@ class ImageListBlock(StructBlock):
         template = 'cms/blocks/image_list_block.html'
 
 
+class LinkStyleChoiceBlock(FieldBlock):
+    field = forms.ChoiceField(choices=(
+        ('default', 'Default'), ('button', 'Button'),
+    ))
+
+
+class LinkBlock(StructBlock):
+    url = URLBlock(required=False)
+    page = PageChooserBlock(required=False)
+    label = CharBlock()
+    style = LinkStyleChoiceBlock()
+
+    class Meta:
+        help_text = '''Use either URL or page, if both are filled in URL
+        takes precedence.'''
+        template = 'cms/blocks/link_block.html'
+
+
 class OrderedListBlock(StructBlock):
     title = CharBlock(required=False)
     items = ListBlock(StructBlock([
@@ -100,11 +118,6 @@ class OrderedListBlock(StructBlock):
 
     class Meta:
         template = 'cms/blocks/ordered_list_block.html'
-
-
-class PageLinkBlock(StructBlock):
-    page = PageChooserBlock()
-    label = CharBlock()
 
 
 class PullQuoteStyleChoiceBlock(FieldBlock):
@@ -144,7 +157,7 @@ class CMSStreamBlock(StreamBlock):
 
     image = ImageBlock(label='Aligned image', icon='image')
     document = DocumentChooserBlock(icon='doc-full-inverse')
-    page = PageLinkBlock(icon='link')
+    link = LinkBlock(icon='link')
     embed = EmbedBlock(icon='media')
 
     html = AlignedHTMLBlock(icon='code', label='Raw HTML')

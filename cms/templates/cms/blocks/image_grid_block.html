@@ -9,16 +9,11 @@
         <li>
             {% image item.image width-300 as theimage %}
 
-            {% if value.url %}
-            <a href="{{ value.url }}">
-            {% elif value.page %}
-            <a href="{% pageurl value.page %}">
-            {% endif %}
+            <a
+            href="{% if value.url %}{{ url }}{% else %}{% pageurl value.page %}{% endif %}">
             <img src="{{ theimage.url }}" alt="{{ theimage.title }}">
-            {% if value.url or value.page %}
-            </a>
-            {% endif %}
-        </li>
-        {% endfor %}
-    </ul>
+        </a>
+    </li>
+    {% endfor %}
+</ul>
 </div>

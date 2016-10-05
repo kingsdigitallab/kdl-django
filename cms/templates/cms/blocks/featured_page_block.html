@@ -2,36 +2,40 @@
 
 <div class="narrow-container">
     <div class="row spaced-up">
-        {% with thepage=value.starred_page.specific %}
-        {% if thepage.feed_image %}
-        <div class="large-6 large-push-6 columns">
-            {% image thepage.feed_image width-1024 as theimage %}
+        <div class="large-12 columns">
+            <div class="row collapse width-background {# category color class #}">
+                {% with thepage=value.starred_page.specific %}
+                {% if thepage.feed_image %}
+                <div class="large-6 large-push-6 columns">
+                    {% image thepage.feed_image width-1024 as theimage %}
 
-            <a href="{% pageurl thepage %}">
-                <img src="{{ theimage.url }}" alt="{{ theimage.title }}">
-            </a>
-        </div>
-        {% endif %}
-        <div class="large-6 large-pull-6 columns">
-            <p class="title">{{ thepage.title }}</p>
+                    <a href="{% pageurl thepage %}">
+                        <img src="{{ theimage.url }}" alt="{{ theimage.title }}">
+                    </a>
+                </div>
+                {% endif %}
+                <div class="large-6 large-pull-6 columns">
+                    <p class="title">{{ thepage.title }}</p>
 
-            {% if thepage.subtitle %}
-            <h2>
-                <a href="{% pageurl thepage %}">
-                    {{ thepage.subtitle }}
-                </a>
-            </h2>
-            {% endif %}
+                    {% if thepage.subtitle %}
+                    <h2>
+                        <a href="{% pageurl thepage %}">
+                            {{ thepage.subtitle }}
+                        </a>
+                    </h2>
+                    {% endif %}
+                </div>
+                {% endwith %}
+            </div>
         </div>
-        {% endwith %}
     </div>
-    <div class="row">
+    <div class="row spaced-up">
         {% for item in value.items %}
         <div class="large-4 columns">
             <div class="row collapse">
                 {% with thepage=item.specific %}
                 {% if thepage.feed_image %}
-                <div class="large-12 columns">
+                <div class="large-12 large-push-0 medium-6 medium-push-6 columns">
                     {% image thepage.feed_image width-600 as theimage %}
 
                     <a href="{% pageurl thepage %}">
@@ -39,7 +43,7 @@
                     </a>
                 </div>
                 {% endif %}
-                <div class="large-12 columns">
+                <div class="large-12 large-pull-0 medium-6 medium-pull-6 columns width-background">
                     <h2 class="title">
                         <a href="{% pageurl thepage %}">
                             {{ thepage.title }}

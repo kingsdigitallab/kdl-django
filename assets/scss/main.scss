@@ -58,8 +58,21 @@ blockquote {
     }
 }
 
+button,
+.button {
+	position: relative;
+	display: block;
+    width: rem-calc(240);
+    margin-left: auto;
+    margin-right: auto;
+}
+
 cite:before {
     content: none;
+}
+
+.counter-collapse {
+	padding: 0 rem-calc(16);
 }
 
 .darker {
@@ -123,7 +136,7 @@ cite:before {
 }
 
 .spaced-up {
-	margin: rem-calc(32) 0;
+	margin: rem-calc(30) 0;
 }
 
 .top-padding {
@@ -139,6 +152,7 @@ cite:before {
 .width-background {
 	background: url('/static/images/grid-pattern.svg') $primary-color;
     background-size: rem-calc(432);
+    height: 100%;
 
     blockquote {
     	max-width: rem-calc(680);
@@ -165,6 +179,7 @@ button,
 
 main,
 .main {
+
     button,
     .button {
         // box-shadow: 4px 4px 8px scale-color($primary-color, $lightness: 40%);
@@ -368,7 +383,6 @@ nav {
         bottom: 0;
 
         &.discover {
-            width: rem-calc(240);
             background: $tertiary-color;
             border-color: scale-color($tertiary-color, $lightness: -40%);
             left: calc(50% - 120px);
@@ -587,12 +601,16 @@ footer,
         }
     }
 
+    button,
+    .button {
+    	width: rem-calc(504);
+    }
+
     .home-banner,
     .full-height-banner {
         button,
         .button {
             &.discover {
-                width: rem-calc(504);
                 left: calc(50% - 252px);
             }
         }

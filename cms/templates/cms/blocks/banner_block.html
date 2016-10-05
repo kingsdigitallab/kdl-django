@@ -1,16 +1,29 @@
 {% load wagtailimages_tags %}
 
-<div class="pre-banner shadowed">
-    <h3 class="pre-title">
-        {{ value.title }}
-    </h3>
-    <h1>
-        {{ value.subtitle }}
-    </h1>
-</div>
-<div class="banner with-tags">
+<div class="{{ value.style }}-banner shadowed">
+    {% if value.style == 'full-height' %}
+    <div class="category-bg blue-palette{# category color here #}">
+    {% elif value.style == 'home-banner full-height' %}
+    <div class="absolute">
+        <div class="half-block">
+    {% endif %}
+            <h2 class="subtitle">
+                {{ value.title }}
+            </h2>
+            <h1>
+                {{ value.subtitle }}
+            </h1>
+    {% if value.style == 'full-height' %}
+    </div>
+    {% elif value.style == 'home-banner full-height' %}
+        </div>
+    </div>
+    {% endif %}
+
+    {% if value.image %}
     {% image value.image original as theimage %}
     <img src="{{ theimage.url }}" alt="{{ theimage.title }}">
+    {% endif %}
 
     {% with page.tags.all as tags %}
     {% if tags %}
@@ -24,5 +37,8 @@
     {% endif %}
     {% endwith %}
 
+    {% if value.style == 'full-height' or 'home-banner full-height' %}
     <a class="small button radius discover" href="#content"><i class="fa fa-angle-double-down fa-lg"></i></a>
+    {% endif %}
 </div>
+<a id="content"></a>

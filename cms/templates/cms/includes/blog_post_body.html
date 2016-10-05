@@ -1,0 +1,36 @@
+{% if post %}
+{% load cms_tags wagtailcore_tags %}
+
+<article class="post" id="post{{ post.id }}">
+    {% block blog_post_header %}
+    <header>
+        {% block blog_post_title %}
+        <h1 class="posttitle">{{ post.title }}</h1>
+        {% endblock %}
+
+        {% comment %}
+        {% block blog_post_author %}
+        <p class="byline blog">Posted by <a href="{% routablepageurl post.blog_index.specific 'author' post.owner %}">{{ post.owner|unslugify }}</a> 
+
+            {% are_comments_allowed as allow_comments %}
+            {% if allow_comments %}
+            {% block blog_post_comments_link %}
+             | <span class="disqus-comment-count" data-disqus-identifier="{{ self.id }}">Comments</span>
+            {% endblock %}
+            {% endif %}
+        </p>
+        {% endblock %}
+        {% endcomment %}
+    </header>
+    {% endblock %}
+
+    {% block blog_post_content %}
+    <section class="postcontent">
+        {% include "cms/includes/streamfield.html" with content=post.body %}
+    </section>
+    {% endblock %}
+
+    {% block blog_post_tags %}
+    {% endblock %}
+</article>
+{% endif %}

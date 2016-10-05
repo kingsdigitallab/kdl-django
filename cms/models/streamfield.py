@@ -24,6 +24,7 @@ class AlignedHTMLBlock(StructBlock):
 class BannerStyleChoiceBlock(FieldBlock):
     field = forms.ChoiceField(choices=(
         ('default', 'Default'), ('full-height', 'Full height'),
+        ('home-banner full-height', 'Homepage'),
     ))
 
 
@@ -119,7 +120,7 @@ class PullQuoteBlock(StructBlock):
     style = PullQuoteStyleChoiceBlock()
 
     class Meta:
-        template = 'cms/blocks/pullquote_block.html'
+        template = 'cms/blocks/pull_quote_block.html'
 
 
 class CMSStreamBlock(StreamBlock):

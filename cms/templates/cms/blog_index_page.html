@@ -1,5 +1,5 @@
 {% extends "cms/index_page.html" %}
-{% load staticfiles wagtailcore_tags %}
+{% load wagtailcore_tags %}
 
 {% block banner %}
 <section class="aggregate-banner shadowed">
@@ -7,7 +7,7 @@
 		<div class="large-12 columns">
 			<div class="absolute">
 				<div class="half-block">
-					<p>What we do</p>
+					<p>{{ self.subtitle }}</p>
 					<h1>{{ self.title }}</h1>
 				</div>
 			</div>
@@ -19,7 +19,7 @@
 {% block main %}
 
 {% block index_page_children %}
-{% include "cms/includes/index_page_children.html" with pages=posts %}
+{% include "cms/includes/blog_index_posts.html" with class="posts" %}
 {% endblock %}
 
 {% endblock %}

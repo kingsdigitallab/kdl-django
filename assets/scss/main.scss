@@ -20,23 +20,23 @@ p {
 blockquote {
     position: relative;
     font-size: rem-calc(36);
+    line-height: rem-calc(38);    
     margin: rem-calc(24) 0;
 
     p,
     cite {
         font-style: normal;
-        padding: 0 rem-calc(12);
-        line-height: rem-calc(38);
+        // padding: 0 rem-calc(12);
         margin: 0;
 
-        &.author,
+        &.attribution,
         &.affiliation {
             font-family: "KingsBureauGrot", sans-serif;
             font-size: rem-calc(24);
             line-height: rem-calc(30);
         }
 
-        &.author {
+        &.attribution {
             color: $dark-blue;
             margin-top: rem-calc(24);
         }
@@ -52,14 +52,27 @@ blockquote {
         color: $another-gray;
         font-family: "KingsBureauGrot", sans-serif;
         font-size: rem-calc(60);
-        top: -5px;
-        left: 0;
+        top: rem-calc(100);
+        left: rem-calc(-28);
         float: left;
     }
 }
 
+button,
+.button {
+	position: relative;
+	display: block;
+    width: rem-calc(240);
+    margin-left: auto;
+    margin-right: auto;
+}
+
 cite:before {
     content: none;
+}
+
+.counter-collapse {
+	padding: 0 rem-calc(16);
 }
 
 .darker {
@@ -122,6 +135,10 @@ cite:before {
     box-shadow: inset 0 20px 20px -20px $black;
 }
 
+.spaced-up {
+	margin: rem-calc(30) 0;
+}
+
 .top-padding {
     padding-top: rem-calc(7);
 }
@@ -130,6 +147,25 @@ cite:before {
     -webkit-column-count: 2; /* Chrome, Safari, Opera */
     -moz-column-count: 2; /* Firefox */
     column-count: 2;
+}
+
+.width-background {
+	background: url('/static/images/grid-pattern.svg') $primary-color;
+    background-size: rem-calc(432);
+    height: 100%;
+
+    blockquote {
+    	max-width: rem-calc(680);
+    	font-size: rem-calc(48);
+    	line-height: rem-calc(50);
+    	margin: 0 auto;
+    	padding: rem-calc(100) 0;
+    	color: $white;
+
+    	.attribution {
+    		color: $white;
+    	}
+    }
 }
 
 /* Buttons */
@@ -143,6 +179,7 @@ button,
 
 main,
 .main {
+
     button,
     .button {
         // box-shadow: 4px 4px 8px scale-color($primary-color, $lightness: 40%);
@@ -178,6 +215,23 @@ main,
     }
 }
 
+/* Category colours */
+
+// Blue and light blue
+.blue-palette {
+	&.category-bg {
+		background: $dark-blue;
+	}
+
+	h3 {
+		color: $tertiary-color;
+	}
+}
+
+// Yellow and brown
+.yellow-palette {
+
+}
 /* Headings */
 
 header {
@@ -205,15 +259,19 @@ h2 {
     font-style: normal;
 }
 
+.post-section-title {
+	background: $another-gray;
+	padding: rem-calc(18) rem-calc(20);
+	margin: rem-calc(36) 0;
+}
+
 .subhead {
     font-size: rem-calc(30);
 }
 
-.post-section-title {
-    background: $another-gray;
-    color: $dark-blue;
-    padding: rem-calc(18) rem-calc(20);
-    margin: rem-calc(36) 0;
+.subtitle,
+.title {
+	font-family: 'KingsBureauGrot', sans-serif;
 }
 
 /* Navigation */
@@ -252,23 +310,20 @@ nav {
 
 /** Main **/
 
-#content {
-    max-width: rem-calc(1080);
+.narrow-container {
+	max-width: 1080px;
+	margin: 0 auto;
 }
 
-.featured {
+// .indented {
+//     max-width: rem-calc(664);
+//     margin-left: auto;
+//     margin-right: auto;
 
-}
-
-.indented {
-    max-width: rem-calc(664);
-    margin-left: auto;
-    margin-right: auto;
-
-    blockquote {
-        margin-left: -30px;
-    }
-}
+//     blockquote {
+//         margin-left: -30px;
+//     }
+// }
 
 .lead-paragraph {
     margin: rem-calc(18) auto;
@@ -281,17 +336,17 @@ nav {
     }
 }
 
-/* Pre Banner */
+/* Banner */
 
-.pre-banner {
+.default-banner,
+.category-bg {
     position: relative;
     line-height: 1.125;
     display: block;
-    background-image: url('/static/images/grid-pattern.svg');
-    background-color: $dark-blue;
-    background-size: rem-calc(432);
+    background-image: url('/static/images/grid-pattern.svg') !important;
+    background-size: rem-calc(432) !important;
 
-    .pre-title {
+    .subtitle {
         color: $tertiary-color;
         padding: 1.5rem 1.5rem 0;
     }
@@ -303,12 +358,17 @@ nav {
         max-width: rem-calc(836);
         line-height: rem-calc(60);
     }
+
 }
 
-/* Banner */
+/* Default Banner */
+
+.default-banner {
+    background: $primary-color;
+}
 
 /* TODO: ADD media queries */
-.banner {
+.full-height-banner {
     img {
         min-width: 100%;
         height: calc(100vh - 367px);
@@ -323,7 +383,6 @@ nav {
         bottom: 0;
 
         &.discover {
-            width: rem-calc(240);
             background: $tertiary-color;
             border-color: scale-color($tertiary-color, $lightness: -40%);
             left: calc(50% - 120px);
@@ -374,7 +433,7 @@ nav {
 
 /* Homepage */
 
-.homepage {
+.home-banner {
     position: relative;
     background: #002395;
     background-image: url('/static/images/shards-homepage.svg'), url('/static/images/grid-pattern.svg');
@@ -542,11 +601,16 @@ footer,
         }
     }
 
-    .banner {
+    button,
+    .button {
+    	width: rem-calc(504);
+    }
+
+    .home-banner,
+    .full-height-banner {
         button,
         .button {
             &.discover {
-                width: rem-calc(504);
                 left: calc(50% - 252px);
             }
         }

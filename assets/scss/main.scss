@@ -504,6 +504,20 @@ nav {
 
 /* Homepage */
 
+.homepage {
+	.with-background {
+
+		blockquote {
+			padding: rem-calc(100) 0;
+
+			&:before {
+        		top: rem-calc(100);
+        		left: rem-calc(-30);
+			}
+		}
+	}
+}
+
 .home-banner {
 	width: 100%;
     position: relative;

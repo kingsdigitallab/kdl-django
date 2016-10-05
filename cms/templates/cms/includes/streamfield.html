@@ -1,29 +1,27 @@
 {% load wagtailcore_tags %}
 
-{% for block in blocks %}
-    {% if block.block_type == 'h2' %}
-        <h2>{{ block }}</h2>
-    {% elif block.block_type == 'h3' %}
-        <h3>{{ block }}</h3>
-    {% elif block.block_type == 'h4' %}
-        <h4>{{ block }}</h4>
-    {% elif block.block_type == 'h5' %}
-        <h5>{{ block }}</h5>
-    {% elif block.block_type == 'intro' %}
-        <div class="intro">{{ block }}</div>
-    {% elif block.block_type == 'paragraph' %}
-        {{ block.value|richtext }}
-    {% elif block.block_type == 'page' %}
-        <a href="{% pageurl block.value.page %}" class="button">{{ block.value.label }}</a>
-    {% elif block.block_type == 'html' %}
-        <div class="iframe-container">
-        {% if block.value.alignment == 'normal' %}
-            {{ block.value.bound_blocks.html.render }}
+<div>
+    {% for block in blocks %}
+        {% if block.block_type == 'h2' %}
+            <h2>{{ block }}</h2>
+        {% elif block.block_type == 'h3' %}
+            <h3>{{ block }}</h3>
+        {% elif block.block_type == 'h4' %}
+            <h4>{{ block }}</h4>
+        {% elif block.block_type == 'h5' %}
+            <h5>{{ block }}</h5>
+        {% elif block.block_type == 'intro' %}
+            <div class="intro">{{ block }}</div>
+        {% elif block.block_type == 'paragraph' %}
+            {{ block.value|richtext }}
+        {% elif block.block_type == 'page' %}
+            <a href="{% pageurl block.value.page %}" class="button">{{ block.value.label }}</a>
+        {% elif block.block_type == 'html' %}
+            <div class="iframe-container block.value.alignment">
+                {{ block.value.bound_blocks.html.render }}
+            </div>
         {% else %}
-            {{ block.value.bound_blocks.html.render }}
+            {% include_block block %}
         {% endif %}
-        </div>
-    {% else %}
-        {% include_block block %}
-    {% endif %}
-{% endfor %}
+    {% endfor %}
+</div>

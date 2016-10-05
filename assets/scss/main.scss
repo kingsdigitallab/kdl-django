@@ -219,14 +219,13 @@ main,
 
     button,
     .button {
-        // box-shadow: 4px 4px 8px scale-color($primary-color, $lightness: 40%);
         font-size: rem-calc(20);
         border-bottom: 7px solid scale-color($primary-color, $lightness: -40%);
 
         &:hover,
         &:focus {
-            margin-top: 3px;
-            border-bottom: none;
+            margin-top: 3px !important;
+            border-bottom: none !important;
         }
     }
 
@@ -286,8 +285,26 @@ main,
 		color: $tertiary-color;
 	}
 
+	button,
+	.button {
+		background-color: rgba($tertiary-color, .3) !important;
+		border-bottom: 7px solid $tertiary-color !important;
+	}
+
+	.banner-block {
+		.subtitle {
+			color: $tertiary-color;
+		}
+	}
+
 	.tags {
-		background-color: $dark-yellow;
+		background-color: $tertiary-color;
+
+	    li > a {
+	        &:hover {
+	            background: scale-color($tertiary-color, $lightness: -15%);
+	        }
+	    }
 	}
 }
 
@@ -305,8 +322,26 @@ main,
 		color: $dark-yellow;
 	}
 
+	button,
+	.button {
+		background-color: rgba($dark-yellow, .3) !important;
+		border-bottom: 7px solid $dark-yellow !important;
+	}
+
+	.banner-block {
+		.subtitle {
+			color: $dark-yellow;
+		}
+	}
+
 	.tags {
 		background-color: $dark-yellow;
+
+	    li > a {
+	        &:hover {
+	            background: scale-color($dark-yellow, $lightness: -15%);
+	        }
+	    }
 	}
 
 }
@@ -433,10 +468,8 @@ nav {
 
 .default-banner {
 	width: 100%;
-    // background: $primary-color;
 }
 
-/* TODO: ADD media queries */
 .full-height-banner {
 	width: 100%;
     img {
@@ -450,7 +483,7 @@ nav {
     button,
     .button {
         position: absolute;
-        bottom: 0;
+        bottom: rem-calc(150);
 
         &.discover {
             background: $tertiary-color;
@@ -459,19 +492,6 @@ nav {
 
             &:hover {
                 background: scale-color($tertiary-color, $lightness: -20%);
-            }
-        }
-    }
-
-    &.with-tags {
-        height: calc(100vh - 304px);
-        .discover {
-            bottom: rem-calc(150);
-            background: $primary-color;
-            border-color: scale-color($primary-color, $lightness: -40%);
-
-            &:hover {
-                background: scale-color($primary-color, $lightness: -20%);
             }
         }
     }
@@ -515,6 +535,10 @@ nav {
         		left: rem-calc(-30);
 			}
 		}
+	}
+
+	.button.discover {
+        bottom: rem-calc(40);
 	}
 }
 
@@ -699,9 +723,9 @@ footer,
                 left: calc(50% - 252px);
             }
         }
-        &.with-tags {
-            height: calc(100vh - 256px);
-        }
+        // &.with-tags {
+        //     height: calc(100vh - 256px);
+        // }
     }
 }
 

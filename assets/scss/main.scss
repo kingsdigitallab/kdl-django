@@ -129,6 +129,10 @@ cite:before {
     line-height: rem-calc(38);
 }
 
+.more {
+    font-family: "KingsBureauGrot", sans-serif;
+}
+
 .row-block {
     .column {
         margin-bottom: rem-calc(24);
@@ -266,6 +270,10 @@ h2 {
     font-family: 'KingsCaslon', serif;
     font-weight: 400;
     font-style: normal;
+}
+
+.post-list {
+    background-color: rgba($another-gray, .2);
 }
 
 .post-section-title {
@@ -635,17 +643,17 @@ footer,
 /** More media queries **/
 
 @include breakpoint(large up) {
-    .aggregate-banner {
-        min-height: rem-calc(240);
+    // .aggregate-banner {
+    //     min-height: rem-calc(240);
 
-        p {
-            font-size: rem-calc(30);
-        }
+    //     p {
+    //         font-size: rem-calc(30);
+    //     }
 
-        h1 {
-            font-size: rem-calc(60);
-        }
-    }
+    //     h1 {
+    //         font-size: rem-calc(60);
+    //     }
+    // }
 
     button,
     .button {

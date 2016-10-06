@@ -5,10 +5,10 @@
         <div class="large-8 columns">
             <h3 class="subhead post-section-title">{{ value.blog_index_page.title }}</h3>
 
-            <ul>
+            <ul class="no-bullet">
                 {% for post in value.blog_index_page.specific.posts %}
                 <li>
-                    <a href="{% pageurl post %}">{{ post.title }}</a>
+                    {% include "cms/includes/blog_post_preview.html" with post=post %}
                 </li>
                 {% endfor %}
             </ul>

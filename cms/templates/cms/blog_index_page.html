@@ -1,12 +1,9 @@
 {% extends "cms/index_page.html" %}
 {% load wagtailcore_tags %}
 
-{% block main %}
-
-{{ block.super }}
 
 {% block index_page_children %}
-<ul class="{{ class }} no-bullet">
+<ul class="no-bullet">
     {% for post in posts %}
     <li>
         {% include "cms/includes/blog_post_preview.html" with post=post %}
@@ -15,6 +12,4 @@
         <li>Sorry, nothing to show here.</li>
     {% endfor %}
 </ul>
-{% endblock %}
-
 {% endblock %}

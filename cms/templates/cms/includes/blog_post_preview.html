@@ -2,7 +2,7 @@
 {% load cms_tags wagtailimages_tags wagtailcore_tags %}
 
 {% block blog_post_content %}
-<div class="row">
+<div class="row collapse spaced-up post-list">
     {% if post.feed_image %}
     <div class="medium-4 columns">
         {% image post.feed_image max-300x300 as tmp_image %}
@@ -12,9 +12,9 @@
     </div>
     {% endif %}
 
-    <div class="medium-{% if post.feed_image %}8{% else %}12{% endif %} columns">
+    <div class="medium-{% if post.feed_image %}8{% else %}12{% endif %} columns text-content">
         {% comment %}<time datetime="{{ post.date|date:'c' }}">{{ post.date|date_as_block}}</time>{% endcomment %}
-        <h2>
+        <h2 class="subhead subtitle">
             <a href="{% pageurl post %}">{{ post.title }}</a>
         </h2>
 
@@ -31,9 +31,11 @@
 
         <p>
             {% if post.search_description %}
-            {{ post.search_description }} <a href="{% pageurl post %}"> &#8811; </a>
+            {{ post.search_description }} <a href="{% pageurl post %}" title="{{ post.title }}"></a>
             {% endif %}
         </p>
+
+        <p class="more"><a href="{% pageurl post %}" title="{{ post.title }}">Read more <i class="fa fa-play"></i></a></p>
     </div>
 </div>
 {% endblock %}

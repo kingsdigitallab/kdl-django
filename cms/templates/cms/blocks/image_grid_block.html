@@ -13,7 +13,7 @@
             <a href="{% if item.url %}{{ item.url }}{% else %}{% pageurl item.page %}{% endif %}">
             {% endif %}
                 <img src="{{ theimage.url }}" alt="{{ theimage.title }}">
-            {% if item.url or pageurl %}
+            {% if item.url or item.page %}
             </a>
             {% endif %}
     </li>

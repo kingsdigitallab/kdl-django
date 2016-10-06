@@ -1,9 +1,5 @@
-{% extends "cms/includes/blog_post_body.html" %}
-
 {% if post %}
 {% load cms_tags wagtailimages_tags wagtailcore_tags %}
-
-{% block blog_post_header %}{% endblock %}
 
 {% block blog_post_content %}
 <div class="row">
@@ -23,7 +19,7 @@
         </h2>
 
         {% comment %}
-        <p class="byline">Posted by <a href="{% routablepageurl post.blog_index.specific 'author' post.owner %}">{{ post.owner|unslugify }}</a>
+        <p>Posted by <a href="{% routablepageurl post.blog_index.specific 'author' post.owner %}">{{ post.owner|unslugify }}</a>
             {% are_comments_allowed as allow_comments %}
             {% if allow_comments %}
             {% block blog_post_comments_link %}

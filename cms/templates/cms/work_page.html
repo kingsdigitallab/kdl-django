@@ -1,1 +1,3 @@
 {% extends "cms/base.html" %}
+
+{% block section_class %}{{ block.super }} {{ self.category|lower }}{% endblock %}

@@ -1,10 +1,10 @@
 {% load wagtailimages_tags %}
 
-<div class="full-width gray-bg">
+<div class="gray-bg">
     {% if value.title %}
-    {{ value.title }}
+    <h2 class="section-title">{{ value.title }}</h2>
     {% endif %}
-    <ul>
+    <ul class="no-bullet">
         {% for item in value.items %}
         <li>
             {% image item.image width-300 as theimage %}

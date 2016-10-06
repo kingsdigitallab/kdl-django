@@ -1,12 +1,12 @@
 {% load wagtailcore_tags wagtailimages_tags %}
 
-<div class="full-width gray-bg">
+<div class="gray-bg">
     {% if value.title %}
-    {{ value.title }}
+    <h2 class="section-title">{{ value.title }}</h2>
     {% endif %}
-    <ul>
+    <div class="row small-up-2 large-up-4">
         {% for item in value.items %}
-        <li>
+        <div class="column">
             {% image item.image width-300 as theimage %}
 
             {% if item.url or item.page %}
@@ -16,7 +16,7 @@
             {% if item.url or item.page %}
             </a>
             {% endif %}
-    </li>
+        </div>
     {% endfor %}
-</ul>
+    </div>
 </div>

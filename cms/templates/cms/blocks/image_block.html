@@ -1,6 +1,6 @@
 {% load wagtailimages_tags %}
 
-<div class="img-wrapper {{ value.alignment }}">
+<div class="gray-bg img-wrapper {{ value.alignment }}">
     {% if value.alignment == "left" or value.alignment == "right" %}
     {% image value.image width-300 as theimage %}
     {% else %}

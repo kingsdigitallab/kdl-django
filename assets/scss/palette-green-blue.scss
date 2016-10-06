@@ -1,0 +1,38 @@
+/** Green-blue colour palette **/
+
+// Bright green and bright blue
+.green-blue {
+
+	&.with-background {
+		background-color: $bright-green;
+	}
+
+	a,
+	h3,
+	.title,
+	blockquote {
+		color: $bright-blue;
+	}
+
+	button,
+	.button {
+		background-color: rgba($bright-blue, .3) !important;
+		border-bottom: 7px solid $bright-blue !important;
+	}
+
+	.banner-block {
+		.subtitle {
+			color: $bright-blue;
+		}
+	}
+
+	.tags {
+		background-color: $bright-blue;
+
+	    li > a {
+	        &:hover {
+	            background: scale-color($bright-blue, $lightness: -15%);
+	        }
+	    }
+	}
+}

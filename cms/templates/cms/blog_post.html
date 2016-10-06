@@ -1,2 +1,33 @@
 {% extends "cms/base.html" %}
-{% load staticfiles wagtailcore_tags %}
+{% load wagtailcore_tags %}
+
+<article class="post" id="post{{ self.id }}">
+    {% block blog_post_header %}
+    <header>
+        {% block blog_post_title %}
+        <h1>{{ self.title }}</h1>
+        {% endblock %}
+
+        {% comment %}
+        {% block blog_post_author %}
+        <p>Posted by <a href="{% routablepageurl self.blog_index.specific 'author' self.owner %}">{{ self.owner|unslugify }}</a>
+
+            {% are_comments_allowed as allow_comments %}
+            {% if allow_comments %}
+            {% block blog_post_comments_link %}
+             | <span class="disqus-comment-count" data-disqus-identifier="{{ self.id }}">Comments</span>
+            {% endblock %}
+            {% endif %}
+        </p>
+        {% endblock %}
+        {% endcomment %}
+    </header>
+    {% endblock %}
+
+    {% block blog_post_content %}
+    {% include "cms/includes/streamfield.html" with content=self.body %}
+    {% endblock %}
+
+    {% block blog_post_tags %}
+    {% endblock %}
+</article>

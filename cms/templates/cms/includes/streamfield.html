@@ -11,7 +11,7 @@
         {% elif block.block_type == 'h5' %}
             <h5>{{ block }}</h5>
         {% elif block.block_type == 'intro' %}
-            <div class="intro">{{ block }}</div>
+            <div class="gray-bg intro">{{ block }}</div>
         {% elif block.block_type == 'paragraph' %}
             {{ block.value|richtext }}
         {% elif block.block_type == 'html' %}

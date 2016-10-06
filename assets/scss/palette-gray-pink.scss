@@ -1,7 +1,7 @@
 /** Gray-pink colour palette **/
 
 // Gray and bright pink
-.green-blue {
+.gray-pink {
 
 	&.with-background {
 		background-color: $primary-color;
@@ -24,6 +24,16 @@
 		.subtitle {
 			color: $bright-pink;
 		}
+	}
+
+	.block-list {
+		li {
+	        background: url('/static/images/list-element-bright-pink.svg') 46px 46px no-repeat $white;
+
+			&:before {
+	            color: $bright-pink;
+	        }
+    	}
 	}
 
 	.tags {

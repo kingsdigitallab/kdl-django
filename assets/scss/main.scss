@@ -72,6 +72,10 @@ cite:before {
     content: none;
 }
 
+#content {
+    margin-bottom: rem-calc(24);
+}
+
 .counter-collapse {
 	padding: 0 rem-calc(16);
 }
@@ -112,6 +116,19 @@ cite:before {
     }
 }
 
+.gray-bg {
+    background-color: rgba($another-gray, .2);
+    margin: rem-calc(24) 0;
+    padding: rem-calc(40) 0;
+}
+
+.intro,
+.intro p,
+.intro .rich-text {
+    font-size: rem-calc(36);
+    line-height: rem-calc(38);
+}
+
 .light-gray-bg {
     background: rgba($another-gray, .4);
 }
@@ -135,7 +152,9 @@ cite:before {
 }
 
 .section-title {
-    color: $dark-blue-gray;
+    // color: $dark-blue-gray;
+    text-align: center;
+    padding-bottom: rem-calc(24);
 }
 
 .shadowed {
@@ -198,54 +217,6 @@ button,
 .text-button {
     font-family: 'KingsBureauGrot', sans-serif;
     border: 0;
-}
-
-main,
-.main {
-
-	p,
-	h1,
-	h2,
-	h3,
-	h4,
-	h5,
-	ol,
-	ul,
-	span {
-		max-width: rem-calc(1080);
-		margin-left: auto;
-		margin-right: auto;
-	}
-
-    button,
-    .button {
-        font-size: rem-calc(20);
-        border-bottom: 7px solid scale-color($primary-color, $lightness: -40%);
-
-        &:hover,
-        &:focus {
-            margin-top: 3px !important;
-            border-bottom: none !important;
-        }
-    }
-
-    .banner-block {
-    	h1 {
-    		margin-bottom: 0;
-    	}
-
-		p,
-		h1,
-		h2,
-		h3,
-		h4,
-		h5,
-		ol,
-		ul,
-		span {
-			max-width: 100%;
-		}
-    }
 }
 
 .text-button:after {
@@ -347,20 +318,63 @@ nav {
 
 /** Main **/
 
+main,
+.main {
+
+    p,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    iframe,
+    img,
+    ol,
+    span,
+    ul,
+    video {
+        max-width: rem-calc(1080);
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    button,
+    .button {
+        font-size: rem-calc(20);
+        border-bottom: 7px solid scale-color($primary-color, $lightness: -40%);
+
+        &:hover,
+        &:focus {
+            margin-top: 3px !important;
+            border-bottom: none !important;
+        }
+    }
+
+    .banner-block {
+        h1 {
+            margin-bottom: 0;
+        }
+
+        p,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        iframe,
+        img,
+        ol,
+        span,
+        ul,
+        video {
+            max-width: 100%;
+        }
+    }
+}
+
 .narrow-container {
 	max-width: 1080px;
 	margin: 0 auto;
-}
-
-.lead-paragraph {
-    margin: rem-calc(18) auto;
-    max-width: rem-calc(836);
-
-    p {
-        color: $dark-blue;
-        font-size: rem-calc(36);
-        line-height: rem-calc(38);
-    }
 }
 
 /* Banner */
@@ -423,28 +437,28 @@ nav {
 
 // Aggregate page banner
 
-.aggregate-banner {
-	width: 100%;
-    background: $primary-color;
-    background-image: url('/static/images/grid-pattern.svg');
-    background-size: 432px 432px;
-    min-height: rem-calc(207);
-    color: $nav-anchor;
-    padding: rem-calc(8);
+// .aggregate-banner {
+// 	width: 100%;
+//     background: $primary-color;
+//     background-image: url('/static/images/grid-pattern.svg');
+//     background-size: 432px 432px;
+//     min-height: rem-calc(207);
+//     color: $nav-anchor;
+//     padding: rem-calc(8);
 
-    a,
-    h1 {
-        color: $white;
-        font-size: rem-calc(48);
-    }
+//     a,
+//     h1 {
+//         color: $white;
+//         font-size: rem-calc(48);
+//     }
 
-    p {
-        font-family: "KingsBureauGrot", sans-serif;
-        font-size: rem-calc(24);
-        padding: rem-calc(24) 0 0;
+//     p {
+//         font-family: "KingsBureauGrot", sans-serif;
+//         font-size: rem-calc(24);
+//         padding: rem-calc(24) 0 0;
 
-    }
-}
+//     }
+// }
 
 /* Homepage */
 
@@ -543,12 +557,11 @@ nav {
 /* Block list */
 
 .block-list {
-    margin: 0 auto;
+    margin: 0 auto rem-cal(24);
     max-width: rem-calc(836);
     list-style-type: none;
 
     li {
-        background: url('/static/images/list-bg-element.png') 46px 46px no-repeat rgba($another-gray, .2);
         counter-increment: step-counter;
         margin: rem-calc(16);
         padding-bottom: rem-calc(24);
@@ -557,7 +570,6 @@ nav {
             content: counter(step-counter);
             font-family: "KingsBureauGrot", sans-serif;
             font-size: rem-calc(48);
-            color: $tertiary-color;
             padding: 0 rem-calc(16);
         }
 

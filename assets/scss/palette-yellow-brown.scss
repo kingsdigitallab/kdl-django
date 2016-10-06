@@ -26,6 +26,16 @@
 		}
 	}
 
+	.block-list {
+		li {
+	        background: url('/static/images/list-element-dark-yellow.svg') 46px 46px no-repeat $white;
+
+			&:before {
+	            color: $dark-yellow;
+	        }
+    	}
+	}
+
 	.tags {
 		background-color: $dark-yellow;
 

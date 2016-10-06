@@ -26,6 +26,16 @@
 		}
 	}
 
+	.block-list {
+		li {
+	        background: url('/static/images/list-element-bright-blue.svg') 46px 46px no-repeat $white;
+
+			&:before {
+        	    color: $bright-blue;
+        	}
+        }
+	}
+
 	.tags {
 		background-color: $bright-blue;
 

@@ -13,12 +13,12 @@
   <link rel="stylesheet" type="text/x-scss" href="{% static 'scss/main.scss' %}">
   {% endcompress %}
 </head>
-<body{% block page_class %}{% endblock %}>
+<body class="{{ self.content_type.model }}">
   <header>
     {% include 'includes/header.html' %}
   </header>
 
-  <section class="main {{ self.category }}">
+  <section class="{% block section_class %}main{% endblock %}">
     {% block main %}{% endblock %}
   </section>
 

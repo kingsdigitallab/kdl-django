@@ -131,20 +131,19 @@ cite:before {
 
 .row-block {
     .column {
+        margin-bottom: rem-calc(24);
 
         .image {
             position: relative;
             padding-top: 100%;
-            // padding: rem-calc(12);
             background: $white;
-            // margin-top: rem-calc(12);
-            // margin-bottom: rem-calc(12);
 
             img {
+                padding: rem-calc(24);
                 position: absolute;
                 top: 50%;
                 transform: translateY(-50%);
-                padding: rem-calc(24);
+                width: 100%;
             }
         }
     }

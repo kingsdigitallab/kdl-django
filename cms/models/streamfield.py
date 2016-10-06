@@ -71,10 +71,11 @@ class ImageGridBlock(StructBlock):
         ('image', ImageChooserBlock()),
         ('url', URLBlock(required=False)),
         ('page', PageChooserBlock(required=False))
-    ], help_text='''
-    Use either URL or page, if both are filled in URL takes precedence.'''))
+    ]))
 
     class Meta:
+        help_text = '''
+        Use either URL or page, if both are filled in URL takes precedence.'''
         template = 'cms/blocks/image_grid_block.html'
 
 
@@ -104,9 +105,17 @@ class LinkBlock(StructBlock):
     style = LinkStyleChoiceBlock()
 
     class Meta:
-        help_text = '''Use either URL or page, if both are filled in URL
-        takes precedence.'''
+        help_text = '''
+        Use either URL or page, if both are filled in URL takes precedence.'''
         template = 'cms/blocks/link_block.html'
+
+
+class LiveFeedsBlock(StructBlock):
+    blog_index_page = PageChooserBlock()
+    twitter = CharBlock()
+
+    class Meta:
+        template = 'cms/blocks/live_feeds_block.html'
 
 
 class OrderedListBlock(StructBlock):
@@ -145,6 +154,8 @@ class CMSStreamBlock(StreamBlock):
     image_grid = ImageGridBlock(label='Image grid section', icon='table')
     featured_pages = FeaturedPageBlock(
         label='Featured pages section', icon='doc-full')
+    live_feeds = LiveFeedsBlock(
+        label='Live feeds section (blog/twitter)', icon='wagtail')
 
     h2 = CharBlock(icon='title', classname='title')
     h3 = CharBlock(icon='title', classname='title')

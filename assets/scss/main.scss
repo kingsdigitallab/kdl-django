@@ -269,82 +269,6 @@ main,
     }
 }
 
-/* Category colours */
-
-// Blue and light blue
-.blue-azure {
-
-	&.with-background {
-		background-color: $dark-blue;
-	}
-
-	a,
-	h3,
-	.title,
-	blockquote {
-		color: $tertiary-color;
-	}
-
-	button,
-	.button {
-		background-color: rgba($tertiary-color, .3) !important;
-		border-bottom: 7px solid $tertiary-color !important;
-	}
-
-	.banner-block {
-		.subtitle {
-			color: $tertiary-color;
-		}
-	}
-
-	.tags {
-		background-color: $tertiary-color;
-
-	    li > a {
-	        &:hover {
-	            background: scale-color($tertiary-color, $lightness: -15%);
-	        }
-	    }
-	}
-}
-
-// Yellow and brown
-.yellow-brown {
-
-	&.with-background {
-		background-color: $dirty-brown;
-	}
-
-	a,
-	h3,
-	.title,
-	blockquote {
-		color: $dark-yellow;
-	}
-
-	button,
-	.button {
-		background-color: rgba($dark-yellow, .3) !important;
-		border-bottom: 7px solid $dark-yellow !important;
-	}
-
-	.banner-block {
-		.subtitle {
-			color: $dark-yellow;
-		}
-	}
-
-	.tags {
-		background-color: $dark-yellow;
-
-	    li > a {
-	        &:hover {
-	            background: scale-color($dark-yellow, $lightness: -15%);
-	        }
-	    }
-	}
-
-}
 /* Headings */
 
 header {
@@ -812,3 +736,12 @@ footer,
         padding: 0;
     }
 }
+
+/* Move this out of here
+ * Import will be done in base.html based on page classes
+ */
+
+ @import 'palette-blue-azure';
+ @import 'palette-yellow-brown';
+ @import 'palette-green-blue';
+ @import 'palette-gray-pink';

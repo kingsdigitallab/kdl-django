@@ -3,13 +3,13 @@
 <div class="page-content">
     {% for block in blocks %}
         {% if block.block_type == 'h2' %}
-            <h2>{{ block }}</h2>
+            <h2 class="heading-content">{{ block }}</h2>
         {% elif block.block_type == 'h3' %}
-            <h3>{{ block }}</h3>
+            <h3 class="heading-content">{{ block }}</h3>
         {% elif block.block_type == 'h4' %}
-            <h4>{{ block }}</h4>
+            <h4 class="heading-content">{{ block }}</h4>
         {% elif block.block_type == 'h5' %}
-            <h5>{{ block }}</h5>
+            <h5 class="heading-content">{{ block }}</h5>
         {% elif block.block_type == 'intro' %}
             <div class="gray-bg intro">{{ block }}</div>
         {% elif block.block_type == 'paragraph' %}

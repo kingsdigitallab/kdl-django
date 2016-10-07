@@ -37,7 +37,7 @@
     {% endif %}
     {% endwith %}
 
-    {% if value.style == 'full-height' or 'home-banner full-height' %}
+    {% if value.style != 'default' %}
     <a class="small button radius discover" href="#content"><i class="fa fa-angle-double-down fa-lg"></i></a>
     {% endif %}
 </div>

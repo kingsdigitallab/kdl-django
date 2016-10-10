@@ -1,15 +1,28 @@
 {% extends "cms/index_page.html" %}
 {% load wagtailcore_tags %}
 
-
 {% block index_page_children %}
-<ul class="no-bullet">
-    {% for post in posts %}
-    <li>
-        {% include "cms/includes/blog_post_preview.html" with post=post %}
-    </li>
+{% for post in posts %}
+{% if forloop.first %}
+<div class="gray-bg">
+	<div class="row">
+	    {% include "cms/includes/blog_post_preview.html" with post=post %}
+	</div>
+</div>
+{% endif %}
+{% endfor %}
+
+<div class="row medium-up-2">
+	{% for post in posts %}
+	{% if not forloop.first %}
+	<div class="column">
+		<div class="row collapse">
+        	{% include "cms/includes/blog_post_preview.html" with post=post %}
+        </div>
+    </div>
+    {% endif %}
     {% empty %}
-        <li>Sorry, nothing to show here.</li>
+        <p>Sorry, nothing to show here.</p>
     {% endfor %}
-</ul>
+</div>
 {% endblock %}

@@ -2,7 +2,6 @@
 {% load cms_tags wagtailimages_tags wagtailcore_tags %}
 
 {% block blog_post_content %}
-<div class="row collapse spaced-up post-list">
     {% if post.feed_image %}
     <div class="medium-4 columns">
         {% image post.feed_image max-300x300 as tmp_image %}
@@ -37,7 +36,6 @@
 
         <p class="more"><a href="{% pageurl post %}" title="{{ post.title }}">Read more <i class="fa fa-play"></i></a></p>
     </div>
-</div>
 {% endblock %}
 
 {% block share_on_twitter %}{% endblock %}

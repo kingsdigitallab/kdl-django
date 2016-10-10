@@ -176,6 +176,10 @@ cite:before {
 	margin: rem-calc(30) 0;
 }
 
+.spaced-up-vertically {
+    padding-bottom: rem-calc(30);
+}
+
 .starred-page {
 	a {
 		color: $white;
@@ -183,7 +187,7 @@ cite:before {
 }
 
 .text-content {
-	padding: rem-calc(16) !important;
+	padding: rem-calc(0 16) !important;
 }
 
 .top-padding {

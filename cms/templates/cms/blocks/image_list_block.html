@@ -1,17 +1,23 @@
 {% load wagtailimages_tags %}
 
-<div class="gray-bg">
+<div class="gray-bg extra-padding-vertical">
     {% if value.title %}
     <h2 class="section-title">{{ value.title }}</h2>
     {% endif %}
     <ul class="no-bullet">
         {% for item in value.items %}
-        <li>
-            {% image item.image width-300 as theimage %}
-            <img src="{{ theimage.url }}" alt="{{ theimage.title }}">
-            {{ item.title }}
-            {{ item.subtitle }}
-            <p>{{ item.description }}</p>
+        <li class="extra-padding-vertical">
+            <div class="row collapse">
+                <div class="small-4 columns">
+                    {% image item.image width-300 as theimage %}
+                    <img src="{{ theimage.url }}" alt="{{ theimage.title }}">
+                </div>
+                <div class="small-8 columns">
+                    {{ item.title }}
+                    {{ item.subtitle }}
+                    <p>{{ item.description }}</p>
+                </div>
+            </div>
         </li>
         {% endfor %}
     </ul>

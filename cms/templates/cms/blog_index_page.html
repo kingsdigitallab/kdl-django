@@ -4,7 +4,7 @@
 {% block index_page_children %}
 {% for post in posts %}
 {% if forloop.first %}
-<div class="gray-bg">
+<div class="gray-bg extra-padding-vertical">
 	<div class="row">
 	    {% include "cms/includes/blog_post_preview.html" with post=post %}
 	</div>

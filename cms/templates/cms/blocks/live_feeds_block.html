@@ -8,7 +8,9 @@
             <ul class="no-bullet">
                 {% for post in value.blog_index_page.specific.posts %}
                 <li>
-                    {% include "cms/includes/blog_post_preview.html" with post=post %}
+                    <div class="row collapse gray-bg">
+                        {% include "cms/includes/blog_post_preview.html" with post=post %}
+                    </div>
                 </li>
                 {% endfor %}
             </ul>

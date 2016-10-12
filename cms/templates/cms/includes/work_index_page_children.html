@@ -3,7 +3,7 @@
 
 {% for page in pages %}
 {% if forloop.first %}
-<div class="gray-bg">
+<div class="gray-bg extra-padding-vertical">
 	<div class="row collapse">
 	    {% if page.feed_image %}
 	    <div class="medium-4 columns">
@@ -45,7 +45,7 @@
 		    </div>
 		    {% endif %}
 			<div class="small-{% if page.feed_image %}8{% else %}12{% endif %} columns text-content">
-	    		<h2><a href="{% pageurl page %}">{{ page.title }}</a></h2>
+	    		<h2 class="subhead subtitle"><a href="{% pageurl page %}">{{ page.title }}</a></h2>
 	    		<p>
 		            {% if page.search_description %}
 		            {{ page.search_description }}

@@ -62,7 +62,7 @@ class ImageBlock(StructBlock):
     alignment = ImageFormatChoiceBlock()
 
     class Meta:
-        templage = 'cms/blocks/image_block.html'
+        template = 'cms/blocks/image_block.html'
 
 
 class ImageGridBlock(StructBlock):

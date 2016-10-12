@@ -96,6 +96,16 @@ cite:before {
     color: $nav-anchor;
 }
 
+.extra-padding-horizontal {
+    padding-left: rem-calc(24);
+    padding-right: rem-calc(24);
+}
+
+.extra-padding-vertical {
+    padding-top: rem-calc(24);
+    padding-bottom: rem-calc(24);
+}
+
 .featured-page-block {
 	.subtitle,
 	.subtitle a {
@@ -127,7 +137,15 @@ cite:before {
 .gray-bg {
     background-color: rgba($another-gray, .2);
     margin: rem-calc(24) 0;
-    padding: rem-calc(40) 0;
+
+    &.intro {
+        padding: rem-calc(24 0);
+    }
+}
+
+.img-wrapper {
+    max-width: rem-calc(1080);
+    margin: rem-calc(24) auto;
 }
 
 .intro,
@@ -287,9 +305,9 @@ h2.heading-content {
 .post-list {
     background-color: rgba($another-gray, .2);
 
-    .subhead a {
-        color: $primary-color;
-    }
+    // .subhead a {
+    //     color: $primary-color;
+    // }
 
     p:last-child,
     p.more {
@@ -305,6 +323,9 @@ h2.heading-content {
 
 .subhead {
     font-size: rem-calc(30);
+    a {
+        color: $primary-color;
+    }
 }
 
 .subtitle,

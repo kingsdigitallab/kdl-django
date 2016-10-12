@@ -27,7 +27,6 @@ blockquote {
     p,
     cite {
         font-style: normal;
-        // padding: 0 rem-calc(12);
         margin: 0;
 
         &.attribution,
@@ -91,7 +90,6 @@ cite:before {
 .datetime,
 .more,
 .more a {
-    font-family: "KingsBureauGrot", sans-serif;
     font-size: rem-calc(20);
     color: $nav-anchor;
 }
@@ -108,7 +106,9 @@ cite:before {
 
 .featured-page-block {
 	.subtitle,
-	.subtitle a {
+	.subtitle a,
+    .post-title,
+    .post-title a {
 		color: $white;
 	}
 }
@@ -140,6 +140,17 @@ cite:before {
 
     &.intro {
         padding: rem-calc(24 0);
+    }
+}
+
+.hero {
+    h3.subhead {
+        color: $subhead-color;
+        line-height: 1;
+        margin-bottom: 0;
+        margin-top: rem-calc(16);
+        padding-bottom: 0;
+        padding-top: rem-calc(8);
     }
 }
 
@@ -181,17 +192,16 @@ cite:before {
 }
 
 .shadowed {
-    -webkit-box-shadow: inset 0 20px 20px -20px $black;
-    box-shadow: inset 0 20px 20px -20px $black;
+    -webkit-box-shadow: inset rem-calc(0 20 20 -20) $black;
+    box-shadow: inset rem-calc(0 20 20 -20) $black;
 
-    h1,
-    .subtitle {
-    	color: $white;
+    h1 {
+        color: $white;
     }
 }
 
 .spaced-up {
-	margin: rem-calc(30) 0;
+	margin: rem-calc(30);
 }
 
 .spaced-up-vertically {
@@ -246,7 +256,6 @@ cite:before {
 button,
 .button,
 .text-button {
-    font-family: 'KingsBureauGrot', sans-serif;
     border: 0;
 }
 
@@ -262,7 +271,7 @@ button,
 
     button {
         padding: .75rem;
-        margin-top: -1px;
+        margin-top: rem-calc(-1);
     }
 
     button:after {
@@ -278,8 +287,8 @@ header {
         padding: 1.5rem 0 0 1.5rem;
 
         img {
-            max-width: 167px;
-            max-height: 82px;
+            max-width: rem-calc(167);
+            max-height: rem-calc(82);
         }
 
         a {
@@ -288,7 +297,7 @@ header {
     }
 
     .kcl-logo img {
-        max-width: rem-calc(158px);
+        max-width: rem-calc(158);
     }
 }
 
@@ -305,10 +314,6 @@ h2.heading-content {
 .post-list {
     background-color: rgba($another-gray, .2);
 
-    // .subhead a {
-    //     color: $primary-color;
-    // }
-
     p:last-child,
     p.more {
         margin-bottom: 0;
@@ -317,10 +322,11 @@ h2.heading-content {
 
 .post-section-title {
 	background: $another-gray;
-	padding: rem-calc(18) rem-calc(20);
-	margin: rem-calc(36) 0;
+	padding: rem-calc(18 20);
+	margin: rem-calc(36 0);
 }
 
+.post-title,
 .subhead {
     font-size: rem-calc(30);
     a {
@@ -328,20 +334,37 @@ h2.heading-content {
     }
 }
 
+button,
+.button,
+.text-button,
+caption,
+.caption,
+.datetime,
+.menu,
+.more,
+.more a,
+.post-title,
 .subtitle,
-.title {
+.title,
+.title-bar {
 	font-family: 'KingsBureauGrot', sans-serif;
+}
+
+.post-title {
+    padding-top: rem-calc(8);
+}
+
+.workindexpage {
+    .with-background .text-content p {
+        color: $white;
+    }
 }
 
 /* Navigation */
 
 nav {
-    .title-bar {
-        font-family: "KingsBureauGrot", sans-serif;
-    }
 
     .menu {
-        font-family: "KingsBureauGrot", sans-serif;
         font-size: 1.5rem;
 
         a {
@@ -392,11 +415,11 @@ main,
     button,
     .button {
         font-size: rem-calc(20);
-        border-bottom: 7px solid scale-color($primary-color, $lightness: -40%);
+        border-bottom: rem-calc(7) solid scale-color($primary-color, $lightness: -40%);
 
         &:hover,
         &:focus {
-            margin-top: 3px !important;
+            margin-top: rem-calc(3) !important;
             border-bottom: none !important;
         }
     }
@@ -424,7 +447,7 @@ main,
 }
 
 .narrow-container {
-	max-width: 1080px;
+	max-width: rem-calc(1080);
 	margin: 0 auto;
 }
 
@@ -445,7 +468,7 @@ main,
 
     h1 {
         color: $white;
-        padding: 0 1.5rem 1.5rem 1.5rem;
+        padding: rem-calc(0 24 24 24);
         margin-bottom: 0;
         max-width: rem-calc(836);
         line-height: rem-calc(60);
@@ -486,31 +509,6 @@ main,
     }
 }
 
-// Aggregate page banner
-
-// .aggregate-banner {
-// 	width: 100%;
-//     background: $primary-color;
-//     background-image: url('/static/images/grid-pattern.svg');
-//     background-size: 432px 432px;
-//     min-height: rem-calc(207);
-//     color: $nav-anchor;
-//     padding: rem-calc(8);
-
-//     a,
-//     h1 {
-//         color: $white;
-//         font-size: rem-calc(48);
-//     }
-
-//     p {
-//         font-family: "KingsBureauGrot", sans-serif;
-//         font-size: rem-calc(24);
-//         padding: rem-calc(24) 0 0;
-
-//     }
-// }
-
 /* Homepage */
 
 .homepage {
@@ -536,9 +534,9 @@ main,
     position: relative;
     background: #002395;
     background-image: url('/static/images/shards-homepage.svg'), url('/static/images/grid-pattern.svg');
-    background-size: 990px auto, 432px 432px;
+    background-size: rem-calc(990) auto, rem-calc(432) rem-calc(432);
     background-repeat: no-repeat, repeat;
-    background-position: right -125px top, right top;
+    background-position: right rem-calc(-125) top, right top;
 
     .absolute {
         position: absolute;
@@ -548,7 +546,7 @@ main,
     .half-block {
         position: relative;
         top: -65%;
-        max-width: 678px;
+        max-width: rem-calc(678);
         padding-left: rem-calc(24);
     }
 
@@ -580,7 +578,7 @@ main,
     display: block;
     padding: rem-calc(24);
     background-image: url('/static/images/grid-pattern.svg');
-    background-size: 432px;
+    background-size: rem-calc(432);
 
     li {
         height: rem-calc(36);
@@ -590,7 +588,7 @@ main,
     li > a {
         font-size: rem-calc(18);
         color: $white;
-        border: 1px solid $white;
+        border: rem-calc(1) solid $white;
         padding: rem-calc(6);
 
         &:hover {
@@ -629,7 +627,7 @@ main,
         }
 
         h3:first-child {
-            margin-top: -54px;
+            margin-top: rem-calc(-54);
         }
     }
 }
@@ -638,28 +636,21 @@ main,
 
 .caption,
 caption {
-    font-family: "KingsBureauGrot", sans-serif;
     font-size: rem-calc(16);
 }
-
-// .team {
-//     margin-bottom: rem-calc(24);
-
-//     img {
-//         width: 90%;
-//     }
-// }
 
 /** Footer **/
 
 footer,
 .footer {
-    padding: rem-calc(24) rem-calc(24) 0;
     background: $primary-color;
     color: $another-gray;
+    font-family: "KingsCaslon", serif;
+    padding: rem-calc(24) rem-calc(24) 0;
 
     a {
         color: $another-gray;
+        font-family: "KingsCaslon", serif;
     }
 
     .top-footer,
@@ -667,8 +658,8 @@ footer,
         display: block;
 
         .menu > li > a {
-            padding: 0;
             line-height: rem-calc(30);
+            padding: 0;
         }
     }
 
@@ -677,25 +668,14 @@ footer,
     }
 
     .bottom-footer {
-        padding: rem-calc(24);
         margin-top: rem-calc(24);
+        padding: rem-calc(24);
     }
 }
 
 /** More media queries **/
 
 @include breakpoint(large up) {
-    // .aggregate-banner {
-    //     min-height: rem-calc(240);
-
-    //     p {
-    //         font-size: rem-calc(30);
-    //     }
-
-    //     h1 {
-    //         font-size: rem-calc(60);
-    //     }
-    // }
 
     button,
     .button {
@@ -710,9 +690,6 @@ footer,
                 left: calc(50% - 252px);
             }
         }
-        // &.with-tags {
-        //     height: calc(100vh - 256px);
-        // }
     }
 }
 
@@ -734,7 +711,6 @@ footer,
         .kdl-heading {
             padding: rem-calc(12) rem-calc(12) 0;
             img {
-                // max-width: 100%;
                 max-height: rem-calc(36);
             }
         }
@@ -784,8 +760,8 @@ footer,
     }
 
     .shadowed-small {
-        -webkit-box-shadow: inset 0 20px 20px -20px $black;
-        box-shadow: inset 0 20px 20px -20px $black;
+        -webkit-box-shadow: inset rem-calc(0 20 20 -20) $black;
+        box-shadow: inset rem-calc(0 20 20 -20) $black;
     }
 
     .team {

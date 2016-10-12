@@ -16,7 +16,7 @@
 	{% for post in posts %}
 	{% if not forloop.first %}
 	<div class="column">
-		<div class="row collapse">
+		<div class="row collapse spaced-up-vertically">
         	{% include "cms/includes/blog_post_preview.html" with post=post %}
         </div>
     </div>

@@ -1,2 +1,10 @@
 {% extends "cms/index_page.html" %}
-{% load wagtailcore_tags %}
+
+{% block main %}
+
+{{ block.super }}
+
+{% block index_page_children %}
+{% endblock %}
+
+{% endblock %}

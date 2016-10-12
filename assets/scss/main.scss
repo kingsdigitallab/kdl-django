@@ -154,9 +154,10 @@ cite:before {
     }
 }
 
-.personindexpage h3.subtitle {
-    color: $subhead-color;
-    line-height: 1;
+.image-list-block {
+    img {
+        width: 90%;
+    }
 }
 
 .img-wrapper {
@@ -169,6 +170,11 @@ cite:before {
 .intro .rich-text {
     font-size: rem-calc(36);
     line-height: rem-calc(38);
+}
+
+.personindexpage h3.subtitle {
+    color: $subhead-color;
+    line-height: 1;
 }
 
 .row-block {

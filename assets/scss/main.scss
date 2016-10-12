@@ -154,6 +154,11 @@ cite:before {
     }
 }
 
+.personindexpage h3.subtitle {
+    color: $subhead-color;
+    line-height: 1;
+}
+
 .img-wrapper {
     max-width: rem-calc(1080);
     margin: rem-calc(24) auto;

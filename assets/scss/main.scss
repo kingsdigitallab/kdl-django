@@ -538,6 +538,10 @@ main,
 	.button.discover {
         bottom: rem-calc(40);
 	}
+
+    .text-content {
+        padding-top: rem-calc(16) !important;
+    }
 }
 
 .home-banner {

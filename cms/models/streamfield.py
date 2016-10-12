@@ -85,7 +85,8 @@ class ImageListBlock(StructBlock):
         ('title', CharBlock()),
         ('subtitle', CharBlock()),
         ('description', TextBlock()),
-        ('image', ImageChooserBlock())
+        ('image', ImageChooserBlock()),
+        ('page', PageChooserBlock(required=False))
     ]))
 
     class Meta:

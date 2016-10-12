@@ -1,6 +1,6 @@
 {% load wagtailimages_tags %}
 
-<div class="gray-bg extra-padding-vertical">
+<div class="gray-bg extra-padding-vertical image-list-block">
     {% if value.title %}
     <h2 class="section-title">{{ value.title }}</h2>
     {% endif %}
@@ -16,6 +16,9 @@
                     <h2 class="post-title">{{ item.title }}</h2>
                     <h3 class="subtitle">{{ item.subtitle }}</h3>
                     <p>{{ item.description }}</p>
+                    {% if item.page %}
+                    <a href="{{ item.page.url }}" class="more" title="Read more about {{ item.title }}">Read more <i class="fa fa-play"></i></a>
+                    {% endif %}
                 </div>
             </div>
         </li>

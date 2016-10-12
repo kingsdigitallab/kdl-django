@@ -2,7 +2,6 @@
 {% load wagtailcore_tags wagtailimages_tags %}
 <div class="row medium-up-2">
 	{% for page in pages %}
-	{# if not forloop.first #}
 	<div class="column">
 		<div class="row collapse">
 			{% if page.feed_image %}
@@ -24,7 +23,6 @@
 	    	</div>
     	</div>
     </div>
-	{# endif #}
 	{% endfor %}
 </div>
 {% endif %}

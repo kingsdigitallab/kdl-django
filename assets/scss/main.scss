@@ -154,6 +154,16 @@ cite:before {
     }
 }
 
+.iframe-container {
+    max-width: rem-calc(1080);
+    margin: 1rem 0;
+    display: block;
+}
+
+iframe {
+    width: 100%;
+}
+
 .image-list-block {
     img {
         width: 90%;

@@ -1,4 +1,5 @@
 -r ddhldap/requirements.txt
+-r twitterhut/requirements.txt
 django
 django-compressor
 django-extensions

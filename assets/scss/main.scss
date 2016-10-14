@@ -642,6 +642,49 @@ main,
     }
 }
 
+/* Twitter */
+
+.twitter-list {
+    font-size: rem-calc(20);
+    line-height: rem-calc(24);
+
+    h3 {
+        color: $nav-anchor;
+    }
+
+    li {
+        padding: rem-calc(12 24) !important;
+    }
+
+    p.link-color {
+        font-size: rem-calc(18);
+        margin-bottom: 0;
+    }
+
+    .link-color {
+        color: $tertiary-color;
+    }
+
+    .retweet {
+        color: $nav-anchor;
+        font-family: "KingsBureauGrot", sans-serif;
+        font-size: rem-calc(14);
+
+        &:before {
+            content: "\f079";
+            font-family: "FontAwesome";
+            padding-right: rem-calc(8);
+        }
+    }
+
+    .small-heading {
+        font-family: "KingsBureauGrot", sans-serif;
+        font-size: rem-calc(20);
+        line-height: rem-calc(24);
+    }
+
+}
+
 /* Block list */
 
 .block-list {

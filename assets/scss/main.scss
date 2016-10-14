@@ -656,13 +656,9 @@ main,
         padding: rem-calc(12 24) !important;
     }
 
-    p.link-color {
+    p.tweet-datetime {
         font-size: rem-calc(18);
         margin-bottom: 0;
-    }
-
-    .link-color {
-        color: $tertiary-color;
     }
 
     .retweet {

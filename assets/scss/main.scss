@@ -658,8 +658,21 @@ main,
         color: $nav-anchor;
     }
 
+    h3 a:hover,
+    h3 a:focus {
+        color: $tertiary-color;
+    }
+
     li {
         padding: rem-calc(24) !important;
+    }
+
+    p {
+        line-height: rem-calc(24);
+
+        a:hover {
+            text-decoration: underline;
+        }
     }
 
     p.tweet-datetime {

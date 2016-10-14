@@ -1,1 +1,17 @@
-{% load staticfiles wagtailcore_tags %}
+{% load twitterhut_tags %}
+
+{% user_timeline screen_name as timeline %}
+<ul>
+{% for tweet in timeline %}
+<li>
+    {% if tweet.retweeted_status %}
+    <p>@{{ screen_name }} retweeted</p>
+    <img src="{{ tweet.retweeted_status.user.profile_image_url }}">
+    {% else %}
+    <img src="{{ tweet.user.profile_image_url }}">
+    {% endif %}
+    {{ tweet|tweet_to_html }}
+    <p>{{ tweet.created_at|tweet_date:'D d M Y' }}</p>
+</li>
+{% endfor %}
+</ul>

@@ -1,15 +1,13 @@
 {% load cms_tags %}
 
-{% comment %}
 {% get_request_parameters exclude="page" as params %}
 
 <ul class="pagination" role="navigation" aria-label="Pagination">
     <li class="arrow {% if not pages.has_previous %}unavailable{% endif %}">
-    	<a href="{% if pages.has_previous %}?page={{ pages.previous_page_number }}{{ params }}{% endif %}">&laquo;</a>
+        <a href="{% if pages.has_previous %}?page={{ pages.previous_page_number }}{{ params }}{% endif %}">&laquo;</a>
     </li>
     <li>Page <strong>{{ pages.number }}</strong> of {{ pages.paginator.num_pages }}</li>
     <li class="arrow {% if not pages.has_next %}unavailable{% endif %}">
-    	<a href="{% if pages.has_next %}?page={{ pages.next_page_number }}{{ params }}{% endif %}">&raquo;</a>
+        <a href="{% if pages.has_next %}?page={{ pages.next_page_number }}{{ params }}{% endif %}">&raquo;</a>
     </li>
 </ul>
-{% endcomment %}

@@ -84,7 +84,7 @@ class ImageListBlock(StructBlock):
     items = ListBlock(StructBlock([
         ('title', CharBlock()),
         ('subtitle', CharBlock()),
-        ('description', TextBlock()),
+        ('description', RichTextBlock()),
         ('image', ImageChooserBlock()),
         ('page', PageChooserBlock(required=False))
     ]))

@@ -41,7 +41,7 @@ class BannerBlock(StructBlock):
 
 class FeaturedPageBlock(StructBlock):
     title = CharBlock(required=False)
-    starred_page = PageChooserBlock()
+    starred_page = PageChooserBlock(required=False)
     items = ListBlock(PageChooserBlock(), required=False)
 
     class Meta:

@@ -186,7 +186,12 @@ iframe {
     line-height: rem-calc(38);
 }
 
-.personindexpage h3.subtitle {
+.main:first-of-type .gray-bg {
+    margin-top: 0;
+}
+
+.personindexpage h3.subtitle,
+.personpage h3.subtitle {
     color: $subhead-color;
     line-height: 1;
 }
@@ -537,17 +542,6 @@ main,
 /* Homepage */
 
 .homepage {
-	.with-background {
-
-		blockquote {
-			padding: rem-calc(100) 0;
-
-			&:before {
-        		top: rem-calc(100);
-        		left: rem-calc(-30);
-			}
-		}
-	}
 
 	.button.discover {
         bottom: rem-calc(40);
@@ -555,6 +549,22 @@ main,
 
     .featured-page-block .text-content {
         padding-top: rem-calc(16) !important;
+    }
+
+    .main:first-of-type .gray-bg {
+        margin-top: rem-calc(24);
+    }
+
+    .with-background {
+
+        blockquote {
+            padding: rem-calc(100) 0;
+
+            &:before {
+                top: rem-calc(100);
+                left: rem-calc(-30);
+            }
+        }
     }
 }
 

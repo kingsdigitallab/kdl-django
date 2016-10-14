@@ -1,17 +1,29 @@
 {% load twitterhut_tags %}
 
 {% user_timeline screen_name as timeline %}
-<ul>
-{% for tweet in timeline %}
-<li>
-    {% if tweet.retweeted_status %}
-    <p>@{{ screen_name }} retweeted</p>
-    <img src="{{ tweet.retweeted_status.user.profile_image_url }}">
-    {% else %}
-    <img src="{{ tweet.user.profile_image_url }}">
-    {% endif %}
-    {{ tweet|tweet_to_html }}
-    <p>{{ tweet.created_at|tweet_date:'D d M Y' }}</p>
-</li>
-{% endfor %}
+<ul class="no-bullet twitter-list">
+	{% for tweet in timeline %}
+	<li class="gray-bg text-content">
+		{% if tweet.retweeted_status %}
+	    <p class="retweet">@{{ screen_name }} retweeted</p>
+	    {% endif %}
+
+		<div class="media-object">
+			<div class="media-object-section">
+				{% if tweet.retweeted_status %}
+				<img src="{{ tweet.retweeted_status.user.profile_image_url }}">
+				{% else %}
+				<img src="{{ tweet.user.profile_image_url }}">
+				{% endif %}
+			</div>
+			<div class="media-object-section">
+				<h2 class="small-heading">{{ tweet.user.name }}</h2>
+				<h3 class="small-heading">@{{ screen_name }}</h3>
+			</div>
+		</div>
+
+	    <p>{{ tweet|tweet_to_html }}</p>
+	    <p class="link-color">{{ tweet.created_at|tweet_date:'D d M Y' }}</p>
+	</li>
+	{% endfor %}
 </ul>

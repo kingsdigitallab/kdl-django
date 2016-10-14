@@ -12,6 +12,7 @@ import logging
 import os
 
 from ddhldap.settings import *  # noqa
+from twitterhut.settings import *  # noqa
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
@@ -88,6 +89,7 @@ INSTALLED_APPS = (
 
 INSTALLED_APPS += (
     'cms',
+    'twitterhut',
 )
 
 INTERNAL_IPS = ('127.0.0.1', )
@@ -321,6 +323,12 @@ REQUIRE_ENVIRONMENT = 'node'
 # -----------------------------------------------------------------------------
 
 FABRIC_USER = getpass.getuser()
+
+# -----------------------------------------------------------------------------
+# Twitter
+# -----------------------------------------------------------------------------
+
+TWITTER_SCREEN_NAME = 'kingsdigitallab'
 
 # -----------------------------------------------------------------------------
 # Wagtail

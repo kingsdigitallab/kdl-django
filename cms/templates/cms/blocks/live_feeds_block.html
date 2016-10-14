@@ -17,7 +17,8 @@
         </div>
         <div class="large-4 columns">
             <h3 class="subhead post-section-title"><i class="fa fa-twitter"></i> Latest</h3>
-            {% include "cms/includes/twitter_feeds.html" %}
+
+            {% include "cms/includes/twitter_feeds.html" with screen_name=value.twitter %}
         </div>
     </div>
 </div>

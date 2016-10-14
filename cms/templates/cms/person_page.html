@@ -1,1 +1,25 @@
 {% extends "cms/base.html" %}
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% comment %}
+{% block main %}
+
+{{ block.super }}
+
+<div class="gray-bg extra-padding-vertical">
+	<div class="row">
+		{% if page.feed_image %}
+		<div class="small-4 columns">
+			<img src="{% page.feed_image.url %}" alt="{{ page.feed_image.alt }}">
+		</div>
+		{% endif %}
+		<div class="small-{% if page.feed_image %}8{% elif %}12{% endif %} columns">
+			<h2>{{ page.title }}</h2>
+			<h3>{{ page.subtitle }}</h3>
+			<p>{{ page.description }}</p>
+		</div>
+	</div>
+</div>
+
+{% endblock %}
+{% endcomment %}

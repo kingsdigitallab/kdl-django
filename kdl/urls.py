@@ -1,3 +1,4 @@
+from cms.views import search
 from ddhldap.signal_handlers import \
     register_signal_handlers as ddhldap_register_signal_handlers
 from django.conf import settings
@@ -22,6 +23,7 @@ urlpatterns = [
 urlpatterns += [
     url(r'^wagtail/', include(wagtailadmin_urls)),
     url(r'^documents/', include(wagtaildocs_urls)),
+    url(r'^search/', search, name='search'),
 
     url(r'', include(wagtail_urls)),
 ]

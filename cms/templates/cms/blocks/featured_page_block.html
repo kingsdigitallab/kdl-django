@@ -1,6 +1,7 @@
 {% load wagtailcore_tags wagtailimages_tags %}
 
 <div class="narrow-container featured-page-block">
+    {% if value.starred_page %}
     <div class="row spaced-up">
         <div class="large-12 columns starred_page">
             {% with thepage=value.starred_page.specific %}
@@ -30,6 +31,7 @@
             {% endwith %}
         </div>
     </div>
+    {% endif %}
     <div class="row spaced-up" data-equalizer>
         {% for item in value.items %}
         <div class="large-4 columns">

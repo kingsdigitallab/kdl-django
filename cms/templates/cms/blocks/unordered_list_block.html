@@ -1,3 +1,5 @@
+{% load wagtailcore_tags %}
+
 <div class="gray-bg extra-padding-vertical">
     {% if value.title %}
     <h2 class="section-title">{{ value.title }}</h2>
@@ -9,13 +11,13 @@
                 <h3 class="subhead">{{ item.title }}</h3>
                 <p>{{ item.description }}</p>
                 {% if item.page %}
-                <a href="{{ item.pageurl }}" class="more">Read more <i class="fa fa-play"></i></a>
+                <a href="{% pageurl item.page %}" class="more">Read more <i class="fa fa-play"></i></a>
                 {% endif %}
             </div>
         </div>
         {% endfor %}
     </div>
     {% if value.page %}
-    <a class="button">{{ value.label }}</a>
+    <a class="button" href="{% pageurl value.page %}">{{ value.label }}</a>
     {% endif %}
 </div>

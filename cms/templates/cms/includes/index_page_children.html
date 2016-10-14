@@ -1,5 +1,21 @@
 {% if pages %}
-{% load wagtailcore_tags wagtailimages_tags %}
+{% load wagtailcore_tags %}
+
+<div class="gray-bg extra-padding-vertical">
+    <h2 class="section-title">{{ page.title }}</h2>
+    <div class="row medium-up-2 extra-margin-bottom" data-equalizer>
+        {% for page in pages %}
+        <div class="column">
+            <div class="grid-block-list" data-equalizer-watch>
+                <h3 class="subhead">{{ page.title }}</h3>
+                <p>{{ page.search_description }}</p>
+                <a href="{% pageurl page %}" class="more">Read more <i class="fa fa-play"></i></a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% comment %}
 <div class="row medium-up-2">
 	{% for page in pages %}
 	<div class="column">
@@ -25,4 +41,5 @@
     </div>
 	{% endfor %}
 </div>
+{% endcomment %}
 {% endif %}

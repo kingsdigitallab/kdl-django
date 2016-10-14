@@ -125,6 +125,8 @@ class OrderedListBlock(StructBlock):
         ('title', CharBlock()),
         ('description', TextBlock())
     ]))
+    label = CharBlock(required=False)
+    page = PageChooserBlock(required=False)
 
     class Meta:
         template = 'cms/blocks/ordered_list_block.html'
@@ -146,11 +148,28 @@ class PullQuoteBlock(StructBlock):
         template = 'cms/blocks/pull_quote_block.html'
 
 
+class UnorderedListBlock(StructBlock):
+    title = CharBlock(required=False)
+    items = ListBlock(StructBlock([
+        ('title', CharBlock()),
+        ('description', TextBlock()),
+        ('page', PageChooserBlock(required=False))
+    ]))
+    label = CharBlock(required=False)
+    page = PageChooserBlock(required=False)
+
+    class Meta:
+        template = 'cms/blocks/unordered_list_block.html'
+
+
 class CMSStreamBlock(StreamBlock):
     banner = BannerBlock(label='Banner section')
     ordered_list = OrderedListBlock(
         label='Ordered list section',
         help_text='Use this for sections similar to process')
+    unordered_list = UnorderedListBlock(
+        label='Unordered list block section',
+        help_text='Use this for sections similar to services')
     image_list = ImageListBlock(label='Image list section')
     image_grid = ImageGridBlock(label='Image grid section', icon='table')
     featured_pages = FeaturedPageBlock(

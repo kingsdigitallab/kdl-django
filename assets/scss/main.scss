@@ -94,6 +94,10 @@ cite:before {
     color: $nav-anchor;
 }
 
+.extra-margin-bottom {
+    margin-bottom: rem-calc(15);
+}
+
 .extra-padding-horizontal {
     padding-left: rem-calc(24);
     padding-right: rem-calc(24);
@@ -655,6 +659,14 @@ main,
             margin-top: rem-calc(-54);
         }
     }
+}
+
+/* Grid block list */
+
+.grid-block-list {
+    background: $white;
+    margin: rem-calc(15 0);
+    padding: rem-calc(24);
 }
 
 /** Images **/

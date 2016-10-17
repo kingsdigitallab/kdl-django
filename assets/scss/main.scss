@@ -628,14 +628,21 @@ main,
 
 // Tags
 
+.full-height-banner {
+    .tags {
+        position: absolute;
+        bottom: 0;
+    }
+}
+
 .tags {
-    position: absolute;
-    bottom: 0;
     width: 100%;
     display: block;
     padding: rem-calc(24);
+    background-color: $primary-color; // Default colour if a colour class is not defined
     background-image: url('/static/images/grid-pattern.svg');
     background-size: rem-calc(432);
+    border-top: 1px solid $another-gray;
 
     li {
         height: rem-calc(36);

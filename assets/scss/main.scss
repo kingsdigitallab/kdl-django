@@ -109,10 +109,26 @@ cite:before {
 }
 
 .featured-page-block {
-	.subtitle,
-	.subtitle a,
+
+    h2.title {
+        font-size: rem-calc(38);
+        line-height: rem-calc(44);
+    }
+
+    h3.title {
+        font-size: rem-calc(24);
+        line-height: rem-calc(30);
+        padding-bottom: rem-calc(8);
+    }
+
+    p {
+        margin-bottom: 0;
+    }
+
     .post-title,
-    .post-title a {
+    .post-title a,
+	.subtitle,
+	.subtitle a {
 		color: $white;
 	}
 }
@@ -120,6 +136,10 @@ cite:before {
 .float-right-large {
     float: right;
     text-align: right;
+}
+
+.full-img {
+    width: 100%;
 }
 
 .full-width {
@@ -265,14 +285,12 @@ iframe {
 .with-background {
 	background: url('/static/images/grid-pattern.svg') $primary-color;
     background-size: rem-calc(432);
-    // height: 100%;
 
     blockquote {
     	max-width: rem-calc(680);
     	font-size: rem-calc(48);
     	line-height: rem-calc(50);
     	margin: 0 auto;
-    	// padding: rem-calc(100) 0;
     	color: $white;
 
     	.attribution {
@@ -558,7 +576,7 @@ main,
     .with-background {
 
         blockquote {
-            padding: rem-calc(100) 0;
+            padding: rem-calc(100 24);
 
             &:before {
                 top: rem-calc(100);
@@ -789,8 +807,20 @@ footer,
     	width: rem-calc(504);
     }
 
-    .home-banner,
-    .full-height-banner {
+    .featured-page-block {
+        h2.title {
+            font-size: rem-calc(48);
+            line-height: rem-calc(54);
+        }
+
+        h3.title {
+            font-size: rem-calc(30);
+            line-height: rem-calc(34);
+        }
+    }
+
+    .full-height-banner,
+    .home-banner {
         button,
         .button {
             &.discover {
@@ -801,37 +831,14 @@ footer,
 }
 
 @include breakpoint(medium down) {
-    .float-right-large {
-        float: left;
-        text-align: left;
+
+    blockquote {
+        margin-left: rem-calc(24);
+        margin-right: rem-calc(24);
     }
 
     body {
         font-size: rem-calc(20);
-    }
-
-    p {
-        line-height: rem-calc(24);
-    }
-
-    header {
-        .kdl-heading {
-            padding: rem-calc(12) rem-calc(12) 0;
-            img {
-                max-height: rem-calc(36);
-            }
-        }
-    }
-
-    .banner {
-        img {
-            height: calc(100vh - 294px);
-        }
-        height: calc(100vh - 48px);
-    }
-
-    blockquote {
-        margin-left: 0 !important;
     }
 
     footer {
@@ -852,6 +859,26 @@ footer,
         }
     }
 
+    header {
+        .kdl-heading {
+            padding: rem-calc(12) rem-calc(12) 0;
+            img {
+                max-height: rem-calc(36);
+            }
+        }
+    }
+
+    p {
+        line-height: rem-calc(24);
+    }
+
+    .banner {
+        img {
+            height: calc(100vh - 294px);
+        }
+        height: calc(100vh - 48px);
+    }
+
     .expand-menu {
         position: absolute;
         padding: rem-calc(24);
@@ -864,6 +891,15 @@ footer,
         li a {
             color: $white;
         }
+    }
+
+    .extra-margin-bottom-medium {
+        margin-bottom: rem-calc(24);
+    }
+
+    .float-right-large {
+        float: left;
+        text-align: left;
     }
 
     .shadowed-small {
@@ -880,6 +916,30 @@ footer,
 
     .top-bar {
         padding: 0;
+    }
+
+    .with-background {
+        blockquote {
+            left: rem-calc(24);
+            padding-left: rem-calc(50);
+            &:before {
+                margin-left: rem-calc(24);
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1080px) {
+    .gray-bg,
+    .gray-bg.intro,
+    .rich-text {
+        padding-left: rem-calc(24);
+        padding-right: rem-calc(24);
+
+        .rich-text {
+            padding-left: 0;
+            padding-right: 0;
+        }
     }
 }
 

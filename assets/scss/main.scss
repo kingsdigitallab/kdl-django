@@ -546,12 +546,15 @@ main,
         bottom: rem-calc(150);
 
         &.discover {
-            background: $tertiary-color;
-            border-color: scale-color($tertiary-color, $lightness: -40%);
+            background: none;
+            border: none;
+            font-size: rem-calc(48);
             left: calc(50% - 120px);
+            text-shadow: rem-calc(0 0 3) $primary-color;
 
             &:hover {
-                background: scale-color($tertiary-color, $lightness: -20%);
+                text-shadow: rem-calc(0 0 10) $white;
+
             }
         }
     }
@@ -724,7 +727,6 @@ main,
         font-size: rem-calc(20);
         line-height: rem-calc(24);
     }
-
 }
 
 /* Block list */

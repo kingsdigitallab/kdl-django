@@ -12,12 +12,27 @@
 	.title,
 	blockquote {
 		color: $dark-yellow;
+
+		&.button {
+			color: $primary-color;
+		}
 	}
 
 	button,
 	.button {
-		background-color: rgba($dark-yellow, .3) !important;
-		border-bottom: 7px solid $dark-yellow !important;
+		background-color: $dark-yellow;
+		border-bottom: 7px solid scale-color($dark-yellow, $lightness: -30%);
+
+		&.discover {
+			color: $dark-yellow;
+			&:hover {
+				background: none !important;
+			}
+		}
+
+        &:hover {
+            background: scale-color($dark-yellow, $lightness: -20%);
+        }
 	}
 
 	.banner-block {

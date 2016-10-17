@@ -12,12 +12,27 @@
 	.title,
 	blockquote {
 		color: $tertiary-color;
+
+		&.button {
+			color: $white;
+		}
 	}
 
 	button,
 	.button {
-		background-color: rgba($tertiary-color, .3) !important;
-		border-bottom: 7px solid $tertiary-color !important;
+		background-color: $tertiary-color;
+		border-bottom: 7px solid scale-color($tertiary-color, $lightness: -30%);
+
+		&.discover {
+			color: $tertiary-color;
+			&:hover {
+				background: none;
+			}
+		}
+
+        &:hover {
+            background: scale-color($tertiary-color, $lightness: -20%);
+        }
 	}
 
 	.banner-block {
@@ -27,7 +42,6 @@
 	}
 
 	.block-list {
-
 		li {
 	        background: url('/static/images/list-element-light-blue.svg') 46px 46px no-repeat $white;
 

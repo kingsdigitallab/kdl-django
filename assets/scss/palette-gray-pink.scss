@@ -12,12 +12,27 @@
 	.title,
 	blockquote {
 		color: $bright-pink;
+
+		&.button {
+			color: $white;
+		}
 	}
 
 	button,
 	.button {
-		background-color: rgba($bright-pink, .3) !important;
-		border-bottom: 7px solid $bright-pink !important;
+		background-color: $bright-pink;
+		border-bottom: 7px solid scale-color($bright-pink, $lightness: -30%);
+
+		&.discover {
+			color: $bright-pink;
+			&:hover {
+				background: none;
+			}
+		}
+
+        &:hover {
+            background: scale-color($bright-pink, $lightness: -20%);
+        }
 	}
 
 	.banner-block {

@@ -65,6 +65,10 @@ button,
     width: rem-calc(240);
     margin-left: auto;
     margin-right: auto;
+
+    // &:hover {
+    //     margin-top: rem-calc(3);
+    // }
 }
 
 cite:before {
@@ -467,8 +471,10 @@ main,
 
         &:hover,
         &:focus {
-            margin-top: rem-calc(3) !important;
-            border-bottom: none !important;
+            -ms-transform: translateY(3px); /* IE 9 */
+            -webkit-transform: translateY(3px); /* Chrome, Safari, Opera */
+            transform: translateY(3px);
+            border-color: transparent;
         }
     }
 

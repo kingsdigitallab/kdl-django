@@ -25,6 +25,10 @@
     <img src="{{ theimage.url }}" alt="{{ theimage.title }}">
     {% endif %}
 
+    {% if value.style != 'default' %}
+    <a class="small button radius discover" href="#content" title="Scroll down to the content"><i class="fa fa-angle-double-down fa-lg"></i></a>
+    {% endif %}
+
     {% with page.tags.all as tags %}
     {% if tags %}
     <div class="tags">
@@ -36,9 +40,5 @@
     </div>
     {% endif %}
     {% endwith %}
-
-    {% if value.style != 'default' %}
-    <a class="small button radius discover" href="#content" title="Scroll down to the content"><i class="fa fa-angle-double-down fa-lg"></i></a>
-    {% endif %}
 </div>
 <a id="content"></a>

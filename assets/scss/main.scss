@@ -549,13 +549,14 @@ main,
     button,
     .button {
         position: absolute;
-        bottom: rem-calc(150);
+        bottom: rem-calc(140);
 
         &.discover {
             background: none;
             border: none;
             font-size: rem-calc(48);
             left: calc(50% - 120px);
+            padding: 0;
             text-shadow: rem-calc(0 0 3) $primary-color;
 
             &:hover {
@@ -571,7 +572,7 @@ main,
 .homepage {
 
 	.button.discover {
-        bottom: rem-calc(40);
+        bottom: 0;
 	}
 
     .featured-page-block .text-content {
@@ -651,7 +652,7 @@ main,
     background-color: $primary-color; // Default colour if a colour class is not defined
     background-image: url('/static/images/grid-pattern.svg');
     background-size: rem-calc(432);
-    border-top: 1px solid $another-gray;
+    border-top: 1px solid $nav-anchor;
 
     li {
         height: rem-calc(36);
@@ -838,6 +839,7 @@ footer,
     .home-banner {
         button,
         .button {
+            bottom: rem-calc(90);
             &.discover {
                 left: calc(50% - 252px);
             }

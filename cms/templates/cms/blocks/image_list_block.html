@@ -13,11 +13,13 @@
                     <img src="{{ theimage.url }}" alt="{{ theimage.title }}">
                 </div>
                 <div class="small-8 columns">
-                    <h2 class="post-title">{{ item.title }}</h2>
-                    <h3 class="subtitle">{{ item.subtitle }}</h3>
-                    <p>{{ item.description }}</p>
+                    <div class="title-block">
+                        <h2 class="post-title">{{ item.title }}</h2>
+                        <h3 class="subtitle">{{ item.subtitle }}</h3>
+                    </div>
+                    {{ item.description }}
                     {% if item.page %}
-                    <a href="{{ item.page.url }}" class="more" title="Read more about {{ item.title }}">Read more <i class="fa fa-play"></i></a>
+                    <p class="more"><a href="{{ item.page.url }}" title="Read more about {{ item.title }}">Read more <i class="fa fa-play"></i></a></p>
                     {% endif %}
                 </div>
             </div>

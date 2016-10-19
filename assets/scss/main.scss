@@ -15,6 +15,11 @@ body {
 
 p {
     line-height: rem-calc(30);
+    margin-bottom: rem-calc(36);
+
+    &:last-child {
+        margin-bottom: 0;
+    }
 }
 
 blockquote {
@@ -98,6 +103,10 @@ cite:before {
     color: $nav-anchor;
 }
 
+.more {
+    margin-top: rem-calc(20);
+}
+
 .extra-margin-bottom {
     margin-bottom: rem-calc(15);
 }
@@ -125,16 +134,16 @@ cite:before {
         padding-bottom: rem-calc(8);
     }
 
-    p {
-        margin-bottom: 0;
-    }
-
     .post-title,
     .post-title a,
 	.subtitle,
 	.subtitle a {
 		color: $white;
 	}
+
+    .starred_page p.subtite {
+        margin-bottom: rem-calc(12);
+    }
 }
 
 .float-right-large {
@@ -167,7 +176,7 @@ cite:before {
     margin: rem-calc(24) 0;
 
     &.intro {
-        padding: rem-calc(24 0);
+        padding: rem-calc(42 0);
     }
 }
 
@@ -210,14 +219,22 @@ iframe {
     line-height: rem-calc(38);
 }
 
-.main:first-of-type .gray-bg {
+.page-content > .gray-bg {
     margin-top: 0;
+}
+
+.page-content > .gray-bg ~ .gray-bg {
+    margin-top: rem-calc(24);
 }
 
 .personindexpage h3.subtitle,
 .personpage h3.subtitle {
     color: $subhead-color;
     line-height: 1;
+}
+
+.rich-text {
+    line-height: rem-calc(30);
 }
 
 .row-block {
@@ -270,6 +287,17 @@ iframe {
 
 .text-content {
 	padding: rem-calc(0 16) !important;
+}
+
+.title-block {
+    margin: 0;
+    margin-bottom: rem-calc(20);
+
+    h2,
+    h3 {
+        margin: 0;
+        padding: 0;
+    }
 }
 
 .top-padding {

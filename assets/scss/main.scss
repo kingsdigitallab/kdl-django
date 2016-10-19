@@ -219,10 +219,12 @@ iframe {
     line-height: rem-calc(38);
 }
 
+.main > .gray-bg,
 .page-content > .gray-bg {
     margin-top: 0;
 }
 
+.main > .gray-bg ~ .gray-bg,
 .page-content > .gray-bg ~ .gray-bg {
     margin-top: rem-calc(24);
 }
@@ -550,7 +552,7 @@ main,
 
     h1 {
         color: $white;
-        padding: rem-calc(0 24 24 24);
+        padding: rem-calc(0 24 42 24);
         margin-bottom: 0;
         max-width: rem-calc(836);
         line-height: rem-calc(60);

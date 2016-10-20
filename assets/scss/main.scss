@@ -346,29 +346,47 @@ button,
 .text-button:after {
     content: "\f0da";
     font-family: "FontAwesome";
-    padding-left: .25rem;
+    padding-left: rem-calc(4);
 }
 
 .search-box {
-    margin-top: 2.5rem;
-    margin-right: rem-calc(24);
+    margin-top: rem-calc(36);
+    margin-right: rem-calc(40);
+    min-width: rem-calc(150);
 
     button {
-        padding: .75rem;
-        margin-top: rem-calc(-1);
+        background: $white;
+        border: 1px solid $medium-gray;
+        border-left: none;
+        color: $primary-color;
+        height: rem-calc(48);
+        margin-top: rem-calc(0);
+        padding: rem-calc(10);
     }
 
     button:after {
         content: "\f002";
         font-family: "FontAwesome";
     }
+
+    input[type=search] {
+        border-right: 0;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        font-family: "KingsCaslon", serif;
+        font-size: rem-calc(25);
+        height: rem-calc(48);
+    }
 }
 
 /* Headings */
 
 header {
+
     .kdl-heading {
-        padding: 1.5rem 0 0 1.5rem;
+        padding: rem-calc(24 0 0 24);
+        min-width: rem-calc(240);
+        float: left;
 
         img {
             max-width: rem-calc(167);
@@ -380,8 +398,11 @@ header {
         }
     }
 
-    .kcl-logo img {
-        max-width: rem-calc(158);
+    .kcl-logo {
+
+        img {
+            width: 100%;
+        }
     }
 }
 
@@ -449,11 +470,11 @@ caption,
 nav {
 
     .menu {
-        font-size: 1.5rem;
+        font-size: rem-calc(24);
 
         a {
             color: $nav-anchor;
-            padding: .25rem;
+            padding: rem-calc(4);
         }
 
         .active > a {
@@ -465,7 +486,7 @@ nav {
 
 .title-bar {
     background-color: scale-color($primary-color, $lightness: 50.5%);
-    padding: .75rem 1.125rem;
+    padding: rem-calc(12 18);
 
     button:after {
         content: "\f0d7";
@@ -867,11 +888,6 @@ footer,
 }
 
 @include breakpoint(medium down) {
-
-    // blockquote {
-    //     margin-left: rem-calc(24);
-    //     margin-right: rem-calc(24);
-    // }
 
     body {
         font-size: rem-calc(20);

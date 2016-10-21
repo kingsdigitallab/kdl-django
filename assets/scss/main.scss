@@ -346,42 +346,67 @@ button,
 .text-button:after {
     content: "\f0da";
     font-family: "FontAwesome";
-    padding-left: .25rem;
+    padding-left: rem-calc(4);
 }
 
 .search-box {
-    margin-top: 2.5rem;
-    margin-right: rem-calc(24);
+    display: inline-block;
+    margin-top: rem-calc(36);
+    // min-width: rem-calc(150);
 
     button {
-        padding: .75rem;
-        margin-top: rem-calc(-1);
+        background: $white;
+        border: 1px solid $medium-gray;
+        border-left: none;
+        color: $primary-color;
+        height: rem-calc(36);
+        margin-top: rem-calc(0);
+        padding: rem-calc(10);
     }
 
     button:after {
         content: "\f002";
         font-family: "FontAwesome";
     }
+
+    input[type=search] {
+        border-right: 0;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        font-family: "KingsCaslon", serif;
+        font-size: rem-calc(20);
+        height: rem-calc(36);
+        margin: 0;
+    }
+
+    li {
+        margin: 0;
+    }
 }
 
 /* Headings */
 
 header {
-    .kdl-heading {
-        padding: 1.5rem 0 0 1.5rem;
 
-        img {
-            max-width: rem-calc(167);
-            max-height: rem-calc(82);
-        }
+    .block-right {
+        text-align: right;
+    }
+
+    .kdl-heading {
+        padding: rem-calc(24 0 0 24);
+        min-width: rem-calc(209);
+        float: left;
 
         a {
             display: block;
         }
     }
 
-    .kcl-logo img {
-        max-width: rem-calc(158);
+    .kcl-logo {
+        img {
+            max-width: rem-calc(158);
+            min-height: rem-calc(48);
+        }
     }
 }
 
@@ -449,11 +474,12 @@ caption,
 nav {
 
     .menu {
-        font-size: 1.5rem;
+        font-size: rem-calc(20);
+        line-height: rem-calc(24);
 
         a {
             color: $nav-anchor;
-            padding: .25rem;
+            padding: rem-calc(4);
         }
 
         .active > a {
@@ -465,7 +491,7 @@ nav {
 
 .title-bar {
     background-color: scale-color($primary-color, $lightness: 50.5%);
-    padding: .75rem 1.125rem;
+    padding: rem-calc(12 18);
 
     button:after {
         content: "\f0d7";
@@ -835,11 +861,48 @@ footer,
 
 /** More media queries **/
 
+@include breakpoint(xlarge up) {
+
+    nav {
+        .menu {
+            font-size: rem-calc(24);
+            line-height: rem-calc(30);
+        }
+    }
+
+    header {
+
+        .kdl-heading {
+            min-width: rem-calc(220);
+
+            img {
+                max-height: rem-calc(82) !important;
+            }
+        }
+
+        .search-box {
+            button {
+                height: rem-calc(48);
+            }
+
+            input[type=search] {
+                font-size: rem-calc(25);
+                height: rem-calc(48);
+            }
+
+            max-width: rem-calc(250) !important;
+            margin-right: rem-calc(40);
+        }
+    }
+}
+
 @include breakpoint(large up) {
 
-    button,
-    .button {
-    	width: rem-calc(504);
+    .main {
+        button,
+        .button {
+        	width: rem-calc(504);
+        }
     }
 
     .featured-page-block {
@@ -864,14 +927,30 @@ footer,
             }
         }
     }
+
+    header {
+        .block-right {
+            .kcl-logo {
+                img {
+                    height: rem-calc(120);
+                }
+            }
+        }
+
+        .kdl-heading {
+            img {
+                max-height: rem-calc(70);
+            }
+        }
+
+        .search-box {
+            margin-right: rem-calc(32);
+            max-width: rem-calc(100);
+        }
+    }
 }
 
 @include breakpoint(medium down) {
-
-    // blockquote {
-    //     margin-left: rem-calc(24);
-    //     margin-right: rem-calc(24);
-    // }
 
     body {
         font-size: rem-calc(20);
@@ -899,7 +978,7 @@ footer,
         .kdl-heading {
             padding: rem-calc(12) rem-calc(12) 0;
             img {
-                max-height: rem-calc(36);
+                max-height: rem-calc(48);
             }
         }
     }
@@ -953,16 +1032,6 @@ footer,
     .top-bar {
         padding: 0;
     }
-
-    // .with-background {
-    //     blockquote {
-    //         left: rem-calc(24);
-    //         padding-left: rem-calc(50);
-    //         &:before {
-    //             margin-left: rem-calc(24);
-    //         }
-    //     }
-    // }
 }
 
 @media screen and (max-width: 1080px) {

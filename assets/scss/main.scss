@@ -597,11 +597,11 @@ main,
 	width: 100%;
     img {
         min-width: 100%;
-        height: calc(100vh - 367px);
+        height: calc(100vh - 363px);
         object-fit: cover;
         object-position: 20% 50%;
     }
-    height: calc(100vh - 124px);
+    height: calc(100vh - 120px);
 
     button,
     .button {
@@ -630,6 +630,7 @@ main,
 
 	.button.discover {
         bottom: 0;
+        padding-bottom: rem-calc(4);
 	}
 
     .featured-page-block .text-content {

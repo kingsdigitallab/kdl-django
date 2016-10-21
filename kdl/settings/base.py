@@ -213,6 +213,10 @@ WSGI_APPLICATION = PROJECT_NAME + '.wsgi.application'
 
 AUTH_LDAP_REQUIRE_GROUP = 'cn=kdl-staff,' + LDAP_BASE_OU
 
+AUTH_LDAP_ALWAYS_UPDATE_USER = False
+
+AUTH_LDAP_CACHE_GROUPS = True
+
 
 # -----------------------------------------------------------------------------
 # Static files (CSS, JavaScript, Images)

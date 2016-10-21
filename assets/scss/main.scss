@@ -67,8 +67,8 @@ blockquote {
 
 button,
 .button {
-	position: relative;
-	display: block;
+    position: relative;
+    display: block;
     width: rem-calc(240);
     margin-left: auto;
     margin-right: auto;
@@ -83,7 +83,7 @@ cite:before {
 }
 
 .counter-collapse {
-	padding: 0 rem-calc(16);
+    padding: 0 rem-calc(16);
 }
 
 .darker {
@@ -134,10 +134,10 @@ cite:before {
 
     .post-title,
     .post-title a,
-	.subtitle,
-	.subtitle a {
-		color: $white;
-	}
+    .subtitle,
+    .subtitle a {
+        color: $white;
+    }
 
     .starred_page p.subtite {
         margin-bottom: rem-calc(12);
@@ -272,7 +272,7 @@ iframe {
 }
 
 .spaced-up {
-	margin: rem-calc(30);
+    margin: rem-calc(30);
 }
 
 .spaced-up-vertically {
@@ -280,13 +280,13 @@ iframe {
 }
 
 .starred-page {
-	a {
-		color: $white;
-	}
+    a {
+        color: $white;
+    }
 }
 
 .text-content {
-	padding: rem-calc(0 16) !important;
+    padding: rem-calc(0 16) !important;
 }
 
 .title-block {
@@ -315,19 +315,19 @@ iframe {
 }
 
 .with-background {
-	background: url('/static/images/grid-pattern.svg') $primary-color;
+    background: url('/static/images/grid-pattern.svg') $primary-color;
     background-size: rem-calc(432);
 
     blockquote {
         color: $white;
-    	font-size: rem-calc(48);
-    	line-height: rem-calc(50);
+        font-size: rem-calc(48);
+        line-height: rem-calc(50);
         padding-top: rem-calc(100);
         padding-bottom: rem-calc(100);
 
-    	.attribution {
-    		color: $white;
-    	}
+        .attribution {
+            color: $white;
+        }
 
         &:before {
             top: rem-calc(109);
@@ -350,16 +350,16 @@ button,
 }
 
 .search-box {
+    display: inline-block;
     margin-top: rem-calc(36);
-    margin-right: rem-calc(40);
-    min-width: rem-calc(150);
+    // min-width: rem-calc(150);
 
     button {
         background: $white;
         border: 1px solid $medium-gray;
         border-left: none;
         color: $primary-color;
-        height: rem-calc(48);
+        height: rem-calc(36);
         margin-top: rem-calc(0);
         padding: rem-calc(10);
     }
@@ -374,8 +374,13 @@ button,
         -webkit-box-shadow: none;
         box-shadow: none;
         font-family: "KingsCaslon", serif;
-        font-size: rem-calc(25);
-        height: rem-calc(48);
+        font-size: rem-calc(20);
+        height: rem-calc(36);
+        margin: 0;
+    }
+
+    li {
+        margin: 0;
     }
 }
 
@@ -383,15 +388,14 @@ button,
 
 header {
 
+    .block-right {
+        text-align: right;
+    }
+
     .kdl-heading {
         padding: rem-calc(24 0 0 24);
-        // min-width: rem-calc(209);
+        min-width: rem-calc(209);
         float: left;
-
-        img {
-            max-width: rem-calc(167);
-            max-height: rem-calc(82);
-        }
 
         a {
             display: block;
@@ -399,9 +403,9 @@ header {
     }
 
     .kcl-logo {
-
         img {
-            width: 100%;
+            max-width: rem-calc(158);
+            min-height: rem-calc(48);
         }
     }
 }
@@ -426,9 +430,9 @@ h2.heading-content {
 }
 
 .post-section-title {
-	background: $another-gray;
-	padding: rem-calc(18 20);
-	margin: rem-calc(36 0);
+    background: $another-gray;
+    padding: rem-calc(18 20);
+    margin: rem-calc(36 0);
 }
 
 .post-title,
@@ -452,7 +456,7 @@ caption,
 .subtitle,
 .title,
 .title-bar {
-	font-family: 'KingsBureauGrot', sans-serif;
+    font-family: 'KingsBureauGrot', sans-serif;
 }
 
 .post-title {
@@ -470,7 +474,8 @@ caption,
 nav {
 
     .menu {
-        font-size: rem-calc(24);
+        font-size: rem-calc(20);
+        line-height: rem-calc(24);
 
         a {
             color: $nav-anchor;
@@ -553,8 +558,8 @@ main,
 }
 
 .narrow-container {
-	max-width: rem-calc(1080);
-	margin: 0 auto;
+    max-width: rem-calc(1080);
+    margin: 0 auto;
 }
 
 /* Banner */
@@ -585,18 +590,18 @@ main,
 /* Default Banner */
 
 .default-banner {
-	width: 100%;
+    width: 100%;
 }
 
 .full-height-banner {
-	width: 100%;
+    width: 100%;
     img {
         min-width: 100%;
-        height: calc(100vh - 363px);
+        height: calc(100vh - 367px);
         object-fit: cover;
         object-position: 20% 50%;
     }
-    height: calc(100vh - 120px);
+    height: calc(100vh - 124px);
 
     button,
     .button {
@@ -623,10 +628,9 @@ main,
 
 .homepage {
 
-	.button.discover {
+    .button.discover {
         bottom: 0;
-        padding-bottom: rem-calc(4);
-	}
+    }
 
     .featured-page-block .text-content {
         padding-top: rem-calc(16) !important;
@@ -638,7 +642,7 @@ main,
 }
 
 .home-banner {
-	width: 100%;
+    width: 100%;
     position: relative;
     background: #002395;
     background-image: url('/static/images/shards-homepage.svg'), url('/static/images/grid-pattern.svg');
@@ -857,11 +861,48 @@ footer,
 
 /** More media queries **/
 
+@include breakpoint(xlarge up) {
+
+    nav {
+        .menu {
+            font-size: rem-calc(24);
+            line-height: rem-calc(30);
+        }
+    }
+
+    header {
+
+        .kdl-heading {
+            min-width: rem-calc(220);
+
+            img {
+                max-height: rem-calc(82) !important;
+            }
+        }
+
+        .search-box {
+            button {
+                height: rem-calc(48);
+            }
+
+            input[type=search] {
+                font-size: rem-calc(25);
+                height: rem-calc(48);
+            }
+
+            max-width: rem-calc(250) !important;
+            margin-right: rem-calc(40);
+        }
+    }
+}
+
 @include breakpoint(large up) {
 
-    button,
-    .button {
-    	width: rem-calc(504);
+    .main {
+        button,
+        .button {
+            width: rem-calc(504);
+        }
     }
 
     .featured-page-block {
@@ -884,6 +925,27 @@ footer,
             &.discover {
                 left: calc(50% - 252px);
             }
+        }
+    }
+
+    header {
+        .block-right {
+            .kcl-logo {
+                img {
+                    height: rem-calc(120);
+                }
+            }
+        }
+
+        .kdl-heading {
+            img {
+                max-height: rem-calc(70);
+            }
+        }
+
+        .search-box {
+            margin-right: rem-calc(32);
+            max-width: rem-calc(100);
         }
     }
 }
@@ -914,16 +976,11 @@ footer,
 
     header {
         .kdl-heading {
-            min-width: rem-calc(170);
-            padding: rem-calc(8) rem-calc(12) 0;
+            padding: rem-calc(12) rem-calc(12) 0;
             img {
-                max-height: rem-calc(36);
+                max-height: rem-calc(48);
             }
         }
-
-        // nav button {
-        //     width: auto;
-        // }
     }
 
     p {
@@ -975,16 +1032,6 @@ footer,
     .top-bar {
         padding: 0;
     }
-
-    // .with-background {
-    //     blockquote {
-    //         left: rem-calc(24);
-    //         padding-left: rem-calc(50);
-    //         &:before {
-    //             margin-left: rem-calc(24);
-    //         }
-    //     }
-    // }
 }
 
 @media screen and (max-width: 1080px) {

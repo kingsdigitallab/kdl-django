@@ -1,59 +1,27 @@
 {% load staticfiles %}
 
-<div class="row expanded">
-    <div class="kdl-heading">
-        <span class="show-for-large"><a href="/"><img src="{% static 'images/kdl-heading.svg' %}" alt="King's Digital Lab"></a></span><span class="hide-for-large"><a href="/"><img src="{% static 'images/kdl-heading-mob.svg' %}" alt="King's Digital Lab"></a></span>
-    </div>
-    <div class="float-left">
-        <nav>
-            {% include 'includes/navigation.html' %}
-        </nav>
-    </div>
-
-    <span class="show-for-large">
-    <div class="row collapse float-right">
-        <div class="large-6 columns">
-            {% include 'includes/search_box.html' %}
+<div class="row collapse expanded clearfix">
+    <div class="small-12 columns">
+        <div class="kdl-heading">
+            <span class="show-for-large"><a href="/"><img src="{% static 'images/kdl-heading.svg' %}" alt="King's Digital Lab"></a></span><span class="hide-for-large"><a href="/"><img src="{% static 'images/kdl-heading-mob.svg' %}" alt="King's Digital Lab"></a></span>
         </div>
-        <div class="large-6 columns">
-            <div class="kcl-logo">
+
+        <div class="float-right block-right">
+            <div class="float-left show-for-large">
+                {% include 'includes/search_box.html' %}
+            </div>
+
+            <div class="kcl-logo float-right">
                 <a href="//www.kcl.ac.uk/" title="King's College London">
                     <img src="{% static 'images/kings-logo-red.svg' %}" alt="King's College London">
                 </a>
             </div>
         </div>
-    </div>
-    </span>
-    <span class="hide-for-large">
-    <div class="kcl-logo float-right">
-        <a href="//www.kcl.ac.uk/" title="King's College London">
-            <img src="{% static 'images/kings-logo-red.svg' %}" alt="King's College London">
-        </a>
-    </div>
-    </span>
-</div>
 
-{% comment %}
-<div class="row expanded small-collapse">
-    <div class="small-6 large-3 columns">
-        <div class="kdl-heading">
-            <span class="show-for-large"><a href="/"><img src="{% static 'images/kdl-heading.svg' %}" alt="King's Digital Lab"></a></span><span class="hide-for-large"><a href="/"><img src="{% static 'images/kdl-heading-mob.svg' %}" alt="King's Digital Lab"></a></span>
+        <div class="float-left">
+            <nav>
+                {% include 'includes/navigation.html' %}
+            </nav>
         </div>
-    </div>
-    <div class="small-4 columns">
-        <nav>
-            {% include 'includes/navigation.html' %}
-        </nav>
-    </div>
-    <div class="large-3 show-for-large columns">
-        <div class="float-right">
-        {% include 'includes/search_box.html' %}
-        </div>
-    </div>
-    <div class="small-2 columns kcl-logo">
-      <a href="//www.kcl.ac.uk/" title="King's College London">
-        <img class="float-right" src="{% static 'images/kings-logo-red.svg' %}" alt="King's College London">
-      </a>
     </div>
 </div>
-{% endcomment %}

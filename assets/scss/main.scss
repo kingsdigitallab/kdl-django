@@ -350,16 +350,16 @@ button,
 }
 
 .search-box {
+    display: inline-block;
     margin-top: rem-calc(36);
-    margin-right: rem-calc(40);
-    min-width: rem-calc(150);
+    // min-width: rem-calc(150);
 
     button {
         background: $white;
         border: 1px solid $medium-gray;
         border-left: none;
         color: $primary-color;
-        height: rem-calc(48);
+        height: rem-calc(36);
         margin-top: rem-calc(0);
         padding: rem-calc(10);
     }
@@ -374,8 +374,13 @@ button,
         -webkit-box-shadow: none;
         box-shadow: none;
         font-family: "KingsCaslon", serif;
-        font-size: rem-calc(25);
-        height: rem-calc(48);
+        font-size: rem-calc(20);
+        height: rem-calc(36);
+        margin: 0;
+    }
+
+    li {
+        margin: 0;
     }
 }
 
@@ -383,15 +388,14 @@ button,
 
 header {
 
+    .block-right {
+        text-align: right;
+    }
+
     .kdl-heading {
         padding: rem-calc(24 0 0 24);
-        min-width: rem-calc(240);
+        min-width: rem-calc(209);
         float: left;
-
-        img {
-            max-width: rem-calc(167);
-            max-height: rem-calc(82);
-        }
 
         a {
             display: block;
@@ -399,9 +403,9 @@ header {
     }
 
     .kcl-logo {
-
         img {
-            width: 100%;
+            max-width: rem-calc(158);
+            min-height: rem-calc(48);
         }
     }
 }
@@ -470,7 +474,8 @@ caption,
 nav {
 
     .menu {
-        font-size: rem-calc(24);
+        font-size: rem-calc(20);
+        line-height: rem-calc(24);
 
         a {
             color: $nav-anchor;
@@ -856,11 +861,48 @@ footer,
 
 /** More media queries **/
 
+@include breakpoint(xlarge up) {
+
+    nav {
+        .menu {
+            font-size: rem-calc(24);
+            line-height: rem-calc(30);
+        }
+    }
+
+    header {
+
+        .kdl-heading {
+            min-width: rem-calc(220);
+
+            img {
+                max-height: rem-calc(82) !important;
+            }
+        }
+
+        .search-box {
+            button {
+                height: rem-calc(48);
+            }
+
+            input[type=search] {
+                font-size: rem-calc(25);
+                height: rem-calc(48);
+            }
+
+            max-width: rem-calc(250) !important;
+            margin-right: rem-calc(40);
+        }
+    }
+}
+
 @include breakpoint(large up) {
 
-    button,
-    .button {
-    	width: rem-calc(504);
+    .main {
+        button,
+        .button {
+        	width: rem-calc(504);
+        }
     }
 
     .featured-page-block {
@@ -883,6 +925,27 @@ footer,
             &.discover {
                 left: calc(50% - 252px);
             }
+        }
+    }
+
+    header {
+        .block-right {
+            .kcl-logo {
+                img {
+                    height: rem-calc(120);
+                }
+            }
+        }
+
+        .kdl-heading {
+            img {
+                max-height: rem-calc(70);
+            }
+        }
+
+        .search-box {
+            margin-right: rem-calc(32);
+            max-width: rem-calc(100);
         }
     }
 }
@@ -915,7 +978,7 @@ footer,
         .kdl-heading {
             padding: rem-calc(12) rem-calc(12) 0;
             img {
-                max-height: rem-calc(36);
+                max-height: rem-calc(48);
             }
         }
     }
@@ -969,16 +1032,6 @@ footer,
     .top-bar {
         padding: 0;
     }
-
-    // .with-background {
-    //     blockquote {
-    //         left: rem-calc(24);
-    //         padding-left: rem-calc(50);
-    //         &:before {
-    //             margin-left: rem-calc(24);
-    //         }
-    //     }
-    // }
 }
 
 @media screen and (max-width: 1080px) {

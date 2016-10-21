@@ -36,7 +36,7 @@ AUTH_LDAP_USER_ATTR_MAP = {
 
 AUTH_LDAP_USER_FLAGS_BY_GROUP = {
     'is_active': 'cn=confluence-users,' + LDAP_BASE_OU,
-    'is_staff': 'cn=ddh-staff,' + LDAP_BASE_OU,
+    'is_staff': 'cn=kdl-staff,' + LDAP_BASE_OU,
     'is_superuser': 'cn=sysadmin,' + LDAP_BASE_OU
 }
 
@@ -47,7 +47,7 @@ AUTH_LDAP_ALWAYS_UPDATE_USER = True
 
 # Cache group memberships for an hour to minimize LDAP traffic
 AUTH_LDAP_CACHE_GROUPS = True
-AUTH_LDAP_GROUP_CACHE_TIMEOUT = 3600
+AUTH_LDAP_GROUP_CACHE_TIMEOUT = 60 * 60
 
 AUTHENTICATION_BACKENDS = (
     'django_auth_ldap.backend.LDAPBackend',

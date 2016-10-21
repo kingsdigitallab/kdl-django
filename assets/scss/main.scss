@@ -67,8 +67,8 @@ blockquote {
 
 button,
 .button {
-	position: relative;
-	display: block;
+    position: relative;
+    display: block;
     width: rem-calc(240);
     margin-left: auto;
     margin-right: auto;
@@ -83,7 +83,7 @@ cite:before {
 }
 
 .counter-collapse {
-	padding: 0 rem-calc(16);
+    padding: 0 rem-calc(16);
 }
 
 .darker {
@@ -134,10 +134,10 @@ cite:before {
 
     .post-title,
     .post-title a,
-	.subtitle,
-	.subtitle a {
-		color: $white;
-	}
+    .subtitle,
+    .subtitle a {
+        color: $white;
+    }
 
     .starred_page p.subtite {
         margin-bottom: rem-calc(12);
@@ -272,7 +272,7 @@ iframe {
 }
 
 .spaced-up {
-	margin: rem-calc(30);
+    margin: rem-calc(30);
 }
 
 .spaced-up-vertically {
@@ -280,13 +280,13 @@ iframe {
 }
 
 .starred-page {
-	a {
-		color: $white;
-	}
+    a {
+        color: $white;
+    }
 }
 
 .text-content {
-	padding: rem-calc(0 16) !important;
+    padding: rem-calc(0 16) !important;
 }
 
 .title-block {
@@ -315,19 +315,19 @@ iframe {
 }
 
 .with-background {
-	background: url('/static/images/grid-pattern.svg') $primary-color;
+    background: url('/static/images/grid-pattern.svg') $primary-color;
     background-size: rem-calc(432);
 
     blockquote {
         color: $white;
-    	font-size: rem-calc(48);
-    	line-height: rem-calc(50);
+        font-size: rem-calc(48);
+        line-height: rem-calc(50);
         padding-top: rem-calc(100);
         padding-bottom: rem-calc(100);
 
-    	.attribution {
-    		color: $white;
-    	}
+        .attribution {
+            color: $white;
+        }
 
         &:before {
             top: rem-calc(109);
@@ -430,9 +430,9 @@ h2.heading-content {
 }
 
 .post-section-title {
-	background: $another-gray;
-	padding: rem-calc(18 20);
-	margin: rem-calc(36 0);
+    background: $another-gray;
+    padding: rem-calc(18 20);
+    margin: rem-calc(36 0);
 }
 
 .post-title,
@@ -456,7 +456,7 @@ caption,
 .subtitle,
 .title,
 .title-bar {
-	font-family: 'KingsBureauGrot', sans-serif;
+    font-family: 'KingsBureauGrot', sans-serif;
 }
 
 .post-title {
@@ -558,8 +558,8 @@ main,
 }
 
 .narrow-container {
-	max-width: rem-calc(1080);
-	margin: 0 auto;
+    max-width: rem-calc(1080);
+    margin: 0 auto;
 }
 
 /* Banner */
@@ -590,18 +590,18 @@ main,
 /* Default Banner */
 
 .default-banner {
-	width: 100%;
+    width: 100%;
 }
 
 .full-height-banner {
-	width: 100%;
+    width: 100%;
     img {
         min-width: 100%;
-        height: calc(100vh - 363px);
+        height: calc(100vh - 367px);
         object-fit: cover;
         object-position: 20% 50%;
     }
-    height: calc(100vh - 120px);
+    height: calc(100vh - 124px);
 
     button,
     .button {
@@ -628,10 +628,9 @@ main,
 
 .homepage {
 
-	.button.discover {
+    .button.discover {
         bottom: 0;
-        padding-bottom: rem-calc(4);
-	}
+    }
 
     .featured-page-block .text-content {
         padding-top: rem-calc(16) !important;
@@ -643,7 +642,7 @@ main,
 }
 
 .home-banner {
-	width: 100%;
+    width: 100%;
     position: relative;
     background: #002395;
     background-image: url('/static/images/shards-homepage.svg'), url('/static/images/grid-pattern.svg');
@@ -902,7 +901,7 @@ footer,
     .main {
         button,
         .button {
-        	width: rem-calc(504);
+            width: rem-calc(504);
         }
     }
 

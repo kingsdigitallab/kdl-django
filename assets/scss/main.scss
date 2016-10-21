@@ -394,7 +394,7 @@ header {
 
     .kdl-heading {
         padding: rem-calc(24 0 0 24);
-        min-width: rem-calc(209);
+        // min-width: rem-calc(209);
         float: left;
 
         a {
@@ -874,7 +874,6 @@ footer,
     header {
 
         .kdl-heading {
-            min-width: rem-calc(220);
 
             img {
                 max-height: rem-calc(82) !important;
@@ -939,6 +938,7 @@ footer,
         }
 
         .kdl-heading {
+            min-width: rem-calc(220);
             img {
                 max-height: rem-calc(70);
             }
@@ -977,11 +977,16 @@ footer,
 
     header {
         .kdl-heading {
-            padding: rem-calc(12) rem-calc(12) 0;
+            min-width: rem-calc(170);
+            padding: rem-calc(8) rem-calc(12) 0;
             img {
                 max-height: rem-calc(48);
             }
         }
+
+        // nav button {
+        //     width: auto;
+        // }
     }
 
     p {

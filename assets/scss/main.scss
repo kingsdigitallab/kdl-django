@@ -297,6 +297,10 @@ iframe {
     h3 {
         margin: 0;
         padding: 0;
+
+        &.subhead {
+            color: $subhead-color;
+        }
     }
 }
 
@@ -556,6 +560,10 @@ main,
         video {
             max-width: 100%;
         }
+    }
+
+    li > .subhead {
+        color: $subhead-color;
     }
 }
 

@@ -5,6 +5,9 @@ REQUIRE_DEBUG = DEBUG
 
 INTERNAL_IPS = INTERNAL_IPS + ('', )
 
+CACHE_REDIS_DATABASE = '2'
+CACHES['default']['LOCATION'] = '127.0.0.1:6379/' + CACHE_REDIS_DATABASE
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',

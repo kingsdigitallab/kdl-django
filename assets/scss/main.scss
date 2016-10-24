@@ -437,7 +437,9 @@ h2.heading-content {
 
 .post-title,
 .subhead {
-    font-size: rem-calc(30);
+    font-size: rem-calc(24);
+    line-height: rem-calc(30);
+
     a {
         color: $primary-color;
     }
@@ -789,6 +791,8 @@ main,
     list-style-type: none;
 
     li {
+        background: url('/static/images/list-element-neutral.svg') 46px 46px no-repeat $white;
+        background-size: 7px;
         counter-increment: step-counter;
         margin: rem-calc(16);
         padding-bottom: rem-calc(24);
@@ -898,6 +902,27 @@ footer,
 
 @include breakpoint(large up) {
 
+    header {
+        .block-right {
+            .kcl-logo {
+                img {
+                    height: rem-calc(120);
+                }
+            }
+        }
+
+        .kdl-heading {
+            img {
+                max-height: rem-calc(70);
+            }
+        }
+
+        .search-box {
+            margin-right: rem-calc(32);
+            max-width: rem-calc(100);
+        }
+    }
+
     .main {
         button,
         .button {
@@ -928,25 +953,10 @@ footer,
         }
     }
 
-    header {
-        .block-right {
-            .kcl-logo {
-                img {
-                    height: rem-calc(120);
-                }
-            }
-        }
-
-        .kdl-heading {
-            img {
-                max-height: rem-calc(70);
-            }
-        }
-
-        .search-box {
-            margin-right: rem-calc(32);
-            max-width: rem-calc(100);
-        }
+    .post-title,
+    .subhead {
+        font-size: rem-calc(30);
+        line-height: rem-calc(36);
     }
 }
 

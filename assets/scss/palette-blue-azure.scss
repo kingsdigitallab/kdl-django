@@ -44,6 +44,7 @@
 	.block-list {
 		li {
 	        background: url('/static/images/list-element-light-blue.svg') 46px 46px no-repeat $white;
+	        background-size: 7px;
 
 			&:before {
 	            color: $tertiary-color;

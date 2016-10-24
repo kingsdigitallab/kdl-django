@@ -17,18 +17,22 @@
 			color: $white;
 		}
 	}
+	
+	a.discover {
+		color: $tertiary-color;
+	}
 
 	button,
 	.button {
 		background-color: $tertiary-color;
 		border-bottom: 7px solid scale-color($tertiary-color, $lightness: -30%);
 
-		&.discover {
-			color: $tertiary-color;
-			&:hover {
-				background: none;
-			}
-		}
+		// &.discover {
+		// 	color: $tertiary-color;
+		// 	&:hover {
+		// 		background: none;
+		// 	}
+		// }
 
         &:hover {
             background: scale-color($tertiary-color, $lightness: -20%);

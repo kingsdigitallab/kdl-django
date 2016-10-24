@@ -18,17 +18,21 @@
 		}
 	}
 
+    a.discover {
+		color: $bright-pink;
+	}
+
 	button,
 	.button {
 		background-color: $bright-pink;
 		border-bottom: 7px solid scale-color($bright-pink, $lightness: -30%);
 
-		&.discover {
-			color: $bright-pink;
-			&:hover {
-				background: none;
-			}
-		}
+		// &.discover {
+		// 	color: $bright-pink;
+		// 	&:hover {
+		// 		background: none;
+		// 	}
+		// }
 
         &:hover {
             background: scale-color($bright-pink, $lightness: -20%);
@@ -50,6 +54,10 @@
 	            color: $bright-pink;
 	        }
     	}
+	}
+
+	svg#caret-down-outline {
+		fill: $bright-pink;
 	}
 
 	.tags {

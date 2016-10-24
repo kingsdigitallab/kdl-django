@@ -26,7 +26,12 @@
     {% endif %}
 
     {% if value.style != 'default' %}
-    <a class="small button radius discover" href="#content" title="Scroll down to the content"><i class="fa fa-angle-double-down fa-lg"></i></a>
+    <a class="discover" href="#content" title="Scroll down to the content">
+        <i class="fa fa-angle-double-down fa-lg"></i>
+
+        <!-- <svg id="caret-down-outline" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 22.5"><title>caret-down-outline</title><path d="M37.5,2a.52.52,0,0,1,.5.5.5.5,0,0,1-.16.34l-17.5,17.5a.46.46,0,0,1-.69,0L2.16,2.84A.5.5,0,0,1,2,2.5.52.52,0,0,1,2.5,2h35m0-2H2.5A2.52,2.52,0,0,0,0,2.5,2.48,2.48,0,0,0,.74,4.26l17.5,17.5a2.45,2.45,0,0,0,3.52,0l17.5-17.5A2.49,2.49,0,0,0,40,2.5,2.52,2.52,0,0,0,37.5,0Z" transform="translate(0 0)"/></svg> -->
+        
+    </a>
     {% endif %}
 
     {% with page.tags.all as tags %}

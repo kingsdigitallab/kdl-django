@@ -153,7 +153,7 @@ def deploy(version=None):
     collect_static()
     # update_index()
     clear_cache()
-    touch_wsgi()
+    restar_uwsgi()
 
 
 @task
@@ -224,9 +224,5 @@ def clear_cache():
 
 
 @task
-def touch_wsgi():
-    require('srvr', 'path', 'within_virtualenv', provided_by=env.servers)
-
-    with cd(os.path.join(env.path, 'kdl')), \
-            prefix(env.within_virtualenv):
-        run('touch wsgi.py')
+def restar_uwsgi():
+    sudo('service uwsgi restart django-{}'.format(env.srvr))

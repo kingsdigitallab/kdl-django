@@ -1,8 +1,5 @@
 from .base import *  # noqa
 
-CACHE_REDIS_DATABASE = '2'
-CACHES['default']['LOCATION'] = '127.0.0.1:6379:' + CACHE_REDIS_DATABASE
-
 INTERNAL_IPS = INTERNAL_IPS + ('', )
 ALLOWED_HOSTS = []
 
@@ -16,6 +13,17 @@ DATABASES = {
     },
 }
 
+# -----------------------------------------------------------------------------
+# Django Extensions
+# http://django-extensions.readthedocs.org/en/latest/
+# -----------------------------------------------------------------------------
+
+try:
+    import django_extensions  # noqa
+
+    INSTALLED_APPS = INSTALLED_APPS + ('django_extensions',)
+except ImportError:
+    pass
 
 # -----------------------------------------------------------------------------
 # Local settings

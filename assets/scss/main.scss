@@ -625,8 +625,7 @@ main,
         border: none;
         color: $white;
         display: block;
-        // font-size: rem-calc(48);
-        // left: calc(50% - 120px);
+        font-size: rem-calc(48);
         padding: rem-calc(12);
         position: absolute;
         text-align: center;
@@ -650,7 +649,7 @@ svg#caret-down-outline {
 .homepage {
 
     a.discover {
-        bottom: 0;
+        bottom: 0 !important;
     }
 
     .featured-page-block .text-content {
@@ -971,7 +970,6 @@ footer,
     .home-banner {
 
         a.discover {
-            // left: calc(50% - 252px);
             bottom: rem-calc(90);
         }
     }

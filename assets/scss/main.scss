@@ -69,7 +69,7 @@ button,
 .button {
     position: relative;
     display: block;
-    width: rem-calc(240);
+    max-width: rem-calc(240);
     margin-left: auto;
     margin-right: auto;
 }
@@ -397,19 +397,25 @@ header {
     }
 
     .kdl-heading {
-        padding: rem-calc(24 0 0 24);
-        min-width: rem-calc(209);
+        display: inline-block;
         float: left;
+        padding: rem-calc(24 24 0);
+        width: rem-calc(215);
 
         a {
             display: block;
+        }
+
+        img {
+            max-width: rem-calc(158);
+            width: 100%;
         }
     }
 
     .kcl-logo {
         img {
             max-width: rem-calc(158);
-            min-height: rem-calc(48);
+            height: rem-calc(48);
         }
     }
 }
@@ -613,32 +619,37 @@ main,
     }
     height: calc(100vh - 120px);
 
-    button,
-    .button {
-        position: absolute;
+    a.discover {
         bottom: rem-calc(140);
+        background: none;
+        border: none;
+        color: $white;
+        display: block;
+        // font-size: rem-calc(48);
+        // left: calc(50% - 120px);
+        padding: rem-calc(12);
+        position: absolute;
+        text-align: center;
+        text-shadow: rem-calc(0 0 3) $primary-color;
+        width: 100%;
 
-        &.discover {
-            background: none;
-            border: none;
-            font-size: rem-calc(48);
-            left: calc(50% - 120px);
-            padding: 0;
-            text-shadow: rem-calc(0 0 3) $primary-color;
-
-            &:hover {
-                text-shadow: rem-calc(0 0 10) $white;
-
-            }
+        &:hover {
+            text-shadow: rem-calc(0 0 10) $white;
         }
     }
+}
+
+svg#caret-down-outline {
+    fill: $tertiary-color;
+    height: rem-calc(50);
+    width: rem-calc(50);
 }
 
 /* Homepage */
 
 .homepage {
 
-    .button.discover {
+    a.discover {
         bottom: 0;
     }
 
@@ -889,6 +900,7 @@ footer,
 
             img {
                 max-height: rem-calc(82) !important;
+                width: 100%;
             }
         }
 
@@ -922,12 +934,17 @@ footer,
         .kdl-heading {
             img {
                 max-height: rem-calc(70);
+                width: 100%;
             }
         }
 
         .search-box {
             margin-right: rem-calc(32);
             max-width: rem-calc(100);
+        }
+
+        .floating {
+            float: left;
         }
     }
 
@@ -952,12 +969,10 @@ footer,
 
     .full-height-banner,
     .home-banner {
-        button,
-        .button {
+
+        a.discover {
+            // left: calc(50% - 252px);
             bottom: rem-calc(90);
-            &.discover {
-                left: calc(50% - 252px);
-            }
         }
     }
 
@@ -995,8 +1010,12 @@ footer,
     header {
         .kdl-heading {
             padding: rem-calc(12) rem-calc(12) 0;
+            width: 50%;
+            min-width: rem-calc(150);
+
             img {
                 max-height: rem-calc(48);
+                width: 100%;
             }
         }
     }
@@ -1035,6 +1054,11 @@ footer,
         text-align: left;
     }
 
+    // Float the menu right on small devices
+    .floating {
+        float: right;
+    }
+
     .shadowed-small {
         -webkit-box-shadow: inset rem-calc(0 20 20 -20) $black;
         box-shadow: inset rem-calc(0 20 20 -20) $black;
@@ -1045,6 +1069,10 @@ footer,
             max-width: rem-calc(154);
             margin-bottom: rem-calc(24);
         }
+    }
+
+    .title-bar {
+        height: rem-calc(48);
     }
 
     .top-bar {

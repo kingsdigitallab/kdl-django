@@ -1092,6 +1092,36 @@ footer,
     }
 }
 
+/* Fit full-height-banner on small screens */
+@media screen and (max-height: 768px),
+(max-width: 560px) {
+    .home-banner {
+        .absolute {
+            top: 10%;
+
+            .half-block {
+                padding: rem-calc(0 12);
+                position: relative;
+                top: -90%;
+                width: 100%;
+
+                h1,
+                h2 {
+                    line-height: 1;
+                }
+
+                h1 {
+                    font-size: rem-calc(54);
+                }
+
+                h2 {
+                    font-size: rem-calc(30);
+                }
+            }
+        }
+    }
+}
+
 /* Move this out of here
  * Import will be done in base.html based on page classes
  */

@@ -139,7 +139,7 @@ cite:before {
         color: $white;
     }
 
-    .starred_page p.subtite {
+    .starred_page p.subtitle {
         margin-bottom: rem-calc(12);
     }
 }
@@ -550,9 +550,15 @@ main,
     .banner-block {
         h1 {
             margin-bottom: 0;
+            font-size: rem-calc(38);
+            line-height: rem-calc(44);
         }
 
-        p,
+        h2 {
+            font-size: rem-calc(24);
+            line-height: rem-calc(30);
+        }
+
         h1,
         h2,
         h3,
@@ -561,11 +567,14 @@ main,
         iframe,
         img,
         ol,
+        p,
         span,
         ul,
         video {
             max-width: 100%;
         }
+
+
     }
 
     li > .subhead {
@@ -582,11 +591,11 @@ main,
 
 .default-banner,
 .category-bg {
-    position: relative;
-    line-height: 1.125;
-    display: block;
     background-image: url('/static/images/grid-pattern.svg') !important;
     background-size: rem-calc(432) !important;
+    display: block;
+    line-height: 1.125;
+    position: relative;
 
     .subtitle {
         color: $tertiary-color;
@@ -595,10 +604,10 @@ main,
 
     h1 {
         color: $white;
-        padding: rem-calc(0 24 42 24);
+        line-height: rem-calc(60);
         margin-bottom: 0;
         max-width: rem-calc(836);
-        line-height: rem-calc(60);
+        padding: rem-calc(0 24 42 24);
     }
 
 }
@@ -612,8 +621,8 @@ main,
 .full-height-banner {
     width: 100%;
     img {
-        min-width: 100%;
         height: calc(100vh - 363px);
+        min-width: 100%;
         object-fit: cover;
         object-position: 20% 50%;
     }
@@ -951,6 +960,18 @@ footer,
         button,
         .button {
             width: rem-calc(504);
+        }
+
+        .banner-block {
+            h1 {
+                font-size: rem-calc(48);
+                line-height: rem-calc(54);
+            }
+
+            h2 {
+                font-size: rem-calc(30);
+                line-height: (36);
+            }
         }
     }
 

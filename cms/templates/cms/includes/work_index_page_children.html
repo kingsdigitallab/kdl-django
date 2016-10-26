@@ -15,9 +15,9 @@
 	    {% endif %}
 
 	    <div class="medium-{% if page.feed_image %}8{% else %}12{% endif %} columns text-content">
-	    	<h3 class="subhead subtitle">{{ page.subtitle }}</h3>
+	    	<h3 class="subhead subtitle">{{ page.title }}</h3>
 	        <h2 class="post-title">
-	            <a href="{% pageurl page %}">{{ page.title }}</a>
+	            <a href="{% pageurl page %}">{{ page.subtitle }}</a>
 	        </h2>
 
 	        <p>

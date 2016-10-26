@@ -287,6 +287,10 @@ iframe {
 
 .text-content {
     padding: rem-calc(0 16) !important;
+
+    p {
+        margin-bottom: rem-calc(12);
+    }
 }
 
 .title-block {

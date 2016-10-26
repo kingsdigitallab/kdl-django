@@ -28,11 +28,11 @@
         </p>
         {% endcomment %}
 
-        <p>
-            {% if post.search_description %}
+        {% if post.search_description %}
+        <p>        
             {{ post.search_description }} <a href="{% pageurl post %}" title="{{ post.title }}"></a>
-            {% endif %}
         </p>
+        {% endif %}
 
         <p class="more"><a href="{% pageurl post %}" title="{{ post.title }}">Read more <i class="fa fa-play"></i></a></p>
     </div>

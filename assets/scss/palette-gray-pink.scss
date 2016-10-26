@@ -27,13 +27,6 @@
 		background-color: $bright-pink;
 		border-bottom: 7px solid scale-color($bright-pink, $lightness: -30%);
 
-		// &.discover {
-		// 	color: $bright-pink;
-		// 	&:hover {
-		// 		background: none;
-		// 	}
-		// }
-
         &:hover {
             background: scale-color($bright-pink, $lightness: -20%);
         }

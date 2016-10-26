@@ -18,17 +18,14 @@
 		}
 	}
 
+    a.discover {
+		color: $bright-blue;
+	}
+
 	button,
 	.button {
 		background-color: $bright-blue;
 		border-bottom: 7px solid scale-color($bright-blue, $lightness: -30%);
-
-		&.discover {
-			color: $bright-blue;
-			&:hover {
-				background: none;
-			}
-		}
 
         &:hover {
             background: scale-color($bright-blue, $lightness: -20%);
@@ -50,6 +47,10 @@
         	    color: $bright-blue;
         	}
         }
+	}
+
+	svg#caret-down-outline {
+		fill: $bright-blue;
 	}
 
 	.tags {

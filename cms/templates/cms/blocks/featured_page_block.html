@@ -17,13 +17,13 @@
                 {% endif %}
                 <div class="large-6 large-pull-6 columns text-content">
                     {% if thepage.subtitle %}
-                    <p class="subtitle">{{ thepage.subtitle }}</p>
+                    <p class="subtitle">{{ thepage.title }}</p>
                     {% endif %}
 
                     
                     <h2 class="title">
                         <a href="{% pageurl thepage %}">
-                            {{ thepage.title }}
+                            {{ thepage.subtitle }}
                         </a>
                     </h2>
                 </div>

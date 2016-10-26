@@ -69,7 +69,7 @@ button,
 .button {
     position: relative;
     display: block;
-    max-width: rem-calc(240);
+    width: 50%;
     margin-left: auto;
     margin-right: auto;
 }
@@ -502,12 +502,13 @@ nav {
 }
 
 .title-bar {
-    background-color: scale-color($primary-color, $lightness: 50.5%);
-    padding: rem-calc(12 18);
+    background-color: $another-gray;
+    padding: rem-calc(12 12 12 0);
 
     button:after {
         content: "\f0d7";
         font-family: "FontAwesome";
+        margin-right: rem-calc(24);
         padding-left: rem-calc(6);
     }
 }
@@ -1020,6 +1021,15 @@ footer,
     }
 }
 
+@include breakpoint(large down) {
+    blockquote {
+        padding-left: rem-calc(36);
+        &:before {
+            padding-left: rem-calc(24);
+        }
+    }
+}
+
 @include breakpoint(medium down) {
 
     body {
@@ -1091,7 +1101,7 @@ footer,
         text-align: left;
     }
 
-    // Float the menu right on small devices
+    // Float the menu to the right on small devices
     .floating {
         float: right;
     }
@@ -1132,8 +1142,8 @@ footer,
 }
 
 /* Fit full-height-banner on small screens */
-@media screen and (max-height: 768px),
-(max-width: 560px) {
+@media screen and   (max-height: 768px),
+                    (max-width: 560px) {
     .home-banner {
         .absolute {
             top: 10%;

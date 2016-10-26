@@ -18,17 +18,14 @@
 		}
 	}
 
+    a.discover {
+		color: $dark-yellow;
+	}
+
 	button,
 	.button {
 		background-color: $dark-yellow;
 		border-bottom: 7px solid scale-color($dark-yellow, $lightness: -30%);
-
-		&.discover {
-			color: $dark-yellow;
-			&:hover {
-				background: none;
-			}
-		}
 
         &:hover {
             background: scale-color($dark-yellow, $lightness: -20%);
@@ -39,6 +36,10 @@
 		.subtitle {
 			color: $dark-yellow;
 		}
+	}
+
+	svg#caret-down-outline {
+		fill: $dark-yellow;
 	}
 
 	.block-list {

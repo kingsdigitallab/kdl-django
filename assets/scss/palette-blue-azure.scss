@@ -27,13 +27,6 @@
 		background-color: $tertiary-color;
 		border-bottom: 7px solid scale-color($tertiary-color, $lightness: -30%);
 
-		// &.discover {
-		// 	color: $tertiary-color;
-		// 	&:hover {
-		// 		background: none;
-		// 	}
-		// }
-
         &:hover {
             background: scale-color($tertiary-color, $lightness: -20%);
         }
@@ -54,6 +47,10 @@
 	            color: $tertiary-color;
 	        }
 	    }
+	}
+
+	svg#caret-down-outline {
+		fill: $tertiary-color;
 	}
 
 	.tags {

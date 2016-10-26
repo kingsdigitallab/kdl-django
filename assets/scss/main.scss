@@ -1106,6 +1106,12 @@ footer,
         float: right;
     }
 
+    .main {
+        .button {
+            width: 60%;
+        }
+    }
+
     .shadowed-small {
         -webkit-box-shadow: inset rem-calc(0 20 20 -20) $black;
         box-shadow: inset rem-calc(0 20 20 -20) $black;

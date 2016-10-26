@@ -69,7 +69,7 @@ button,
 .button {
     position: relative;
     display: block;
-    max-width: rem-calc(240);
+    width: 50%;
     margin-left: auto;
     margin-right: auto;
 }
@@ -1091,7 +1091,7 @@ footer,
         text-align: left;
     }
 
-    // Float the menu right on small devices
+    // Float the menu to the right on small devices
     .floating {
         float: right;
     }

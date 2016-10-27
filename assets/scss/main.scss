@@ -690,12 +690,12 @@ svg#caret-down-outline {
 
     .absolute {
         position: absolute;
-        top: 35%;
+        top: 30%;
     }
 
     .half-block {
         position: relative;
-        top: -65%;
+        top: -70%;
         max-width: rem-calc(678);
         padding-left: rem-calc(24);
     }
@@ -1156,7 +1156,7 @@ footer,
 }
 
 /* Fit full-height-banner on small screens */
-@media screen and   (max-height: 768px),
+@media screen and   (max-height: 724px),
                     (max-width: 560px) {
     .home-banner {
         .absolute {

@@ -32,11 +32,11 @@
 </div>
 {% endif %}
 {% endfor %}
-<div class="row medium-up-2">
+<div class="row medium-up-2" data-equalizer>
 	{% for page in pages %}
 	{% if not forloop.first %}
 	<div class="column spaced-up-vertically">
-		<div class="row collapse with-background {{ page.category }}">
+		<div class="row collapse with-background {{ page.category }}" data-equalizer-watch>
 			{% if page.feed_image %}
 		    <div class="small-4 columns">
 		        {% image page.feed_image max-300x300 as tmp_image %}

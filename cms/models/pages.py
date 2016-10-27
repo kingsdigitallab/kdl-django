@@ -195,7 +195,7 @@ class WorkIndexPage(RoutablePageMixin, Page, WithStreamField):
             logger.error('Invalid tag filter')
             return self.all_works(request)
 
-        works = self.works.filter(categories__name=tag)
+        works = self.works.filter(tags__name=tag)
 
         return render(
             request, self.get_template(request), {

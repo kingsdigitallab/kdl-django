@@ -26,6 +26,8 @@ TEMPLATES[0]['OPTIONS']['debug'] = True
 
 INSTALLED_APPS = INSTALLED_APPS + ('wagtail.contrib.wagtailstyleguide',)
 
+WAGTAILSEARCH_BACKENDS['default']['INDEX'] = 'kdl_wagtail_dev'
+
 # -----------------------------------------------------------------------------
 # Django Extensions
 # http://django-extensions.readthedocs.org/en/latest/

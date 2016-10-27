@@ -342,6 +342,16 @@ WAGTAIL_SITE_NAME = PROJECT_TITLE
 
 ITEMS_PER_PAGE = 10
 
+WAGTAILSEARCH_BACKENDS = {
+    'default': {
+        'BACKEND': 'wagtail.wagtailsearch.backends.elasticsearch2',
+        'AUTO_UPDATE': False,
+        'URLS': ['http://localhost:9200'],
+        'INDEX': 'kdl_wagtail',
+        'TIMEOUT': 5,
+    }
+}
+
 # -----------------------------------------------------------------------------
 # GLOBALS FOR JS
 # -----------------------------------------------------------------------------

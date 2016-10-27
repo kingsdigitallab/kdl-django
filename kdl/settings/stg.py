@@ -16,6 +16,8 @@ DATABASES = {
     },
 }
 
+WAGTAILSEARCH_BACKENDS['default']['INDEX'] = 'kdl_wagtail_stg'
+
 # -----------------------------------------------------------------------------
 # Django Extensions
 # http://django-extensions.readthedocs.org/en/latest/

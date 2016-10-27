@@ -20,11 +20,13 @@
 	            <a href="{% pageurl page %}">{{ page.subtitle }}</a>
 	        </h2>
 
+	        {% comment %}
 	        <p>
 	            {% if page.search_description %}
 	            {{ page.search_description }}
 	            {% endif %}
 	        </p>
+	        {% endcomment %}
 
 	        <p class="more"><a href="{% pageurl page %}" title="{{ page.title }}">Read more <i class="fa fa-play"></i></a></p>
 	    </div>

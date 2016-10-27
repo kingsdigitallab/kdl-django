@@ -108,6 +108,7 @@ class PersonPage(Page, WithContactFields, WithFeedImage, WithStreamField):
     last_name = models.CharField(max_length=256)
     intro = RichTextField(blank=True)
     search_fields = Page.search_fields + [
+        index.SearchField('subtitle'),
         index.SearchField('first_name'),
         index.SearchField('last_name'),
         index.SearchField('intro'),
@@ -224,6 +225,11 @@ class WorkPage(Page, WithStreamField, WithFeedImage):
 
     search_fields = Page.search_fields + [
         index.SearchField('body'),
+        index.SearchField('subtitle'),
+        index.SearchField('category'),
+        index.RelatedFields('tags', [
+                            index.SearchField('name'),
+                            ]),
     ]
 
     subpage_types = []
@@ -292,13 +298,16 @@ class BlogPostTag(TaggedItemBase):
 
 
 class BlogPost(Page, WithStreamField, WithFeedImage):
-    tags = ClusterTaggableManager(through=BlogPostTag, blank=True)
     date = models.DateField('body')
+    tags = ClusterTaggableManager(through=BlogPostTag, blank=True)
 
     search_fields = Page.search_fields + [
         index.SearchField('body'),
         index.SearchField('date'),
-        index.SearchField('tags'),
+        index.RelatedFields('tags', [
+                            index.SearchField('name'),
+                            index.SearchField('slug'),
+                            ]),
     ]
 
     subpage_types = []

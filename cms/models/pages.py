@@ -234,6 +234,10 @@ class WorkPage(Page, WithStreamField, WithFeedImage):
 
     subpage_types = []
 
+    def get_index_page(self):
+        # Find closest ancestor which is a blog index
+        return WorkIndexPage.objects.ancestor_of(self).last()
+
 WorkPage.content_panels = [
     FieldPanel('title', classname='full title'),
     FieldPanel('subtitle', classname='full title'),
@@ -311,6 +315,10 @@ class BlogPost(Page, WithStreamField, WithFeedImage):
     ]
 
     subpage_types = []
+
+    def get_index_page(self):
+        # Find closest ancestor which is a blog index
+        return BlogIndexPage.objects.ancestor_of(self).last()
 
 BlogPost.content_panels = [
     FieldPanel('title', classname='full title'),

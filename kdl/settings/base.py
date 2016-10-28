@@ -85,6 +85,7 @@ INSTALLED_APPS = (
     'wagtail.wagtailforms',
     'wagtail.wagtailsites',
     'wagtail.contrib.wagtailapi',
+    'wagtail.contrib.wagtailroutablepage',
 )
 
 INSTALLED_APPS += (

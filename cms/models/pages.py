@@ -108,6 +108,7 @@ class PersonPage(Page, WithContactFields, WithFeedImage, WithStreamField):
     last_name = models.CharField(max_length=256)
     intro = RichTextField(blank=True)
     search_fields = Page.search_fields + [
+        index.SearchField('subtitle'),
         index.SearchField('first_name'),
         index.SearchField('last_name'),
         index.SearchField('intro'),
@@ -195,7 +196,7 @@ class WorkIndexPage(RoutablePageMixin, Page, WithStreamField):
             logger.error('Invalid tag filter')
             return self.all_works(request)
 
-        works = self.works.filter(categories__name=tag)
+        works = self.works.filter(tags__name=tag)
 
         return render(
             request, self.get_template(request), {
@@ -224,9 +225,18 @@ class WorkPage(Page, WithStreamField, WithFeedImage):
 
     search_fields = Page.search_fields + [
         index.SearchField('body'),
+        index.SearchField('subtitle'),
+        index.SearchField('category'),
+        index.RelatedFields('tags', [
+                            index.SearchField('name'),
+                            ]),
     ]
 
     subpage_types = []
+
+    def get_index_page(self):
+        # Find closest ancestor which is a blog index
+        return WorkIndexPage.objects.ancestor_of(self).last()
 
 WorkPage.content_panels = [
     FieldPanel('title', classname='full title'),
@@ -292,16 +302,23 @@ class BlogPostTag(TaggedItemBase):
 
 
 class BlogPost(Page, WithStreamField, WithFeedImage):
-    tags = ClusterTaggableManager(through=BlogPostTag, blank=True)
     date = models.DateField('body')
+    tags = ClusterTaggableManager(through=BlogPostTag, blank=True)
 
     search_fields = Page.search_fields + [
         index.SearchField('body'),
         index.SearchField('date'),
-        index.SearchField('tags'),
+        index.RelatedFields('tags', [
+                            index.SearchField('name'),
+                            index.SearchField('slug'),
+                            ]),
     ]
 
     subpage_types = []
+
+    def get_index_page(self):
+        # Find closest ancestor which is a blog index
+        return BlogIndexPage.objects.ancestor_of(self).last()
 
 BlogPost.content_panels = [
     FieldPanel('title', classname='full title'),

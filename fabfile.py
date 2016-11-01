@@ -151,7 +151,7 @@ def deploy(version=None):
     own_django_log()
     migrate()
     collect_static()
-    # update_index()
+    update_index()
     clear_cache()
     restar_uwsgi()
 

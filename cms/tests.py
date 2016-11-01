@@ -4,7 +4,8 @@ from cms.models.pages import (
     WorkPage, _paginate
 )
 from django.contrib.auth.models import User
-from django.test import RequestFactory, TestCase
+from django.core.urlresolvers import reverse
+from django.test import Client, RequestFactory, TestCase
 from wagtail.tests.utils import WagtailPageTests
 from wagtail.wagtailcore.models import Site
 
@@ -114,6 +115,12 @@ class TestWorkPage(WagtailPageTests):
     def test_subpage_types(self):
         self.assertAllowedSubpageTypes(WorkPage, {})
 
+    def test_get_index_page(self):
+        post = WorkPage.objects.first()
+        expected = WorkIndexPage.objects.get(url_path='/home/our-work/')
+
+        self.assertEqual(expected, post.get_index_page())
+
 
 class TestBlogIndexPage(WagtailPageTests):
     fixtures = ['tests.json']
@@ -154,3 +161,51 @@ class TestBlogPage(WagtailPageTests):
 
     def test_subpage_types(self):
         self.assertAllowedSubpageTypes(BlogPost, {})
+
+    def test_get_index_page(self):
+        post = BlogPost.objects.first()
+        expected = BlogIndexPage.objects.get(url_path='/home/blog/')
+
+        self.assertEqual(expected, post.get_index_page())
+
+
+class TestSearch(TestCase):
+    fixtures = ['tests.json']
+
+    def setUp(self):
+        self.client = Client()
+
+    def test_search_url_name(self):
+        response = self.client.get(reverse('search'))
+        self.assertEqual(200, response.status_code)
+
+    def test_search_no_results(self):
+        response = self.client.get(reverse('search'))
+        self.assertIsNone(response.context[-1]['search_query'])
+        self.assertEqual(
+            0, response.context[-1]['search_results'].paginator.count)
+
+        q = ''
+        response = self.client.get(reverse('search'), {'q': q})
+        self.assertEqual(q, response.context[-1]['search_query'])
+        self.assertEqual(
+            0, response.context[-1]['search_results'].paginator.count)
+
+        q = 'missing'
+        response = self.client.get(reverse('search'), {'q': q})
+        self.assertEqual(q, response.context[-1]['search_query'])
+        self.assertEqual(
+            0, response.context[-1]['search_results'].paginator.count)
+
+    def test_search_with_results(self):
+        q = 'atlantic'
+        response = self.client.get(reverse('search'), {'q': q})
+        self.assertEqual(q, response.context[-1]['search_query'])
+        self.assertEqual(
+            1, response.context[-1]['search_results'].paginator.count)
+
+        q = 'blog'
+        response = self.client.get(reverse('search'), {'q': q})
+        self.assertEqual(q, response.context[-1]['search_query'])
+        self.assertEqual(
+            1, response.context[-1]['search_results'].paginator.count)

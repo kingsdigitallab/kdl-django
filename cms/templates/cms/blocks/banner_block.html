@@ -1,21 +1,21 @@
-{% load wagtailcore_tags wagtailimages_tags %}
+{% load wagtailcore_tags wagtailimages_tags wagtailroutablepage_tags %}
 
 <div class="{{ value.style }}-banner shadowed banner-block with-background {{ page.category }}">
     {% if value.style == 'full-height' %}
     <div class="category-bg">
-    {% elif value.style == 'home-banner full-height' %}
-    <div class="absolute">
-        <div class="half-block">
-    {% endif %}
-            <h2 class="subtitle">
-                {{ value.title }}
-            </h2>
-            <h1>
-                {{ value.subtitle }}
-            </h1>
-    {% if value.style == 'full-height' %}
-    </div>
-    {% elif value.style == 'home-banner full-height' %}
+        {% elif value.style == 'home-banner full-height' %}
+        <div class="absolute">
+            <div class="half-block">
+                {% endif %}
+                <h2 class="subtitle">
+                    {{ value.title }}
+                </h2>
+                <h1>
+                    {{ value.subtitle }}
+                </h1>
+                {% if value.style == 'full-height' %}
+            </div>
+            {% elif value.style == 'home-banner full-height' %}
         </div>
     </div>
     {% endif %}
@@ -28,9 +28,6 @@
     {% if value.style != 'default' %}
     <a class="discover" href="#content" title="Scroll down to the content">
         <i class="fa fa-angle-double-down fa-lg"></i>
-
-        <!-- <svg id="caret-down-outline" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 22.5"><title>caret-down-outline</title><path d="M37.5,2a.52.52,0,0,1,.5.5.5.5,0,0,1-.16.34l-17.5,17.5a.46.46,0,0,1-.69,0L2.16,2.84A.5.5,0,0,1,2,2.5.52.52,0,0,1,2.5,2h35m0-2H2.5A2.52,2.52,0,0,0,0,2.5,2.48,2.48,0,0,0,.74,4.26l17.5,17.5a2.45,2.45,0,0,0,3.52,0l17.5-17.5A2.49,2.49,0,0,0,40,2.5,2.52,2.52,0,0,0,37.5,0Z" transform="translate(0 0)"/></svg> -->
-        
     </a>
     {% endif %}
 
@@ -39,7 +36,15 @@
     <div class="tags">
         <ul class="menu">
             {% for tag in tags %}
-            <li><a href="#">{{ tag }}</a></li>
+            <li>
+                {% with page.specific.get_index_page as index_page %}
+                {% if index_page %}
+                <a href="{% routablepageurl index_page 'tag' tag %}">{{ tag }}</a>
+                {% else %}
+                <a href="#">{{ tag }}</a>
+                {% endif %}
+                {% endwith %}
+            </li>
             {% endfor %}
         </ul>
     </div>

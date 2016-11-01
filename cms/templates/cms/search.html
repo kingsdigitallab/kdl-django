@@ -1,25 +1,63 @@
 {% extends "cms/base.html" %}
-{% load wagtailcore_tags %}
+{% load wagtailcore_tags wagtailimages_tags %}
 
 {% block meta_title %}Search{% endblock %}
 
 {% block main %}
-
-{% if search_results %}
-<div class="search-results">
-    <ol>
-        {% for result in search_results %}
-        <li>
-            <h4><a href="{% pageurl result %}">{{ result }}</a></h4>
-            {% if result.search_description %}
-            {{ result.search_description|safe }}
-            {% endif %}
-        </li>
-        {% endfor %}
-    </ol>
+<div class="default-banner shadowed banner-block with-background">
+    <h2 class="subtitle gray-title">Search:</h2>
+    <h1>{{ search_query }}</h1>
 </div>
 
-{% include "cms/includes/pagination.html" with pages=search_results %}
+{% if search_results %}
+<div class="row">
+    <div class="small-12 columns">
+        {% comment %}
+        <ol>
+            {% for result in search_results %}
+            <li>
+                <h4><a href="{% pageurl result %}">{{ result }}</a></h4>
+                {% if result.search_description %}
+                {{ result.search_description|safe }}
+                {% endif %}
+            </li>
+            {% endfor %}
+        </ol>
+        {% endcomment %}
+
+
+        <ul class="no-bullet two-columns" data-equalizer>
+            {% for result in search_results %}
+            <li class="extra-padding-vertical">
+                <div class="row collapse with-background{% if result.specific.feed_image %} {{ result.specific.category }}{% endif %}" data-equalizer-watch>
+                    {% if result.specific.feed_image %}
+                    <div class="small-4 columns">
+                        {% image result.specific.feed_image width-300 as theimage %}
+                        <img src="{{ theimage.url }}" alt="{{ theimage.title }}">
+                    </div>
+                    {% endif %}
+                    <div class="small-{% if result.specific.feed_image %}8{% else %}12{% endif %} columns text-content">
+                        <div class="title-block extra-padding-vertical">
+                            <h4><a href="{% pageurl result %}">{{ result }}</a></h4>
+                            {% comment %}
+                            {% if result.search_description %}
+                            {{ result.search_description|safe }}
+                            {% endif %}
+                            {% endcomment %}
+                        </div>
+                    </div>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+
+<div class="row">
+    <div class="small-12 columns">
+        {% include "cms/includes/pagination.html" with pages=search_results %}
+    </div>
+</div>
 
 {% elif search_query %}
 No results found

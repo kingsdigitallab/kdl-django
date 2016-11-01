@@ -26,22 +26,24 @@
         {% endcomment %}
 
 
-        <ul class="no-bullet">
+        <ul class="no-bullet two-columns" data-equalizer>
             {% for result in search_results %}
             <li class="extra-padding-vertical">
-                <div class="row collapse">
-                    {% if result.feed_image %}
+                <div class="row collapse with-background{% if result.specific.feed_image %} {{ result.specific.category }}{% endif %}" data-equalizer-watch>
+                    {% if result.specific.feed_image %}
                     <div class="small-4 columns">
-                        {% image result.feed_image width-300 as theimage %}
+                        {% image result.specific.feed_image width-300 as theimage %}
                         <img src="{{ theimage.url }}" alt="{{ theimage.title }}">
                     </div>
                     {% endif %}
-                    <div class="small-{% if result.feed_image %}8{% else %}12{% endif %} columns">
-                        <div class="title-block">
+                    <div class="small-{% if result.specific.feed_image %}8{% else %}12{% endif %} columns text-content">
+                        <div class="title-block extra-padding-vertical">
                             <h4><a href="{% pageurl result %}">{{ result }}</a></h4>
+                            {% comment %}
                             {% if result.search_description %}
                             {{ result.search_description|safe }}
                             {% endif %}
+                            {% endcomment %}
                         </div>
                     </div>
                 </div>

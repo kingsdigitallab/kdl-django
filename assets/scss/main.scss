@@ -606,17 +606,22 @@ main,
     line-height: 1.125;
     position: relative;
 
-    .subtitle {
-        color: $tertiary-color;
-        padding: 1.5rem 1.5rem 0;
-    }
-
     h1 {
         color: $white;
         line-height: rem-calc(60);
         margin-bottom: 0;
         max-width: rem-calc(836);
         padding: rem-calc(0 24 42 24);
+    }
+
+    .gray-title,
+    .gray-title .subtitle {
+        color: $nav-anchor !important;
+    }
+
+    .subtitle {
+        color: $tertiary-color;
+        padding: 1.5rem 1.5rem 0;
     }
 
 }

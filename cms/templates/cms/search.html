@@ -12,21 +12,7 @@
 {% if search_results %}
 <div class="row">
     <div class="small-12 columns">
-        {% comment %}
-        <ol>
-            {% for result in search_results %}
-            <li>
-                <h4><a href="{% pageurl result %}">{{ result }}</a></h4>
-                {% if result.search_description %}
-                {{ result.search_description|safe }}
-                {% endif %}
-            </li>
-            {% endfor %}
-        </ol>
-        {% endcomment %}
-
-
-        <ul class="no-bullet two-columns" data-equalizer>
+        <ol class="no-bullet two-columns" data-equalizer>
             {% for result in search_results %}
             <li class="extra-padding-vertical">
                 <div class="row collapse with-background{% if result.specific.feed_image %} {{ result.specific.category }}{% endif %}" data-equalizer-watch>
@@ -49,7 +35,7 @@
                 </div>
             </li>
             {% endfor %}
-        </ul>
+        </ol>
     </div>
 </div>
 

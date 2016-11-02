@@ -12,9 +12,9 @@
 {% if search_results %}
 <div class="row">
     <div class="small-12 columns">
-        <ol class="no-bullet two-columns" data-equalizer>
+        <ol class="no-bullet row small-up-1 medium-up-2" data-equalizer>
             {% for result in search_results %}
-            <li class="extra-padding-vertical">
+            <li class="extra-padding-vertical column">
                 <div class="row collapse with-background{% if result.specific.feed_image %} {{ result.specific.category }}{% endif %}" data-equalizer-watch>
                     {% if result.specific.feed_image %}
                     <div class="small-4 columns">

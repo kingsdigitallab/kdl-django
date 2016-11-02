@@ -2,50 +2,50 @@
 
 {% user_timeline screen_name as timeline %}
 <ul class="no-bullet twitter-list">
-	{% for tweet in timeline %}
-	<li class="gray-bg text-content">
-		{% if tweet.retweeted_status %}
-	    <p class="retweet">@{{ screen_name }} retweeted</p>
-	    {% endif %}
+    {% for tweet in timeline %}
+    <li class="gray-bg text-content">
+        {% if tweet.retweeted_status %}
+        <p class="retweet">@{{ screen_name }} retweeted</p>
+        {% endif %}
 
-		<div class="media-object">
-			<div class="media-object-section">
-				{% if tweet.retweeted_status %}
-				<a href="//twitter.com/{{ tweet.retweeted_status.user.screen_name }}">
-					<img src="{{ tweet.retweeted_status.user.profile_image_url }}">
-				</a>
-				{% else %}
-				<a href="//twitter.com/{{ screen_name }}">
-					<img src="{{ tweet.user.profile_image_url }}">
-				</a>
-				{% endif %}
-			</div>
-			<div class="media-object-section">
-				<h2 class="small-heading">
-					{% if tweet.retweeted_status %}
-					{{ tweet.retweeted_status.user.name }}
-					{% else %}
-					{{ tweet.user.name }}
-					{% endif %}
-				</h2>
-				{% if tweet.retweeted_status %}
-				<h3 class="small-heading">
-					<a href="//twitter.com/{{ tweet.retweeted_status.user.screen_name }}">
-						@{{ tweet.retweeted_status.user.screen_name }}
-					</a>
-				</h3>
-				{% else %}
-				<h3 class="small-heading">
-					<a href="//twitter.com/{{ screen_name }}">
-						@{{ screen_name }}
-					</a>
-				</h3>
-				{% endif %}
-			</div>
-		</div>
+        <div class="media-object">
+            <div class="media-object-section">
+                {% if tweet.retweeted_status %}
+                <a href="//twitter.com/{{ tweet.retweeted_status.user.screen_name }}">
+                    <img src="{{ tweet.retweeted_status.user.profile_image_url_https }}">
+                </a>
+                {% else %}
+                <a href="//twitter.com/{{ screen_name }}">
+                    <img src="{{ tweet.user.profile_image_url_https }}">
+                </a>
+                {% endif %}
+            </div>
+            <div class="media-object-section">
+                <h2 class="small-heading">
+                    {% if tweet.retweeted_status %}
+                    {{ tweet.retweeted_status.user.name }}
+                    {% else %}
+                    {{ tweet.user.name }}
+                    {% endif %}
+                </h2>
+                {% if tweet.retweeted_status %}
+                <h3 class="small-heading">
+                    <a href="//twitter.com/{{ tweet.retweeted_status.user.screen_name }}">
+                        @{{ tweet.retweeted_status.user.screen_name }}
+                    </a>
+                </h3>
+                {% else %}
+                <h3 class="small-heading">
+                    <a href="//twitter.com/{{ screen_name }}">
+                        @{{ screen_name }}
+                    </a>
+                </h3>
+                {% endif %}
+            </div>
+        </div>
 
-	    <p>{{ tweet|tweet_to_html }}</p>
-	    <p class="tweet-datetime"><a href="//twitter.com/{{ screen_name }}/status/{{ tweet.id_str }}">{{ tweet.created_at|tweet_date:'D d M Y' }}</a></p>
-	</li>
-	{% endfor %}
+        <p>{{ tweet|tweet_to_html }}</p>
+        <p class="tweet-datetime"><a href="//twitter.com/{{ screen_name }}/status/{{ tweet.id_str }}">{{ tweet.created_at|tweet_date:'D d M Y' }}</a></p>
+    </li>
+    {% endfor %}
 </ul>

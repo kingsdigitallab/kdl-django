@@ -31,6 +31,11 @@ blockquote {
     margin: 0 auto;
     max-width: rem-calc(680);
 
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+
     p,
     cite {
         font-style: normal;
@@ -403,7 +408,6 @@ header {
     .kdl-heading {
         display: inline-block;
         float: left;
-        padding: rem-calc(24 24 0);
         width: rem-calc(215);
 
         a {
@@ -418,7 +422,6 @@ header {
 
     .kcl-logo {
         img {
-            max-width: rem-calc(158);
             height: rem-calc(48);
         }
     }
@@ -703,6 +706,11 @@ svg#caret-down-outline {
         top: -70%;
         max-width: rem-calc(678);
         padding-left: rem-calc(24);
+
+        -webkit-hyphens: none;
+        -moz-hyphens: none;
+        -ms-hyphens: none;
+        hyphens: none;
     }
 
     h1 {
@@ -884,6 +892,11 @@ footer,
         font-family: "KingsCaslon", serif;
     }
 
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+
     .top-footer,
     .bottom-footer {
         display: block;
@@ -917,8 +930,18 @@ footer,
 
     header {
 
+        .block-right{
+            .kcl-logo {
+                img {
+                    max-width: rem-calc(158) !important;
+                    height: rem-calc(120) !important;
+                }
+            }
+        }
+
         .kdl-heading {
             min-width: rem-calc(220);
+            padding: rem-calc(24 24 0) !important;
 
             img {
                 max-height: rem-calc(82) !important;
@@ -942,18 +965,29 @@ footer,
     }
 }
 
+@include breakpoint(xlarge down){
+    header {
+        .kdl-heading {
+            padding: rem-calc(20 6 0);
+        }
+    }
+}
+
 @include breakpoint(large up) {
 
     header {
+
         .block-right {
             .kcl-logo {
                 img {
-                    height: rem-calc(120);
+                    max-width: rem-calc(130);
+                    height: rem-calc(102);
                 }
             }
         }
 
         .kdl-heading {
+
             img {
                 max-height: rem-calc(70);
                 width: 100%;
@@ -1045,12 +1079,6 @@ footer,
 
 @include breakpoint(medium down) {
 
-    body {
-        font-size: rem-calc(20);
-        word-wrap: break-word;
-        hyphens: auto;
-    }
-
     footer {
         .menu.simple {
             li {
@@ -1071,7 +1099,7 @@ footer,
 
     header {
         .kdl-heading {
-            padding: rem-calc(12) rem-calc(12) 0;
+            padding: rem-calc(6) rem-calc(12) 0;
             width: 50%;
             min-width: rem-calc(150);
 
@@ -1080,10 +1108,24 @@ footer,
                 width: 100%;
             }
         }
+
+        .title-bar {
+            font-size: rem-calc(20);
+        }
     }
 
     p {
         line-height: rem-calc(24);
+    }
+
+    section.main {
+        font-size: rem-calc(20);
+        word-wrap: break-word;
+
+        -webkit-hyphens: auto;
+        -moz-hyphens: auto;
+        -ms-hyphens: auto;
+        hyphens: auto;
     }
 
     .full-height-banner {

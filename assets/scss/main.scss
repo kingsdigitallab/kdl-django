@@ -1047,6 +1047,8 @@ footer,
 
     body {
         font-size: rem-calc(20);
+        word-wrap: break-word;
+        hyphens: auto;
     }
 
     footer {

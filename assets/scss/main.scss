@@ -717,15 +717,11 @@ svg#caret-down-outline {
 
     h1 {
         font-family: "KingsCaslon";
-        font-size: rem-calc(72);
-        line-height: rem-calc(76);
     }
 
     h2 {
         position: relative;
         top: -50%;
-        font-family: "KingsBureauGrot";
-        font-size: rem-calc(30);
     }
 
     h1,
@@ -1006,6 +1002,9 @@ footer,
         }
     }
 
+    .banner-block {
+    }
+
     .featured-page-block {
         h2.title {
             font-size: rem-calc(48);
@@ -1026,23 +1025,23 @@ footer,
         }
     }
 
-    .home-banner {
-        .absolute {
+    // .home-banner {
+    //     .absolute {
 
-            .half-block {
+    //         .half-block {
 
-                h1 {
-                    font-size: rem-calc(72);
-                    line-height: rem-calc(76);
-                }
+    //             h1 {
+    //                 font-size: rem-calc(72);
+    //                 line-height: rem-calc(76);
+    //             }
 
-                h2 {
-                    font-size: rem-calc(30);
-                    line-height: rem-calc(36);
-                }
-            }
-        }
-    }
+    //             h2 {
+    //                 font-size: rem-calc(30);
+    //                 line-height: rem-calc(36);
+    //             }
+    //         }
+    //     }
+    // }
 
     .main {
         button,
@@ -1060,6 +1059,13 @@ footer,
                 font-size: rem-calc(30);
                 line-height: rem-calc(36);
             }
+
+            .half-block {
+                h1 {
+                    font-size: rem-calc(72);
+                    line-height: rem-calc(76);
+                }
+            }
         }
     }
 
@@ -1075,6 +1081,19 @@ footer,
         padding-left: rem-calc(36);
         &:before {
             padding-left: rem-calc(24);
+        }
+    }
+
+    .banner-block {
+        .half-block {
+            h1 {
+                font-size: rem-calc(58);
+                line-height: rem-calc(60);
+            }
+
+            h2 {
+                font-size: rem-calc(30);
+            }
         }
     }
 }
@@ -1228,14 +1247,6 @@ footer,
                 h1,
                 h2 {
                     line-height: 1;
-                }
-
-                h1 {
-                    font-size: rem-calc(54);
-                }
-
-                h2 {
-                    font-size: rem-calc(30);
                 }
             }
         }

@@ -1,4 +1,4 @@
 {% load wagtailcore_tags %}
 
-<a href="{% if value.url %}{{ url }}{% else %}{% pageurl value.page %}{% endif %}"
+<a href="{% if value.url %}{{ value.url }}{% else %}{% pageurl value.page %}{% endif %}"
 class="{{ value.style }}">{{ value.label }}</a>

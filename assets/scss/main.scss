@@ -365,7 +365,6 @@ button,
 .search-box {
     display: inline-block;
     margin-top: rem-calc(36);
-    // min-width: rem-calc(150);
 
     button {
         background: $white;
@@ -387,9 +386,12 @@ button,
         -webkit-box-shadow: none;
         box-shadow: none;
         font-family: "KingsCaslon", serif;
-        // font-size: rem-calc(20);
         height: rem-calc(36);
         margin: 0;
+
+        &:focus {
+            border-color: $medium-gray;
+        }
     }
 
     li {

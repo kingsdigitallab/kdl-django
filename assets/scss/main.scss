@@ -1217,6 +1217,18 @@ footer,
             padding-right: 0;
         }
     }
+
+    .gray-bg {
+
+        padding-left: rem-calc(24);
+        padding-right: rem-calc(24);
+
+        .rich-text,
+        &.collapse {
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
 }
 
 /* Fit full-height-banner on small screens */

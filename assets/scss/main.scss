@@ -1108,9 +1108,10 @@ footer,
 
     header {
         .kdl-heading {
+            line-height: rem-calc(30px);
+            min-width: rem-calc(150);
             padding: rem-calc(6) rem-calc(12) 0;
             width: 50%;
-            min-width: rem-calc(150);
 
             img {
                 max-height: rem-calc(48);

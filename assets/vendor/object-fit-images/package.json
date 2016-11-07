@@ -1,0 +1,52 @@
+{
+  "name": "object-fit-images",
+  "version": "2.3.0",
+  "description": "Adds support to object-fit to images on IE9, IE10, IE11, Edge and other old browsers.",
+  "license": "MIT",
+  "repository": "bfred-it/object-fit-images",
+  "author": "Federico Brigante <bfred-it@users.noreply.github.com> (twitter.com/bfred_it)",
+  "bugs": {
+    "url": "https://github.com/bfred-it/object-fit-images/issues"
+  },
+  "homepage": "https://github.com/bfred-it/object-fit-images#readme",
+  "keywords": [
+    "object-fit",
+    "covers",
+    "contains",
+    "css",
+    "styles",
+    "internet",
+    "explorer",
+    "ies",
+    "polyfill",
+    "shim",
+    "shiv",
+    "fills",
+    "images",
+    "srcset",
+    "backgrounds"
+  ],
+  "main": "dist/ofi.common-js.js",
+  "files": [
+    "dist/ofi.common-js.js"
+  ],
+  "scripts": {
+    "build": "bfred-npm-bundler ofi objectFitImages",
+    "count-bytes": "npm run build; gzip-size dist/ofi.browser.js",
+    "demo": "browser-sync start --server --index 'demo.html' --files '*'",
+    "prepublish": "npm run build",
+    "autofix": "xo --fix",
+    "test": "xo"
+  },
+  "devDependencies": {
+    "bfred-npm-bundler": "^5.0.0",
+    "browser-sync": "^2.11.2",
+    "uglify-js": "^2.6.2",
+    "xo": "^0.13.0"
+  },
+  "xo": {
+    "env": [
+      "browser"
+    ]
+  }
+}

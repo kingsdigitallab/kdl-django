@@ -3,7 +3,8 @@ require([
     'requirejs',
     'jquery',
     'fn',
-    'ga'
+    'ga',
+    'object-fit-images'
 ], function(r, $) {
     'use strict';
 
@@ -22,6 +23,11 @@ require([
 		    }
 		  });
 		});
+
+        // object-fit-images - polyfill for IE/Edge
+        $(function () {
+            objectFitImages();
+        });
     });
 
 });

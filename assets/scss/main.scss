@@ -651,7 +651,10 @@ main,
         height: calc(100vh - 363px);
         min-width: 100%;
         object-fit: cover;
-        object-position: 20% 50%;
+        object-position: 50% 50%;
+        
+        // object-fit-images polyfill (IE/Edge)
+        font-family: 'object-fit: cover; object-position: 50% 50%;'
     }
 
     a.discover {
@@ -1176,7 +1179,7 @@ footer,
 
     .full-height-banner {
         img {
-            height: calc(100vh - 294px);
+            height: calc(100vh - 280px);
         }
         height: calc(100vh - 48px);
     }

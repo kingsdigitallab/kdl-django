@@ -30,6 +30,10 @@
         &:hover {
             background: scale-color($bright-blue, $lightness: -20%);
         }
+
+        &:visited {
+            border-bottom: 7px solid scale-color($bright-blue, $lightness: -30%);
+        }
 	}
 
 	.banner-block {

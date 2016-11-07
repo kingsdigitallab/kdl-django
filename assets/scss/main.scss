@@ -653,7 +653,6 @@ main,
         object-fit: cover;
         object-position: 20% 50%;
     }
-    height: calc(100vh - 120px);
 
     a.discover {
         bottom: rem-calc(140);
@@ -672,12 +671,6 @@ main,
             text-shadow: rem-calc(0 0 10) $white;
         }
     }
-}
-
-svg#caret-down-outline {
-    fill: $tertiary-color;
-    height: rem-calc(50);
-    width: rem-calc(50);
 }
 
 /* Homepage */
@@ -702,9 +695,7 @@ svg#caret-down-outline {
     position: relative;
     background: #002395;
     background-image: url('/static/images/shards-homepage.svg'), url('/static/images/grid-pattern.svg');
-    background-size: rem-calc(990) auto, rem-calc(432) rem-calc(432);
     background-repeat: no-repeat, repeat;
-    background-position: right rem-calc(-125) top, right top;
 
     .absolute {
         position: absolute;
@@ -970,6 +961,14 @@ footer,
             margin-right: rem-calc(40);
         }
     }
+
+    .full-height-banner {
+        height: calc(100vh - 120px) !important;
+    }
+
+    .home-banner {
+        background-position: right rem-calc(-204) top, right rem-calc(-72) top;
+    }
 }
 
 @include breakpoint(xlarge down){
@@ -1011,9 +1010,6 @@ footer,
         }
     }
 
-    .banner-block {
-    }
-
     .featured-page-block {
         h2.title {
             font-size: rem-calc(48);
@@ -1026,12 +1022,20 @@ footer,
         }
     }
 
+    .full-height-banner {
+        height: calc(100vh - 100px);
+    }
+
     .full-height-banner,
     .home-banner {
-
         a.discover {
             bottom: rem-calc(90);
         }
+    }
+
+    .home-banner {
+        background-size: rem-calc(1036) auto, rem-calc(452) rem-calc(452);
+        background-position: right rem-calc(-227) top, right rem-calc(-95) top;
     }
 
     .main {
@@ -1177,6 +1181,27 @@ footer,
         height: calc(100vh - 48px);
     }
 
+    .home-banner {
+        background-size: rem-calc(1036) auto, rem-calc(452) rem-calc(452);
+        background-position: right rem-calc(-204) bottom rem-calc(-467), right rem-calc(-72) bottom rem-calc(-467);
+
+        .absolute {
+            top: 10%;
+
+            .half-block {
+                padding: rem-calc(0 12);
+                position: relative;
+                top: -90%;
+                width: 100%;
+
+                h1,
+                h2 {
+                    line-height: 1;
+                }
+            }
+        }
+    }
+
     .main {
         .button {
             width: 60%;
@@ -1236,7 +1261,7 @@ footer,
     }
 }
 
-/* Fit full-height-banner on small screens */
+/* Fit home-banner on small screens */
 @media screen and   (max-height: 724px),
                     (max-width: 560px) {
     .home-banner {

@@ -648,7 +648,7 @@ main,
 .full-height-banner {
     width: 100%;
     img {
-        height: calc(100vh - 363px);
+        // min-height: calc(100vh - 355px);
         min-width: 100%;
         object-fit: cover;
         object-position: 50% 50%;
@@ -966,7 +966,7 @@ footer,
     }
 
     .full-height-banner {
-        height: calc(100vh - 120px) !important;
+        height: calc(100vh - 120px);
     }
 
     .home-banner {
@@ -1026,6 +1026,11 @@ footer,
     }
 
     .full-height-banner {
+        img {
+            height: auto;
+            min-height: calc(100vh - 355px);
+        }
+
         height: calc(100vh - 100px);
     }
 
@@ -1179,7 +1184,7 @@ footer,
 
     .full-height-banner {
         img {
-            height: calc(100vh - 280px);
+            min-height: calc(100vh - 280px);
         }
         height: calc(100vh - 48px);
     }

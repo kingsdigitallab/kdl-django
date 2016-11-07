@@ -557,6 +557,10 @@ main,
             transform: translateY(3px);
             border-color: transparent;
         }
+
+        &:visited {
+            border-bottom: rem-calc(7) solid scale-color($primary-color, $lightness: -40%);
+        }
     }
 
     .button {

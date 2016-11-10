@@ -1003,11 +1003,6 @@ footer,
             }
         }
 
-        .search-box {
-            margin-right: rem-calc(32);
-            max-width: rem-calc(100);
-        }
-
         .floating {
             float: left;
         }
@@ -1076,6 +1071,11 @@ footer,
     .subhead {
         font-size: rem-calc(30);
         line-height: rem-calc(36);
+    }
+
+    .search-box {
+        margin-right: rem-calc(32);
+        max-width: rem-calc(100);
     }
 }
 

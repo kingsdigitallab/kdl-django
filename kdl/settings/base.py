@@ -90,6 +90,7 @@ INSTALLED_APPS = (
 
 INSTALLED_APPS += (
     'cms',
+    'kdl',
     'twitterhut',
 )
 
@@ -189,6 +190,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.template.context_processors.static',
                 'django.contrib.messages.context_processors.messages',
+                'kdl.context_processors.settings',
             ],
             'debug': False,
         },

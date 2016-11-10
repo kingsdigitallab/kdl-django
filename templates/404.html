@@ -8,10 +8,22 @@
     <h1>Sorry, we can't find what you're looking for.</h1>
 </div>
 
-<div class="row">
+<div class="gray-bg intro">
+    <p class="intro">Can we help you with your search?</p>
+</div>
+
+<div class="row collapse">
     <div class="small-12 columns">
-        <p class="intro">Can we help you with your search?</p>
-        {% include 'includes/search_box.html' %}
+        <form action="{% url 'search' %}" method="get">
+            <ul class="menu">
+                <li>
+                    <input type="search" name="q"{% if search_query %} value="{{ search_query }}"{% endif %} placeholder="Search">
+                </li>
+                <li>
+                    <button type="submit" class="button"></button>
+                </li>
+            </ul>
+        </form>
     </div>
 </div>
 {% endblock %}

@@ -265,11 +265,12 @@ iframe {
 .search {
     .search-box {
         margin: rem-calc(24) auto;
-        width: 100%;
+        width: 100% !important;
 
         button {
             border-bottom: 1px solid $medium-gray;
             margin-top: 0 !important;
+            text-align: right;
         }
     }
 }

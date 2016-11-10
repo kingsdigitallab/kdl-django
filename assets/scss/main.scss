@@ -267,6 +267,7 @@ iframe {
     .search-box {
         margin: rem-calc(24) auto;
         width: 100% !important;
+        max-width: 100% !important;
 
         button {
             border-bottom: 1px solid $medium-gray;

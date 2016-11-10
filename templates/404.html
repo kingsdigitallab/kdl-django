@@ -9,20 +9,20 @@
 </div>
 
 <div class="gray-bg intro">
-    <p class="intro">Can we help you with your search?</p>
+    <p class="intro">Can we help with your search?</p>
 </div>
 
-<div class="row collapse">
+<div class="row">
     <div class="small-12 columns">
         <form action="{% url 'search' %}" method="get">
-            <ul class="menu">
-                <li>
+            <div class="row collapse">
+                <div class="small-10 colums">
                     <input type="search" name="q"{% if search_query %} value="{{ search_query }}"{% endif %} placeholder="Search">
-                </li>
-                <li>
-                    <button type="submit" class="button"></button>
-                </li>
-            </ul>
+                </div>
+                <div class="small-2 columns">
+                    <button type="submit" class="button search-button"><i class="fa fa-search"><i></button>
+                </div>
+            </div>
         </form>
     </div>
 </div>

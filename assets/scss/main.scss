@@ -263,9 +263,14 @@ iframe {
 }
 
 .search {
-    button {
-        border-bottom: 0 !important;
-        margin-top: 0 !important;
+    .search-box {
+        margin: rem-calc(24) auto;
+        width: 100%;
+
+        button {
+            border-bottom: 1px solid $medium-gray;
+            margin-top: 0 !important;
+        }
     }
 }
 

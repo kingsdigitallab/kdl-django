@@ -970,10 +970,6 @@ footer,
         }
     }
 
-    .full-height-banner {
-        height: calc(100vh - 120px);
-    }
-
     .home-banner {
         background-position: right rem-calc(-204) top, right rem-calc(-72) top;
     }
@@ -1045,7 +1041,7 @@ footer,
             min-height: calc(100vh - 355px);
         }
 
-        height: calc(100vh - 100px);
+        height: calc(100vh - 120px);
     }
 
     .full-height-banner,
@@ -1114,6 +1110,10 @@ footer,
                 font-size: rem-calc(30);
             }
         }
+    }
+
+    .full-height-banner {
+        height: calc(100vh - 100px);
     }
 }
 

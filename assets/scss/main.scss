@@ -262,14 +262,11 @@ iframe {
     }
 }
 
-// Search button in main seaction
-.search-button {
-    border-bottom: 0;
-    color: $white;
-    content: "\fd07";
-    font-family: "FontAwesome";
-    margin-top: 0;
-    text-align: center;
+.search {
+    button {
+        border-bottom: 0 !important;
+        margin-top: 0 !important;
+    }
 }
 
 .section-title {

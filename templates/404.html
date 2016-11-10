@@ -13,17 +13,8 @@
 </div>
 
 <div class="row">
-    <div class="small-12 columns">
-        <form action="{% url 'search' %}" method="get">
-            <div class="row collapse">
-                <div class="small-6 columns">
-                    <input type="search" name="q"{% if search_query %} value="{{ search_query }}"{% endif %} placeholder="Search">
-                </div>
-                <div class="small-6 columns">
-                    <button type="submit" class="button expanded search-button"></button>
-                </div>
-            </div>
-        </form>
+    <div class="small-12 columns search">
+        {% include 'includes/search_box.html' %}
     </div>
 </div>
 {% endblock %}

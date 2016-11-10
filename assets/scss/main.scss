@@ -949,20 +949,6 @@ footer,
                 width: 100%;
             }
         }
-
-        .search-box {
-            button {
-                height: rem-calc(48);
-            }
-
-            input[type=search] {
-                font-size: rem-calc(25);
-                height: rem-calc(48);
-            }
-
-            max-width: rem-calc(250) !important;
-            margin-right: rem-calc(40);
-        }
     }
 
     .full-height-banner {
@@ -971,6 +957,20 @@ footer,
 
     .home-banner {
         background-position: right rem-calc(-204) top, right rem-calc(-72) top;
+    }
+
+    .search-box {
+        button {
+            height: rem-calc(48);
+        }
+
+        input[type=search] {
+            font-size: rem-calc(25);
+            height: rem-calc(48);
+        }
+
+        max-width: rem-calc(250) !important;
+        margin-right: rem-calc(40);
     }
 }
 

@@ -17,9 +17,9 @@ p {
     line-height: rem-calc(30);
     margin-bottom: rem-calc(36);
 
-    &:last-child {
-        margin-bottom: 0;
-    }
+    // &:last-child {
+    //     margin-bottom: 0;
+    // }
 }
 
 blockquote {
@@ -181,6 +181,10 @@ cite:before {
     &.intro {
         padding: rem-calc(42 0);
     }
+
+    p:last-child {
+        margin-bottom: 0;
+    }
 }
 
 .hero {
@@ -220,6 +224,10 @@ iframe {
 .intro .rich-text {
     font-size: rem-calc(36);
     line-height: rem-calc(38);
+
+    p:last-child {
+        margin-bottom: 0;
+    }
 }
 
 .main > .gray-bg,
@@ -582,6 +590,17 @@ main,
         }
     }
 
+    ol,
+    ul {
+        li {
+            margin-left: rem-calc(64);
+        }
+
+        li li {
+            margin-left: rem-calc(24);
+        }
+    }
+
     .button {
         margin-top: rem-calc(24);
     }
@@ -772,6 +791,7 @@ main,
     li {
         height: rem-calc(36);
         padding-right: rem-calc(10);
+        margin-left: 0 !important;
     }
 
     li > a {
@@ -910,6 +930,10 @@ footer,
     a {
         color: $another-gray;
         font-family: "KingsCaslon", serif;
+    }
+
+    p:last-child {
+        margin-bottom: 0;
     }
 
     -webkit-hyphens: none;

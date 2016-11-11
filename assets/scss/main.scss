@@ -16,10 +16,6 @@ body {
 p {
     line-height: rem-calc(30);
     margin-bottom: rem-calc(36);
-
-    // &:last-child {
-    //     margin-bottom: 0;
-    // }
 }
 
 blockquote {
@@ -212,6 +208,10 @@ iframe {
     img {
         width: 90%;
     }
+}
+
+.main .image-list-block ul.no-bullet li {
+    margin-left: 0 !important;
 }
 
 .img-wrapper {
@@ -599,6 +599,12 @@ main,
         li li {
             margin-left: rem-calc(24);
         }
+
+        &.no-bullet {
+            li {
+                margin-left: 0;
+            }
+        }
     }
 
     .button {
@@ -835,6 +841,7 @@ main,
 
     li {
         padding: rem-calc(24) !important;
+        margin-left: 0 !important;
     }
 
     p {

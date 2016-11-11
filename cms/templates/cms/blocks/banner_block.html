@@ -22,7 +22,14 @@
 
     {% if value.image %}
     {% image value.image original as theimage %}
-    <img src="{{ theimage.url }}" alt="{{ theimage.title }}">
+    <div class="banner-image">
+        <img src="{{ theimage.url }}" alt="{{ theimage.title }}">
+        {% if value.image_copyright %}
+        <div class="image-copyright">
+            <p>{{ value.image_copyright }}</p>
+        </div>
+        {% endif %}
+    </div>
     {% endif %}
 
     {% if value.style != 'default' %}

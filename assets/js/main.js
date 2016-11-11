@@ -3,12 +3,14 @@ require([
     'requirejs',
     'jquery',
     'fn',
-    'ga',
-    'object-fit-images'
+    'ga'
+    // 'object-fit-images'
 ], function(r, $) {
     'use strict';
 
     $(document).ready(function() {
+
+        // Smooth scrolling
     	$(function() {
 		  $('a[href*="#"]:not([href="#"])').click(function() {
 		    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
@@ -25,9 +27,9 @@ require([
 		});
 
         // object-fit-images - polyfill for IE/Edge
-        $(function () {
-            objectFitImages();
-        });
+        // $(function () {
+        //     objectFitImages();
+        // });
     });
 
 });

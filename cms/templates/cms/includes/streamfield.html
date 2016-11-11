@@ -15,7 +15,7 @@
         {% elif block.block_type == 'paragraph' %}
             {{ block.value|richtext }}
         {% elif block.block_type == 'html' %}
-            <div class="iframe-container block.value.alignment">
+            <div class="iframe-container {{ block.value.alignment }}">
                 {{ block.value.bound_blocks.html.render }}
             </div>
         {% else %}

@@ -9,14 +9,12 @@
 			<a href="{% pageurl page %}">{{ page.title }}</a>
 		</li>
 		{% endfor %}
-		<li>
-			<span class="hide-for-large">
+		<li class="hide-for-large">
 			<div class="row collapse expanded">
 				<div class="small-12 columns">
 				{% include 'includes/search_box.html' %}
 				</div>
 			</div>
-			</span>
 		</li>
 	</ul>
 </div>

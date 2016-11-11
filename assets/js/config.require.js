@@ -32,7 +32,7 @@ requirejs.config({
         'foundation.util.triggers': '../vendor/foundation-sites/js/foundation.util.triggers',
 
         // object-fit-images / polyfill for IE/Edge
-        'object-fit-images': '../vendor/object-fit-images/dist/ofi.browser',
+        // 'object-fit-images': '../vendor/object-fit-images/dist/ofi.browser',
 
         'requirejs': '../vendor/requirejs/require',
     },
@@ -147,8 +147,11 @@ requirejs.config({
         'ga': {
             exports: '__ga__'
         },
-        'object-fit-images': {
-            exports: 'object-fit-images'
-        },
+        // 'object-fit-images': {
+        //     deps: [
+        //         'jquery'
+        //     ],
+        //     exports: 'object-fit-images'
+        // },
     }
 });

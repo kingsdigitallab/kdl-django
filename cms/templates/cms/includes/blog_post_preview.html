@@ -6,7 +6,7 @@
     <div class="medium-4 columns">
         {% image post.feed_image max-300x300 as tmp_image %}
         <a href="{% pageurl post %}">
-            <img src="{{ tmp_image.url }}" width="100%" alt="{{ tmp_image.alt }}">
+            <img src="{{ tmp_image.url }}" alt="{{ tmp_image.alt }}" class="full-img">
         </a>
     </div>
     {% endif %}

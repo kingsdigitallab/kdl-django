@@ -12,11 +12,11 @@
             <div class="media-object-section">
                 {% if tweet.retweeted_status %}
                 <a href="//twitter.com/{{ tweet.retweeted_status.user.screen_name }}">
-                    <img src="{{ tweet.retweeted_status.user.profile_image_url_https }}">
+                    <img src="{{ tweet.retweeted_status.user.profile_image_url_https }}" alt="{{ tweet.retweeted_status.user.screen_name }} profile image">
                 </a>
                 {% else %}
                 <a href="//twitter.com/{{ screen_name }}">
-                    <img src="{{ tweet.user.profile_image_url_https }}">
+                    <img src="{{ tweet.user.profile_image_url_https }}" alt="{{ screen_name }} profile image">
                 </a>
                 {% endif %}
             </div>

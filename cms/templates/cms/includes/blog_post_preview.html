@@ -12,7 +12,7 @@
     {% endif %}
 
     <div class="medium-{% if post.feed_image %}8{% else %}12{% endif %} columns text-content">
-        <time datetime="{{ post.date|date:'c' }}" class="datetime">{{ post.date }}</time>
+        <time datetime="{{ post.date|date:'c' }}" class="datetime">{{ post.date }}</time><span class="author"> - By {{ post.owner.get_full_name }}</span>
         <h2 class="subhead subtitle">
             <a href="{% pageurl post %}">{{ post.title }}</a>
         </h2>

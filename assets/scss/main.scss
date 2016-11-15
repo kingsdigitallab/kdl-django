@@ -79,6 +79,10 @@ cite:before {
     content: none;
 }
 
+.author {
+    text-transform: capitalize;
+}
+
 #content {
     margin-bottom: rem-calc(24);
 }
@@ -95,6 +99,7 @@ cite:before {
     color: $dark-blue;
 }
 
+.author,
 .datetime,
 .more,
 .more a {
@@ -180,6 +185,23 @@ cite:before {
 
     p:last-child {
         margin-bottom: 0;
+    }
+}
+
+.post-meta {
+    font-size: rem-calc(20);
+    padding: rem-calc(24 0 0);
+
+    .author {
+        color: $tertiary-color;
+    }
+
+    p {
+        margin-bottom: 0;
+    }
+
+    time {
+        color: $primary-color;
     }
 }
 
@@ -506,6 +528,11 @@ h2.heading-content {
     }
 }
 
+.post-title {
+    padding-top: rem-calc(8);
+}
+
+.author,
 button,
 .button,
 .text-button,
@@ -515,15 +542,12 @@ caption,
 .menu,
 .more,
 .more a,
+.post-meta,
 .post-title,
 .subtitle,
 .title,
 .title-bar {
     font-family: 'KingsBureauGrot', sans-serif;
-}
-
-.post-title {
-    padding-top: rem-calc(8);
 }
 
 .workindexpage {

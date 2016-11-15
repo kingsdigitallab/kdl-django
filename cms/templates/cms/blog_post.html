@@ -1,30 +1,44 @@
 {% extends "cms/base.html" %}
 {% load wagtailcore_tags %}
 
-<article class="post" id="post{{ self.id }}">
-    {% block blog_post_header %}
-    <header>
-        {% block blog_post_title %}
-        <h1>{{ self.title }}</h1>
-        {% endblock %}
+{% block main %}
 
-        {% comment %}
-        {% block blog_post_author %}
-        <p>Posted by <a href="{% routablepageurl self.blog_index.specific 'author' self.owner %}">{{ self.owner|unslugify }}</a>
+<div class="page-content">
+    {% for block in self.body %}
+        {% if block.block_type == 'banner' %}
+            {% include_block block %}
+        {% endif %}
+    {% endfor %}
+</div>
 
-            {% are_comments_allowed as allow_comments %}
-            {% if allow_comments %}
-            {% block blog_post_comments_link %}
-             | <span class="disqus-comment-count" data-disqus-identifier="{{ self.id }}">Comments</span>
-            {% endblock %}
-            {% endif %}
-        </p>
-        {% endblock %}
-        {% endcomment %}
-    </header>
-    {% endblock %}
-
-    {% block blog_post_content %}
-    {% include "cms/includes/streamfield.html" with content=self.body %}
-    {% endblock %}
-</article>
+<div class="page-content">
+    <article class="post" id="post{{ self.id }}">
+        <header class="post-meta">
+            <p class="text-center">Posted by <span class="author">{{ self.owner.get_full_name }}</span> on <time datetime="{{ self.date|date:'c' }}" class="datetime">{{ self.date }}</time></p>
+        </header>
+        {% for block in self.body %}
+        {% if block.block_type == 'h2' %}
+            <h2 class="heading-content">{{ block }}</h2>
+        {% elif block.block_type == 'h3' %}
+            <h3 class="heading-content">{{ block }}</h3>
+        {% elif block.block_type == 'h4' %}
+            <h4 class="heading-content">{{ block }}</h4>
+        {% elif block.block_type == 'h5' %}
+            <h5 class="heading-content">{{ block }}</h5>
+        {% elif block.block_type == 'intro' %}
+            <div class="gray-bg intro">{{ block }}</div>
+        {% elif block.block_type == 'paragraph' %}
+            {{ block.value|richtext }}
+        {% elif block.block_type == 'banner' %}
+            {#          #}
+        {% elif block.block_type == 'html' %}
+            <div class="iframe-container block.value.alignment">
+                {{ block.value.bound_blocks.html.render }}
+            </div>
+        {% else %}
+            {% include_block block %}
+        {% endif %}
+        {% endfor %}
+    </article>
+</div>
+{% endblock %}

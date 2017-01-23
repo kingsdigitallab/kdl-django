@@ -20,17 +20,6 @@ hooks.register('construct_whitelister_element_rules',
                whitelister_element_rules)
 
 
-def editor_css():
-    return format_html("""
-                       <link href="{0}{1}" rel="stylesheet"
-                       type="text/x-scss">
-                       """,
-                       settings.STATIC_URL,
-                       'font-awesome.scss')
-
-hooks.register('insert_editor_css', editor_css)
-
-
 def editor_js():
     js_files = [
         'js/hallo_source_editor.js',
@@ -43,6 +32,7 @@ def editor_js():
 
     return js_includes + format_html("""
         <script>
+            registerHalloPlugin('blockQuoteButton');
             registerHalloPlugin('editHtmlButton');
         </script>
         """)

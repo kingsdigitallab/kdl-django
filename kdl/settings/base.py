@@ -364,3 +364,16 @@ WAGTAILSEARCH_BACKENDS = {
 
 # Google Analytics ID
 GA_ID = ''
+
+# -----------------------------------------------------------------------------
+# ACTIVE COLLAB DIGGER
+# -----------------------------------------------------------------------------
+# ActiveCollab API URL
+AC_BASE_URL = ''
+AC_API_URL = AC_BASE_URL + ''
+# ActiveCollab API token
+AC_TOKEN = ''
+# ActiveCollab project ID
+AC_PROJECT_ID = 0
+# ActiveCollab user ID to create the issues
+AC_USER = 0

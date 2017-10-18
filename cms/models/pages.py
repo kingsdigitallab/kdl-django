@@ -21,6 +21,7 @@ from wagtail.wagtailsnippets.edit_handlers import SnippetChooserPanel
 
 from .behaviours import WithContactFields, WithFeedImage, WithStreamField
 from .snippets import WorkCategory
+from .forms import FormPage
 
 logger = logging.getLogger(__name__)
 

@@ -9,6 +9,7 @@ django-libsass
 django-model-utils
 django-redis
 django-require
+django-countries
 elasticsearch>=2.0.0,<3.0.0
 psycopg2
 redis

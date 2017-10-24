@@ -90,6 +90,7 @@ INSTALLED_APPS = (
 INSTALLED_APPS += (
     'cms',
     'kdl',
+    'sup',
     'twitterhut',
     'activecollab_digger',
 )

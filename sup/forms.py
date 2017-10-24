@@ -1,8 +1,10 @@
 import django.forms as forms
-from models import PublicationIdea
+import magic
 from django.core.exceptions import ValidationError
 from django.template.defaultfilters import filesizeformat
-import magic
+
+from sup.models import PublicationIdea
+
 
 class PublicationIdeaForm(forms.ModelForm):
     allowed_attachment_types = ['PDF',]
@@ -48,3 +50,4 @@ class PublicationIdeaForm(forms.ModelForm):
 
     class Meta:
         model = PublicationIdea
+        exclude = []

@@ -47,7 +47,7 @@ class HomePage(Page, WithStreamField):
     ]
 
     subpage_types = ['BlogIndexPage', 'IndexPage', 'OrganisationIndexPage',
-                     'PersonIndexPage', 'RichTextPage', 'WorkIndexPage']
+                     'PersonIndexPage', 'RichTextPage', 'WorkIndexPage','PublicationIdeaPage']
 
 HomePage.content_panels = [
     FieldPanel('title', classname='full title'),
@@ -62,7 +62,7 @@ class IndexPage(Page, WithStreamField):
         index.SearchField('body'),
     ]
 
-    subpage_types = ['IndexPage', 'RichTextPage']
+    subpage_types = ['IndexPage', 'RichTextPage','PublicationIdeaPage']
 
 
 IndexPage.content_panels = [

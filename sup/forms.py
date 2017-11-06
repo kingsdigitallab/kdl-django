@@ -7,7 +7,7 @@ from sup.models import PublicationIdea
 
 
 class PublicationIdeaForm(forms.ModelForm):
-    allowed_attachment_types = ['PDF',]
+    allowed_attachment_types = ['PDF', ]
     max_upload_size = 10 * 1024 * 1024
     # Guidance called for max words not characters but could change
     summary_max_words = 1000
@@ -20,7 +20,8 @@ class PublicationIdeaForm(forms.ModelForm):
             return result.title()
 
     def check_image_file_size(self, f):
-        # Upload size checking can be disabled by setting max upload size to None
+        # Upload size checking can be disabled by setting max upload size to
+        # None
         if self.max_upload_size is None:
             return
 
@@ -35,16 +36,18 @@ class PublicationIdeaForm(forms.ModelForm):
         if self.summary_max_words is None:
             return summary
         elif len(summary.split()) > self.summary_max_words:
-                raise ValidationError("Summary is {} words long.  Maximum is 1000".format(len(summary.split())))
+            raise ValidationError(
+                "Summary is {} words long.  Maximum is 1000".format(
+                    len(summary.split())))
         return summary
-
 
     def clean_attachment(self):
         file = self.cleaned_data.get("file", False)
         with magic.Magic() as m:
             filetype = m.from_buffer(file.read())
             if filetype not in self.allowed_attachment_types:
-                raise ValidationError("File {} is not a valid attachment type.".format(filetype))
+                raise ValidationError(
+                    "File {} is not a valid attachment type.".format(filetype))
         self.check_image_file_size(file)
         return file
 

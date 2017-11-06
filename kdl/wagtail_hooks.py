@@ -16,6 +16,7 @@ def whitelister_element_rules():
              'height': True}),
     }
 
+
 hooks.register('construct_whitelister_element_rules',
                whitelister_element_rules)
 
@@ -36,5 +37,6 @@ def editor_js():
             registerHalloPlugin('editHtmlButton');
         </script>
         """)
+
 
 hooks.register('insert_editor_js', editor_js)

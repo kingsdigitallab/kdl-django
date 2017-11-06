@@ -9,15 +9,15 @@ from forms import PublicationIdeaForm
 class PublicationIdeaPage(Page):
     intro = RichTextField(blank=True)
     thankyou_page_title = models.CharField(
-            max_length=255, help_text="Title text to use for the 'thank you' page")
+        max_length=255, help_text="Title text to use for the 'thank you' page")
     thankyou_page_message = models.TextField(
         help_text="Text to use for the 'thank you' page")
 
     content_panels = Page.content_panels + [
-                FieldPanel('intro', classname="full"),
-                FieldPanel('thankyou_page_title'),
-                FieldPanel('thankyou_page_message'),
-            ]
+        FieldPanel('intro', classname="full"),
+        FieldPanel('thankyou_page_title'),
+        FieldPanel('thankyou_page_message'),
+    ]
 
     def serve(self, request):
 

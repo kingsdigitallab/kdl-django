@@ -8,6 +8,7 @@ from django.core.urlresolvers import reverse
 from django.test import Client, RequestFactory, TestCase
 from wagtail.tests.utils import WagtailPageTests
 from wagtail.wagtailcore.models import Site
+from sup.pages import PublicationIdeaPage
 
 
 class TestPages(TestCase):
@@ -38,7 +39,8 @@ class TestHomePage(WagtailPageTests):
         self.assertAllowedSubpageTypes(
             HomePage, {
                 BlogIndexPage, IndexPage, OrganisationIndexPage,
-                PersonIndexPage, RichTextPage, WorkIndexPage
+                PublicationIdeaPage, PersonIndexPage, RichTextPage,
+                WorkIndexPage
             })
 
 
@@ -46,7 +48,8 @@ class TestIndexPage(WagtailPageTests):
     fixtures = ['tests.json']
 
     def test_subpage_types(self):
-        self.assertAllowedSubpageTypes(IndexPage, {IndexPage, RichTextPage})
+        self.assertAllowedSubpageTypes(
+            IndexPage, {IndexPage, RichTextPage, PublicationIdeaPage})
 
 
 class TestRichTextPage(WagtailPageTests):

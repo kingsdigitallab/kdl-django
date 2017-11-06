@@ -1,6 +1,5 @@
 from django.db import models
 from django_countries.fields import CountryField
-from wagtail.wagtailcore.models import Page
 
 
 class PublicationIdea(models.Model):
@@ -15,4 +14,3 @@ class PublicationIdea(models.Model):
     summary = models.TextField(max_length=10000)
     link = models.URLField(null=True, blank=True)
     attachment = models.FileField(null=True, blank=True)
-

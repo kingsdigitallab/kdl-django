@@ -21,7 +21,6 @@ from wagtail.wagtailsnippets.edit_handlers import SnippetChooserPanel
 
 from .behaviours import WithContactFields, WithFeedImage, WithStreamField
 from .snippets import WorkCategory
-from sup.pages import PublicationIdeaPage
 
 logger = logging.getLogger(__name__)
 
@@ -47,7 +46,9 @@ class HomePage(Page, WithStreamField):
     ]
 
     subpage_types = ['BlogIndexPage', 'IndexPage', 'OrganisationIndexPage',
-                     'PersonIndexPage', 'RichTextPage', 'WorkIndexPage','PublicationIdeaPage']
+                     'PersonIndexPage', 'RichTextPage', 'WorkIndexPage',
+                     'sup.PublicationIdeaPage']
+
 
 HomePage.content_panels = [
     FieldPanel('title', classname='full title'),
@@ -62,7 +63,7 @@ class IndexPage(Page, WithStreamField):
         index.SearchField('body'),
     ]
 
-    subpage_types = ['IndexPage', 'RichTextPage','PublicationIdeaPage']
+    subpage_types = ['IndexPage', 'RichTextPage', 'sup.PublicationIdeaPage']
 
 
 IndexPage.content_panels = [
@@ -80,6 +81,7 @@ class RichTextPage(Page, WithStreamField):
 
     subpage_types = []
 
+
 RichTextPage.content_panels = [
     FieldPanel('title', classname='full title'),
     StreamFieldPanel('body'),
@@ -94,6 +96,7 @@ class PersonIndexPage(Page, WithStreamField):
     ]
 
     subpage_types = ['PersonPage']
+
 
 PersonIndexPage.content_panels = [
     FieldPanel('title', classname='full title'),
@@ -118,6 +121,7 @@ class PersonPage(Page, WithContactFields, WithFeedImage, WithStreamField):
 
     subpage_types = []
 
+
 PersonPage.content_panels = [
     FieldPanel('title', classname='full title'),
     FieldPanel('subtitle', classname='full title'),
@@ -140,6 +144,7 @@ class OrganisationIndexPage(Page, WithStreamField):
 
     subpage_types = ['OrganisationPage']
 
+
 OrganisationIndexPage.content_panels = [
     FieldPanel('title', classname='full title'),
     StreamFieldPanel('body'),
@@ -157,6 +162,7 @@ class OrganisationPage(Page, WithContactFields, WithFeedImage,
     ]
 
     subpage_types = []
+
 
 OrganisationPage.content_panels = [
     FieldPanel('title', classname='full title'),
@@ -206,6 +212,7 @@ class WorkIndexPage(RoutablePageMixin, Page, WithStreamField):
             }
         )
 
+
 WorkIndexPage.content_panels = [
     FieldPanel('title', classname='full title'),
     StreamFieldPanel('body'),
@@ -238,6 +245,7 @@ class WorkPage(Page, WithStreamField, WithFeedImage):
     def get_index_page(self):
         # Find closest ancestor which is a blog index
         return WorkIndexPage.objects.ancestor_of(self).last()
+
 
 WorkPage.content_panels = [
     FieldPanel('title', classname='full title'),
@@ -290,6 +298,7 @@ class BlogIndexPage(RoutablePageMixin, Page, WithStreamField):
             }
         )
 
+
 BlogIndexPage.content_panels = [
     FieldPanel('title', classname='full title'),
     StreamFieldPanel('body'),
@@ -320,6 +329,7 @@ class BlogPost(Page, WithStreamField, WithFeedImage):
     def get_index_page(self):
         # Find closest ancestor which is a blog index
         return BlogIndexPage.objects.ancestor_of(self).last()
+
 
 BlogPost.content_panels = [
     FieldPanel('title', classname='full title'),

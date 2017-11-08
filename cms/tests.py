@@ -8,7 +8,7 @@ from django.core.urlresolvers import reverse
 from django.test import Client, RequestFactory, TestCase
 from wagtail.tests.utils import WagtailPageTests
 from wagtail.wagtailcore.models import Site
-from sup.pages import PublicationIdeaPage
+from sup.models import PublicationIdeaPage
 
 
 class TestPages(TestCase):

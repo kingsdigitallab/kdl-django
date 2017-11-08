@@ -13,7 +13,7 @@ from wagtail.wagtailcore.models import Page
 class PublicationIdea(models.Model):
     full_name = models.CharField(max_length=255)
     affiliation = models.CharField(max_length=255)
-    Country = CountryField()
+    country = CountryField()
     email = models.CharField(max_length=255)
     website = models.URLField(null=True, blank=True)
     publication_title = models.CharField(max_length=255)

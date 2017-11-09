@@ -1,5 +1,4 @@
 import django.forms as forms
-import magic
 from django.core.exceptions import ValidationError
 from django.db import models
 from django.shortcuts import render
@@ -8,7 +7,8 @@ from django_countries.fields import CountryField
 from wagtail.wagtailadmin.edit_handlers import FieldPanel
 from wagtail.wagtailcore.fields import RichTextField
 from wagtail.wagtailcore.models import Page
-
+from django.conf import settings
+from django.core.validators import FileExtensionValidator
 
 class PublicationIdea(models.Model):
     full_name = models.CharField(max_length=255)
@@ -21,7 +21,7 @@ class PublicationIdea(models.Model):
     keywords = models.CharField(max_length=255)
     summary = models.TextField(max_length=10000)
     link = models.URLField(null=True, blank=True)
-    attachment = models.FileField(null=True, blank=True)
+    attachment = models.FileField(null=True, blank=True, upload_to=settings.SUP_URL, validators=[FileExtensionValidator(['pdf'])] )
 
 
 class PublicationIdeaForm(forms.ModelForm):
@@ -59,15 +59,17 @@ class PublicationIdeaForm(forms.ModelForm):
                     len(summary.split())))
         return summary
 
-    def clean_attachment(self):
-        file = self.cleaned_data.get("file", False)
-        with magic.Magic() as m:
-            filetype = m.from_buffer(file.read())
-            if filetype not in self.allowed_attachment_types:
-                raise ValidationError(
-                    "File {} is not a valid attachment type.".format(filetype))
-        self.check_image_file_size(file)
-        return file
+    # def clean_attachment(self):
+    #     attachment = self.cleaned_data.get("attachment", False)
+    #     if attachment:
+    #         self.check_image_file_size(file)
+    #     # with magic.Magic(mime=True) as m:
+    #     #     filetype = m.id_buffer
+    #     #     if filetype not in self.allowed_attachment_types:
+    #     #         raise ValidationError(
+    #     #             "File {} is not a valid attachment type.".format(filetype))
+    #
+    #     return attachment
 
     class Meta:
         model = PublicationIdea
@@ -92,10 +94,9 @@ class PublicationIdeaPage(Page):
         if request.method == 'POST':
             form = PublicationIdeaForm(request.POST)
             if form.is_valid():
-                flavour = form.save()
+                form.save()
                 return render(request, 'sup/form_page_landing.html', {
                     'page': self,
-                    'flavour': flavour,
                 })
         else:
             form = PublicationIdeaForm()

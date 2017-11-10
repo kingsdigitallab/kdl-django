@@ -249,7 +249,14 @@ STATICFILES_STORAGE = 'require.storage.OptimizedStaticFilesStorage'
 
 MEDIA_URL = STATIC_URL + 'media/'
 
+#  ****** New settings for SUP ***
+
 SUP_URL = 'sup/'
+
+# Force saving to temp file for now
+FILE_UPLOAD_MAX_MEMORY_SIZE = 0
+
+
 
 MEDIA_ROOT = os.path.join(BASE_DIR, MEDIA_URL.strip('/'))
 

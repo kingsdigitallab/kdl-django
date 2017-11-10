@@ -21,6 +21,7 @@ REPOSITORY = 'https://github.com/kingsdigitallab/kdl-django.git'
 env.user = settings.FABRIC_USER
 env.hosts = ['kdl.kcl.ac.uk']
 env.root_path = '/vol/kdl/webroot/'
+env.gateway = 'ssh.cch.kcl.ac.uk'
 env.envs_path = os.path.join(env.root_path, 'envs')
 
 

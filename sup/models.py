@@ -1,5 +1,9 @@
 import django.forms as forms
+import magic
+from captcha.fields import CaptchaField
+from django.conf import settings
 from django.core.exceptions import ValidationError
+from django.core.validators import FileExtensionValidator
 from django.db import models
 from django.shortcuts import render
 from django.template.defaultfilters import filesizeformat
@@ -7,13 +11,9 @@ from django_countries.fields import CountryField
 from wagtail.wagtailadmin.edit_handlers import FieldPanel
 from wagtail.wagtailcore.fields import RichTextField
 from wagtail.wagtailcore.models import Page
-from django.conf import settings
-from django.core.validators import FileExtensionValidator
-from captcha.fields import CaptchaField
 
 
 class PublicationIdea(models.Model):
-
     full_name = models.CharField(max_length=255)
     affiliation = models.CharField(max_length=255)
     country = CountryField()
@@ -34,6 +34,8 @@ class PublicationIdeaForm(forms.ModelForm):
     max_upload_size = 10 * 1024 * 1024
     # Guidance called for max words not characters but could change
     summary_max_words = 1000
+    allowed_attachment_types = [u'application/pdf', ]
+
 
     def filename_to_title(filename):
         from os.path import splitext
@@ -67,7 +69,15 @@ class PublicationIdeaForm(forms.ModelForm):
     def clean_attachment(self):
         attachment = self.cleaned_data.get("attachment", None)
         if attachment:
+            # Check file size
             self.check_image_file_size(attachment)
+            # make sure it's actually a pdf
+            with magic.Magic(flags=magic.MAGIC_MIME_TYPE) as m:
+                filetype = m.id_filename(attachment.temporary_file_path())
+                if filetype not in self.allowed_attachment_types:
+                    raise ValidationError(
+                        "File {} is not a valid attachment type.".format(
+                            filetype))
 
         return attachment
 

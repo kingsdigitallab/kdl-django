@@ -12,7 +12,6 @@ from django.core.validators import FileExtensionValidator
 from captcha.fields import CaptchaField
 
 
-
 class PublicationIdea(models.Model):
 
     full_name = models.CharField(max_length=255)

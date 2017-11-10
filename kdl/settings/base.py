@@ -91,6 +91,7 @@ INSTALLED_APPS += (
     'cms',
     'kdl',
     'sup',
+    'captcha',
     'twitterhut',
     'activecollab_digger',
 )

@@ -25,7 +25,7 @@ urlpatterns += [
     url(r'^documents/', include(wagtaildocs_urls)),
     url(r'^search/', search, name='search'),
     url(r'^digger/', include('activecollab_digger.urls')),
-
+    url(r'^captcha/', include('captcha.urls')),
     url(r'', include(wagtail_urls)),
 ]
 

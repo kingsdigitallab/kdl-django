@@ -9,11 +9,12 @@ from wagtail.wagtailcore.fields import RichTextField
 from wagtail.wagtailcore.models import Page
 from django.conf import settings
 from django.core.validators import FileExtensionValidator
-# import magic
-# import os
+from captcha.fields import CaptchaField
+
 
 
 class PublicationIdea(models.Model):
+
     full_name = models.CharField(max_length=255)
     affiliation = models.CharField(max_length=255)
     country = CountryField()
@@ -30,7 +31,7 @@ class PublicationIdea(models.Model):
 
 
 class PublicationIdeaForm(forms.ModelForm):
-    allowed_attachment_types = [u'application/pdf', ]
+    captcha = CaptchaField()
     max_upload_size = 10 * 1024 * 1024
     # Guidance called for max words not characters but could change
     summary_max_words = 1000
@@ -65,20 +66,9 @@ class PublicationIdeaForm(forms.ModelForm):
         return summary
 
     def clean_attachment(self):
-        attachment = self.cleaned_data.get("attachment", False)
+        attachment = self.cleaned_data.get("attachment", None)
         if attachment:
             self.check_image_file_size(attachment)
-            # with magic.Magic(flags=magic.MAGIC_MIME_TYPE) as m:
-            #    filename = os.path.join(
-            #        '/vagrant/static/media/sup/', attachment.name)
-            # todo temporary disabled until 
-            # file can be validate with magic as temp
-            # or something else
-            # filetype= m.id_filename(filename)
-            # if filetype not in self.allowed_attachment_types:
-            #     raise ValidationError(
-            #         "File {} is not a valid attachment type.".format(
-            #  filetype))
 
         return attachment
 

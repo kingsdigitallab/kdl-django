@@ -9,6 +9,9 @@ from wagtail.wagtailcore.fields import RichTextField
 from wagtail.wagtailcore.models import Page
 from django.conf import settings
 from django.core.validators import FileExtensionValidator
+# import magic
+# import os
+
 
 class PublicationIdea(models.Model):
     full_name = models.CharField(max_length=255)
@@ -21,11 +24,13 @@ class PublicationIdea(models.Model):
     keywords = models.CharField(max_length=255)
     summary = models.TextField(max_length=10000)
     link = models.URLField(null=True, blank=True)
-    attachment = models.FileField(null=True, blank=True, upload_to=settings.SUP_URL, validators=[FileExtensionValidator(['pdf'])] )
+    attachment = models.FileField(null=True, blank=True,
+                                  upload_to=settings.SUP_URL,
+                                  validators=[FileExtensionValidator(['pdf'])])
 
 
 class PublicationIdeaForm(forms.ModelForm):
-    allowed_attachment_types = ['PDF', ]
+    allowed_attachment_types = [u'application/pdf', ]
     max_upload_size = 10 * 1024 * 1024
     # Guidance called for max words not characters but could change
     summary_max_words = 1000
@@ -59,17 +64,23 @@ class PublicationIdeaForm(forms.ModelForm):
                     len(summary.split())))
         return summary
 
-    # def clean_attachment(self):
-    #     attachment = self.cleaned_data.get("attachment", False)
-    #     if attachment:
-    #         self.check_image_file_size(file)
-    #     # with magic.Magic(mime=True) as m:
-    #     #     filetype = m.id_buffer
-    #     #     if filetype not in self.allowed_attachment_types:
-    #     #         raise ValidationError(
-    #     #             "File {} is not a valid attachment type.".format(filetype))
-    #
-    #     return attachment
+    def clean_attachment(self):
+        attachment = self.cleaned_data.get("attachment", False)
+        if attachment:
+            self.check_image_file_size(attachment)
+            # with magic.Magic(flags=magic.MAGIC_MIME_TYPE) as m:
+            #    filename = os.path.join(
+            #        '/vagrant/static/media/sup/', attachment.name)
+            # todo temporary disabled until 
+            # file can be validate with magic as temp
+            # or something else
+            # filetype= m.id_filename(filename)
+            # if filetype not in self.allowed_attachment_types:
+            #     raise ValidationError(
+            #         "File {} is not a valid attachment type.".format(
+            #  filetype))
+
+        return attachment
 
     class Meta:
         model = PublicationIdea
@@ -92,7 +103,7 @@ class PublicationIdeaPage(Page):
     def serve(self, request):
 
         if request.method == 'POST':
-            form = PublicationIdeaForm(request.POST)
+            form = PublicationIdeaForm(request.POST, request.FILES)
             if form.is_valid():
                 form.save()
                 return render(request, 'sup/form_page_landing.html', {

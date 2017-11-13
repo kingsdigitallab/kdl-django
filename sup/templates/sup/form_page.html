@@ -11,6 +11,7 @@
     </div>
 
     {{ page.intro|richtext }}
+    
     <form class="kdl-form" action="{% pageurl page %}" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.as_p }}

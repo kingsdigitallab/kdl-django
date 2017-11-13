@@ -562,6 +562,10 @@ caption,
     label {
         font-size: rem-calc(20);
     }
+
+    .captcha {
+        min-width: 200px;
+    }
 }
 
 .workindexpage {

@@ -36,7 +36,6 @@ class PublicationIdeaForm(forms.ModelForm):
     summary_max_words = 1000
     allowed_attachment_types = [u'application/pdf', ]
 
-
     def filename_to_title(filename):
         from os.path import splitext
         if filename:
@@ -62,7 +61,7 @@ class PublicationIdeaForm(forms.ModelForm):
             return summary
         elif len(summary.split()) > self.summary_max_words:
             raise ValidationError(
-                "Summary is {} words long.  Maximum is 1000".format(
+                "Summary is {} words long. Maximum is 1000".format(
                     len(summary.split())))
         return summary
 

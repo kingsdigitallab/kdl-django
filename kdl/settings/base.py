@@ -211,6 +211,9 @@ LOGIN_URL = '/wagtail/login/'
 
 WSGI_APPLICATION = PROJECT_NAME + '.wsgi.application'
 
+# Simple Captcha
+CAPTCHA_IMAGE_SIZE = [300,200]
+CAPTCHA_FONT_SIZE = 48
 
 # -----------------------------------------------------------------------------
 # Authentication

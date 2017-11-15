@@ -30,7 +30,7 @@ class PublicationIdea(models.Model):
 
 
 class PublicationIdeaForm(forms.ModelForm):
-    captcha = CaptchaField()
+    captcha = CaptchaField(required=True)
     max_upload_size = 10 * 1024 * 1024
     # Guidance called for max words not characters but could change
     summary_max_words = 1000

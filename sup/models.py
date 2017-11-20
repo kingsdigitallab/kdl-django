@@ -22,11 +22,27 @@ class PublicationIdea(models.Model):
     publication_title = models.CharField(max_length=255)
     scholarly_discipline = models.CharField(max_length=255)
     keywords = models.CharField(max_length=255)
-    summary = models.TextField(max_length=10000)
-    link = models.URLField(null=True, blank=True)
+    summary = models.TextField(max_length=10000,
+                               help_text='Please provide a maximum 1000 words description of your publication idea. '
+                                         'Make sure you explain where its innovative and experimental nature lie.'
+                               )
+    link = models.URLField(null=True, blank=True,
+                           help_text='You can include a link to a website to provide further material to support your '
+                                     'idea'
+                           )
     attachment = models.FileField(null=True, blank=True,
                                   upload_to=settings.SUP_URL,
-                                  validators=[FileExtensionValidator(['pdf'])])
+                                  validators=[FileExtensionValidator(['pdf'])],
+                                  help_text='You can include 1 attachment (pdf format only; max size: 5MB) for '
+                                            'example to visualise statically some aspects of your proposal.'
+                                  )
+    future_funding = models.TextField(
+        max_length=2000,
+        default='',
+        help_text='Please explain how this project has the potential to contribute to the possibility of obtaining '
+                  'external funding in the future and what external funding schemes you are considering, if any, '
+                  'to develop a fully-fledged product.'
+    )
 
 
 class PublicationIdeaForm(forms.ModelForm):

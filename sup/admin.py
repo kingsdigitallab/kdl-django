@@ -8,7 +8,8 @@ class PublicationIdeaAdmin(admin.ModelAdmin):
     export_filename = 'sup_export'
     list_display = ['publication_title', 'full_name', 'affiliation',
                     'country', 'email', 'website', 'publication_title',
-                    'scholarly_discipline', 'keywords', 'summary', 'link'
+                    'scholarly_discipline', 'keywords', 'summary', 'link',
+                    'attachment', 'future_funding'
                     ]
     actions = [export_to_csv]
     search_fields = ['publication_title',

@@ -20,15 +20,15 @@ def export_to_csv(modeladmin, request, queryset):
         if modeladmin.export_fields:
             export_fields = modeladmin.export_fields
         else:
-            export_fields = modeladmin.list_fields
+            export_fields = modeladmin.list_display
     except AttributeError:
-        export_fields = modeladmin.list_fields
+        export_fields = modeladmin.list_display
     response = HttpResponse(content_type='text/csv')
     response['Content-Disposition'] = 'attachment; filename="{}_{}.csv"'.format(
         filename,
-        datetime.date.today().replace("-", "_")
+        datetime.date.today().__str__().replace("-", "_")
     )
-    writer = csv.writer(response, encoding='utf-8')
+    writer = csv.writer(response)
     writer.writerow(export_fields)
     for obj in queryset:
         row = [getattr(obj, field)() if callable(getattr(obj, field)) else getattr(obj, field) for field in

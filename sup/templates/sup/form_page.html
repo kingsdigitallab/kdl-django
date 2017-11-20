@@ -6,7 +6,7 @@
 {% block main %}
     <div class="page-content">
         <div class="default-banner shadowed banner-block with-background ">
-            <h2 class="subtitle">Submit your request</h2>
+            <h2 class="subtitle">Application form</h2>
             <h1>{{ page.title }}</h1>
         </div>
         <div class="rich-text">
@@ -15,14 +15,16 @@
         <form class="kdl-form" action="{% pageurl page %}" method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             {% for field in form %}
-                <p>
-                 {{ field.label_tag }}
-                {{ field.errors }}
+            <p>
+                {{ field.label_tag }}
+                <span class="form-error">{{ field.errors }}</span>
                 {% if field.help_text %}
-                    {{ field.help_text|safe }}
-                {% endif %}  
-                 {{ field }}
-                </p>
+                <span class="help-text">{{ field.help_text|safe }}</span>
+                {% endif %}
+            </p>
+            <p>
+                {{ field }}
+            </p>
             {% endfor %}
             <input class="button" type="submit">
         </form>

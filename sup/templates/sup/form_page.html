@@ -9,9 +9,9 @@
         <h2 class="subtitle">Submit your request</h2>
         <h1>{{ page.title }}</h1>
     </div>
-
-    {{ page.intro|richtext }}
-    
+<div class="rich-text">
+    <p>{{ page.intro|richtext }}</p>
+    </div>
     <form class="kdl-form" action="{% pageurl page %}" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.as_p }}

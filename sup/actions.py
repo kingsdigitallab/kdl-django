@@ -1,14 +1,16 @@
 import csv
 import datetime
-
 from django.http import HttpResponse
 
 
-# export selected objects to csv file
-# By defatul exports object using list_fields as the model for a row
-# Add an option export_fields list to modeladmin to change
 def export_to_csv(modeladmin, request, queryset):
-    # Get settigns from model admin
+    """
+    export selected objects to csv file
+    can add two fields to attached model admin
+     **** export_filename: prefix for exported csv. Defaults to model nam
+     **** export_fields: fields to export, in order. Defaults to list_display
+    """
+    # Get settings from model admin
     try:
         if modeladmin.export_filename:
             filename = modeladmin.export_filename

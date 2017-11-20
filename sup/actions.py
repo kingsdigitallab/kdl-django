@@ -21,7 +21,7 @@ def export_to_csv(modeladmin, request, queryset):
             export_fields = modeladmin.export_fields
         else:
             export_fields = modeladmin.list_fields
-    except AttributeError
+    except AttributeError:
         export_fields = modeladmin.list_fields
     response = HttpResponse(content_type='text/csv')
     response['Content-Disposition'] = 'attachment; filename="{}_{}.csv"'.format(

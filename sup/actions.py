@@ -1,14 +1,17 @@
-import csv
+import unicodecsv as  csv
 import datetime
+
 from django.http import HttpResponse
 
 
 def export_to_csv(modeladmin, request, queryset):
     """
-    export selected objects to csv file
-    can add two fields to attached model admin
+    Export selected objects to csv file.
+    
+    This function can be controlled via two optional fields added to attached model admin:    
      **** export_filename: prefix for exported csv. Defaults to model nam
      **** export_fields: fields to export, in order. Defaults to list_display
+     
     """
     # Get settings from model admin
     try:
@@ -30,7 +33,7 @@ def export_to_csv(modeladmin, request, queryset):
         filename,
         datetime.date.today().__str__().replace("-", "_")
     )
-    writer = csv.writer(response)
+    writer = csv.writer(response, encoding='utf-8')
     writer.writerow(export_fields)
     for obj in queryset:
         row = [getattr(obj, field)() if callable(getattr(obj, field)) else getattr(obj, field) for field in

@@ -16,3 +16,4 @@ redis
 wagtail
 django-simple-captcha
 filemagic
+unicodecsv

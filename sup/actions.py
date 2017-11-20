@@ -9,13 +9,19 @@ from django.http import HttpResponse
 # Add an option export_fields list to modeladmin to change
 def export_to_csv(modeladmin, request, queryset):
     # Get settigns from model admin
-    if modeladmin.export_filename:
-        filename = modeladmin.export_filename
-    else:
+    try:
+        if modeladmin.export_filename:
+            filename = modeladmin.export_filename
+        else:
+            filename = modeladmin.model.__name__
+    except AttributeError:
         filename = modeladmin.model.__name__
-    if modeladmin.export_fields:
-        export_fields = modeladmin.export_fields
-    else:
+    try:
+        if modeladmin.export_fields:
+            export_fields = modeladmin.export_fields
+        else:
+            export_fields = modeladmin.list_fields
+    except AttributeError
         export_fields = modeladmin.list_fields
     response = HttpResponse(content_type='text/csv')
     response['Content-Disposition'] = 'attachment; filename="{}_{}.csv"'.format(

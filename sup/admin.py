@@ -1,5 +1,5 @@
 from django.contrib import admin
-import actions
+from actions import export_to_csv
 from models import PublicationIdea
 
 
@@ -10,6 +10,6 @@ class PublicationIdeaAdmin(admin.ModelAdmin):
                     'country', 'email', 'website', 'publication_title',
                     'scholarly_discipline', 'keywords', 'summary', 'link'
                     ]
-    actions = [actions.export_to_csv]
+    actions = [export_to_csv]
     search_fields = ['publication_title',
                      'full_name', 'affiliation', 'keywords']

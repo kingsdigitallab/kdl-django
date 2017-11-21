@@ -54,6 +54,21 @@ class PublicationIdea(models.Model):
 
 class PublicationIdeaForm(forms.ModelForm):
     captcha = CaptchaField(required=True)
+    full_name = forms.CharField(max_length=255, required=True)
+    affiliation = forms.CharField(max_length=255, required=True)
+    email = forms.CharField(max_length=255, required=True)
+    publication_title = forms.CharField(max_length=255, required=True)
+    scholarly_discipline = forms.CharField(max_length=255, required=True)
+    keywords = forms.CharField(max_length=255, required=True)
+    summary = forms.CharField(
+        widget = forms.Textarea,
+        max_length=10000,
+        help_text='Please provide a maximum 1000 words description of your '
+                  'publication idea. Make sure you explain where its innovative and '
+                  'experimental nature lie.'
+
+    )
+
     max_upload_size = 10 * 1024 * 1024
     # Guidance called for max words not characters but could change
     summary_max_words = 1000

@@ -1,0 +1,24 @@
+{% load wagtailcore_tags %}
+
+<div class="narrow-container">
+    <div class="row">
+        <div class="large-8 columns">
+            <h3 class="subhead post-section-title">{{ value.blog_index_page.title }}</h3>
+
+            <ul class="no-bullet">
+                {% for post in value.blog_index_page.specific.posts %}
+                <li>
+                    <div class="row collapse gray-bg">
+                        {% include "cms/includes/blog_post_preview.html" with post=post %}
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="large-4 columns">
+            <h3 class="subhead post-section-title"><i class="fa fa-twitter"></i> Latest</h3>
+
+            {% include "cms/includes/twitter_feeds.html" with screen_name=value.twitter %}
+        </div>
+    </div>
+</div>

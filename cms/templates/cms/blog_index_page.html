@@ -1,0 +1,28 @@
+{% extends "cms/index_page.html" %}
+{% load wagtailcore_tags %}
+
+{% block index_page_children %}
+{% for post in posts %}
+{% if forloop.first %}
+<div class="gray-bg extra-padding-vertical">
+	<div class="row">
+	    {% include "cms/includes/blog_post_preview.html" with post=post %}
+	</div>
+</div>
+{% endif %}
+{% endfor %}
+
+<div class="row medium-up-2">
+	{% for post in posts %}
+	{% if not forloop.first %}
+	<div class="column">
+		<div class="row collapse spaced-up-vertically">
+        	{% include "cms/includes/blog_post_preview.html" with post=post %}
+        </div>
+    </div>
+    {% endif %}
+    {% empty %}
+        <p>Sorry, nothing to show here.</p>
+    {% endfor %}
+</div>
+{% endblock %}

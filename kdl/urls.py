@@ -1,3 +1,4 @@
+from cms.views import search
 from ddhldap.signal_handlers import \
     register_signal_handlers as ddhldap_register_signal_handlers
 from django.conf import settings
@@ -20,9 +21,11 @@ urlpatterns = [
 # -----------------------------------------------------------------------------
 
 urlpatterns += [
-    url(r'^cms/', include(wagtailadmin_urls)),
+    url(r'^wagtail/', include(wagtailadmin_urls)),
     url(r'^documents/', include(wagtaildocs_urls)),
-
+    url(r'^search/', search, name='search'),
+    url(r'^digger/', include('activecollab_digger.urls')),
+    url(r'^captcha/', include('captcha.urls')),
     url(r'', include(wagtail_urls)),
 ]
 
@@ -33,7 +36,7 @@ urlpatterns += [
 try:
     if settings.DEBUG:
         import debug_toolbar
-        urlpatterns.append(url(r'^__debug__/', include(debug_toolbar.urls)))
+        urlpatterns.insert(0, url(r'^__debug__/', include(debug_toolbar.urls)))
 
 except ImportError:
     pass

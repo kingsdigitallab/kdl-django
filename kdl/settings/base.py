@@ -12,6 +12,7 @@ import logging
 import os
 
 from ddhldap.settings import *  # noqa
+from twitterhut.settings import *  # noqa
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
@@ -55,7 +56,6 @@ DATABASES = {
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
-TEMPLATE_DEBUG = False
 
 INSTALLED_APPS = (
     'grappelli',
@@ -65,7 +65,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
+    'django_countries',
     'compressor',
     'modelcluster',
     'require',
@@ -84,10 +84,16 @@ INSTALLED_APPS = (
     'wagtail.wagtailforms',
     'wagtail.wagtailsites',
     'wagtail.contrib.wagtailapi',
+    'wagtail.contrib.wagtailroutablepage',
 )
 
 INSTALLED_APPS += (
-    # your project apps here
+    'cms',
+    'kdl',
+    'sup',
+    'captcha',
+    'twitterhut',
+    'activecollab_digger',
 )
 
 INTERNAL_IPS = ('127.0.0.1', )
@@ -125,6 +131,11 @@ LOGGING = {
         }
     },
     'loggers': {
+        'cms': {
+            'handlers': ['file'],
+            'level': LOGGING_LEVEL,
+            'propagate': True
+        },
         'django': {
             'handlers': ['file'],
             'level': LOGGING_LEVEL,
@@ -149,7 +160,7 @@ LOGGING = {
 }
 
 
-MIDDLEWARE_CLASSES = (
+MIDDLEWARE = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -158,7 +169,6 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-
 
     'wagtail.wagtailcore.middleware.SiteMiddleware',
     'wagtail.wagtailredirects.middleware.RedirectMiddleware',
@@ -182,6 +192,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.template.context_processors.static',
                 'django.contrib.messages.context_processors.messages',
+                'kdl.context_processors.settings',
+                'activecollab_digger.context_processors.activecollab_digger'
             ],
             'debug': False,
         },
@@ -195,8 +207,13 @@ USE_I18N = True
 USE_L10N = False
 USE_TZ = True
 
+LOGIN_URL = '/wagtail/login/'
+
 WSGI_APPLICATION = PROJECT_NAME + '.wsgi.application'
 
+# Simple Captcha
+CAPTCHA_IMAGE_SIZE = [300, 200]
+CAPTCHA_FONT_SIZE = 48
 
 # -----------------------------------------------------------------------------
 # Authentication
@@ -205,6 +222,10 @@ WSGI_APPLICATION = PROJECT_NAME + '.wsgi.application'
 # -----------------------------------------------------------------------------
 
 AUTH_LDAP_REQUIRE_GROUP = 'cn=kdl-staff,' + LDAP_BASE_OU
+
+AUTH_LDAP_ALWAYS_UPDATE_USER = False
+
+AUTH_LDAP_CACHE_GROUPS = True
 
 
 # -----------------------------------------------------------------------------
@@ -230,6 +251,14 @@ STATICFILES_FINDERS = (
 STATICFILES_STORAGE = 'require.storage.OptimizedStaticFilesStorage'
 
 MEDIA_URL = STATIC_URL + 'media/'
+
+#  ****** New settings for SUP ***
+
+SUP_URL = 'sup/'
+
+# Force saving to temp file for now
+FILE_UPLOAD_MAX_MEMORY_SIZE = 0
+
 MEDIA_ROOT = os.path.join(BASE_DIR, MEDIA_URL.strip('/'))
 
 if not os.path.exists(MEDIA_ROOT):
@@ -318,11 +347,29 @@ REQUIRE_ENVIRONMENT = 'node'
 FABRIC_USER = getpass.getuser()
 
 # -----------------------------------------------------------------------------
+# Twitter
+# -----------------------------------------------------------------------------
+
+TWITTER_SCREEN_NAME = 'kingsdigitallab'
+
+# -----------------------------------------------------------------------------
 # Wagtail
 # http://wagtail.readthedocs.org/en/latest/
 # -----------------------------------------------------------------------------
 
 WAGTAIL_SITE_NAME = PROJECT_TITLE
+
+ITEMS_PER_PAGE = 10
+
+WAGTAILSEARCH_BACKENDS = {
+    'default': {
+        'BACKEND': 'wagtail.wagtailsearch.backends.elasticsearch2',
+        'AUTO_UPDATE': False,
+        'URLS': ['http://localhost:9200'],
+        'INDEX': 'kdl_wagtail',
+        'TIMEOUT': 5,
+    }
+}
 
 # -----------------------------------------------------------------------------
 # GLOBALS FOR JS
@@ -330,3 +377,16 @@ WAGTAIL_SITE_NAME = PROJECT_TITLE
 
 # Google Analytics ID
 GA_ID = ''
+
+# -----------------------------------------------------------------------------
+# ACTIVE COLLAB DIGGER
+# -----------------------------------------------------------------------------
+# ActiveCollab API URL
+AC_BASE_URL = ''
+AC_API_URL = AC_BASE_URL + ''
+# ActiveCollab API token
+AC_TOKEN = ''
+# ActiveCollab project ID
+AC_PROJECT_ID = 0
+# ActiveCollab user ID to create the issues
+AC_USER = 0

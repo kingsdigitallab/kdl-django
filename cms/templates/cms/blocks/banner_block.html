@@ -1,0 +1,61 @@
+{% load wagtailcore_tags wagtailimages_tags wagtailroutablepage_tags %}
+
+<div class="{{ value.style }}-banner shadowed banner-block with-background {{ page.category }}">
+    {% if value.style == 'full-height' %}
+    <div class="category-bg">
+        {% elif value.style == 'home-banner full-height' %}
+        <div class="absolute">
+            <div class="half-block">
+                {% endif %}
+                <h2 class="subtitle">
+                    {{ value.title }}
+                </h2>
+                <h1>
+                    {{ value.subtitle }}
+                </h1>
+                {% if value.style == 'full-height' %}
+            </div>
+            {% elif value.style == 'home-banner full-height' %}
+        </div>
+    </div>
+    {% endif %}
+
+    {% if value.image %}
+    {% image value.image original as theimage %}
+    <div class="banner-image">
+        <img src="{{ theimage.url }}" alt="{{ theimage.title }}">
+        {% if value.image_copyright %}
+        <div class="image-copyright">
+            <p>{{ value.image_copyright }}</p>
+        </div>
+        {% endif %}
+    </div>
+    {% endif %}
+
+    {% if value.style != 'default' %}
+    <a class="discover" href="#content" title="Scroll down to the content">
+        <i class="fa fa-angle-double-down fa-lg"></i>
+    </a>
+    {% endif %}
+
+    {% with page.tags.all as tags %}
+    {% if tags %}
+    <div class="tags">
+        <ul class="menu">
+            {% for tag in tags %}
+            <li>
+                {% with page.specific.get_index_page as index_page %}
+                {% if index_page %}
+                <a href="{% routablepageurl index_page 'tag' tag %}">{{ tag }}</a>
+                {% else %}
+                <a href="#">{{ tag }}</a>
+                {% endif %}
+                {% endwith %}
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+    {% endwith %}
+</div>
+<a id="content"></a>

@@ -1,0 +1,20 @@
+{% load wagtailcore_tags %}
+<div class="two-columns">
+	<ul class="menu vertical expand-menu shadowed-small">
+	    <li{% if root.active %} class="active" {% endif %}>
+	    	<a href="{% pageurl root %}">{{ root.title }}</a>
+		</li>
+		{% for page in menu_pages %}
+		<li{% if page.active %} class="active" {% endif %}>
+			<a href="{% pageurl page %}">{{ page.title }}</a>
+		</li>
+		{% endfor %}
+		<li class="hide-for-large">
+			<div class="row collapse expanded">
+				<div class="small-12 columns">
+				{% include 'includes/search_box.html' %}
+				</div>
+			</div>
+		</li>
+	</ul>
+</div>

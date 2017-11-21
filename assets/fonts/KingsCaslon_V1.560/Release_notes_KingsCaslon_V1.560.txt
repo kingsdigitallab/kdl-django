@@ -1,0 +1,28 @@
+                                          ==Release notes_KingsCaslon==
+
+Compiler of release notes: Dalton Maag
+Designer: Dalton Maag
+Designer URL: daltonmaag.com
+
+Date of creation: 2013-07-22
+
+Changes since previous release:
+- Level 1 hints added.
+
+
+Basic information
+1 Basic Family name: Kings Caslon Text and Kings Caslon Dislay
+2 TrueType Version record: 1.560
+3 Regional package: Latin
+4 Supported scripts: Latin
+5 Number of glyphs: 686
+6 Weights/Styles: Text fonts: Regular, Italic, Bold, Bold Italic; Display fonts: Regular, Italic
+7 Usage: Text and Display
+
+
+Technology
+1 File formats: The files have been delivered in the TrueType-based OpenType format.
+2 Embedding settings: Printing and previewing is allowed.
+3 Hinting information: Level 1 Hinting.
+4 Default numerals: Text fonts: Tabular; Display fonts: Proportional.
+

@@ -1,0 +1,44 @@
+{% extends "cms/base.html" %}
+{% load wagtailcore_tags %}
+
+{% block main %}
+
+<div class="page-content">
+    {% for block in self.body %}
+        {% if block.block_type == 'banner' %}
+            {% include_block block %}
+        {% endif %}
+    {% endfor %}
+</div>
+
+<div class="page-content">
+    <article class="post" id="post{{ self.id }}">
+        <header class="post-meta">
+            <p class="text-center">Posted by <span class="author">{{ self.owner.get_full_name }}</span> on <time datetime="{{ self.date|date:'c' }}" class="datetime">{{ self.date }}</time></p>
+        </header>
+        {% for block in self.body %}
+        {% if block.block_type == 'h2' %}
+            <h2 class="heading-content">{{ block }}</h2>
+        {% elif block.block_type == 'h3' %}
+            <h3 class="heading-content">{{ block }}</h3>
+        {% elif block.block_type == 'h4' %}
+            <h4 class="heading-content">{{ block }}</h4>
+        {% elif block.block_type == 'h5' %}
+            <h5 class="heading-content">{{ block }}</h5>
+        {% elif block.block_type == 'intro' %}
+            <div class="gray-bg intro">{{ block }}</div>
+        {% elif block.block_type == 'paragraph' %}
+            {{ block.value|richtext }}
+        {% elif block.block_type == 'banner' %}
+            {#          #}
+        {% elif block.block_type == 'html' %}
+            <div class="iframe-container block.value.alignment">
+                {{ block.value.bound_blocks.html.render }}
+            </div>
+        {% else %}
+            {% include_block block %}
+        {% endif %}
+        {% endfor %}
+    </article>
+</div>
+{% endblock %}

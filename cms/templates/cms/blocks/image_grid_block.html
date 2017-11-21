@@ -1,0 +1,24 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+
+<div class="gray-bg extra-padding-vertical">
+    {% if value.title %}
+    <h2 class="section-title">{{ value.title }}</h2>
+    {% endif %}
+    <div class="row row-block small-up-2 large-up-4">
+        {% for item in value.items %}
+        <div class="column">
+            <div class="image">
+            {% image item.image width-300 as theimage %}
+
+            {% if item.url or item.page %}
+            <a href="{% if item.url %}{{ item.url }}{% else %}{% pageurl item.page %}{% endif %}">
+            {% endif %}
+                <img src="{{ theimage.url }}" alt="{{ theimage.title }}">
+            {% if item.url or item.page %}
+            </a>
+            {% endif %}
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+</div>

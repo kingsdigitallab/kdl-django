@@ -1,0 +1,23 @@
+{% load wagtailcore_tags %}
+
+<div class="gray-bg extra-padding-vertical">
+    {% if value.title %}
+    <h2 class="section-title">{{ value.title }}</h2>
+    {% endif %}
+    <div class="row medium-up-2 extra-margin-bottom" data-equalizer>
+        {% for item in value.items %}
+        <div class="column">
+            <div class="grid-block-list" data-equalizer-watch>
+                <h3 class="subhead">{{ item.title }}</h3>
+                <p>{{ item.description }}</p>
+                {% if item.page %}
+                <a href="{% pageurl item.page %}" class="more">Read more <i class="fa fa-play"></i></a>
+                {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% if value.page %}
+    <a class="button" href="{% pageurl value.page %}">{{ value.label }}</a>
+    {% endif %}
+</div>

@@ -1,14 +1,42 @@
-{% load staticfiles %}
+{% load cms_tags staticfiles %}
 
-<div class="row">
-  <div class="large-3 columns">
-    <div class="logo">
-      <a href="//www.kcl.ac.uk/artshums/digitallab/" title="King's Digital Lab">
-        <img src="/static/images/KCL-KDL-logo-BW.svg">
-      </a>
-    </div>
+<div class="row top-footer">
+  <div class="large-4 columns">
+    {% block footer_menu %}
+    {% get_site_root as site_root %}
+    {% footer_menu root=site_root current_page=self %}
+    {% endblock %}
   </div>
-  <div class="large-9 columns text-right">
-    <p>&copy; 2016 King's Digital Lab</p>
+  <div class="large-5 columns">
+    <p>
+      King's College London<br>
+      Room VWB 2.50, Virginia Woolf Building<br>
+      22 Kingsway<br>
+      London WC2B 6LE
+    </p>
+    <p>
+      <a href="mailto:kdl-info@kcl.ac.uk">kdl-info@kcl.ac.uk</a>
+    </p>
+  </div>
+  <div class="large-2 large-offset-1 columns float-right-large">
+    <img src="{% static 'images/kcl-crest-04.png' %}" alt="King's College London">
+  </div>
+</div>
+
+<div class="row darker bottom-footer">
+  <div class="large-3 large-push-6 small-12 columns">
+    <p class="top-padding">
+      <a href="//twitter.com/kingsdigitallab" title="KDL on Twitter"><i class="fa fa-twitter"></i></a>
+    </p>
+  </div>
+  <div class="large-6 large-pull-3 small-12 columns">
+    <ul class="menu simple">
+      <li><a href="/terms-and-conditions">Terms &amp; Conditions</a></li>
+      <li><a href="/privacy-policy">Privacy Policy</a></li>
+      {% comment %}<li><a href="/sitemap">Sitemap</a></li>{% endcomment %}
+    </ul>
+  </div>
+  <div class="large-3 small-12 columns">
+    <p class="top-padding float-right-large">&copy; {% now 'Y' %} King's Digital Lab</p>
   </div>
 </div>

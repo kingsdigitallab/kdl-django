@@ -58,8 +58,10 @@ target/
 # Local
 .DS_Store
 .babelrc
+*.sql
 .tox/
 .vagrant/
+.vagrant_provisioning/playbook.retry
 local.py
 logs/
 static/

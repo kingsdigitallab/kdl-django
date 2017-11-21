@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block meta_title %}404{% endblock %}
+
+{% block main %}
+<div class="default-banner shadowed banner-block with-background">
+    <h2 class="subtitle gray-title">404: Not Found</h2>
+    <h1>Sorry, we can't find what you're looking for.</h1>
+</div>
+
+<div class="gray-bg intro">
+    <p class="intro">Can we help with your search?</p>
+</div>
+
+<div class="row">
+    <div class="small-12 columns search">
+        {% include 'includes/search_box.html' %}
+    </div>
+</div>
+{% endblock %}

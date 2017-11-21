@@ -1,0 +1,47 @@
+{
+  "name": "object-fit-images",
+  "description": "Adds support to object-fit to images on IE9, IE10, IE11, Edge and other old browsers.",
+  "authors": [
+    "Federico Brigante <bfred-it@users.noreply.github.com> (twitter.com/bfred_it)"
+  ],
+  "main": "dist/ofi.browser.js",
+  "moduleType": [],
+  "keywords": [
+    "object-fit",
+    "covers",
+    "contains",
+    "css",
+    "styles",
+    "internet",
+    "explorer",
+    "ies",
+    "polyfill",
+    "shim",
+    "shiv",
+    "fills",
+    "images",
+    "srcset",
+    "backgrounds"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/bfred-it/object-fit-images#readme",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "bugs": {
+    "url": "https://github.com/bfred-it/object-fit-images/issues"
+  },
+  "_release": "master",
+  "_resolution": {
+    "type": "tag",
+    "tag": "master",
+    "commit": "53ebe0ccb6299bce8b21ae4ddc7c8ebb84954283"
+  },
+  "_source": "https://github.com/rangedsp/object-fit-images-bower.git",
+  "_target": "*",
+  "_originalSource": "object-fit-images"
+}

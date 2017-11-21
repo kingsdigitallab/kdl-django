@@ -1,0 +1,69 @@
+/** Gray-pink colour palette **/
+
+// Gray and bright pink
+.gray-pink {
+
+	&.with-background {
+		background-color: $primary-color;
+	}
+
+	a,
+	h3,
+	.title,
+	blockquote {
+		color: $bright-pink;
+
+		&.button {
+			color: $white;
+		}
+	}
+
+    a.discover {
+		color: $bright-pink;
+	}
+
+	button,
+	.button {
+		background-color: $bright-pink;
+		border-bottom: 7px solid scale-color($bright-pink, $lightness: -30%);
+
+        &:hover {
+            background: scale-color($bright-pink, $lightness: -20%);
+        }
+
+        &:visited {
+            border-bottom: 7px solid scale-color($bright-pink, $lightness: -30%);
+        }
+	}
+
+	.banner-block {
+		.subtitle {
+			color: $bright-pink;
+		}
+	}
+
+	.block-list {
+		li {
+	        background: url('/static/images/list-element-bright-pink.svg') 46px 46px no-repeat $white;
+	        background-size: 7px;
+
+			&:before {
+	            color: $bright-pink;
+	        }
+    	}
+	}
+
+	svg#caret-down-outline {
+		fill: $bright-pink;
+	}
+
+	.tags {
+		background-color: $bright-pink;
+
+	    li > a {
+	        &:hover {
+	            background: scale-color($bright-pink, $lightness: -15%);
+	        }
+	    }
+	}
+}

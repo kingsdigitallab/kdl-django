@@ -1,7 +1,4 @@
-from base import *  # noqa
-
-CACHE_REDIS_DATABASE = '2'
-CACHES['default']['LOCATION'] = '127.0.0.1:6379:' + CACHE_REDIS_DATABASE
+from .base import *  # noqa
 
 INTERNAL_IPS = INTERNAL_IPS + ('', )
 ALLOWED_HOSTS = []
@@ -16,12 +13,30 @@ DATABASES = {
     },
 }
 
+# -----------------------------------------------------------------------------
+# GLOBALS FOR JS
+# -----------------------------------------------------------------------------
+
+# Google Analytics ID
+GA_ID = 'UA-67707155-1'
+
+# -----------------------------------------------------------------------------
+# Django Extensions
+# http://django-extensions.readthedocs.org/en/latest/
+# -----------------------------------------------------------------------------
+
+try:
+    import django_extensions  # noqa
+
+    INSTALLED_APPS = INSTALLED_APPS + ('django_extensions',)
+except ImportError:
+    pass
 
 # -----------------------------------------------------------------------------
 # Local settings
 # -----------------------------------------------------------------------------
 
 try:
-    from local import *  # noqa
+    from .local import *  # noqa
 except ImportError:
     pass

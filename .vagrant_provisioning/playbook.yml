@@ -1,5 +1,7 @@
 ---
 - hosts: all
+  environment:
+    LC_ALL: C
   vars_files:
     - vars.yml
   gather_facts: false
@@ -16,18 +18,11 @@
     tags:
       - system
 
-  - name: apt | add wheezy backports
-    apt_repository:
-      repo: deb http://http.debian.net/debian wheezy-backports main
-      state: present
-    tags:
-      - system
-
   - name: apt | install https transport for apt
     apt:
       pkg: apt-transport-https
       state: installed
-      # update_cache: yes
+      update_cache: yes
     tags:
       -system
 
@@ -63,7 +58,7 @@
 
   - name: apt | add elasticsearch sources
     apt_repository:
-      repo: 'deb http://packages.elastic.co/elasticsearch/1.6/debian stable main'
+      repo: 'deb http://packages.elastic.co/elasticsearch/2.x/debian stable main'
       state: present
     tags:
       - system
@@ -97,9 +92,13 @@
     - vars.yml
   gather_facts: false
   tasks:
-  - name: pip | setup virtualenv
-    command: mkdir -p {{ python.virtualenv_location }}
-  - command: virtualenv {{ python.virtualenv_location }}
+  - name: pip | create virtualenv directory
+    file: path={{ python.virtualenv_location }} state=directory owner=vagrant
+    tags:
+      - python
+
+  - name: pip | init virtualenv
+    command: virtualenv {{ python.virtualenv_location }}
     tags:
       - python
 

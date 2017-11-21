@@ -1,0 +1,69 @@
+/** Yellow-brown colour palette **/
+
+// Yellow and brown
+.yellow-brown {
+
+	&.with-background {
+		background-color: $dirty-brown;
+	}
+
+	a,
+	h3,
+	.title,
+	blockquote {
+		color: $dark-yellow;
+
+		&.button {
+			color: $primary-color;
+		}
+	}
+
+    a.discover {
+		color: $dark-yellow;
+	}
+
+	button,
+	.button {
+		background-color: $dark-yellow;
+		border-bottom: 7px solid scale-color($dark-yellow, $lightness: -30%);
+
+        &:hover {
+            background: scale-color($dark-yellow, $lightness: -20%);
+        }
+
+        &:visited {
+            border-bottom: 7px solid scale-color($dark-yellow, $lightness: -30%);
+        }
+	}
+
+	.banner-block {
+		.subtitle {
+			color: $dark-yellow;
+		}
+	}
+
+	svg#caret-down-outline {
+		fill: $dark-yellow;
+	}
+
+	.block-list {
+		li {
+	        background: url('/static/images/list-element-dark-yellow.svg') 46px 46px no-repeat $white;
+	        background-size: 7px;
+
+			&:before {
+	            color: $dark-yellow;
+	        }
+    	}
+	}
+
+	.tags {
+		background-color: $dark-yellow;
+
+	    li > a {
+	        &:hover {
+	            background: scale-color($dark-yellow, $lightness: -15%);
+	        }
+	    }
+	}
+}

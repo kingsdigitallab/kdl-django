@@ -21,6 +21,7 @@ requirejs.config({
         'foundation.equalizer': '../vendor/foundation-sites/js/foundation.equalizer',
         'foundation.responsiveMenu': '../vendor/foundation-sites/js/foundation.responsiveMenu',
         'foundation.responsiveToggle': '../vendor/foundation-sites/js/foundation.responsiveToggle',
+        'foundation.sticky': '../vendor/foundation-sites/js/foundation.sticky',
         'foundation.util.box': '../vendor/foundation-sites/js/foundation.util.box',
         'foundation.util.keyboard': '../vendor/foundation-sites/js/foundation.util.keyboard',
         'foundation.util.mediaQuery': '../vendor/foundation-sites/js/foundation.util.mediaQuery',
@@ -29,6 +30,9 @@ requirejs.config({
         'foundation.util.timerAndImageLoader': '../vendor/foundation-sites/js/foundation.util.timerAndImageLoader',
         'foundation.util.touch': '../vendor/foundation-sites/js/foundation.util.touch',
         'foundation.util.triggers': '../vendor/foundation-sites/js/foundation.util.triggers',
+
+        // object-fit-images / polyfill for IE/Edge
+        // 'object-fit-images': '../vendor/object-fit-images/dist/ofi.browser',
 
         'requirejs': '../vendor/requirejs/require',
     },
@@ -122,9 +126,9 @@ requirejs.config({
                 'foundation',
                 'foundation.util.triggers',
                 'foundation.util.mediaQuery',
-                'foundation.util.accordionMenu',
-                'foundation.util.drilldown',
-                'foundation.util.dropdownMenu'
+                'foundation.accordionMenu',
+                'foundation.drilldown',
+                'foundation.dropdownMenu'
             ],
         },
         'foundation.responsiveToggle': {
@@ -133,8 +137,21 @@ requirejs.config({
                 'foundation.util.mediaQuery'
             ],
         },
+        'foundation.sticky': {
+            deps: [
+                'foundation',
+                'foundation.util.triggers',
+                'foundation.util.mediaQuery'
+            ],
+        },
         'ga': {
             exports: '__ga__'
         },
+        // 'object-fit-images': {
+        //     deps: [
+        //         'jquery'
+        //     ],
+        //     exports: 'object-fit-images'
+        // },
     }
 });

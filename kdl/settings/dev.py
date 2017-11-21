@@ -1,8 +1,12 @@
-from base import *  # noqa
+from .base import *  # noqa
 
 DEBUG = True
+REQUIRE_DEBUG = DEBUG
 
 INTERNAL_IPS = INTERNAL_IPS + ('', )
+
+CACHE_REDIS_DATABASE = '2'
+CACHES['default']['LOCATION'] = '127.0.0.1:6379/' + CACHE_REDIS_DATABASE
 
 DATABASES = {
     'default': {
@@ -19,6 +23,10 @@ LOGGING_LEVEL = logging.DEBUG
 LOGGING['loggers']['kdl']['level'] = LOGGING_LEVEL
 
 TEMPLATES[0]['OPTIONS']['debug'] = True
+
+INSTALLED_APPS = INSTALLED_APPS + ('wagtail.contrib.wagtailstyleguide',)
+
+WAGTAILSEARCH_BACKENDS['default']['INDEX'] = 'kdl_wagtail_dev'
 
 # -----------------------------------------------------------------------------
 # Django Extensions
@@ -41,7 +49,7 @@ try:
     import debug_toolbar  # noqa
 
     INSTALLED_APPS = INSTALLED_APPS + ('debug_toolbar',)
-    MIDDLEWARE_CLASSES = MIDDLEWARE_CLASSES + (
+    MIDDLEWARE = MIDDLEWARE + (
         'debug_toolbar.middleware.DebugToolbarMiddleware',)
     DEBUG_TOOLBAR_PATCH_SETTINGS = True
 except ImportError:
@@ -52,10 +60,10 @@ except ImportError:
 # -----------------------------------------------------------------------------
 
 try:
-    from local import *  # noqa
+    from .local import *  # noqa
 except ImportError:
-    print('failed to import local settings')
+    print('dev, failed to import local settings')
 
-    from test import *  # noqa
+    from .test import *  # noqa
     print('the project is running with test settings')
     print('please create a local settings file')

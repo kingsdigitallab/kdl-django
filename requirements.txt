@@ -1,5 +1,7 @@
 -r ddhldap/requirements.txt
+-r twitterhut/requirements.txt
 django
+django-activecollab-digger
 django-compressor
 django-extensions
 django-grappelli
@@ -7,6 +9,11 @@ django-libsass
 django-model-utils
 django-redis
 django-require
+django-countries
+elasticsearch>=2.0.0,<3.0.0
 psycopg2
 redis
 wagtail
+django-simple-captcha
+filemagic
+unicodecsv

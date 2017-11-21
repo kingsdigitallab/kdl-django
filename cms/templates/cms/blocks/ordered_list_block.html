@@ -1,0 +1,13 @@
+<div class="gray-bg extra-padding-vertical">
+    {% if value.title %}
+    <h2 class="section-title">{{ value.title }}</h2>
+    {% endif %}
+    <ol class="block-list">
+        {% for item in value.items %}
+        <li>
+            <h3 class="subhead">{{ item.title }}</h3>
+            <p>{{ item.description }}</p>
+        </li>
+        {% endfor %}
+    </ol>
+</div>

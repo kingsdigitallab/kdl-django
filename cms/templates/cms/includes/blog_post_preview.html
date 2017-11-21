@@ -1,0 +1,43 @@
+{% if post %}
+{% load cms_tags wagtailimages_tags wagtailcore_tags %}
+
+{% block blog_post_content %}
+    {% if post.feed_image %}
+    <div class="medium-4 columns">
+        {% image post.feed_image max-300x300 as tmp_image %}
+        <a href="{% pageurl post %}">
+            <img src="{{ tmp_image.url }}" alt="{{ tmp_image.alt }}" class="full-img">
+        </a>
+    </div>
+    {% endif %}
+
+    <div class="medium-{% if post.feed_image %}8{% else %}12{% endif %} columns text-content">
+        <time datetime="{{ post.date|date:'c' }}" class="datetime">{{ post.date }}</time><span class="author"> - By {{ post.owner.get_full_name }}</span>
+        <h2 class="subhead subtitle">
+            <a href="{% pageurl post %}">{{ post.title }}</a>
+        </h2>
+
+        {% comment %}
+        <p>Posted by <a href="{% routablepageurl post.blog_index.specific 'author' post.owner %}">{{ post.owner|unslugify }}</a>
+            {% are_comments_allowed as allow_comments %}
+            {% if allow_comments %}
+            {% block blog_post_comments_link %}
+             | <span class="disqus-comment-count" data-disqus-identifier="{{ post.id }}">Comments</span>
+            {% endblock %}
+            {% endif %}
+        </p>
+        {% endcomment %}
+
+        {% if post.search_description %}
+        <p>        
+            {{ post.search_description }} <a href="{% pageurl post %}" title="{{ post.title }}"></a>
+        </p>
+        {% endif %}
+
+        <p class="more"><a href="{% pageurl post %}" title="{{ post.title }}">Read more <i class="fa fa-play"></i></a></p>
+    </div>
+{% endblock %}
+
+{% block share_on_twitter %}{% endblock %}
+
+{% endif %}

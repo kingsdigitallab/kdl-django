@@ -1,4 +1,4 @@
-from base import *  # noqa
+from .base import *  # noqa
 
 DEBUG = True
 TEMPLATE_DEBUG = True
@@ -21,3 +21,9 @@ DATABASES = {
 PASSWORD_HASHERS = [
     'django.contrib.auth.hashers.MD5PasswordHasher',
 ]
+
+WAGTAILSEARCH_BACKENDS = {
+    'default': {
+        'BACKEND': 'wagtail.wagtailsearch.backends.db',
+    }
+}

@@ -21,6 +21,7 @@ REPOSITORY = 'https://github.com/kingsdigitallab/kdl-django.git'
 env.user = settings.FABRIC_USER
 env.hosts = ['kdl.kcl.ac.uk']
 env.root_path = '/vol/kdl/webroot/'
+env.gateway = 'ssh.cch.kcl.ac.uk'
 env.envs_path = os.path.join(env.root_path, 'envs')
 
 
@@ -151,9 +152,9 @@ def deploy(version=None):
     own_django_log()
     migrate()
     collect_static()
-    # update_index()
+    update_index()
     clear_cache()
-    touch_wsgi()
+    restar_uwsgi()
 
 
 @task
@@ -224,9 +225,5 @@ def clear_cache():
 
 
 @task
-def touch_wsgi():
-    require('srvr', 'path', 'within_virtualenv', provided_by=env.servers)
-
-    with cd(os.path.join(env.path, 'kdl')), \
-            prefix(env.within_virtualenv):
-        run('touch wsgi.py')
+def restar_uwsgi():
+    sudo('service uwsgi restart django-{}'.format(env.srvr))

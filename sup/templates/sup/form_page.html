@@ -16,7 +16,8 @@
             {% csrf_token %}
             {% for field in form %}
             <p>
-                {{ field.label_tag }}
+                <label for="{{ field.label }}">{{ field.label_tag }}
+        {% if field.field.required %}<span class="form-error">*</span>{% endif %}</label>
                 <span class="form-error">{{ field.errors }}</span>
                 {% if field.help_text %}
                 <span class="help-text">{{ field.help_text|safe }}</span>

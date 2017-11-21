@@ -12,16 +12,17 @@
         <div class="rich-text">
             <p>{{ page.intro|richtext }}</p>
         </div>
-        <form class="kdl-form" action="{% pageurl page %}" method="POST" enctype="multipart/form-data">
+        <form class="kdl-form" action="{% pageurl page %}" method="POST" enctype="multipart/form-data" novalidate>
             {% csrf_token %}
             {% for field in form %}
                 <p>
-                 {{ field.label_tag }}
-                {{ field.errors }}
-                {% if field.help_text %}
-                    {{ field.help_text|safe }}
-                {% endif %}
-                 {{ field }}
+                    <label for="{{ field.label }}">{{ field.label_tag }}
+                        {% if field.field.required %}<span class="special_class">*</span>{% endif %}</label>
+                    {{ field.errors }}
+                    {% if field.help_text %}
+                        {{ field.help_text|safe }}
+                    {% endif %}
+                    {{ field }}
                 </p>
             {% endfor %}
             <input class="button" type="submit">

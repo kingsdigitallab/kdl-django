@@ -563,8 +563,38 @@ caption,
         font-size: rem-calc(20);
     }
 
+    p {
+        line-height: 1;
+        margin-bottom: rem-calc(12);
+    }
+
+    span {
+        &.form-error {
+            color: red;
+            font-weight: 700;
+        }
+
+        &.help-text {
+            color: #666;
+            font-size: 1rem;
+            font-style: normal;
+
+            &:before {
+                content: "\f05a ";
+                font-family: "FontAwesome";
+                padding-right: 5px;
+            }
+        }
+    }
+
     .captcha {
         min-width: 200px;
+    }
+
+    .errorlist {
+        color: red;
+        font-weight: 700;
+        list-style: none;
     }
 }
 

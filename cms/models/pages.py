@@ -312,7 +312,7 @@ class BlogPostTag(TaggedItemBase):
 
 
 class BlogPost(Page, WithStreamField, WithFeedImage):
-    date = models.DateField('body')
+    date = models.DateField()
     tags = ClusterTaggableManager(through=BlogPostTag, blank=True)
 
     search_fields = Page.search_fields + [

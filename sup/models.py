@@ -61,12 +61,11 @@ class PublicationIdeaForm(forms.ModelForm):
     scholarly_discipline = forms.CharField(max_length=255, required=True)
     keywords = forms.CharField(max_length=255, required=True)
     summary = forms.CharField(
-        widget = forms.Textarea,
+        widget=forms.Textarea,
         max_length=10000,
         help_text='Please provide a maximum 1000 words description of your '
-                  'publication idea. Make sure you explain where its innovative and '
-                  'experimental nature lie.'
-
+                  'publication idea. Make sure you explain where its '
+                  'innovative and experimental nature lie.'
     )
 
     max_upload_size = 10 * 1024 * 1024

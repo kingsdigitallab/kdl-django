@@ -1,0 +1,13 @@
+{% extends "cms/base.html" %}
+{% load wagtailcore_tags %}
+
+{% block main %}
+
+<div class="page-content">
+    {{ page.thank_you_text|richtext }}
+</div>
+
+<div class="page-content">
+    {{ form_submission }}
+</div>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends "cms/base.html" %}
+{% load wagtailcore_tags %}
+
+{% block main %}
+<div class="page-content">
+    {{ page.intro|richtext }}
+</div>
+
+<div class="page-content">
+    <form class="kdl-form" action="{% pageurl page %}" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <input class="button" type="submit">
+    </form>
+</div>
+{% endblock %}

@@ -2,6 +2,7 @@ from __future__ import unicode_literals
 
 import logging
 
+from captcha.fields import CaptchaField
 from django.conf import settings
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from django.db import models
@@ -10,11 +11,14 @@ from modelcluster.fields import ParentalKey
 from modelcluster.tags import ClusterTaggableManager
 from taggit.models import TaggedItemBase
 from wagtail.contrib.wagtailroutablepage.models import RoutablePageMixin, route
-from wagtail.wagtailadmin.edit_handlers import (
-    FieldPanel, MultiFieldPanel, StreamFieldPanel
-)
+from wagtail.wagtailadmin.edit_handlers import (FieldPanel, FieldRowPanel,
+                                                InlinePanel, MultiFieldPanel,
+                                                StreamFieldPanel)
 from wagtail.wagtailcore.fields import RichTextField
 from wagtail.wagtailcore.models import Page
+from wagtail.wagtailforms.edit_handlers import FormSubmissionsPanel
+from wagtail.wagtailforms.forms import FormBuilder
+from wagtail.wagtailforms.models import AbstractEmailForm, AbstractFormField
 from wagtail.wagtailimages.edit_handlers import ImageChooserPanel
 from wagtail.wagtailsearch import index
 from wagtail.wagtailsnippets.edit_handlers import SnippetChooserPanel
@@ -45,9 +49,11 @@ class HomePage(Page, WithStreamField):
         index.SearchField('body'),
     ]
 
-    subpage_types = ['BlogIndexPage', 'IndexPage', 'OrganisationIndexPage',
-                     'PersonIndexPage', 'RichTextPage', 'WorkIndexPage',
-                     'sup.PublicationIdeaPage']
+    subpage_types = [
+        'BlogIndexPage', 'FormPage', 'IndexPage', 'OrganisationIndexPage',
+        'PersonIndexPage', 'RichTextPage', 'WorkIndexPage',
+        'sup.PublicationIdeaPage'
+    ]
 
 
 HomePage.content_panels = [
@@ -341,3 +347,49 @@ BlogPost.promote_panels = Page.promote_panels + [
     FieldPanel('tags'),
     ImageChooserPanel('feed_image'),
 ]
+
+
+class CaptchaFormBuilder(FormBuilder):
+    CAPTCHA_FIELD_NAME = 'captcha'
+
+    def __init__(self, fields):
+        super(CaptchaFormBuilder, self).__init__(fields)
+
+        self.FIELD_TYPES.update(
+            {self.CAPTCHA_FIELD_NAME: self.create_captcha_field})
+
+    def create_captcha_field(self, field, options):
+        return CaptchaField(**options)
+
+    @property
+    def formfields(self):
+        fields = super(CaptchaFormBuilder, self).formfields
+        fields[self.CAPTCHA_FIELD_NAME] = CaptchaField(required=True)
+
+        return fields
+
+
+class FormField(AbstractFormField):
+    page = ParentalKey('FormPage',
+                       on_delete=models.CASCADE, related_name='form_fields')
+
+
+class FormPage(AbstractEmailForm):
+    intro = RichTextField(blank=True)
+    thank_you_text = RichTextField(blank=True)
+
+    content_panels = AbstractEmailForm.content_panels + [
+        FormSubmissionsPanel(),
+        FieldPanel('intro', classname="full"),
+        InlinePanel('form_fields', label="Form fields"),
+        FieldPanel('thank_you_text', classname="full"),
+        MultiFieldPanel([
+            FieldRowPanel([
+                FieldPanel('from_address', classname="col6"),
+                FieldPanel('to_address', classname="col6"),
+            ]),
+            FieldPanel('subject'),
+        ], "Email"),
+    ]
+
+    form_builder = CaptchaFormBuilder

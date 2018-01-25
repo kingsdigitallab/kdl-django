@@ -211,10 +211,6 @@ LOGIN_URL = '/wagtail/login/'
 
 WSGI_APPLICATION = PROJECT_NAME + '.wsgi.application'
 
-# Simple Captcha
-CAPTCHA_IMAGE_SIZE = [300, 200]
-CAPTCHA_FONT_SIZE = 48
-
 # -----------------------------------------------------------------------------
 # Authentication
 # https://docs.djangoproject.com/en/dev/ref/settings/#auth
@@ -390,3 +386,9 @@ AC_TOKEN = ''
 AC_PROJECT_ID = 0
 # ActiveCollab user ID to create the issues
 AC_USER = 0
+
+# -----------------------------------------------------------------------------
+# Django Simple Captcha
+# -----------------------------------------------------------------------------
+
+CAPTCHA_FONT_SIZE = 36

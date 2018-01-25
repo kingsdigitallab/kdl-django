@@ -69,7 +69,9 @@ class IndexPage(Page, WithStreamField):
         index.SearchField('body'),
     ]
 
-    subpage_types = ['IndexPage', 'RichTextPage', 'sup.PublicationIdeaPage']
+    subpage_types = [
+        'FormPage', 'IndexPage', 'RichTextPage', 'sup.PublicationIdeaPage'
+    ]
 
 
 IndexPage.content_panels = [

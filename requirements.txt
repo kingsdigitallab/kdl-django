@@ -13,7 +13,7 @@ django-countries
 elasticsearch>=2.0.0,<3.0.0
 psycopg2
 redis
-wagtail
+wagtail<1.14
 django-simple-captcha
 filemagic
 unicodecsv

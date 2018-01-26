@@ -272,7 +272,7 @@ SESSION_COOKIE_SECURE = True
 # https://docs.djangoproject.com/en/dev/topics/email/
 # -----------------------------------------------------------------------------
 
-EMAIL_HOST = 'smtp.kcl.ac.uk'
+EMAIL_HOST = 'smtp.cch.kcl.ac.uk'
 EMAIL_PORT = 25
 EMAIL_HOST_USER = ''
 EMAIL_HOST_PASSWORD = ''

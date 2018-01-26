@@ -575,15 +575,19 @@ caption,
         margin-bottom: rem-calc(4);
     }
 
+    input[required],
+    input:required {
+        background: scale-color($tertiary-color, $lightness: 95%);
+        border: 1px solid $primary-color;
+    }
+
     input[type="file"] {
         background: $primary-color;
         color: $white;
     }
 
-    input[required],
-    input:required {
-        background: scale-color($tertiary-color, $lightness: 95%);
-        border: 1px solid $primary-color;
+    input[type="submit"] {
+        margin-bottom: rem-calc(24);
     }
 
     label {

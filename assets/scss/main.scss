@@ -582,26 +582,30 @@ caption,
 
     input[required],
     input:required {
-        background: scale-color($tertiary-color, $lightness: 90%);
+        background: scale-color($tertiary-color, $lightness: 95%);
         border: 1px solid $primary-color;
-    }
-
-    input:invalid + label::after {
-        content: ' ⨉';
-    }
-
-    input:valid + label::after {
-        content: ' ✓';
     }
 
     label {
         font-size: rem-calc(20);
+
+        &.required {
+            &::after {
+                content: " *";
+            }
+        }
     }
 
 
     p {
         line-height: 1;
         margin-bottom: rem-calc(12);
+    }
+
+    select {
+        -moz-appearance: menulist !important;
+        -webkit-appearance: menulist !important;
+        appereance: menulist;
     }
 
     span {

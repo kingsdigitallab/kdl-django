@@ -554,24 +554,58 @@ caption,
 .kdl-form {
     font-size: rem-calc(20);
 
+    .errorlist {
+        color: red;
+        font-weight: 700;
+        list-style: none;
+    }
+
+    .helptext {
+        font-size: rem-calc(16);
+        line-height: 1;
+
+        &::before {
+            content: "\f29c";
+            font-family: "FontAwesome";
+            padding-right: rem-calc(6);
+        }
+    }
+
+    input {
+        margin-bottom: rem-calc(4);
+    }
+
     input[type="file"] {
         background: $primary-color;
         color: $white;
     }
 
-    label {
-        font-size: rem-calc(20);
+    input[required],
+    input:required {
+        background: scale-color($tertiary-color, $lightness: 95%);
+        border: 1px solid $primary-color;
     }
 
-    input[required] {
-        content: ' *';
-        border: 1px solid black;
+    label {
+        font-size: rem-calc(20);
+
+        &.required {
+            &::after {
+                content: " *";
+            }
+        }
     }
 
 
     p {
         line-height: 1;
         margin-bottom: rem-calc(12);
+    }
+
+    select {
+        -moz-appearance: menulist !important;
+        -webkit-appearance: menulist !important;
+        appereance: menulist;
     }
 
     span {
@@ -591,12 +625,6 @@ caption,
                 padding-right: 5px;
             }
         }
-    }
-
-    .errorlist {
-        color: red;
-        font-weight: 700;
-        list-style: none;
     }
 }
 

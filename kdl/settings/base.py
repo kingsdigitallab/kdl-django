@@ -268,6 +268,18 @@ if not os.path.exists(MEDIA_ROOT):
 SESSION_COOKIE_SECURE = True
 
 # -----------------------------------------------------------------------------
+# Email
+# https://docs.djangoproject.com/en/dev/topics/email/
+# -----------------------------------------------------------------------------
+
+EMAIL_HOST = 'smtp.kcl.ac.uk'
+EMAIL_PORT = 25
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''
+EMAIL_USE_TLS = False
+DEFAULT_FROM_EMAIL = 'noreply@kcl.ac.uk'
+
+# -----------------------------------------------------------------------------
 # Installed Applications Settings
 # -----------------------------------------------------------------------------
 

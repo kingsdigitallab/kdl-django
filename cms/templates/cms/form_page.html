@@ -11,9 +11,35 @@
 </div>
 
 <div class="page-content">
-    <form class="kdl-form" action="{% pageurl page %}" method="POST">
+    <div class="rich-text">
+        <p><em>Fields with a * are required</em></p>
+    </div>
+
+    <form class="kdl-form" action="{% pageurl page %}" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
-        {{ form.as_p }}
+
+        {% for field in form %}
+        <p>
+        <label {% if field.field.required %}class="req"{% endif %} for="{{ field.label }}">
+            {{ field.label }}
+            {% if field.field.required %}*{% endif %}
+        </label>
+        </p>
+
+        {% if field.errors %}
+        <p>
+        {{ field.errors }}
+        </p>
+        {% endif %}
+
+        <p>
+        {{ field }}
+
+        {% if field.help_text %}
+        <span class="help-text">{{ field.help_text }}</span>
+        {% endif %}
+        </p>
+        {% endfor %}
 
         <input class="button" type="submit">
     </form>

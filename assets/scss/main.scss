@@ -560,17 +560,6 @@ caption,
         list-style: none;
     }
 
-    .helptext {
-        font-size: rem-calc(16);
-        line-height: 1;
-
-        &::before {
-            content: "\f29c";
-            font-family: "FontAwesome";
-            padding-right: rem-calc(6);
-        }
-    }
-
     input {
         margin-bottom: rem-calc(4);
     }
@@ -620,13 +609,14 @@ caption,
 
         &.help-text {
             color: #666;
-            font-size: 1rem;
+            font-size: rem-calc(16);
             font-style: normal;
+            line-height: 1;
 
-            &:before {
-                content: "\f05a ";
+            &::before {
+                content: "\f29c";
                 font-family: "FontAwesome";
-                padding-right: 5px;
+                padding-right: rem-calc(6);
             }
         }
     }
@@ -673,6 +663,44 @@ nav {
 }
 
 /** Main **/
+
+.datepicker {
+    * {
+        font-size: rem-calc(18) !important;
+        // line-height: 1.5;
+    }
+
+    .button {
+        background: $primary-color !important;
+        height: rem-calc(40) !important;
+        margin-bottom: 0;
+        padding: rem-calc(6 0 0);
+
+        &::before {
+            content: "Close ";
+        }
+    }
+
+    .day {
+        line-height: 1.5 !important;
+
+        &.active {
+            background: $tertiary-color !important;
+            color: $white !important;
+            font-weight: 700 !important;
+        }
+    }
+
+    span {
+        height: rem-calc(24) !important;
+        line-height: rem-calc(24) !important;
+    }
+
+    th {
+        padding-bottom: rem-calc(8) !important;
+        padding-top: rem-calc(8) !important;
+    }
+}
 
 main,
 .main {

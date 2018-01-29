@@ -12,7 +12,7 @@
 
 <div class="page-content">
     <div class="rich-text">
-        <p><em>Fields with a * are required</em></p>
+        <p><em>Fields with a <strong>*</strong> are required</em></p>
     </div>
 
     <form class="kdl-form" action="{% pageurl page %}" method="POST" enctype="multipart/form-data">
@@ -28,16 +28,16 @@
 
         {% if field.errors %}
         <p>
-        {{ field.errors }}
+            {{ field.errors }}
         </p>
         {% endif %}
 
         <p>
-        {{ field }}
+            {{ field }}
 
-        {% if field.help_text %}
-        <span class="help-text">{{ field.help_text }}</span>
-        {% endif %}
+            {% if field.help_text %}
+            <span class="help-text">{{ field.help_text }}</span>
+            {% endif %}
         </p>
         {% endfor %}
 

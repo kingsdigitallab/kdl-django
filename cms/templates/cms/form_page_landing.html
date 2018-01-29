@@ -2,6 +2,10 @@
 {% load wagtailcore_tags %}
 
 {% block main %}
+<div class="default-banner shadowed banner-block with-background">
+    <h2 class="subtitle">Form submission</h2>
+    <h1>{{ self.title }}</h1>
+</div>
 
 <div class="page-content">
     {{ page.thank_you_text|richtext }}

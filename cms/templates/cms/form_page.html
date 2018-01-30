@@ -20,10 +20,14 @@
 
         {% for field in form %}
         <p>
-        <label {% if field.field.required %}class="req"{% endif %} for="{{ field.label }}">
-            {{ field.label }}
-            {% if field.field.required %}*{% endif %}
-        </label>
+            <label {% if field.field.required %}class="req"{% endif %} for="{{ field.label }}">
+                {{ field.label }}
+                {% if field.field.required %}*{% endif %}
+            </label>
+
+            {% if field.help_text %}
+            <span class="help-text">{{ field.help_text }}</span>
+            {% endif %}
         </p>
 
         {% if field.errors %}
@@ -34,10 +38,6 @@
 
         <p>
             {{ field }}
-
-            {% if field.help_text %}
-            <span class="help-text">{{ field.help_text }}</span>
-            {% endif %}
         </p>
         {% endfor %}
 

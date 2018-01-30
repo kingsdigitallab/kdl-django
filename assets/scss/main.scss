@@ -589,10 +589,21 @@ caption,
         }
     }
 
+    ol, ul {
+        list-style-type: none !important;
+
+        li {
+            margin-left: 0 !important;
+        }
+    }
 
     p {
         line-height: 1;
         margin-bottom: rem-calc(12);
+    }
+
+    .req {
+        font-weight: 700;
     }
 
     select {

@@ -597,6 +597,13 @@ caption,
         }
     }
 
+    option:checked, // the :checked pseudo element doesn't seem to work crossbrowser
+    option:hover {
+        background: $primary-color;
+        color: white;
+        font-weight: 700;
+    }
+
     p {
         line-height: 1;
         margin-bottom: rem-calc(12);

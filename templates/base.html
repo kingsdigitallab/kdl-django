@@ -13,6 +13,9 @@
         {# SCSS compilation relies on django compressor #}
         <link rel="stylesheet" type="text/x-scss" href="{% static 'scss/main.scss' %}">
         {% endcompress %}
+
+        {# Favicon #}
+        <link rel="icon" type="image/png" href="{% static 'assets/images/favicon.png' %}">
     </head>
     <body class="{{ self.content_type.model }}">
         <header>

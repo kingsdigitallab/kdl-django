@@ -1,38 +1,39 @@
 {% load staticfiles compress require %}
 <!DOCTYPE html>
 <html lang="en-GB">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>{% block meta_title %}{% endblock %} | King's Digital Lab</title>
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>{% block meta_title %}{% endblock %} | King's Digital Lab</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  {% compress css %}
-  {# SCSS compilation relies on django compressor #}
-  <link rel="stylesheet" type="text/x-scss" href="{% static 'scss/main.scss' %}">
-  {% endcompress %}
-</head>
-<body class="{{ self.content_type.model }}">
-  <header>
-    {% include 'includes/header.html' %}
-  </header>
+        {% compress css %}
+        <link rel="stylesheet" type="text/css" href="{% static 'vendor/foundation-datepicker/css/foundation-datepicker.css' %}">
+        {# SCSS compilation relies on django compressor #}
+        <link rel="stylesheet" type="text/x-scss" href="{% static 'scss/main.scss' %}">
+        {% endcompress %}
+    </head>
+    <body class="{{ self.content_type.model }}">
+        <header>
+            {% include 'includes/header.html' %}
+        </header>
 
-  <section class="{% block section_class %}main{% endblock %}">
-    {% block main %}{% endblock %}
-  </section>
+        <section class="{% block section_class %}main{% endblock %}">
+            {% block main %}{% endblock %}
+        </section>
 
-  <footer>
-    {% block footer %}
-    {% include 'includes/footer.html' %}
-    {% endblock %}
-  </footer>
+        <footer>
+            {% block footer %}
+            {% include 'includes/footer.html' %}
+            {% endblock %}
+        </footer>
 
-  <script type="text/javascript">
-    {% include 'includes/config.js' %}
-  </script>
-  {% require_module 'config' %}
+        <script type="text/javascript">
+            {% include 'includes/config.js' %}
+        </script>
+        {% require_module 'config' %}
 
-  {% block footer_scripts %}{% endblock %}
-</body>
+        {% block footer_scripts %}{% endblock %}
+    </body>
 </html>

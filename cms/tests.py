@@ -1,14 +1,13 @@
-from cms.models.pages import (
-    BlogIndexPage, BlogPost, HomePage, IndexPage, OrganisationIndexPage,
-    OrganisationPage, PersonIndexPage, PersonPage, RichTextPage, WorkIndexPage,
-    WorkPage, _paginate
-)
+from cms.models.pages import (BlogIndexPage, BlogPost, FormPage, HomePage,
+                              IndexPage, OrganisationIndexPage,
+                              OrganisationPage, PersonIndexPage, PersonPage,
+                              RichTextPage, WorkIndexPage, WorkPage, _paginate)
 from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse
 from django.test import Client, RequestFactory, TestCase
+from sup.models import PublicationIdeaPage
 from wagtail.tests.utils import WagtailPageTests
 from wagtail.wagtailcore.models import Site
-from sup.models import PublicationIdeaPage
 
 
 class TestPages(TestCase):
@@ -38,7 +37,7 @@ class TestHomePage(WagtailPageTests):
     def test_subpage_types(self):
         self.assertAllowedSubpageTypes(
             HomePage, {
-                BlogIndexPage, IndexPage, OrganisationIndexPage,
+                BlogIndexPage, FormPage, IndexPage, OrganisationIndexPage,
                 PublicationIdeaPage, PersonIndexPage, RichTextPage,
                 WorkIndexPage
             })
@@ -49,7 +48,9 @@ class TestIndexPage(WagtailPageTests):
 
     def test_subpage_types(self):
         self.assertAllowedSubpageTypes(
-            IndexPage, {IndexPage, RichTextPage, PublicationIdeaPage})
+            IndexPage,
+            {FormPage, IndexPage, RichTextPage, PublicationIdeaPage}
+        )
 
 
 class TestRichTextPage(WagtailPageTests):

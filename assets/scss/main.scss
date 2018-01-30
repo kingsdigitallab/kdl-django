@@ -267,6 +267,11 @@ iframe {
     }
 }
 
+.line {
+    border-bottom: 1px solid $light-gray;
+    height: 1px;
+}
+
 .main > .gray-bg,
 .page-content > .gray-bg {
     margin-top: 0;
@@ -554,18 +559,69 @@ caption,
 .kdl-form {
     font-size: rem-calc(20);
 
+    .errorlist {
+        color: red;
+        font-weight: 700;
+        list-style: none;
+    }
+
+    input {
+        margin-bottom: rem-calc(4);
+    }
+
+    input[required],
+    input:required {
+        background: scale-color($tertiary-color, $lightness: 95%);
+        border: 1px solid $primary-color;
+    }
+
     input[type="file"] {
         background: $primary-color;
         color: $white;
     }
 
+    input[type="submit"] {
+        margin-bottom: rem-calc(24);
+    }
+
     label {
         font-size: rem-calc(20);
+
+        &.required {
+            &::after {
+                content: " *";
+            }
+        }
+    }
+
+    ol, ul {
+        list-style-type: none !important;
+
+        li {
+            margin-left: 0 !important;
+        }
+    }
+
+    option:checked, // the :checked pseudo element doesn't seem to work crossbrowser
+    option:hover {
+        background: $primary-color;
+        color: white;
+        font-weight: 700;
     }
 
     p {
         line-height: 1;
         margin-bottom: rem-calc(12);
+    }
+
+    .req {
+        font-weight: 700;
+    }
+
+    select {
+        -moz-appearance: menulist !important;
+        -webkit-appearance: menulist !important;
+        appereance: menulist;
     }
 
     span {
@@ -576,25 +632,16 @@ caption,
 
         &.help-text {
             color: #666;
-            font-size: 1rem;
+            font-size: rem-calc(16);
             font-style: normal;
+            line-height: 1;
 
-            &:before {
-                content: "\f05a ";
+            &::before {
+                content: "\f29c";
                 font-family: "FontAwesome";
-                padding-right: 5px;
+                padding-right: rem-calc(6);
             }
         }
-    }
-
-    .captcha {
-        min-width: 200px;
-    }
-
-    .errorlist {
-        color: red;
-        font-weight: 700;
-        list-style: none;
     }
 }
 
@@ -639,6 +686,45 @@ nav {
 }
 
 /** Main **/
+
+.datepicker {
+    * {
+        font-size: rem-calc(18) !important;
+        // line-height: 1.5;
+    }
+
+    .active {
+        background: $tertiary-color !important;
+        color: $white !important;
+        font-weight: 700 !important;
+    }
+
+    .button {
+        background: $primary-color !important;
+        height: rem-calc(40) !important;
+        margin: 0 !important;
+        padding: rem-calc(10 0 0);
+        top: 0 !important;
+
+        &::before {
+            content: "Close ";
+        }
+    }
+
+    .day {
+        line-height: 1.5 !important;
+    }
+
+    span {
+        height: rem-calc(24) !important;
+        line-height: rem-calc(24) !important;
+    }
+
+    th {
+        padding-bottom: rem-calc(8) !important;
+        padding-top: rem-calc(8) !important;
+    }
+}
 
 main,
 .main {

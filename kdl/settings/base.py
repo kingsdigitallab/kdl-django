@@ -59,6 +59,7 @@ DEBUG = False
 
 INSTALLED_APPS = (
     'grappelli',
+    'django.forms',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -200,6 +201,8 @@ TEMPLATES = [
     },
 ]
 
+FORM_RENDERER = 'django.forms.renderers.TemplatesSetting'
+
 # https://docs.djangoproject.com/en/dev/topics/i18n/
 LANGUAGE_CODE = 'en-gb'
 TIME_ZONE = 'Europe/London'
@@ -210,10 +213,6 @@ USE_TZ = True
 LOGIN_URL = '/wagtail/login/'
 
 WSGI_APPLICATION = PROJECT_NAME + '.wsgi.application'
-
-# Simple Captcha
-CAPTCHA_IMAGE_SIZE = [300, 200]
-CAPTCHA_FONT_SIZE = 48
 
 # -----------------------------------------------------------------------------
 # Authentication
@@ -270,6 +269,18 @@ if not os.path.exists(MEDIA_ROOT):
 # -----------------------------------------------------------------------------
 
 SESSION_COOKIE_SECURE = True
+
+# -----------------------------------------------------------------------------
+# Email
+# https://docs.djangoproject.com/en/dev/topics/email/
+# -----------------------------------------------------------------------------
+
+EMAIL_HOST = 'smtp.cch.kcl.ac.uk'
+EMAIL_PORT = 25
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''
+EMAIL_USE_TLS = False
+DEFAULT_FROM_EMAIL = 'noreply@kcl.ac.uk'
 
 # -----------------------------------------------------------------------------
 # Installed Applications Settings
@@ -390,3 +401,9 @@ AC_TOKEN = ''
 AC_PROJECT_ID = 0
 # ActiveCollab user ID to create the issues
 AC_USER = 0
+
+# -----------------------------------------------------------------------------
+# Django Simple Captcha
+# -----------------------------------------------------------------------------
+
+CAPTCHA_FONT_SIZE = 36

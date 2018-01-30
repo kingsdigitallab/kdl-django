@@ -1,0 +1,49 @@
+{% extends "cms/base.html" %}
+{% load wagtailcore_tags %}
+
+{% block main %}
+<div class="default-banner shadowed banner-block with-background">
+    <h2 class="subtitle">Submit</h2>
+    <h1>{{ self.title }}</h1>
+</div>
+<div class="page-content gray-bg intro">
+    {{ page.intro|richtext }}
+</div>
+
+<div class="page-content">
+    <div class="rich-text">
+        <p><em>Fields with a <strong>*</strong> are required</em></p>
+    </div>
+
+    <form class="kdl-form" action="{% pageurl page %}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        {% for field in form %}
+        <p>
+            <label {% if field.field.required %}class="req"{% endif %} for="{{ field.label }}">
+                {{ field.label }}
+                {% if field.field.required %}*{% endif %}
+            </label>
+
+            {% if field.help_text %}
+            <span class="help-text">{{ field.help_text }}</span>
+            {% endif %}
+        </p>
+
+        {% if field.errors %}
+        <p>
+            {{ field.errors }}
+        </p>
+        {% endif %}
+
+        <p>
+            {{ field }}
+        </p>
+        <p class="line">
+        </p>
+        {% endfor %}
+
+        <input class="button" type="submit">
+    </form>
+</div>
+{% endblock %}

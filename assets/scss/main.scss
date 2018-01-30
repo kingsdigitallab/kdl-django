@@ -670,11 +670,18 @@ nav {
         // line-height: 1.5;
     }
 
+    .active {
+        background: $tertiary-color !important;
+        color: $white !important;
+        font-weight: 700 !important;
+    }
+
     .button {
         background: $primary-color !important;
         height: rem-calc(40) !important;
-        margin-bottom: 0;
-        padding: rem-calc(6 0 0);
+        margin: 0 !important;
+        padding: rem-calc(10 0 0);
+        top: 0 !important;
 
         &::before {
             content: "Close ";
@@ -683,12 +690,6 @@ nav {
 
     .day {
         line-height: 1.5 !important;
-
-        &.active {
-            background: $tertiary-color !important;
-            color: $white !important;
-            font-weight: 700 !important;
-        }
     }
 
     span {

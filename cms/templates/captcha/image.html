@@ -1,0 +1,12 @@
+{% load i18n %}
+{% spaceless %}
+    <img src="{{image}}" alt="captcha" class="captcha" />
+    {% if audio %}
+    <div>
+	    <audio controls>
+			<source src="/captcha/audio/76533f9ebfb4794f1b7817fd05d7b97c6b0ba90b.wav" type="audio/wav">
+			Your browser does not support the audio element.
+		</audio>
+	</div>
+	{% endif %}
+{% endspaceless %}

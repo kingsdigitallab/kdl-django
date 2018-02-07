@@ -2,11 +2,11 @@
 {% spaceless %}
     <img src="{{image}}" alt="captcha" class="captcha" />
     {% if audio %}
-    <div>
+    <p>
 	    <audio controls>
 			<source src="{{ audio }}" type="audio/wav">
 			Your browser does not support the audio element.
 		</audio>
-	</div>
+	</p>
 	{% endif %}
 {% endspaceless %}

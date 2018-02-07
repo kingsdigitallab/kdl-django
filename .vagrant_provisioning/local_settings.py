@@ -20,3 +20,8 @@ FABRIC_USER = getpass.getuser()
 CSRF_COOKIE_SECURE = False
 CSRF_COOKIE_HTTPONLY = False
 SESSION_COOKIE_SECURE = False
+
+# These are in local because they rely on a locally
+# installed binary
+CAPTCHA_FLITE_PATH = '/usr/bin/flite'
+CAPTCHA_SOX_PATH = '/usr/bin/sox'

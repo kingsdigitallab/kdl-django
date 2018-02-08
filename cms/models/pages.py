@@ -378,12 +378,16 @@ class FormField(AbstractFormField):
 
 class FormPage(AbstractEmailForm):
     intro = RichTextField(blank=True)
+    followup_text = RichTextField(blank=True)
+    subtitle = RichTextField(default='Get in touch')
     thank_you_text = RichTextField(blank=True)
 
     content_panels = AbstractEmailForm.content_panels + [
         FormSubmissionsPanel(),
+        FieldPanel('subtitle', classname="full"),
         FieldPanel('intro', classname="full"),
         InlinePanel('form_fields', label="Form fields"),
+        FieldPanel('followup_text', classname="full"),
         FieldPanel('thank_you_text', classname="full"),
         MultiFieldPanel([
             FieldRowPanel([

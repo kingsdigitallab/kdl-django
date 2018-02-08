@@ -613,6 +613,7 @@ caption,
         line-height: 1;
         margin-bottom: rem-calc(12);
         padding-left: 1px;
+        overflow-y: scroll;
     }
 
     .req {
@@ -623,9 +624,9 @@ caption,
         -moz-appearance: menulist !important;
         -webkit-appearance: menulist !important;
         appereance: menulist;
+        overflow-y: scroll;
 
         &[multiple] {
-            // background-color: #ff0066;
             display: block !important;
 
             option {

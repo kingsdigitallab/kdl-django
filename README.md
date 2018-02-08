@@ -6,7 +6,7 @@ King's Digital Lab
 
 * Added field for subtitle to form page type
 * Added field for text after form to form page type
-* Replaced Home with Contact us in footer and navigation
+* Replaced Home with Contact us in top navigation
 
 ## Release 0.3
 

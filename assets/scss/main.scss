@@ -673,6 +673,10 @@ nav {
         a {
             color: $nav-anchor;
             padding: rem-calc(4);
+
+            &:hover {
+                color: $tertiary-color;
+            }
         }
 
         .active > a {

@@ -1,7 +1,8 @@
 {% if pages %}
-{% load wagtailcore_tags wagtailimages_tags %}
+{% load wagtailcore_tags wagtailimages_tags cms_tags %}
 
-{% for page in pages %}
+{% with projects=pages|shuffle %}
+{% for page in projects %}
 {% if forloop.first %}
 <div class="gray-bg extra-padding-vertical">
 	<div class="row hero">
@@ -35,7 +36,7 @@
 {% endif %}
 {% endfor %}
 <div class="row medium-up-2" data-equalizer>
-	{% for page in pages %}
+	{% for page in projects %}
 	{% if not forloop.first %}
 	<div class="column spaced-up-vertically">
 		<div class="row collapse with-background {{ page.category }}" data-equalizer-watch>
@@ -61,4 +62,5 @@
 	{% endif %}
 	{% endfor %}
 </div>
+{% endwith %}
 {% endif %}

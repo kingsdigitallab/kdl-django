@@ -1,4 +1,4 @@
-{% load wagtailcore_tags wagtailimages_tags %}
+{% load wagtailcore_tags wagtailimages_tags cms_tags %}
 
 <div class="narrow-container featured-page-block">
     {% if value.starred_page %}
@@ -31,9 +31,9 @@
             {% endwith %}
         </div>
     </div>
-    {% endif %}
+    
     <div class="row spaced-up" data-equalizer>
-        {% for item in value.items %}
+        {% for item in value.items|shuffle %}
         <div class="large-4 columns">
             {% with thepage=item.specific %}
             <div class="row collapse extra-margin-bottom-medium with-background {{ thepage.category }}">
@@ -58,4 +58,76 @@
         </div>
         {% endfor %}
     </div>
+
+
+    {% else %}
+
+    {% for item in value.items|shuffle %}
+        {% if forloop.first %}
+        <div class="row spaced-up">
+            <div class="large-12 columns starred_page">
+                {% with thepage=item.specific %}
+                <div class="row collapse with-background {{ thepage.category }}">
+                    {% if thepage.feed_image %}
+                    <div class="large-6 large-push-6 columns">
+                        {% image thepage.feed_image width-1024 as theimage %}
+
+                        <a href="{% pageurl thepage %}">
+                            <img src="{{ theimage.url }}" alt="{{ theimage.title }}" class="full-img">
+                        </a>
+                    </div>
+                    {% endif %}
+                    <div class="large-6 large-pull-6 columns text-content">
+                        {% if thepage.subtitle %}
+                        <p class="subtitle">{{ thepage.title }}</p>
+                        {% endif %}
+
+                        
+                        <h2 class="title">
+                            <a href="{% pageurl thepage %}">
+                                {{ thepage.subtitle }}
+                            </a>
+                        </h2>
+                    </div>
+                </div>
+                {% endwith %}
+            </div>
+        </div>
+        
+        <div class="row spaced-up" data-equalizer>
+
+        {% else %}
+
+           <div class="large-4 columns">
+            {% with thepage=item.specific %}
+            <div class="row collapse extra-margin-bottom-medium with-background {{ thepage.category }}">
+                {% if thepage.feed_image %}
+                <div class="large-12 large-push-0 medium-6 medium-push-6 columns">
+                    {% image thepage.feed_image width-600 as theimage %}
+
+                    <a href="{% pageurl thepage %}">
+                        <img src="{{ theimage.url }}" alt="{{ theimage.title }}">
+                    </a>
+                </div>
+                {% endif %}
+                <div class="large-12 large-pull-0 medium-6 medium-pull-6 columns text-content" data-equalizer-watch>
+                    <h3 class="title">
+                        <a href="{% pageurl thepage %}">
+                            {{ thepage.title }}
+                        </a>
+                    </h3>
+                </div>
+            </div>
+            {% endwith %}
+        </div>
+
+        {% endif %}
+
+
+    {% endfor %}
+
+    </div>
+
+
+    {% endif %}
 </div>

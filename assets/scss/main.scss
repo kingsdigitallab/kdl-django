@@ -99,6 +99,10 @@ cite:before {
     color: $dark-blue;
 }
 
+// .hide {
+//     display: none;
+// }
+
 .author,
 .datetime,
 .more,
@@ -1159,6 +1163,21 @@ footer,
         margin-top: rem-calc(24);
         padding: rem-calc(24);
     }
+}
+
+// Cookies box
+
+.cookies-box {
+    background: $primary-color;
+    bottom: 0;
+    color: white;
+    left: 0;
+    margin: 0;
+    opacity: 0.95;
+    padding-top: 20px;
+    position: fixed;
+    text-align: center;
+    width: 100%;
 }
 
 /** More media queries **/

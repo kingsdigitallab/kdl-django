@@ -23,7 +23,7 @@
     {% if value.image %}
     {% image value.image original as theimage %}
     <div class="banner-image">
-        <img src="{{ theimage.url }}" alt="{{ theimage.title }}">
+        <img src="{{ theimage.url }}" alt="{{ theimage.alt }}">
         {% if value.image_copyright %}
         <div class="image-copyright">
             <p>{{ value.image_copyright }}</p>

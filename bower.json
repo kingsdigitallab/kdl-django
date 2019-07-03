@@ -4,6 +4,7 @@
     "dependencies": {
         "almond": null,
         "jquery": null,
+        "js-cookie": null,
         "foundation-sites": null,
         "font-awesome": null,
         "motion-ui": null,

@@ -12,6 +12,8 @@ requirejs.config({
         'es6': '../vendor/requirejs-babel/es6',
         'babel': '../vendor/requirejs-babel/babel-5.8.34.min',
 
+        'jscookie': '../vendor/js-cookie/src/js.cookie',
+
         // Foundation
         'foundation': '../vendor/foundation-sites/js/foundation.core',
         'foundation.accordionMenu': '../vendor/foundation-sites/js/foundation.accordionMenu',
@@ -143,11 +145,14 @@ requirejs.config({
                 'foundation.util.mediaQuery'
             ],
         },
-        // 'foundation-datepicker': {
-        //     deps: [
-        //         'foundation',
-        //     ],
-        // },
+        'foundation-datepicker': {
+            deps: [
+                'foundation',
+            ],
+        },
+        'jscookie': {
+            exports: 'JScookie'
+        },
         'ga': {
             exports: '__ga__'
         },

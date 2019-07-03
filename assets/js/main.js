@@ -1,5 +1,12 @@
 // Main
-require(["requirejs", "jquery", "fn", "foundation-datepicker", "ga"], function(
+require([
+  "requirejs",
+  "jquery",
+  "cookie",
+  "fn",
+  "foundation-datepicker",
+  "ga"
+], function(
   r,
   $,
   fn,

@@ -11,7 +11,7 @@
                     {% image thepage.feed_image width-1024 as theimage %}
 
                     <a href="{% pageurl thepage %}">
-                        <img src="{{ theimage.url }}" alt="{{ theimage.title }}" class="full-img">
+                        <img src="{{ theimage.url }}" alt="{{ theimage.image.title }}" class="full-img">
                     </a>
                 </div>
                 {% endif %}
@@ -42,7 +42,7 @@
                     {% image thepage.feed_image width-600 as theimage %}
 
                     <a href="{% pageurl thepage %}">
-                        <img src="{{ theimage.url }}" alt="{{ theimage.title }}">
+                        <img src="{{ theimage.url }}" alt="{{ theimage.image.title }}">
                     </a>
                 </div>
                 {% endif %}
@@ -73,7 +73,7 @@
                         {% image thepage.feed_image width-1024 as theimage %}
 
                         <a href="{% pageurl thepage %}">
-                            <img src="{{ theimage.url }}" alt="{{ theimage.title }}" class="full-img">
+                            <img src="{{ theimage.url }}" alt="{{ theimage.image.title }}" class="full-img">
                         </a>
                     </div>
                     {% endif %}
@@ -106,7 +106,7 @@
                     {% image thepage.feed_image width-600 as theimage %}
 
                     <a href="{% pageurl thepage %}">
-                        <img src="{{ theimage.url }}" alt="{{ theimage.title }}">
+                        <img src="{{ theimage.url }}" alt="{{ theimage.image.title }}">
                     </a>
                 </div>
                 {% endif %}

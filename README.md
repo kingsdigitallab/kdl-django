@@ -2,6 +2,11 @@
 
 King's Digital Lab
 
+## Release 0.3.2
+
+* Fixed alt text and other accessibility issues
+* Added cookie policy disclaimer
+
 ## Release 0.3.1
 
 * Added field for subtitle to form page type

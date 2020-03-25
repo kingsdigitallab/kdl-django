@@ -18,9 +18,11 @@
         <link rel="icon" type="image/png" href="{% static 'images/favicon.png' %}">
     </head>
     <body class="{{ self.content_type.model }}">
+        <div role="complementary" class="skip-main"><a href="#maincontent">Skip to main content</a></div>
         <header>
             {% include 'includes/header.html' %}
         </header>
+        <div id="maincontent" tabindex="0"></div>
 
         <section class="{% block section_class %}main{% endblock %}">
             {% block main %}{% endblock %}

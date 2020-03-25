@@ -18,6 +18,16 @@ p {
     margin-bottom: rem-calc(36);
 }
 
+.skip-main { 
+    font-size: 1px; 
+    position: absolute; 
+    top:-25px; 
+}
+
+.buttonforicons {
+    font-family: 'FontAwesome';
+}
+
 blockquote {
     font-size: rem-calc(36);
     line-height: rem-calc(38); 

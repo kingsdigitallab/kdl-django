@@ -24,10 +24,6 @@ p {
     top:-25px; 
 }
 
-.buttonforicons {
-    font-family: 'FontAwesome';
-}
-
 blockquote {
     font-size: rem-calc(36);
     line-height: rem-calc(38); 
@@ -76,6 +72,10 @@ blockquote {
     }
 }
 
+.socialmediaicon {
+    font-family: "FontAwesome";
+}
+
 button,
 .button {
     position: relative;
@@ -118,8 +118,16 @@ cite:before {
 .more,
 .more a {
     font-size: rem-calc(20);
-    color: $nav-anchor;
+    color: scale-color($nav-anchor, $lightness: -60%);
 }
+
+.more {
+    &:after {
+        content: "\f04b";
+        font-family: "FontAwesome";
+        font-weight: 500;
+    }
+}  
 
 .more {
     margin-top: rem-calc(20);
@@ -535,6 +543,7 @@ h2.heading-content {
     background: $another-gray;
     padding: rem-calc(18 20);
     margin: rem-calc(36 0);
+    color: scale-color($primary-color, $lightness:-30%);
 }
 
 .post-title,
@@ -685,7 +694,7 @@ nav {
         line-height: rem-calc(24);
 
         a {
-            color: $nav-anchor;
+            color: #585858;
             padding: rem-calc(4);
 
             &:hover {
@@ -703,9 +712,10 @@ nav {
 .title-bar {
     background-color: $another-gray;
     padding: rem-calc(12 12 12 0);
+    color: $dark-blue-gray;
 
     button:after {
-        color: $white;
+        color: $dark-blue-gray;
         content: '\f0d7';
         font-family: "FontAwesome";
         margin-right: rem-calc(24);
@@ -785,6 +795,7 @@ main,
             -webkit-transform: translateY(3px); /* Chrome, Safari, Opera */
             transform: translateY(3px);
             border-color: transparent;
+            background-color: scale-color($primary-color, $lightness: -30%);
         }
 
         &:visited {
@@ -921,6 +932,12 @@ main,
         text-shadow: rem-calc(0 0 3) $primary-color;
         width: 100%;
 
+        &:after {
+            content: "\f103";
+            font-family: "FontAwesome";
+            font-weight: 500;
+        }
+
         &:hover {
             text-shadow: rem-calc(0 0 10) $white;
         }
@@ -1035,6 +1052,9 @@ main,
     h3 {
         margin: 0 0 rem-calc(4) 0;
     }
+    h2 {
+        color: $dark-blue-gray;
+    }
 
     h3,
     h3 a {
@@ -1043,7 +1063,7 @@ main,
 
     h3 a:hover,
     h3 a:focus {
-        color: $tertiary-color;
+        color: scale-color($tertiary-color, $lightness:-60%);
     }
 
     li {
@@ -1144,6 +1164,9 @@ footer,
     a {
         color: $another-gray;
         font-family: "KingsCaslon", serif;
+        &:hover {
+            color: $white;
+        }
     }
 
     p:last-child {
@@ -1235,6 +1258,9 @@ footer,
         input[type=search] {
             font-size: rem-calc(25);
             height: rem-calc(48);
+            &:focus {
+                background-color: $light-gray;
+            }
         }
 
         max-width: rem-calc(250) !important;

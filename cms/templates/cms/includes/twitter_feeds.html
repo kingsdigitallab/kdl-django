@@ -45,7 +45,7 @@
         </div>
 
         <p>{{ tweet|tweet_to_html }}</p>
-        <p class="tweet-datetime"><a href="//twitter.com/{{ screen_name }}/status/{{ tweet.id_str }}">{{ tweet.created_at|tweet_date:'D d M Y' }}</a></p>
+        <p class="tweet-datetime"><a href="//twitter.com/{{ screen_name }}/status/{{ tweet.id_str }}" aria-label="datetime of {{ tweet.id_str }}">{{ tweet.created_at|tweet_date:'D d M Y' }}</a></p>
     </li>
     {% endfor %}
 </ul>

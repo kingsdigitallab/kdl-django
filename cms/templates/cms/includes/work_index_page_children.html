@@ -16,10 +16,10 @@
 	    {% endif %}
 
 	    <div class="medium-{% if page.feed_image %}8{% else %}12{% endif %} columns text-content">
-	    	<h3 class="subhead subtitle">{{ page.title }}</h3>
-	        <h2 class="post-title">
+	    	<h2 class="subhead subtitle">{{ page.title }}</h2>
+	        <h3 class="post-title">
 	            <a href="{% pageurl page %}">{{ page.subtitle }}</a>
-	        </h2>
+	        </h3>
 
 	        {% comment %}
 	        <p>
@@ -29,7 +29,7 @@
 	        </p>
 	        {% endcomment %}
 
-	        <p class="more"><a href="{% pageurl page %}" title="{{ page.title }}">Read more <i class="fa fa-play"></i></a></p>
+	        <p class="more"><a href="{% pageurl page %}" title="{{ page.title }}" aria-label="link to {{ page.title }}">Read more <span hidden></span></a></p>
 	    </div>
 	</div>
 </div>
@@ -55,7 +55,7 @@
 		            {{ page.search_description }}
 		            {% endif %}
 	        	</p>
-	    		<p class="more"><a href="{% pageurl page %}" title="{{ page.title }}">Read more <i class="fa fa-play"></i></a></p>
+	    		<p class="more"><a href="{% pageurl page %}" title="{{ page.title }}" aria-label="link to {{ page.title }}">Read more <span hidden></span></a></p>
 	    	</div>
     	</div>
     </div>

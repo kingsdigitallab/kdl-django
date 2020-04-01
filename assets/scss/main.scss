@@ -56,7 +56,7 @@ blockquote {
         }
 
         &.affiliation {
-            color: $another-gray;
+            color: scale-color($another-gray, $lightness:-50%);
         }
     }
 
@@ -215,7 +215,7 @@ cite:before {
     padding: rem-calc(24 0 0);
 
     .author {
-        color: $tertiary-color;
+        color: scale-color($tertiary-color, $lightness:-50%);
     }
 
     p {
@@ -229,7 +229,7 @@ cite:before {
 
 .hero {
     h3.subhead {
-        color: $subhead-color;
+        color: scale-color($subhead-color, $lightness:-35%);
         line-height: 1;
         margin-bottom: 0;
         margin-top: rem-calc(16);
@@ -312,6 +312,10 @@ iframe {
 
 .rich-text {
     line-height: rem-calc(30);
+    a {
+        color: scale-color($anchor-color, $lightness:-40%);
+        font-weight: bold;
+    }
 }
 
 .row-block {
@@ -399,7 +403,7 @@ iframe {
         padding: 0;
 
         &.subhead {
-            color: $subhead-color;
+            color: scale-color($subhead-color, $lightness:-30%);
         }
     }
 }
@@ -496,6 +500,9 @@ header {
 
     .block-right {
         text-align: right;
+        &:focus {
+            background-color: $light-gray;
+        }
     }
 
     .kdl-heading {
@@ -665,7 +672,7 @@ caption,
         }
 
         &.help-text {
-            color: #666;
+            color: #52514f;
             font-size: rem-calc(16);
             font-style: normal;
             line-height: 1;
@@ -1066,6 +1073,14 @@ main,
         color: scale-color($tertiary-color, $lightness:-60%);
     }
 
+    a {
+        color: scale-color($anchor-color, $lightness:-40%);
+        font-weight: bold;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
     li {
         padding: rem-calc(24) !important;
         margin-left: 0 !important;
@@ -1085,7 +1100,7 @@ main,
     }
 
     .retweet {
-        color: $nav-anchor;
+        color: scale-color($nav-anchor, $lightness: -50%);
         font-family: "KingsBureauGrot", sans-serif;
         font-size: rem-calc(14);
         line-height: 1;
@@ -1150,6 +1165,7 @@ main,
 .caption,
 caption {
     font-size: rem-calc(16);
+    color:#505354;
 }
 
 /** Footer **/
@@ -1157,12 +1173,12 @@ caption {
 footer,
 .footer {
     background: $primary-color;
-    color: $another-gray;
+    color: $light-gray;
     font-family: "KingsCaslon", serif;
     padding: rem-calc(24) rem-calc(24) 0;
 
     a {
-        color: $another-gray;
+        color: $light-gray !important;
         font-family: "KingsCaslon", serif;
         &:hover {
             color: $white;

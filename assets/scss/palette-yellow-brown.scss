@@ -11,7 +11,7 @@
 	h3,
 	.title,
 	blockquote {
-		color: $dark-yellow;
+		color: scale-color($dark-yellow, $lightness: -40%);
 
 		&.button {
 			color: $primary-color;
@@ -24,7 +24,8 @@
 
 	button,
 	.button {
-		background-color: $dark-yellow;
+		color:scale-color($primary-color, $lightness:-50%)!important;
+		background-color: $dark-yellow !important;
 		border-bottom: 7px solid scale-color($dark-yellow, $lightness: -30%);
 
         &:hover {

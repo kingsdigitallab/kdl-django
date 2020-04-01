@@ -19,7 +19,7 @@
                     </div>
                     {{ item.description }}
                     {% if item.page %}
-                    <p class="more"><a href="{{ item.page.url }}" title="Read more about {{ item.title }}">Read more <i class="fa fa-play"></i></a></p>
+                    <p class="more"><a href="{{ item.page.url }}" title="Read more about {{ item.title }}" aria-label="read more about {{ item.title }}">Read more <span hidden></span></a></p>
                     {% endif %}
                 </div>
             </div>

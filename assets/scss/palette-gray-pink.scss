@@ -11,7 +11,7 @@
 	h3,
 	.title,
 	blockquote {
-		color: $bright-pink;
+		color: scale-color($bright-pink,$lightness:-40%);
 
 		&.button {
 			color: $white;

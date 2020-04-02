@@ -7,6 +7,10 @@
 		background-color: $primary-color;
 	}
 
+	p {
+		color: scale-color($bright-pink,$lightness:-50%) !important;
+	}
+
 	a,
 	h3,
 	.title,

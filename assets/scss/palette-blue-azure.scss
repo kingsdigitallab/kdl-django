@@ -7,6 +7,10 @@
 		background-color: $dark-blue;
 	}
 
+	p {
+		color:scale-color($primary-color, $lightness:-40%)!important;
+	}
+
 	a,
 	h3,
 	.title,

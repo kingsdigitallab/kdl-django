@@ -3,33 +3,40 @@
 // Blue and light blue
 .blue-azure {
 
-	&.with-background {
-		background-color: $dark-blue;
-	}
+    &.with-background {
+        background-color: $dark-blue;
+    }
 
-	p {
-		color:scale-color($primary-color, $lightness:-40%)!important;
-	}
+    // p {
+    //     color:scale-color($primary-color, $lightness:-40%)!important;
+    // }
 
-	a,
-	h3,
-	.title,
-	blockquote {
-		color: #215488;
+    .more {
+        &::after {
+            color: $tertiary-color;
+        }
+    }
 
-		&.button {
-			color: $white;
-		}
-	}
-	
-	a.discover {
-		color: $tertiary-color;
-	}
+    a,
+    h3,
+    .title,
+    blockquote {
+        // color: #215488;
+        color: $tertiary-color;
 
-	button,
-	.button {
-		background-color: $tertiary-color;
-		border-bottom: 7px solid scale-color($tertiary-color, $lightness: -30%);
+        &.button {
+            color: $white;
+        }
+    }
+    
+    a.discover {
+        color: $tertiary-color;
+    }
+
+    button,
+    .button {
+        background-color: $tertiary-color;
+        border-bottom: 7px solid scale-color($tertiary-color, $lightness: -30%);
 
         &:hover {
             background: scale-color($tertiary-color, $lightness: -20%);
@@ -38,36 +45,36 @@
         &:visited {
             border-bottom: 7px solid scale-color($tertiary-color, $lightness: -30%);
         }
-	}
+    }
 
-	.banner-block {
-		.subtitle {
-			color: $tertiary-color;
-		}
-	}
+    .banner-block {
+        .subtitle {
+            color: $tertiary-color;
+        }
+    }
 
-	.block-list {
-		li {
-	        background: url('/static/images/list-element-light-blue.svg') 46px 46px no-repeat $white;
-	        background-size: 7px;
+    .block-list {
+        li {
+            background: url('/static/images/list-element-light-blue.svg') 46px 46px no-repeat $white;
+            background-size: 7px;
 
-			&:before {
-	            color: $tertiary-color;
-	        }
-	    }
-	}
+            &:before {
+                color: $tertiary-color;
+            }
+        }
+    }
 
-	svg#caret-down-outline {
-		fill: $tertiary-color;
-	}
+    svg#caret-down-outline {
+        fill: $tertiary-color;
+    }
 
-	.tags {
-		background-color: $tertiary-color;
+    .tags {
+        background-color: $tertiary-color;
 
-	    li > a {
-	        &:hover {
-	            background: scale-color($tertiary-color, $lightness: -15%);
-	        }
-	    }
-	}
+        li > a {
+            &:hover {
+                background: scale-color($tertiary-color, $lightness: -15%);
+            }
+        }
+    }
 }

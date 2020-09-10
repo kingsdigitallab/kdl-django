@@ -117,7 +117,7 @@ cite:before {
 .datetime,
 .more,
 .more a {
-    font-size: rem-calc(20);
+    font-size: rem-calc(24);
     color: scale-color($nav-anchor, $lightness: -60%);
 }
 
@@ -423,7 +423,8 @@ iframe {
 }
 
 .with-background {
-    background: url('/static/images/grid-pattern.svg') $primary-color;
+    // background: url('/static/images/grid-pattern.svg') $primary-color;
+    background: url('/static/images/grid-pattern.svg') $dark-blue-gray;
     background-size: rem-calc(432);
 
     blockquote {
@@ -551,6 +552,10 @@ h2.heading-content {
     padding: rem-calc(18 20);
     margin: rem-calc(36 0);
     color: scale-color($primary-color, $lightness:-30%);
+}
+
+a.post-thumb {
+    display: block;
 }
 
 .post-title,
@@ -701,17 +706,20 @@ nav {
         line-height: rem-calc(24);
 
         a {
-            color: #585858;
+            // color: #585858;
+            color: $dark-blue-gray;
             padding: rem-calc(4);
 
             &:hover {
-                color: $tertiary-color;
+                // color: $tertiary-color;
+                color: $bright-blue;
             }
         }
 
         .active > a {
             background: transparent;
-            color: $primary-color;
+            // color: $primary-color;
+            color: $dark-blue;
         }
     }
 }

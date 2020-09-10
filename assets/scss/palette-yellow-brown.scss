@@ -7,6 +7,12 @@
         background-color: $dirty-brown;
     }
 
+    .more {
+        &::after {
+            color: $dark-yellow;
+        }
+    }
+
     a,
     h3,
     .title,

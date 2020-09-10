@@ -4,12 +4,19 @@
 .gray-pink {
 
     &.with-background {
-        background-color: $primary-color;
+        // background-color: $primary-color;
+        background-color: scale-color($primary-color, $lightness: -70%);
     }
 
     // p {
     //  color: scale-color($bright-pink,$lightness:-50%) !important;
     // }
+
+    .more {
+        &::after {
+            color: $bright-pink;
+        }
+    }
 
     a,
     h3,

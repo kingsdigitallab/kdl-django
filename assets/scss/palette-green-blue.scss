@@ -7,14 +7,22 @@
         background-color: $bright-green;
     }
 
+    .more {
+        &::after {
+            color: $dark-blue;
+        }
+    }
+
     a,
     h3,
     .title,
     blockquote {
-        color: $bright-blue;
+        // color: $bright-blue;
+        color: $dark-blue;
 
         &.button {
-            color: $white;
+            // color: $white;
+            color: $dark-blue;
         }
     }
 

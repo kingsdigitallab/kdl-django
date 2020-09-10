@@ -11,6 +11,12 @@
     //     color:scale-color($primary-color, $lightness:-40%)!important;
     // }
 
+    .more {
+        &::after {
+            color: $tertiary-color;
+        }
+    }
+
     a,
     h3,
     .title,

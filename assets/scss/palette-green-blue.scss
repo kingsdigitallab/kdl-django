@@ -5,6 +5,12 @@
 
     &.with-background {
         background-color: $bright-green;
+
+        .text-content {
+            p {
+                color: $dark-blue;
+            }
+        }
     }
 
     .more {
@@ -21,8 +27,7 @@
         color: $dark-blue;
 
         &.button {
-            // color: $white;
-            color: $dark-blue;
+            color: $white;
         }
     }
 
@@ -34,6 +39,7 @@
     .button {
         background-color: $bright-blue;
         border-bottom: 7px solid scale-color($bright-blue, $lightness: -30%);
+        color: $white;
 
         &:hover {
             background: scale-color($bright-blue, $lightness: -20%);

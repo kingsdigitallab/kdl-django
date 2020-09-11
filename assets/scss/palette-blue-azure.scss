@@ -5,6 +5,10 @@
 
     &.with-background {
         background-color: $dark-blue;
+
+        a {
+            color: $tertiary-color;
+        }
     }
 
     // p {
@@ -18,7 +22,12 @@
     }
 
     a,
-    h3,
+    h3 {
+        color: $bright-blue;
+    }
+
+    // a,
+    // h3,
     .title,
     blockquote {
         // color: #215488;
@@ -72,6 +81,8 @@
         background-color: $tertiary-color;
 
         li > a {
+            color: $white;
+
             &:hover {
                 background: scale-color($tertiary-color, $lightness: -15%);
             }

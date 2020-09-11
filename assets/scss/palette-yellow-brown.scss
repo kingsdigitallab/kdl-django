@@ -5,6 +5,10 @@
 
     &.with-background {
         background-color: $dirty-brown;
+
+        a {
+            color: $dark-yellow;
+        }
     }
 
     .more {
@@ -13,7 +17,11 @@
         }
     }
 
-    a,
+    a {
+        color: scale-color($dark-yellow, $lightness: -40%);
+    }
+
+    // a,
     h3,
     .title,
     blockquote {
@@ -69,6 +77,8 @@
         background-color: $dark-yellow;
 
         li > a {
+            color: $white;
+
             &:hover {
                 background: scale-color($dark-yellow, $lightness: -15%);
             }

@@ -3,9 +3,19 @@
 // Gray and bright pink
 .gray-pink {
 
+    color: scale-color($bright-pink, $lightness: -40%);
+
     &.with-background {
         // background-color: $primary-color;
         background-color: scale-color($primary-color, $lightness: -70%);
+        color: $bright-pink;
+
+        a,
+        h3,
+        .title,
+        blockquote {
+            color: $bright-pink;
+        }
     }
 
     // p {
@@ -23,7 +33,7 @@
     .title,
     blockquote {
         // color: scale-color($bright-pink,$lightness:-40%);
-        color: $bright-pink;
+        color: scale-color($bright-pink, $lightness: -40%);
 
         &.button {
             color: $white;
@@ -73,6 +83,7 @@
         background-color: $bright-pink;
 
         li > a {
+            color: $white;
             &:hover {
                 background: scale-color($bright-pink, $lightness: -15%);
             }

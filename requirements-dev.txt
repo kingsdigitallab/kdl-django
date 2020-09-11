@@ -1,6 +1,6 @@
 -r requirements.txt
-django-debug-toolbar
-Fabric
+django-debug-toolbar>=1.9,<1.10
+Fabric>=1.14,<1.15
 flake8
 ipython
 tox

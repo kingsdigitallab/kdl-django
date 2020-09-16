@@ -205,6 +205,10 @@ cite:before {
         padding: rem-calc(42 0);
     }
 
+    p {
+        color: scale-color($primary-color, -40%);
+    }
+
     p:last-child {
         margin-bottom: 0;
     }
@@ -441,6 +445,10 @@ iframe {
         &:before {
             top: rem-calc(109);
         }
+    }
+
+    .affiliation {
+        color: $another-gray;
     }
 }
 
@@ -1073,7 +1081,7 @@ main,
 
     h3,
     h3 a {
-        color: $nav-anchor;
+        color: scale-color($anchor-color, $lightness:-60%);
     }
 
     h3 a:hover,
@@ -1082,7 +1090,7 @@ main,
     }
 
     a {
-        color: scale-color($anchor-color, $lightness:-40%);
+        color: scale-color($anchor-color, $lightness:-60%);
         font-weight: bold;
         &:hover {
             text-decoration: underline;

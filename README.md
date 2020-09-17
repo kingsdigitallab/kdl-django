@@ -2,6 +2,16 @@
 
 King's Digital Lab
 
+## Release 1.0.0
+
+* Accessibility fixes
+    * Colour palette changes to meet colour contrast minimum requirements for WCAG 2.1 AA level
+    * Alt text for all images
+    * Specific text for follow on links
+    * Font sizes
+* Added accessibility statement
+* Fixed link for top left logo to point to homepage
+
 ## Release 0.3.2
 
 * Fixed alt text and other accessibility issues

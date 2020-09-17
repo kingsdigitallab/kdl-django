@@ -11,7 +11,7 @@
                 <h3 class="subhead">{{ item.title }}</h3>
                 <p>{{ item.description }}</p>
                 {% if item.page %}
-                <a href="{% pageurl item.page %}" class="more">Read more <i class="fa fa-play"></i></a>
+                <a href="{% pageurl item.page %}" class="more" aria-label="link to {% pageurl item.page %}">Read more <span hidden>Read more</span></a>
                 {% endif %}
             </div>
         </div>

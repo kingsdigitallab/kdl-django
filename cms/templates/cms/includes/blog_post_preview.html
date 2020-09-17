@@ -5,7 +5,7 @@
     {% if post.feed_image %}
     <div class="medium-4 columns">
         {% image post.feed_image max-300x300 as tmp_image %}
-        <a href="{% pageurl post %}">
+        <a href="{% pageurl post %}" aria-label="link to {% pageurl post %}">
             <img src="{{ tmp_image.url }}" alt="{{ tmp_image.alt }}" class="full-img">
         </a>
     </div>
@@ -34,7 +34,7 @@
         </p>
         {% endif %}
 
-        <p class="more"><a href="{% pageurl post %}" title="{{ post.title }}">Read more <i class="fa fa-play"></i></a></p>
+        <p><a href="{% pageurl post %}" title="{{ post.title }}" class="more">Read more <span hidden>Read more</span></a></p>
     </div>
 {% endblock %}
 

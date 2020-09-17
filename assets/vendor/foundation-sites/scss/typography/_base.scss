@@ -290,7 +290,7 @@ $abbr-underline: 1px dotted $black !default;
     font-family: $header-font-family;
     font-weight: $header-font-weight;
     font-style: $header-font-style;
-    color: $header-color;
+    color: scale-color($header-color, $lightness:-20%);
     text-rendering: $header-text-rendering;
     margin-top: 0;
     margin-bottom: $header-margin-bottom;

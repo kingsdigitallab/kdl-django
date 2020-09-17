@@ -18,8 +18,14 @@ p {
     margin-bottom: rem-calc(36);
 }
 
+.skip-main { 
+    font-size: 1px; 
+    position: absolute; 
+    top:-25px; 
+}
+
 blockquote {
-    font-size: rem-calc(36);
+    font-size: rem-calc(38);
     line-height: rem-calc(38); 
     margin: 0 auto;
     max-width: rem-calc(680);
@@ -50,7 +56,7 @@ blockquote {
         }
 
         &.affiliation {
-            color: $another-gray;
+            color: scale-color($another-gray, $lightness:-50%);
         }
     }
 
@@ -64,6 +70,10 @@ blockquote {
         top: rem-calc(50);
         left: rem-calc(-20);
     }
+}
+
+.socialmediaicon {
+    font-family: "FontAwesome";
 }
 
 button,
@@ -107,9 +117,17 @@ cite:before {
 .datetime,
 .more,
 .more a {
-    font-size: rem-calc(20);
-    color: $nav-anchor;
+    font-size: rem-calc(24);
+    color: scale-color($nav-anchor, $lightness: -60%);
 }
+
+.more {
+    &:after {
+        content: "\f04b";
+        font-family: "FontAwesome";
+        font-weight: 500;
+    }
+}  
 
 .more {
     margin-top: rem-calc(20);
@@ -187,6 +205,10 @@ cite:before {
         padding: rem-calc(42 0);
     }
 
+    p {
+        color: scale-color($primary-color, -40%);
+    }
+
     p:last-child {
         margin-bottom: 0;
     }
@@ -197,7 +219,7 @@ cite:before {
     padding: rem-calc(24 0 0);
 
     .author {
-        color: $tertiary-color;
+        color: scale-color($tertiary-color, $lightness:-50%);
     }
 
     p {
@@ -211,7 +233,7 @@ cite:before {
 
 .hero {
     h3.subhead {
-        color: $subhead-color;
+        color: scale-color($subhead-color, $lightness:-35%);
         line-height: 1;
         margin-bottom: 0;
         margin-top: rem-calc(16);
@@ -294,6 +316,10 @@ iframe {
 
 .rich-text {
     line-height: rem-calc(30);
+    a {
+        color: scale-color($anchor-color, $lightness:-40%);
+        font-weight: bold;
+    }
 }
 
 .row-block {
@@ -381,7 +407,7 @@ iframe {
         padding: 0;
 
         &.subhead {
-            color: $subhead-color;
+            color: scale-color($subhead-color, $lightness:-30%);
         }
     }
 }
@@ -401,7 +427,8 @@ iframe {
 }
 
 .with-background {
-    background: url('/static/images/grid-pattern.svg') $primary-color;
+    // background: url('/static/images/grid-pattern.svg') $primary-color;
+    background: url('/static/images/grid-pattern.svg') $dark-blue-gray;
     background-size: rem-calc(432);
 
     blockquote {
@@ -418,6 +445,10 @@ iframe {
         &:before {
             top: rem-calc(109);
         }
+    }
+
+    .affiliation {
+        color: $another-gray;
     }
 }
 
@@ -478,6 +509,9 @@ header {
 
     .block-right {
         text-align: right;
+        &:focus {
+            background-color: $light-gray;
+        }
     }
 
     .kdl-heading {
@@ -525,6 +559,11 @@ h2.heading-content {
     background: $another-gray;
     padding: rem-calc(18 20);
     margin: rem-calc(36 0);
+    color: scale-color($primary-color, $lightness:-30%);
+}
+
+a.post-thumb {
+    display: block;
 }
 
 .post-title,
@@ -646,7 +685,7 @@ caption,
         }
 
         &.help-text {
-            color: #666;
+            color: #52514f;
             font-size: rem-calc(16);
             font-style: normal;
             line-height: 1;
@@ -675,17 +714,20 @@ nav {
         line-height: rem-calc(24);
 
         a {
-            color: $nav-anchor;
+            // color: #585858;
+            color: $dark-blue-gray;
             padding: rem-calc(4);
 
             &:hover {
-                color: $tertiary-color;
+                // color: $tertiary-color;
+                color: $bright-blue;
             }
         }
 
         .active > a {
             background: transparent;
-            color: $primary-color;
+            // color: $primary-color;
+            color: $dark-blue;
         }
     }
 }
@@ -693,9 +735,10 @@ nav {
 .title-bar {
     background-color: $another-gray;
     padding: rem-calc(12 12 12 0);
+    color: $dark-blue-gray;
 
     button:after {
-        color: $white;
+        color: $dark-blue-gray;
         content: '\f0d7';
         font-family: "FontAwesome";
         margin-right: rem-calc(24);
@@ -775,6 +818,7 @@ main,
             -webkit-transform: translateY(3px); /* Chrome, Safari, Opera */
             transform: translateY(3px);
             border-color: transparent;
+            background-color: scale-color($primary-color, $lightness: -30%);
         }
 
         &:visited {
@@ -911,6 +955,12 @@ main,
         text-shadow: rem-calc(0 0 3) $primary-color;
         width: 100%;
 
+        &:after {
+            content: "\f103";
+            font-family: "FontAwesome";
+            font-weight: 500;
+        }
+
         &:hover {
             text-shadow: rem-calc(0 0 10) $white;
         }
@@ -1025,15 +1075,26 @@ main,
     h3 {
         margin: 0 0 rem-calc(4) 0;
     }
+    h2 {
+        color: $dark-blue-gray;
+    }
 
     h3,
     h3 a {
-        color: $nav-anchor;
+        color: scale-color($anchor-color, $lightness:-60%);
     }
 
     h3 a:hover,
     h3 a:focus {
-        color: $tertiary-color;
+        color: scale-color($tertiary-color, $lightness:-60%);
+    }
+
+    a {
+        color: scale-color($anchor-color, $lightness:-60%);
+        font-weight: bold;
+        &:hover {
+            text-decoration: underline;
+        }
     }
 
     li {
@@ -1055,7 +1116,7 @@ main,
     }
 
     .retweet {
-        color: $nav-anchor;
+        color: scale-color($nav-anchor, $lightness: -50%);
         font-family: "KingsBureauGrot", sans-serif;
         font-size: rem-calc(14);
         line-height: 1;
@@ -1120,6 +1181,7 @@ main,
 .caption,
 caption {
     font-size: rem-calc(16);
+    color:#505354;
 }
 
 /** Footer **/
@@ -1127,13 +1189,16 @@ caption {
 footer,
 .footer {
     background: $primary-color;
-    color: $another-gray;
+    color: $light-gray;
     font-family: "KingsCaslon", serif;
     padding: rem-calc(24) rem-calc(24) 0;
 
     a {
-        color: $another-gray;
+        color: $light-gray !important;
         font-family: "KingsCaslon", serif;
+        &:hover {
+            color: $white;
+        }
     }
 
     p:last-child {
@@ -1178,6 +1243,24 @@ footer,
     position: fixed;
     text-align: center;
     width: 100%;
+
+    .button {
+        &.cookie {
+            background: scale-color($dark-blue-gray, $lightness: -40%);
+
+            &:hover {
+                background: #000;
+            }
+        }
+    }
+
+    .success {
+        color: #000;
+
+        &:hover {
+            color: #000;
+        }
+    }
 }
 
 /** More media queries **/
@@ -1225,6 +1308,9 @@ footer,
         input[type=search] {
             font-size: rem-calc(25);
             height: rem-calc(48);
+            &:focus {
+                background-color: $light-gray;
+            }
         }
 
         max-width: rem-calc(250) !important;

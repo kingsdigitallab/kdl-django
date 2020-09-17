@@ -1,10 +1,10 @@
 <form action="{% url 'search' %}" method="get">
     <ul class="menu search-box">
         <li>
-        	<input type="search" name="q"{% if search_query %} value="{{ search_query }}"{% endif %} placeholder="Search">
+        	<input type="search" name="q"{% if search_query %} value="{{ search_query }}"{% endif %} placeholder="Search" aria-label="Search - Start typing">
         </li>
         <li>
-            <button type="submit" class="button expanded"></button>
+            <button type="submit" class="button expanded" aria-label="Submit search query"></button>
         </li>
     </ul>
 </form>

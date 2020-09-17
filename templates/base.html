@@ -18,9 +18,11 @@
         <link rel="icon" type="image/png" href="{% static 'images/favicon.png' %}">
     </head>
     <body class="{{ self.content_type.model }}">
+        <div role="complementary" class="skip-main"><a href="#maincontent">Skip to main content</a></div>
         <header>
             {% include 'includes/header.html' %}
         </header>
+        <div id="maincontent" tabindex="0"></div>
 
         <section class="{% block section_class %}main{% endblock %}">
             {% block main %}{% endblock %}
@@ -33,7 +35,7 @@
             {# Cookies #}
             <div class="cookies-box hide" id="cookie-disclaimer">
               <p>We use cookies to track usage and preferences.</p>
-              <p><a href="/privacy-policy/" class="button secondary">Cookie Policy</a> <button class="button success closeme" aria-label="Dismiss alert" type="button">I understand</button></p>
+              <p><a href="/privacy-policy/" class="button cookie">Cookie Policy</a> <button class="button success closeme" aria-label="Dismiss alert" type="button">I understand</button></p>
             </div>
         </footer>
 

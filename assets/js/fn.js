@@ -1,7 +1,7 @@
 define([
     'module',
     'jquery',
-    'es6!foundation',
+    // 'es6!foundation',
     'es6!foundation.accordionMenu',
     'es6!foundation.drilldown',
     'es6!foundation.dropdown',

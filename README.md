@@ -2,6 +2,10 @@
 
 King's Digital Lab
 
+## Release 1.0.1
+
+* Fixed colour contrast for small screen menu for accessibility purposes
+
 ## Release 1.0.0
 
 * Accessibility fixes

@@ -25,7 +25,7 @@ p {
 }
 
 blockquote {
-    font-size: rem-calc(36);
+    font-size: rem-calc(38);
     line-height: rem-calc(38); 
     margin: 0 auto;
     max-width: rem-calc(680);
@@ -117,7 +117,7 @@ cite:before {
 .datetime,
 .more,
 .more a {
-    font-size: rem-calc(20);
+    font-size: rem-calc(24);
     color: scale-color($nav-anchor, $lightness: -60%);
 }
 
@@ -203,6 +203,10 @@ cite:before {
 
     &.intro {
         padding: rem-calc(42 0);
+    }
+
+    p {
+        color: scale-color($primary-color, -40%);
     }
 
     p:last-child {
@@ -423,7 +427,8 @@ iframe {
 }
 
 .with-background {
-    background: url('/static/images/grid-pattern.svg') $primary-color;
+    // background: url('/static/images/grid-pattern.svg') $primary-color;
+    background: url('/static/images/grid-pattern.svg') $dark-blue-gray;
     background-size: rem-calc(432);
 
     blockquote {
@@ -440,6 +445,10 @@ iframe {
         &:before {
             top: rem-calc(109);
         }
+    }
+
+    .affiliation {
+        color: $another-gray;
     }
 }
 
@@ -551,6 +560,10 @@ h2.heading-content {
     padding: rem-calc(18 20);
     margin: rem-calc(36 0);
     color: scale-color($primary-color, $lightness:-30%);
+}
+
+a.post-thumb {
+    display: block;
 }
 
 .post-title,
@@ -701,17 +714,20 @@ nav {
         line-height: rem-calc(24);
 
         a {
-            color: #585858;
+            // color: #585858;
+            color: $dark-blue-gray;
             padding: rem-calc(4);
 
             &:hover {
-                color: $tertiary-color;
+                // color: $tertiary-color;
+                color: $bright-blue;
             }
         }
 
         .active > a {
             background: transparent;
-            color: $primary-color;
+            // color: $primary-color;
+            color: $dark-blue;
         }
     }
 }
@@ -1065,7 +1081,7 @@ main,
 
     h3,
     h3 a {
-        color: $nav-anchor;
+        color: scale-color($anchor-color, $lightness:-60%);
     }
 
     h3 a:hover,
@@ -1074,7 +1090,7 @@ main,
     }
 
     a {
-        color: scale-color($anchor-color, $lightness:-40%);
+        color: scale-color($anchor-color, $lightness:-60%);
         font-weight: bold;
         &:hover {
             text-decoration: underline;
@@ -1227,6 +1243,24 @@ footer,
     position: fixed;
     text-align: center;
     width: 100%;
+
+    .button {
+        &.cookie {
+            background: scale-color($dark-blue-gray, $lightness: -40%);
+
+            &:hover {
+                background: #000;
+            }
+        }
+    }
+
+    .success {
+        color: #000;
+
+        &:hover {
+            color: #000;
+        }
+    }
 }
 
 /** More media queries **/

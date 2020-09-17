@@ -43,7 +43,7 @@
 			{% if page.feed_image %}
 		    <div class="small-4 columns">
 		        {% image page.feed_image max-300x300 as tmp_image %}
-		        <a href="{% pageurl page %}">
+		        <a href="{% pageurl page %}" class="post-thumb">
 		            <img src="{{ tmp_image.url }}" width="100%" alt="{{ tmp_image.alt }}">
 		        </a>
 		    </div>

@@ -3,33 +3,51 @@
 // Gray and bright pink
 .gray-pink {
 
-	&.with-background {
-		background-color: $primary-color;
-	}
+    color: scale-color($bright-pink, $lightness: -40%);
 
-	p {
-		color: scale-color($bright-pink,$lightness:-50%) !important;
-	}
+    &.with-background {
+        // background-color: $primary-color;
+        background-color: scale-color($primary-color, $lightness: -70%);
+        color: $bright-pink;
 
-	a,
-	h3,
-	.title,
-	blockquote {
-		color: scale-color($bright-pink,$lightness:-40%);
+        a,
+        h3,
+        .title,
+        blockquote {
+            color: $bright-pink;
+        }
+    }
 
-		&.button {
-			color: $white;
-		}
-	}
+    // p {
+    //  color: scale-color($bright-pink,$lightness:-50%) !important;
+    // }
+
+    .more {
+        &::after {
+            color: $bright-pink;
+        }
+    }
+
+    a,
+    h3,
+    .title,
+    blockquote {
+        // color: scale-color($bright-pink,$lightness:-40%);
+        color: scale-color($bright-pink, $lightness: -40%);
+
+        &.button {
+            color: $white;
+        }
+    }
 
     a.discover {
-		color: $bright-pink;
-	}
+        color: $bright-pink;
+    }
 
-	button,
-	.button {
-		background-color: $bright-pink;
-		border-bottom: 7px solid scale-color($bright-pink, $lightness: -30%);
+    button,
+    .button {
+        background-color: $bright-pink;
+        border-bottom: 7px solid scale-color($bright-pink, $lightness: -30%);
 
         &:hover {
             background: scale-color($bright-pink, $lightness: -20%);
@@ -38,36 +56,37 @@
         &:visited {
             border-bottom: 7px solid scale-color($bright-pink, $lightness: -30%);
         }
-	}
+    }
 
-	.banner-block {
-		.subtitle {
-			color: $bright-pink;
-		}
-	}
+    .banner-block {
+        .subtitle {
+            color: $bright-pink;
+        }
+    }
 
-	.block-list {
-		li {
-	        background: url('/static/images/list-element-bright-pink.svg') 46px 46px no-repeat $white;
-	        background-size: 7px;
+    .block-list {
+        li {
+            background: url('/static/images/list-element-bright-pink.svg') 46px 46px no-repeat $white;
+            background-size: 7px;
 
-			&:before {
-	            color: $bright-pink;
-	        }
-    	}
-	}
+            &:before {
+                color: $bright-pink;
+            }
+        }
+    }
 
-	svg#caret-down-outline {
-		fill: $bright-pink;
-	}
+    svg#caret-down-outline {
+        fill: $bright-pink;
+    }
 
-	.tags {
-		background-color: $bright-pink;
+    .tags {
+        background-color: $bright-pink;
 
-	    li > a {
-	        &:hover {
-	            background: scale-color($bright-pink, $lightness: -15%);
-	        }
-	    }
-	}
+        li > a {
+            color: $white;
+            &:hover {
+                background: scale-color($bright-pink, $lightness: -15%);
+            }
+        }
+    }
 }

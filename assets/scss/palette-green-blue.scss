@@ -3,29 +3,43 @@
 // Bright green and bright blue
 .green-blue {
 
-	&.with-background {
-		background-color: $bright-green;
-	}
+    &.with-background {
+        background-color: $bright-green;
 
-	a,
-	h3,
-	.title,
-	blockquote {
-		color: $bright-blue;
+        .text-content {
+            p {
+                color: $dark-blue;
+            }
+        }
+    }
 
-		&.button {
-			color: $white;
-		}
-	}
+    .more {
+        &::after {
+            color: $dark-blue;
+        }
+    }
+
+    a,
+    h3,
+    .title,
+    blockquote {
+        // color: $bright-blue;
+        color: $dark-blue;
+
+        &.button {
+            color: $white;
+        }
+    }
 
     a.discover {
-		color: $bright-blue;
-	}
+        color: $bright-blue;
+    }
 
-	button,
-	.button {
-		background-color: $bright-blue;
-		border-bottom: 7px solid scale-color($bright-blue, $lightness: -30%);
+    button,
+    .button {
+        background-color: $bright-blue;
+        border-bottom: 7px solid scale-color($bright-blue, $lightness: -30%);
+        color: $white;
 
         &:hover {
             background: scale-color($bright-blue, $lightness: -20%);
@@ -34,36 +48,36 @@
         &:visited {
             border-bottom: 7px solid scale-color($bright-blue, $lightness: -30%);
         }
-	}
+    }
 
-	.banner-block {
-		.subtitle {
-			color: $bright-blue;
-		}
-	}
-
-	.block-list {
-		li {
-	        background: url('/static/images/list-element-bright-blue.svg') 46px 46px no-repeat $white;
-	        background-size: 7px;
-
-			&:before {
-        	    color: $bright-blue;
-        	}
+    .banner-block {
+        .subtitle {
+            color: $bright-blue;
         }
-	}
+    }
 
-	svg#caret-down-outline {
-		fill: $bright-blue;
-	}
+    .block-list {
+        li {
+            background: url('/static/images/list-element-bright-blue.svg') 46px 46px no-repeat $white;
+            background-size: 7px;
 
-	.tags {
-		background-color: $bright-blue;
+            &:before {
+                color: $bright-blue;
+            }
+        }
+    }
 
-	    li > a {
-	        &:hover {
-	            background: scale-color($bright-blue, $lightness: -15%);
-	        }
-	    }
-	}
+    svg#caret-down-outline {
+        fill: $bright-blue;
+    }
+
+    .tags {
+        background-color: $bright-blue;
+
+        li > a {
+            &:hover {
+                background: scale-color($bright-blue, $lightness: -15%);
+            }
+        }
+    }
 }

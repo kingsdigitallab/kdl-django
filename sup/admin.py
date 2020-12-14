@@ -1,6 +1,6 @@
 from django.contrib import admin
-from actions import export_to_csv
-from models import PublicationIdea
+from .actions import export_to_csv
+from .models import PublicationIdea
 
 
 @admin.register(PublicationIdea)

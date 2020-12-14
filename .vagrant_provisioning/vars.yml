@@ -36,6 +36,7 @@ system_packages:
     openjdk-8-jre,
     postgresql,
     postgresql-client,
+    python3-pip,
     postgresql-server-dev-all,
     python-dev,
     python-setuptools,

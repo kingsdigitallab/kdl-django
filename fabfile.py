@@ -20,7 +20,7 @@ REPOSITORY = 'https://github.com/kingsdigitallab/kdl-django.git'
 
 env.user = settings.FABRIC_USER
 env.hosts = ['kdl.kcl.ac.uk']
-env.root_path = '/vol/kdl/webroot/'
+env.root_path = '/project/webroot/'
 env.gateway = 'ssh.cch.kcl.ac.uk'
 env.envs_path = os.path.join(env.root_path, 'envs')
 
@@ -101,11 +101,11 @@ def create_virtualenv():
     with quiet():
         env_vpath = os.path.join(env.envs_path, env.srvr)
         if run('ls {}'.format(env_vpath)).succeeded:
-            print(
-                green('virtual environment at [{}] exists'.format(env_vpath)))
+            print((
+                green('virtual environment at [{}] exists'.format(env_vpath))))
             return
 
-    print(yellow('setting up virtual environment in [{}]'.format(env_vpath)))
+    print((yellow('setting up virtual environment in [{}]'.format(env_vpath))))
     run('virtualenv {}'.format(env_vpath))
 
 
@@ -114,11 +114,11 @@ def clone_repo():
     require('srvr', 'path', 'within_virtualenv', provided_by=env.servers)
     with quiet():
         if run('ls {}'.format(os.path.join(env.path, '.git'))).succeeded:
-            print(green(('repository at'
-                         ' [{}] exists').format(env.path)))
+            print((green(('repository at'
+                         ' [{}] exists').format(env.path))))
             return
 
-    print(yellow('cloneing repository to [{}]'.format(env.path)))
+    print((yellow('cloneing repository to [{}]'.format(env.path))))
     run('git clone {} {}'.format(REPOSITORY, env.path))
 
 
@@ -200,7 +200,7 @@ def collect_static(process=False):
     require('srvr', 'path', 'within_virtualenv', provided_by=env.servers)
 
     if env.srvr in ['local', 'vagrant']:
-        print(yellow('Do not run collect_static on local servers'))
+        print((yellow('Do not run collect_static on local servers')))
         return
 
     with cd(env.path), prefix(env.within_virtualenv):

@@ -2,6 +2,7 @@ import unicodecsv as csv
 import datetime
 
 from django.http import HttpResponse
+import collections
 
 
 def export_to_csv(modeladmin, request, queryset):
@@ -38,7 +39,7 @@ def export_to_csv(modeladmin, request, queryset):
     writer = csv.writer(response, encoding='utf-8')
     writer.writerow(export_fields)
     for obj in queryset:
-        row = [getattr(obj, field)() if callable(getattr(obj, field))
+        row = [getattr(obj, field)() if isinstance(getattr(obj, field), collections.Callable)
                else getattr(obj, field) for field in
                export_fields]
         writer.writerow(row)

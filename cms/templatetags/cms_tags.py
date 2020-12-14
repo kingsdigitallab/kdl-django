@@ -18,7 +18,7 @@ def get_request_parameters(context, exclude=None):
     params = ''
     request = context['request']
 
-    for key, value in request.GET.items():
+    for key, value in list(request.GET.items()):
         if key != exclude:
             params += '&{key}={value}'.format(key=key, value=value)
 

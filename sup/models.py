@@ -71,7 +71,7 @@ class PublicationIdeaForm(forms.ModelForm):
     max_upload_size = 10 * 1024 * 1024
     # Guidance called for max words not characters but could change
     summary_max_words = 1000
-    allowed_attachment_types = [u'application/pdf', ]
+    allowed_attachment_types = ['application/pdf', ]
 
     def filename_to_title(filename):
         from os.path import splitext
